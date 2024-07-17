@@ -13,6 +13,13 @@
 		2668593F2C482A0200EC2718 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 2668593E2C482A0200EC2718 /* Base */; };
 		266859412C482A0500EC2718 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 266859402C482A0500EC2718 /* Assets.xcassets */; };
 		266859442C482A0500EC2718 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 266859432C482A0500EC2718 /* Base */; };
+		266859562C48309700EC2718 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 266859502C48309700EC2718 /* Poppins-Bold.ttf */; };
+		266859572C48309700EC2718 /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 266859512C48309700EC2718 /* Poppins-Light.ttf */; };
+		266859582C48309700EC2718 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 266859522C48309700EC2718 /* Poppins-Regular.ttf */; };
+		266859592C48309700EC2718 /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 266859532C48309700EC2718 /* Poppins-ExtraBold.ttf */; };
+		2668595A2C48309700EC2718 /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 266859542C48309700EC2718 /* Poppins-Black.ttf */; };
+		2668595B2C48309700EC2718 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 266859552C48309700EC2718 /* Poppins-SemiBold.ttf */; };
+		2668595D2C48313400EC2718 /* UIView+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2668595C2C48313400EC2718 /* UIView+Extentions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +31,13 @@
 		266859402C482A0500EC2718 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		266859432C482A0500EC2718 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		266859452C482A0500EC2718 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		266859502C48309700EC2718 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Bold.ttf"; path = "../../../../../Downloads/Poppins (1)/Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		266859512C48309700EC2718 /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Light.ttf"; path = "../../../../../Downloads/Poppins (1)/Poppins-Light.ttf"; sourceTree = "<group>"; };
+		266859522C48309700EC2718 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Regular.ttf"; path = "../../../../../Downloads/Poppins (1)/Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		266859532C48309700EC2718 /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-ExtraBold.ttf"; path = "../../../../../Downloads/Poppins (1)/Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
+		266859542C48309700EC2718 /* Poppins-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Black.ttf"; path = "../../../../../Downloads/Poppins (1)/Poppins-Black.ttf"; sourceTree = "<group>"; };
+		266859552C48309700EC2718 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-SemiBold.ttf"; path = "../../../../../Downloads/Poppins (1)/Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		2668595C2C48313400EC2718 /* UIView+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extentions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +70,9 @@
 		266859362C482A0200EC2718 /* E-Commerce */ = {
 			isa = PBXGroup;
 			children = (
+				2668594F2C48301E00EC2718 /* NetworkLayer */,
+				2668594E2C482FDD00EC2718 /* Fonts */,
+				2668594D2C482F8900EC2718 /* Extentions */,
 				266859372C482A0200EC2718 /* AppDelegate.swift */,
 				266859392C482A0200EC2718 /* SceneDelegate.swift */,
 				2668593B2C482A0200EC2718 /* ViewController.swift */,
@@ -65,6 +82,34 @@
 				266859452C482A0500EC2718 /* Info.plist */,
 			);
 			path = "E-Commerce";
+			sourceTree = "<group>";
+		};
+		2668594D2C482F8900EC2718 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				2668595C2C48313400EC2718 /* UIView+Extentions.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+		2668594E2C482FDD00EC2718 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				266859542C48309700EC2718 /* Poppins-Black.ttf */,
+				266859502C48309700EC2718 /* Poppins-Bold.ttf */,
+				266859532C48309700EC2718 /* Poppins-ExtraBold.ttf */,
+				266859512C48309700EC2718 /* Poppins-Light.ttf */,
+				266859522C48309700EC2718 /* Poppins-Regular.ttf */,
+				266859552C48309700EC2718 /* Poppins-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		2668594F2C48301E00EC2718 /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NetworkLayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +170,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2668595A2C48309700EC2718 /* Poppins-Black.ttf in Resources */,
 				266859412C482A0500EC2718 /* Assets.xcassets in Resources */,
+				266859572C48309700EC2718 /* Poppins-Light.ttf in Resources */,
 				266859442C482A0500EC2718 /* Base in Resources */,
+				266859592C48309700EC2718 /* Poppins-ExtraBold.ttf in Resources */,
+				266859582C48309700EC2718 /* Poppins-Regular.ttf in Resources */,
+				2668595B2C48309700EC2718 /* Poppins-SemiBold.ttf in Resources */,
 				2668593F2C482A0200EC2718 /* Base in Resources */,
+				266859562C48309700EC2718 /* Poppins-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +192,7 @@
 				2668593C2C482A0200EC2718 /* ViewController.swift in Sources */,
 				266859382C482A0200EC2718 /* AppDelegate.swift in Sources */,
 				2668593A2C482A0200EC2718 /* SceneDelegate.swift in Sources */,
+				2668595D2C48313400EC2718 /* UIView+Extentions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
