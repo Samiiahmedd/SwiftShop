@@ -28,13 +28,14 @@ class OnBoardingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.setNavigationBarHidden(true, animated: true)
         slides = [ .init(image: UIImage(named: "OnBoarding1")!,
                          title: "20% Discount New Arrival Product",
                          descrption: "Publish up your selfies to make yourself more beautiful with this app."
                         ),
                    .init(
                     image: UIImage(named: "OnBoarding2")!,
-                    title: "Take AdvantageOf The Offer Shopping ",
+                    title: "Take Advantage Of The Offer Shopping ",
                     descrption: "Publish up your selfies to make yourself more beautiful with this app."
                    ),
                    .init(
@@ -44,6 +45,8 @@ class OnBoardingViewController: UIViewController {
                    )
         ]
         pageControl.numberOfPages = slides.count
+        updateSlideContent()
+
     }
     
     
@@ -52,8 +55,22 @@ class OnBoardingViewController: UIViewController {
     @IBAction func nextButton(_ sender: Any) {
         if currentPage < slides.count - 1 {
             currentPage += 1
-            onBoardingImageView.image = slides[currentPage].image
-            onboardingTitle.text = slides[currentPage].descrption
+            updateSlideContent()
+        } else {
+            let StartScreen  = StartScreenViewController()
+            self.navigationController?.pushViewController(StartScreen, animated: true)
+            print("goo")
         }
     }
+    
+    //MARK: -Functions
+    
+    private func updateSlideContent() {
+           let slide = slides[currentPage]
+           UIView.transition(with: onBoardingImageView, duration: 0.3, options: .transitionCrossDissolve, animations: {
+               self.onBoardingImageView.image = slide.image
+           }, completion: nil)
+           onboardingTitle.text = slide.title
+           onBoardingDescription.text = slide.descrption
+       }
 }
