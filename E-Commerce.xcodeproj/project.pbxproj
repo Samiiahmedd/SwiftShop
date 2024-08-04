@@ -17,6 +17,8 @@
 		260781352C48917C00B778A2 /* StartScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 260781332C48917C00B778A2 /* StartScreenViewController.xib */; };
 		260781382C48982800B778A2 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260781372C48982800B778A2 /* NavigationController.swift */; };
 		262786312C483F580024D80B /* OnBoardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262786302C483F580024D80B /* OnBoardingModel.swift */; };
+		26347A682C5D987600F500CB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26347A662C5D987600F500CB /* SignUpViewController.swift */; };
+		26347A692C5D987700F500CB /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26347A672C5D987600F500CB /* SignUpViewController.xib */; };
 		266859382C482A0200EC2718 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266859372C482A0200EC2718 /* AppDelegate.swift */; };
 		2668593A2C482A0200EC2718 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266859392C482A0200EC2718 /* SceneDelegate.swift */; };
 		2668593F2C482A0200EC2718 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 2668593E2C482A0200EC2718 /* Base */; };
@@ -26,6 +28,10 @@
 		2668595D2C48313400EC2718 /* UIView+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2668595C2C48313400EC2718 /* UIView+Extentions.swift */; };
 		266859662C4836C400EC2718 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266859642C4836C400EC2718 /* OnBoardingViewController.swift */; };
 		266859672C4836C400EC2718 /* OnBoardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 266859652C4836C400EC2718 /* OnBoardingViewController.xib */; };
+		2689C9932C4A47A200033590 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2689C9922C4A47A200033590 /* LoginViewController.xib */; };
+		2689C9942C4A47A200033590 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2689C9912C4A47A200033590 /* LoginViewController.swift */; };
+		26D66DAC2C603D6A00EC03A9 /* SucessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D66DAA2C603D6A00EC03A9 /* SucessViewController.swift */; };
+		26D66DAD2C603D6A00EC03A9 /* SucessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26D66DAB2C603D6A00EC03A9 /* SucessViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +40,8 @@
 		260781332C48917C00B778A2 /* StartScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartScreenViewController.xib; sourceTree = "<group>"; };
 		260781372C48982800B778A2 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		262786302C483F580024D80B /* OnBoardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingModel.swift; sourceTree = "<group>"; };
+		26347A662C5D987600F500CB /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		26347A672C5D987600F500CB /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		266859342C482A0200EC2718 /* E-Commerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "E-Commerce.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		266859372C482A0200EC2718 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		266859392C482A0200EC2718 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +58,10 @@
 		2668595C2C48313400EC2718 /* UIView+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extentions.swift"; sourceTree = "<group>"; };
 		266859642C4836C400EC2718 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		266859652C4836C400EC2718 /* OnBoardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnBoardingViewController.xib; sourceTree = "<group>"; };
+		2689C9912C4A47A200033590 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2689C9922C4A47A200033590 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		26D66DAA2C603D6A00EC03A9 /* SucessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucessViewController.swift; sourceTree = "<group>"; };
+		26D66DAB2C603D6A00EC03A9 /* SucessViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SucessViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +90,39 @@
 				260781372C48982800B778A2 /* NavigationController.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		26347A622C5D983F00F500CB /* SignUP */ = {
+			isa = PBXGroup;
+			children = (
+				26347A652C5D985C00F500CB /* ViewModel */,
+				26347A642C5D985700F500CB /* View */,
+				26347A632C5D985000F500CB /* Model */,
+			);
+			path = SignUP;
+			sourceTree = "<group>";
+		};
+		26347A632C5D985000F500CB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		26347A642C5D985700F500CB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				26347A662C5D987600F500CB /* SignUpViewController.swift */,
+				26347A672C5D987600F500CB /* SignUpViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		26347A652C5D985C00F500CB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		2668592B2C482A0200EC2718 = {
@@ -154,6 +199,9 @@
 		2668595F2C48343C00EC2718 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				26D66DA92C603D5200EC03A9 /* Succssful */,
+				26347A622C5D983F00F500CB /* SignUP */,
+				2689C98B2C4A475B00033590 /* Login */,
 				260781312C48914200B778A2 /* StartScreen */,
 				266859602C48348600EC2718 /* OnBoarding */,
 			);
@@ -184,6 +232,48 @@
 				266859652C4836C400EC2718 /* OnBoardingViewController.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		2689C98B2C4A475B00033590 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				2689C98E2C4A477600033590 /* ViewModel */,
+				2689C98D2C4A476F00033590 /* View */,
+				2689C98C2C4A476A00033590 /* Model */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		2689C98C2C4A476A00033590 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2689C98D2C4A476F00033590 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2689C9912C4A47A200033590 /* LoginViewController.swift */,
+				2689C9922C4A47A200033590 /* LoginViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2689C98E2C4A477600033590 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		26D66DA92C603D5200EC03A9 /* Succssful */ = {
+			isa = PBXGroup;
+			children = (
+				26D66DAA2C603D6A00EC03A9 /* SucessViewController.swift */,
+				26D66DAB2C603D6A00EC03A9 /* SucessViewController.xib */,
+			);
+			path = Succssful;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,11 +337,14 @@
 				266859672C4836C400EC2718 /* OnBoardingViewController.xib in Resources */,
 				2607812E2C488C1900B778A2 /* Poppins-Light.ttf in Resources */,
 				266859412C482A0500EC2718 /* Assets.xcassets in Resources */,
+				26347A692C5D987700F500CB /* SignUpViewController.xib in Resources */,
+				26D66DAD2C603D6A00EC03A9 /* SucessViewController.xib in Resources */,
 				260781352C48917C00B778A2 /* StartScreenViewController.xib in Resources */,
 				266859442C482A0500EC2718 /* Base in Resources */,
 				260781292C488C0C00B778A2 /* Poppins-Black.ttf in Resources */,
 				2607812C2C488C1400B778A2 /* Poppins-SemiBold.ttf in Resources */,
 				266859592C48309700EC2718 /* Poppins-ExtraBold.ttf in Resources */,
+				2689C9932C4A47A200033590 /* LoginViewController.xib in Resources */,
 				2607812A2C488C0F00B778A2 /* Poppins-Bold.ttf in Resources */,
 				2668593F2C482A0200EC2718 /* Base in Resources */,
 				2607812D2C488C1700B778A2 /* Poppins-Regular.ttf in Resources */,
@@ -265,9 +358,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2689C9942C4A47A200033590 /* LoginViewController.swift in Sources */,
 				260781342C48917C00B778A2 /* StartScreenViewController.swift in Sources */,
+				26D66DAC2C603D6A00EC03A9 /* SucessViewController.swift in Sources */,
 				260781382C48982800B778A2 /* NavigationController.swift in Sources */,
 				262786312C483F580024D80B /* OnBoardingModel.swift in Sources */,
+				26347A682C5D987600F500CB /* SignUpViewController.swift in Sources */,
 				266859382C482A0200EC2718 /* AppDelegate.swift in Sources */,
 				2668593A2C482A0200EC2718 /* SceneDelegate.swift in Sources */,
 				2668595D2C48313400EC2718 /* UIView+Extentions.swift in Sources */,
