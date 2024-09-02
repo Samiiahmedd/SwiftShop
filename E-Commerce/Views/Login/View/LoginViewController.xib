@@ -12,9 +12,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="E_Commerce" customModuleProvider="target">
             <connections>
                 <outlet property="appleLogin" destination="Zr6-R1-yt8" id="zNc-Gy-63S"/>
+                <outlet property="emailTxtFiedl" destination="eky-zG-b6I" id="0ob-ty-zlY"/>
                 <outlet property="fbLogin" destination="7Sl-G1-uuR" id="IWW-mN-L1d"/>
                 <outlet property="googleLogin" destination="gei-MH-WtE" id="j66-vk-MOg"/>
                 <outlet property="loginBtn" destination="jlh-jp-lvb" id="hTR-Vs-ctm"/>
+                <outlet property="passwordTxtField" destination="XHh-On-Nzq" id="Fb8-hj-Psc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -245,9 +247,9 @@
         </view>
     </objects>
     <resources>
-        <image name="Apple" width="13" height="15"/>
+        <image name="Apple" width="24" height="24"/>
         <image name="FB" width="16" height="15"/>
-        <image name="Google" width="15" height="15"/>
+        <image name="Google" width="24" height="24"/>
         <image name="LogoBlack" width="137" height="83"/>
         <namedColor name="FacebookButton">
             <color red="0.23137254901960785" green="0.34901960784313724" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
