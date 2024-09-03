@@ -83,7 +83,5 @@ extension UIView {
         set {
             self.layer.borderWidth = newValue
         }
-    }
-    
-    
+    }    
 }

@@ -46,9 +46,7 @@ class OnBoardingViewController: UIViewController {
         ]
         pageControl.numberOfPages = slides.count
         updateSlideContent()
-
     }
-    
     
     //MARK: -IBAction
     

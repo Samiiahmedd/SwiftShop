@@ -33,7 +33,6 @@ class HomeVC: UIViewController{
         registerCells()
         bannerCollectionView.delegate = self
         bannerCollectionView.dataSource = self
-        
     }
     
     //MARK: - Functions

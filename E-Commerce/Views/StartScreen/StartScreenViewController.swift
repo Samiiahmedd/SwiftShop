@@ -31,7 +31,4 @@ class StartScreenViewController: UIViewController {
         let SignUpVC = SignUpViewController()
         self.navigationController?.pushViewController(SignUpVC, animated: true)
     }
-    
-
-
 }
