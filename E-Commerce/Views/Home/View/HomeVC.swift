@@ -20,6 +20,7 @@ class HomeVC: UIViewController {
     @IBOutlet var stackView: UIStackView!
     @IBOutlet var bannerCollectionView: UICollectionView!
     @IBOutlet var newArriivalCollectionView: UICollectionView!
+    @IBOutlet var popularTableView: UITableView!
     
     //MARK: - viewLifeCycle
     
@@ -35,16 +36,25 @@ private extension HomeVC {
     
     func setupView() {
         configerCollectionViews()
+        configureTableViews()
         registerCells()
         configureNavBar()
+        
     }
     
     func configureNavBar() {
         navBar.setupFirstTralingButton(
             with: "",
-            and: UIImage(systemName: "square.and.arrow.up")!) {
+            and: UIImage(systemName: "magnifyingglass")!) {
                 print("your code comes here")
             }
+        navBar.tintColor = .black
+    }
+    
+    
+    func configureTableViews() {
+        popularTableView.delegate = self
+        popularTableView.dataSource = self
     }
     
     func configerCollectionViews() {
@@ -57,12 +67,13 @@ private extension HomeVC {
     func registerCells() {
         bannerCollectionView.register(UINib(nibName: BannerCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: BannerCollectionViewCell.identifier)
         newArriivalCollectionView.register(UINib(nibName: NewArriivalCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: NewArriivalCollectionViewCell.identifier)
+        popularTableView.register(UINib(nibName: "PopularsTableViewCell", bundle: nil), forCellReuseIdentifier: "PopularsTableViewCell")
     }
 }
 
 //MARK: - Extentions
 
-extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UITableViewDelegate,UITableViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case bannerCollectionView:
@@ -105,6 +116,19 @@ extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UIColle
             return CGSize(width: 100, height: 100)
         }
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.popular.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = popularTableView.dequeueReusableCell(withIdentifier: PopularsTableViewCell.identifier, for: indexPath) as! PopularsTableViewCell
+        let PopularsSection = viewModel.popular[indexPath.row]
+        cell.Setup(Populars: PopularsSection)
+        return cell
+        
+    }
+    
 }
 
 

@@ -1,19 +1,15 @@
 //
-//  PopularsCollectionViewCell.swift
+//  PopularsTableViewCell.swift
 //  E-Commerce
 //
-//  Created by Sami Ahmed on 03/09/2024.
+//  Created by Sami Ahmed on 05/09/2024.
 //
 
 import UIKit
 
-class PopularsCollectionViewCell: UICollectionViewCell {
-    
-    //MARK: - Variables
-    
-    static let identifier = String(describing: PopularsCollectionViewCell.self)
-    
-    //MARK: - IBOutlets
+class PopularsTableViewCell: UITableViewCell {
+
+    //MARK: -IBoutlets
     
     @IBOutlet var productImage: UIImageView!
     @IBOutlet var productTitle: UILabel!
@@ -21,8 +17,15 @@ class PopularsCollectionViewCell: UICollectionViewCell {
     @IBOutlet var productRating: UILabel!
     @IBOutlet var productPrice: UILabel!
     
-    //MARK: - ViewLifeCycle
+    // MARK: - variables
 
+    static let identifier =  "PopularsTableViewCell"
+    static func nib() -> UINib {
+           return UINib(nibName: "PopularsTableViewCell", bundle: nil)
+       }
+    
+    //MARK: -ViewLifeCycle
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -30,7 +33,7 @@ class PopularsCollectionViewCell: UICollectionViewCell {
 
 // MARK: - SETUP CELL
 
-extension PopularsCollectionViewCell {
+extension PopularsTableViewCell {
     func Setup(Populars: PopularModel) {
         productImage.image = Populars.popularImage
         productTitle.text = Populars.popularTitle
@@ -38,10 +41,4 @@ extension PopularsCollectionViewCell {
         productRating.text = Populars.popularRating
         productPrice.text = Populars.popularPrice
     }
-}
-
-// MARK: - FUNCTIONS
-
-private extension PopularsCollectionViewCell {
-     
 }
