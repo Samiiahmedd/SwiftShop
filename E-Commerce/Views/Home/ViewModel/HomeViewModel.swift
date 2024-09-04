@@ -46,4 +46,24 @@ class HomeViewModel {
               productType: "Traveler Tote",
               productPrice: "$195.00"),
     ]
+    
+    var popular : [PopularModel]  = [
+        .init(popularImage: UIImage(named: "popular")!,
+              popularTitle: "Gia Borghini",
+              popularDescription: "RHW Rosie 1 Sandals",
+              popularRating: "(4.5)",
+              popularPrice: "$740.00"),
+        
+        .init(popularImage: UIImage(named: "popular")!,
+              popularTitle: "Gia Borghini",
+              popularDescription: "RHW Rosie 1 Sandals",
+              popularRating: "(4.5)",
+              popularPrice: "$722.00"),
+        
+        .init(popularImage: UIImage(named: "popular")!,
+              popularTitle: "Gia Borghini",
+              popularDescription: "RHW Rosie 1 Sandals",
+              popularRating: "(4)",
+              popularPrice: "$900.00"),
+    ]
 }

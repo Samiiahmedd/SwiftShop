@@ -32,6 +32,7 @@
 		2668595D2C48313400EC2718 /* UIView+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2668595C2C48313400EC2718 /* UIView+Extentions.swift */; };
 		266859662C4836C400EC2718 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266859642C4836C400EC2718 /* OnBoardingViewController.swift */; };
 		266859672C4836C400EC2718 /* OnBoardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 266859652C4836C400EC2718 /* OnBoardingViewController.xib */; };
+		2669F0372C88CEEE00A386B2 /* PopularModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2669F0362C88CEEE00A386B2 /* PopularModel.swift */; };
 		2689C9932C4A47A200033590 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2689C9922C4A47A200033590 /* LoginViewController.xib */; };
 		2689C9942C4A47A200033590 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2689C9912C4A47A200033590 /* LoginViewController.swift */; };
 		269363B82C821AFF00662442 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269363B72C821AFF00662442 /* MainTabBarViewController.swift */; };
@@ -75,6 +76,7 @@
 		2668595C2C48313400EC2718 /* UIView+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extentions.swift"; sourceTree = "<group>"; };
 		266859642C4836C400EC2718 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		266859652C4836C400EC2718 /* OnBoardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnBoardingViewController.xib; sourceTree = "<group>"; };
+		2669F0362C88CEEE00A386B2 /* PopularModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularModel.swift; sourceTree = "<group>"; };
 		2689C9912C4A47A200033590 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2689C9922C4A47A200033590 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		269363B72C821AFF00662442 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 		26B043202C8718DF005DFF6A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2669F0362C88CEEE00A386B2 /* PopularModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				2689C9942C4A47A200033590 /* LoginViewController.swift in Sources */,
 				2623C9492C889A770084D5F5 /* NewArrivalModel.swift in Sources */,
 				26B043192C871880005DFF6A /* NewArriivalCollectionViewCell.swift in Sources */,
+				2669F0372C88CEEE00A386B2 /* PopularModel.swift in Sources */,
 				260781342C48917C00B778A2 /* StartScreenViewController.swift in Sources */,
 				26D66DAC2C603D6A00EC03A9 /* SucessViewController.swift in Sources */,
 				260781382C48982800B778A2 /* NavigationController.swift in Sources */,

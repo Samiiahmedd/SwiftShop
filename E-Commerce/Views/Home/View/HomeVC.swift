@@ -30,14 +30,19 @@ class HomeVC: UIViewController{
         bannerCollectionView.dataSource = self
         newArriivalCollectionView.delegate = self
         newArriivalCollectionView.dataSource = self
+        popularsColllectionView.delegate = self
+        popularsColllectionView.dataSource = self
     }
     
     //MARK: - Functions
     
     private func registerCells() {
+        
         bannerCollectionView.register(UINib(nibName: BannerCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: BannerCollectionViewCell.identifier)
         
         newArriivalCollectionView.register(UINib(nibName: NewArriivalCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: NewArriivalCollectionViewCell.identifier)
+        
+        popularsColllectionView.register(UINib(nibName: PopularsCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: PopularsCollectionViewCell.identifier)
     }
 }
 
@@ -52,6 +57,8 @@ extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UIColle
         case newArriivalCollectionView :
             return viewModel.newArrivals.count
             
+        case popularsColllectionView :
+            return viewModel.popular.count
         default: return 0
         }
     }
@@ -70,17 +77,28 @@ extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UIColle
             cell.Setup(newArrival: newArrival)
             return cell
             
+        case popularsColllectionView:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularsCollectionViewCell.identifier, for: indexPath) as! PopularsCollectionViewCell
+            let popularProduct = viewModel.popular[indexPath.row]
+            cell.Setup(Populars: popularProduct)
+            return cell
+            
         default: return UICollectionViewCell()
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch collectionView {
+            
         case bannerCollectionView:
             return CGSize(width: collectionView.frame.size.width-60, height: collectionView.frame.size.height)
             
         case newArriivalCollectionView:
             return CGSize(width: collectionView.frame.size.width/2, height: collectionView.frame.size.height)
+            
+        case popularsColllectionView:
+            return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height)
+
         default:
             return CGSize(width: 100, height: 100)
         }
