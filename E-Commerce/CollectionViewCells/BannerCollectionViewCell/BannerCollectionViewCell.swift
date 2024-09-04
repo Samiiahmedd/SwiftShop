@@ -26,6 +26,7 @@ class BannerCollectionViewCell: UICollectionViewCell {
     }
     
     //MARK: - Function
+    
     func Setup(banner: BannerModel) {
         bannerImageView.image = banner.image
 

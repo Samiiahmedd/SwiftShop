@@ -42,6 +42,9 @@
                 <constraint firstAttribute="trailing" secondItem="iV6-xd-EVL" secondAttribute="trailing" id="egC-jU-qgW"/>
             </constraints>
             <size key="customSize" width="429" height="260"/>
+            <connections>
+                <outlet property="bannerImageView" destination="1SA-uY-08x" id="gjv-Nq-vip"/>
+            </connections>
             <point key="canvasLocation" x="270.99236641221376" y="69.718309859154928"/>
         </collectionViewCell>
     </objects>

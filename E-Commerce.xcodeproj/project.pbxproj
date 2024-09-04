@@ -16,6 +16,8 @@
 		260781342C48917C00B778A2 /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260781322C48917C00B778A2 /* StartScreenViewController.swift */; };
 		260781352C48917C00B778A2 /* StartScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 260781332C48917C00B778A2 /* StartScreenViewController.xib */; };
 		260781382C48982800B778A2 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260781372C48982800B778A2 /* NavigationController.swift */; };
+		2623C9492C889A770084D5F5 /* NewArrivalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2623C9482C889A770084D5F5 /* NewArrivalModel.swift */; };
+		2623C94B2C889D100084D5F5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2623C94A2C889D100084D5F5 /* HomeViewModel.swift */; };
 		262786312C483F580024D80B /* OnBoardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262786302C483F580024D80B /* OnBoardingModel.swift */; };
 		26347A682C5D987600F500CB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26347A662C5D987600F500CB /* SignUpViewController.swift */; };
 		26347A692C5D987700F500CB /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26347A672C5D987600F500CB /* SignUpViewController.xib */; };
@@ -51,6 +53,8 @@
 		260781322C48917C00B778A2 /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
 		260781332C48917C00B778A2 /* StartScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartScreenViewController.xib; sourceTree = "<group>"; };
 		260781372C48982800B778A2 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		2623C9482C889A770084D5F5 /* NewArrivalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArrivalModel.swift; sourceTree = "<group>"; };
+		2623C94A2C889D100084D5F5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		262786302C483F580024D80B /* OnBoardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingModel.swift; sourceTree = "<group>"; };
 		26347A662C5D987600F500CB /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		26347A672C5D987600F500CB /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
@@ -332,6 +336,7 @@
 		269363BC2C821C4600662442 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				2623C94A2C889D100084D5F5 /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -339,9 +344,9 @@
 		26B043152C871849005DFF6A /* NewArriivalCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				26B0431A2C871885005DFF6A /* Model */,
 				26B043162C871880005DFF6A /* NewArriivalCollectionViewCell.swift */,
 				26B043172C871880005DFF6A /* NewArriivalCollectionViewCell.xib */,
+				26B0431A2C871885005DFF6A /* Model */,
 			);
 			path = NewArriivalCollectionViewCell;
 			sourceTree = "<group>";
@@ -349,6 +354,7 @@
 		26B0431A2C871885005DFF6A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2623C9482C889A770084D5F5 /* NewArrivalModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -500,8 +506,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2623C94B2C889D100084D5F5 /* HomeViewModel.swift in Sources */,
 				26B0431F2C8718DB005DFF6A /* PopularsCollectionViewCell.swift in Sources */,
 				2689C9942C4A47A200033590 /* LoginViewController.swift in Sources */,
+				2623C9492C889A770084D5F5 /* NewArrivalModel.swift in Sources */,
 				26B043192C871880005DFF6A /* NewArriivalCollectionViewCell.swift in Sources */,
 				260781342C48917C00B778A2 /* StartScreenViewController.swift in Sources */,
 				26D66DAC2C603D6A00EC03A9 /* SucessViewController.swift in Sources */,

@@ -54,32 +54,32 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l2z-Ml-pcS">
-                                    <rect key="frame" x="0.0" y="290" width="393" height="214.33333333333337"/>
+                                    <rect key="frame" x="0.0" y="290" width="393" height="304"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="Cni-7x-6Ea">
-                                            <rect key="frame" x="15" y="10" width="363" height="38.333333333333336"/>
+                                            <rect key="frame" x="15" y="10" width="363" height="24"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Arrivals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paU-Va-ic1">
-                                                    <rect key="frame" x="0.0" y="0.0" width="131.66666666666666" height="38.333333333333336"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="131.66666666666666" height="24"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eay-rj-QyH">
-                                                    <rect key="frame" x="231.66666666666663" y="0.0" width="131.33333333333337" height="38.333333333333336"/>
+                                                    <rect key="frame" x="231.66666666666663" y="0.0" width="131.33333333333337" height="24"/>
                                                     <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" title="Veiw All"/>
                                                 </button>
                                             </subviews>
                                         </stackView>
-                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="tt8-Sg-vgr">
-                                            <rect key="frame" x="20" y="58.333333333333314" width="353" height="146"/>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="tt8-Sg-vgr">
+                                            <rect key="frame" x="20" y="44" width="353" height="250"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="146" id="GCa-Wz-hXy"/>
+                                                <constraint firstAttribute="height" constant="250" id="GCa-Wz-hXy"/>
                                             </constraints>
-                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Pdt-AG-jma">
+                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Pdt-AG-jma">
                                                 <size key="itemSize" width="128" height="128"/>
                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -98,11 +98,14 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tcP-ZJ-nPL">
-                                    <rect key="frame" x="0.0" y="504.33333333333343" width="393" height="254.66666666666669"/>
+                                    <rect key="frame" x="0.0" y="594" width="393" height="165"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="lLa-pS-hvP">
-                                            <rect key="frame" x="20" y="58.33333333333325" width="353" height="106.33333333333331"/>
+                                            <rect key="frame" x="20" y="58.333333333333371" width="353" height="150"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="150" id="ceV-bt-4QA"/>
+                                            </constraints>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MTA-5J-6j4">
                                                 <size key="itemSize" width="128" height="128"/>
                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -133,7 +136,6 @@
                                         <constraint firstAttribute="trailing" secondItem="VwW-d7-Ots" secondAttribute="trailing" constant="15" id="Lhb-dt-X1P"/>
                                         <constraint firstItem="lLa-pS-hvP" firstAttribute="top" secondItem="VwW-d7-Ots" secondAttribute="bottom" constant="10" id="cGT-AK-JHu"/>
                                         <constraint firstItem="VwW-d7-Ots" firstAttribute="top" secondItem="tcP-ZJ-nPL" secondAttribute="top" constant="10" id="fdi-9s-lqL"/>
-                                        <constraint firstAttribute="bottom" secondItem="lLa-pS-hvP" secondAttribute="bottom" constant="90" id="fe5-BU-Hns"/>
                                         <constraint firstItem="lLa-pS-hvP" firstAttribute="leading" secondItem="tcP-ZJ-nPL" secondAttribute="leading" constant="20" id="j2F-1F-S8e"/>
                                         <constraint firstItem="VwW-d7-Ots" firstAttribute="leading" secondItem="tcP-ZJ-nPL" secondAttribute="leading" constant="15" id="upO-uR-nCd"/>
                                     </constraints>
