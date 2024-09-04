@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeVC: UIViewController{
+class HomeVC: UIViewController {
     
     // MARK: - Variables
     
@@ -15,34 +15,48 @@ class HomeVC: UIViewController{
     
     //MARK: - IBOutlet
     
+    @IBOutlet weak var navBar: CustomNavBar!
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var stackView: UIStackView!
     @IBOutlet var bannerCollectionView: UICollectionView!
     @IBOutlet var newArriivalCollectionView: UICollectionView!
-    @IBOutlet var popularsColllectionView: UICollectionView!
     
     //MARK: - viewLifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
+    }
+}
+
+// MARK: - SETUP VIEW
+
+private extension HomeVC {
+    
+    func setupView() {
+        configerCollectionViews()
         registerCells()
+        configureNavBar()
+    }
+    
+    func configureNavBar() {
+        navBar.setupFirstTralingButton(
+            with: "",
+            and: UIImage(systemName: "square.and.arrow.up")!) {
+                print("your code comes here")
+            }
+    }
+    
+    func configerCollectionViews() {
         bannerCollectionView.delegate = self
         bannerCollectionView.dataSource = self
         newArriivalCollectionView.delegate = self
         newArriivalCollectionView.dataSource = self
-        popularsColllectionView.delegate = self
-        popularsColllectionView.dataSource = self
     }
     
-    //MARK: - Functions
-    
-    private func registerCells() {
-        
+    func registerCells() {
         bannerCollectionView.register(UINib(nibName: BannerCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: BannerCollectionViewCell.identifier)
-        
         newArriivalCollectionView.register(UINib(nibName: NewArriivalCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: NewArriivalCollectionViewCell.identifier)
-        
-        popularsColllectionView.register(UINib(nibName: PopularsCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: PopularsCollectionViewCell.identifier)
     }
 }
 
@@ -53,13 +67,10 @@ extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UIColle
         switch collectionView {
         case bannerCollectionView:
             return viewModel.banners.count
-            
         case newArriivalCollectionView :
             return viewModel.newArrivals.count
-            
-        case popularsColllectionView :
-            return viewModel.popular.count
-        default: return 0
+        default:
+            return 0
         }
     }
     
@@ -77,28 +88,19 @@ extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UIColle
             cell.Setup(newArrival: newArrival)
             return cell
             
-        case popularsColllectionView:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularsCollectionViewCell.identifier, for: indexPath) as! PopularsCollectionViewCell
-            let popularProduct = viewModel.popular[indexPath.row]
-            cell.Setup(Populars: popularProduct)
-            return cell
-            
-        default: return UICollectionViewCell()
+        default:
+            return UICollectionViewCell()
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch collectionView {
-            
         case bannerCollectionView:
-            return CGSize(width: collectionView.frame.size.width-60, height: collectionView.frame.size.height)
+            return CGSize(width: fullScreenWidth, height: collectionView.collectionViewHeight)
             
         case newArriivalCollectionView:
-            return CGSize(width: collectionView.frame.size.width/2, height: collectionView.frame.size.height)
+            return CGSize(width: halfScreenWidth - 40, height: collectionView.collectionViewHeight)
             
-        case popularsColllectionView:
-            return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height)
-
         default:
             return CGSize(width: 100, height: 100)
         }

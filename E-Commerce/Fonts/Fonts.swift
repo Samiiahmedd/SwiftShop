@@ -7,4 +7,9 @@
 
 import Foundation
 import UIKit
-let customFont = UIFont(name: "Poppins-Black", size: 17)
+
+enum CustomFonts {
+    struct Poppins {
+        let black = UIFont(name: "Poppins-Black", size: 16)
+    }
+}

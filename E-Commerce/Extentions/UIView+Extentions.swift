@@ -10,7 +10,7 @@ import Foundation
 
 extension UIView {
     
-    //CornerRadius
+    // CornerRadius
     
     @IBInspectable var cornerRadius: CGFloat {
         get {
@@ -21,7 +21,7 @@ extension UIView {
         }
     }
     
-    //Shadow
+    // Shadow
     
     @IBInspectable var shadowColor: UIColor? {
         get {
@@ -62,7 +62,7 @@ extension UIView {
         }
     }
     
-    //Boarder
+    // Boarder
     
     @IBInspectable var borderColor: UIColor? {
         get {

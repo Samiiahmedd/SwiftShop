@@ -16,23 +16,21 @@ class PopularsCollectionViewCell: UICollectionViewCell {
     //MARK: - IBOutlets
     
     @IBOutlet var productImage: UIImageView!
-    
     @IBOutlet var productTitle: UILabel!
-    
     @IBOutlet var productDescription: UILabel!
-    
     @IBOutlet var productRating: UILabel!
-    
     @IBOutlet var productPrice: UILabel!
     
     //MARK: - ViewLifeCycle
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-    
-    //MARK: - Func
+}
+
+// MARK: - SETUP CELL
+
+extension PopularsCollectionViewCell {
     func Setup(Populars: PopularModel) {
         productImage.image = Populars.popularImage
         productTitle.text = Populars.popularTitle
@@ -40,5 +38,10 @@ class PopularsCollectionViewCell: UICollectionViewCell {
         productRating.text = Populars.popularRating
         productPrice.text = Populars.popularPrice
     }
+}
 
+// MARK: - FUNCTIONS
+
+private extension PopularsCollectionViewCell {
+     
 }
