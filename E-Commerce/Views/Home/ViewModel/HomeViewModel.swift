@@ -64,6 +64,24 @@ class HomeViewModel {
               popularTitle: "Gia Borghini",
               popularDescription: "RHW Rosie 1 Sandals",
               popularRating: "(4)",
+              popularPrice: "$900.00"), 
+        
+            .init(popularImage: UIImage(named: "popular")!,
+              popularTitle: "Gia Borghini",
+              popularDescription: "RHW Rosie 1 Sandals",
+              popularRating: "(4)",
+              popularPrice: "$900.00"),
+        
+        .init(popularImage: UIImage(named: "popular")!,
+              popularTitle: "Gia Borghini",
+              popularDescription: "RHW Rosie 1 Sandals",
+              popularRating: "(4)",
+              popularPrice: "$900.00"),
+        
+        .init(popularImage: UIImage(named: "popular")!,
+              popularTitle: "Gia Borghini",
+              popularDescription: "RHW Rosie 1 Sandals",
+              popularRating: "(4)",
               popularPrice: "$900.00"),
     ]
 }

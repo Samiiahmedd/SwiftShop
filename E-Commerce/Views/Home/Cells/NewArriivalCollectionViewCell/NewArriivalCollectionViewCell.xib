@@ -79,6 +79,20 @@
                             <constraint firstItem="V7M-GK-0qt" firstAttribute="top" secondItem="1Ct-Cd-s86" secondAttribute="top" constant="22" id="lMl-pp-Fa6"/>
                             <constraint firstItem="hCj-C8-M40" firstAttribute="centerX" secondItem="cLo-sO-kbS" secondAttribute="centerX" id="red-1D-8Ah"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="50"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                <size key="value" width="30" height="80"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
@@ -90,6 +104,23 @@
                 <constraint firstAttribute="trailing" secondItem="1Ct-Cd-s86" secondAttribute="trailing" id="jLz-5l-PU2"/>
             </constraints>
             <size key="customSize" width="136" height="196"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                    <color key="value" red="0.1048286968" green="0.1048286968" blue="0.1048286968" alpha="0.97780858780000002" colorSpace="custom" customColorSpace="sRGB"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                    <real key="value" value="12"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="10"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                    <size key="value" width="9" height="14"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                    <real key="value" value="100"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="favouriteButton" destination="V7M-GK-0qt" id="hO9-j2-96H"/>
                 <outlet property="imageView" destination="cLo-sO-kbS" id="a6P-tK-GAc"/>

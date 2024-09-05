@@ -14,6 +14,7 @@
                 <outlet property="navBar" destination="ArT-kB-fTQ" id="4dg-ld-Yh7"/>
                 <outlet property="newArriivalCollectionView" destination="tt8-Sg-vgr" id="LCO-wN-xrp"/>
                 <outlet property="popularTableView" destination="pQc-Qn-40y" id="u7M-bt-jcH"/>
+                <outlet property="popularTableViewHeightConstraint" destination="3aw-kT-r69" id="1ca-SQ-sjL"/>
                 <outlet property="scrollView" destination="Sgx-Jg-aMv" id="WZJ-Ob-RBF"/>
                 <outlet property="stackView" destination="hiW-j3-sPa" id="TqI-nq-2bH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -136,7 +137,7 @@
                                                         <constraint firstItem="OzD-8k-tWz" firstAttribute="leading" secondItem="wbg-fD-siH" secondAttribute="leading" constant="24" id="zHb-b3-qhs"/>
                                                     </constraints>
                                                 </view>
-                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pQc-Qn-40y">
+                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pQc-Qn-40y" customClass="SelfSizedUITableView" customModule="E_Commerce" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="128" width="393" height="200"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="200" id="3aw-kT-r69"/>

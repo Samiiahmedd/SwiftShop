@@ -18,7 +18,7 @@ class GFNavigationController: UINavigationController {
 //            self.viewControllers = [LoginVC()]
 //        }
 //        else {
-            self.viewControllers = [HomeVC()]
+            self.viewControllers = [StartScreenViewController()]
 //        }
     }
 }

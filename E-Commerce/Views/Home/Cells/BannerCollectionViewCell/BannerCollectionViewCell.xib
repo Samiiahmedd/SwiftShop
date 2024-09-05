@@ -31,6 +31,14 @@
                             <constraint firstItem="1SA-uY-08x" firstAttribute="top" secondItem="iV6-xd-EVL" secondAttribute="top" constant="10" id="Tjh-xP-cWv"/>
                             <constraint firstAttribute="bottom" secondItem="1SA-uY-08x" secondAttribute="bottom" constant="10" id="rAz-nE-Nrh"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="50"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                <size key="value" width="199" height="100"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>

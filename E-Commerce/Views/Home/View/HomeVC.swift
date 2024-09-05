@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeVC: UIViewController {
+class HomeVC: UIViewController{
     
     // MARK: - Variables
     
@@ -20,14 +20,24 @@ class HomeVC: UIViewController {
     @IBOutlet var stackView: UIStackView!
     @IBOutlet var bannerCollectionView: UICollectionView!
     @IBOutlet var newArriivalCollectionView: UICollectionView!
-    @IBOutlet var popularTableView: UITableView!
+    @IBOutlet var popularTableView: SelfSizedUITableView!
+    
+    // MARK: - Constraints
+    @IBOutlet var popularTableViewHeightConstraint: NSLayoutConstraint!
     
     //MARK: - viewLifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        popularTableView.heightDelegate = self
     }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        popularTableView.layoutIfNeeded()
+    }
+    
 }
 
 // MARK: - SETUP VIEW
@@ -46,7 +56,11 @@ private extension HomeVC {
         navBar.setupFirstTralingButton(
             with: "",
             and: UIImage(systemName: "magnifyingglass")!) {
-                print("your code comes here")
+                print("Button tapped")
+                let search = SearchCategoriesViewController()
+                search.modalPresentationStyle = .overFullScreen
+                search.modalTransitionStyle = .crossDissolve
+                self.present(search, animated: true)
             }
         navBar.tintColor = .black
     }
@@ -129,6 +143,15 @@ extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UIColle
         
     }
     
+}
+
+// MARK: - UIScrollViewHeightDelegate
+
+extension HomeVC:UIScrollViewHeightDelegate {
+    func scrollView(_ scrollView: UIScrollView, didScrollViewHeightChange height: CGFloat) {
+        popularTableViewHeightConstraint.constant = height
+        view.layoutIfNeeded()
+    }
 }
 
 

@@ -42,7 +42,7 @@ class LoginViewController: UIViewController {
                 print("Error signing in: \(error.localizedDescription)")
             } else {
                 print("User signed in successfully")
-                // Navigate to the next screen or handle post-login logic
+                self.navigateToHomeVC()
             }
         }
     }
@@ -58,4 +58,17 @@ class LoginViewController: UIViewController {
     @IBAction func googleLogin(_ sender: Any) {
         // Implement Google login logic here
     }
+    
+    // MARK: - Navigation
+       
+       private func navigateToHomeVC() {
+           // Create an instance of HomeVC
+           let Success = SucessViewController()
+           Success.modalPresentationStyle = .overFullScreen
+           Success.modalTransitionStyle = .crossDissolve
+           self.present(Success, animated: true)
+       }
+   
 }
+
+
