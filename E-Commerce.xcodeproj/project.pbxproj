@@ -171,7 +171,6 @@
 				260781362C4897FA00B778A2 /* CustomViews */,
 				2668594E2C482FDD00EC2718 /* Fonts */,
 				2668594D2C482F8900EC2718 /* Extentions */,
-				26CB3D872C861E030029087C /* CollectionViewCells */,
 				2668595F2C48343C00EC2718 /* Views */,
 				2668595E2C48335100EC2718 /* Common */,
 				266859402C482A0500EC2718 /* Assets.xcassets */,
@@ -367,13 +366,6 @@
 				26C301062C89130800CFE4AD /* PopularsTableViewCell.xib */,
 			);
 			path = PopularsTableViewCell;
-			sourceTree = "<group>";
-		};
-		26CB3D872C861E030029087C /* CollectionViewCells */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
 		26CB3D882C861E560029087C /* BannerCollectionViewCell */ = {

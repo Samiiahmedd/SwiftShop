@@ -34,9 +34,11 @@ class NewArriivalCollectionViewCell: UICollectionViewCell {
     @IBAction func favouriteButton(_ sender: Any) {
         // Add product to favourites
     }
-    
-    //MARK: - Function
-    
+}
+
+// MARK: - SETUP CELL
+
+extension NewArriivalCollectionViewCell {
     func Setup(newArrival: NewArrivalModel) {
         imageView.image = newArrival.productImage
         productTitleLabel.text = newArrival.productTitle

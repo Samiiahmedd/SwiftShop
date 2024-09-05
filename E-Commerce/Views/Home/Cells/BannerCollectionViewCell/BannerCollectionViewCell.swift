@@ -24,13 +24,13 @@ class BannerCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-    
-    //MARK: - Function
-    
+}
+
+//MARK: - Extention
+
+extension BannerCollectionViewCell {
     func Setup(banner: BannerModel) {
         bannerImageView.image = banner.image
 
     }
-
-
 }
