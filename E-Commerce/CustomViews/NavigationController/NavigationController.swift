@@ -18,7 +18,7 @@ class GFNavigationController: UINavigationController {
 //            self.viewControllers = [LoginVC()]
 //        }
 //        else {
-            self.viewControllers = [SearchCategoriesViewController()]
+            self.viewControllers = [CartViewController()]
 //        }
     }
 }
