@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomNavBar" customModule="E_Commerce" customModuleProvider="target">
             <connections>
                 <outlet property="containerView" destination="xzv-ju-ras" id="zC7-wk-BOg"/>
+                <outlet property="firstLeadingButton" destination="JGG-Eh-kih" id="1J8-RR-bMf"/>
                 <outlet property="firstTralingButton" destination="zBe-ek-Lgi" id="ABc-CE-Kjc"/>
             </connections>
         </placeholder>
@@ -23,22 +24,25 @@
                     <rect key="frame" x="24" y="48" width="609" height="100"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="TU7-Po-p9S">
-                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="100"/>
+                            <rect key="frame" x="0.0" y="0.0" width="75" height="100"/>
                             <subviews>
                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZk-JK-XJh">
-                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="38.333333333333336"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="100"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 </button>
-                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JGG-Eh-kih">
-                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="38.333333333333336"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JGG-Eh-kih" userLabel="firstLeading">
+                                    <rect key="frame" x="0.0" y="0.0" width="75" height="100"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                    <connections>
+                                        <action selector="firstLeadingButtonAction:" destination="-1" eventType="touchUpInside" id="g5g-sZ-S5V"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>
                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Model" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkh-eF-K6g">
-                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="100"/>
+                            <rect key="frame" x="75" y="0.0" width="0.0" height="100"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>

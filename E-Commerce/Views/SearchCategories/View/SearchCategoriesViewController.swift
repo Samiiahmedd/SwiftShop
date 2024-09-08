@@ -13,6 +13,7 @@ class SearchCategoriesViewController: UIViewController {
     
     @IBOutlet var searchCategoriesCollectionView: UICollectionView!
     
+    @IBOutlet weak var SearchView: UIView!
     //MARK: - Variables
     
     let viewModel = SearchCategoriesViewModel()

@@ -49,7 +49,6 @@ private extension HomeVC {
         configureTableViews()
         registerCells()
         configureNavBar()
-        
     }
     
     func configureNavBar() {
@@ -57,12 +56,19 @@ private extension HomeVC {
             with: "",
             and: UIImage(systemName: "magnifyingglass")!) {
                 print("Button tapped")
-                let search = SearchCategoriesViewController()
-                search.modalPresentationStyle = .overFullScreen
-                search.modalTransitionStyle = .crossDissolve
-                self.present(search, animated: true)
+                let search = SearchCategoriesViewController(nibName: "SearchCategoriesViewController", bundle: nil)
+                self.navigationController?.pushViewController(search, animated: true)
+            }
+        
+        navBar.setupFirstLeadingButton(
+            with: "",
+            and: UIImage(named: "menu")!) {
+                print("Button tapped")
+                let search = SearchCategoriesViewController(nibName: "SearchCategoriesViewController", bundle: nil)
+                self.navigationController?.pushViewController(search, animated: true)
             }
         navBar.tintColor = .black
+       
     }
     
     
@@ -121,7 +127,7 @@ extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UIColle
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch collectionView {
         case bannerCollectionView:
-            return CGSize(width: fullScreenWidth, height: collectionView.collectionViewHeight)
+            return CGSize(width: fullScreenWidth, height: collectionView.collectionViewHeight+20)
             
         case newArriivalCollectionView:
             return CGSize(width: halfScreenWidth - 40, height: collectionView.collectionViewHeight)
