@@ -17,7 +17,6 @@ class HomeVC: UIViewController{
     @IBOutlet var bannerCollectionView: UICollectionView!
     @IBOutlet var newArriivalCollectionView: UICollectionView!
     @IBOutlet var popularTableView: SelfSizedTableView!
-//    @IBOutlet var popularTableViewHeightConstraint: NSLayoutConstraint!
     
     // MARK: - Variables
     
@@ -29,7 +28,6 @@ class HomeVC: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-//        popularTableView.heightDelegate = self
     }
     
     override func viewWillLayoutSubviews() {
@@ -151,19 +149,3 @@ extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UIColle
     }
     
 }
-
-// MARK: - UIScrollViewHeightDelegate
-
-//extension HomeVC:UIScrollViewHeightDelegate {
-//    func scrollView(_ scrollView: UIScrollView, didScrollViewHeightChange height: CGFloat) {
-//        popularTableViewHeightConstraint.constant = height
-//        view.layoutIfNeeded()
-//    }
-//}
-
-
-
-
-
-
-
