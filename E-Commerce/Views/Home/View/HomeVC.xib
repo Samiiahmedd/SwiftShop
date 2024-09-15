@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -14,7 +15,6 @@
                 <outlet property="navBar" destination="ArT-kB-fTQ" id="4dg-ld-Yh7"/>
                 <outlet property="newArriivalCollectionView" destination="tt8-Sg-vgr" id="LCO-wN-xrp"/>
                 <outlet property="popularTableView" destination="pQc-Qn-40y" id="u7M-bt-jcH"/>
-                <outlet property="popularTableViewHeightConstraint" destination="3aw-kT-r69" id="1ca-SQ-sjL"/>
                 <outlet property="scrollView" destination="Sgx-Jg-aMv" id="WZJ-Ob-RBF"/>
                 <outlet property="stackView" destination="hiW-j3-sPa" id="TqI-nq-2bH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -36,10 +36,10 @@
                     <rect key="frame" x="0.0" y="128" width="393" height="690"/>
                     <subviews>
                         <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="lvF-71-4S4" userLabel="Container">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="920"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="820"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="hiW-j3-sPa">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="920"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="820"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="yGK-Ny-d34">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="210"/>
@@ -104,7 +104,7 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bwC-yP-Sng">
-                                            <rect key="frame" x="0.0" y="592" width="393" height="328"/>
+                                            <rect key="frame" x="0.0" y="592" width="393" height="228"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wbg-fD-siH">
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="128"/>
@@ -137,10 +137,10 @@
                                                         <constraint firstItem="OzD-8k-tWz" firstAttribute="leading" secondItem="wbg-fD-siH" secondAttribute="leading" constant="24" id="zHb-b3-qhs"/>
                                                     </constraints>
                                                 </view>
-                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pQc-Qn-40y" customClass="SelfSizedUITableView" customModule="E_Commerce" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="128" width="393" height="200"/>
+                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pQc-Qn-40y" customClass="SelfSizedTableView" customModule="E_Commerce" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="128" width="393" height="100"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="200" id="3aw-kT-r69"/>
+                                                        <constraint firstAttribute="height" constant="100" placeholder="YES" id="3aw-kT-r69"/>
                                                     </constraints>
                                                 </tableView>
                                             </subviews>

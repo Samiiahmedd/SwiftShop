@@ -2,11 +2,12 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,14 +20,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="342" height="93"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RTl-hc-MpS">
-                        <rect key="frame" x="0.0" y="0.0" width="342" height="93"/>
+                    <view opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="RTl-hc-MpS">
+                        <rect key="frame" x="4" y="8" width="334" height="77"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="59" translatesAutoresizingMaskIntoConstraints="NO" id="pgA-00-CH6">
-                                <rect key="frame" x="8" y="8" width="326" height="77"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="pgA-00-CH6">
+                                <rect key="frame" x="8" y="8" width="318" height="61"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Hje-ON-X6X">
-                                        <rect key="frame" x="0.0" y="8" width="207" height="61"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="61"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="popular" translatesAutoresizingMaskIntoConstraints="NO" id="q9f-x3-yat">
                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="61"/>
@@ -36,12 +37,12 @@
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="9"/>
+                                                        <real key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Uxs-Tj-k05">
-                                                <rect key="frame" x="72" y="0.0" width="135" height="61"/>
+                                                <rect key="frame" x="72" y="0.0" width="178" height="61"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="K8O-eL-WCL">
                                                         <rect key="frame" x="0.0" y="0.0" width="102" height="34.333333333333336"/>
@@ -85,7 +86,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$740.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQg-Og-NZk">
-                                        <rect key="frame" x="266" y="29.666666666666664" width="60" height="18"/>
+                                        <rect key="frame" x="258" y="21.666666666666664" width="60" height="18"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -93,28 +94,20 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="pgA-00-CH6" firstAttribute="top" secondItem="RTl-hc-MpS" secondAttribute="top" constant="8" id="Igg-z6-tmc"/>
                             <constraint firstAttribute="bottom" secondItem="pgA-00-CH6" secondAttribute="bottom" constant="8" id="RYT-9r-exs"/>
+                            <constraint firstAttribute="trailing" secondItem="pgA-00-CH6" secondAttribute="trailing" constant="8" id="TWm-HG-09L"/>
                             <constraint firstItem="pgA-00-CH6" firstAttribute="leading" secondItem="RTl-hc-MpS" secondAttribute="leading" constant="8" id="reT-uu-JJf"/>
-                            <constraint firstAttribute="trailing" secondItem="pgA-00-CH6" secondAttribute="trailing" constant="8" id="uGK-fm-wiE"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="10"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                <real key="value" value="0.0"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="RTl-hc-MpS" secondAttribute="trailing" id="AyS-EX-m2x"/>
-                    <constraint firstItem="RTl-hc-MpS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="I7s-pC-2Nn"/>
-                    <constraint firstAttribute="bottom" secondItem="RTl-hc-MpS" secondAttribute="bottom" id="M3R-Y2-Nkh"/>
-                    <constraint firstItem="RTl-hc-MpS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="zLO-8T-5Hq"/>
+                    <constraint firstItem="RTl-hc-MpS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="0bC-Er-wHI"/>
+                    <constraint firstAttribute="trailing" secondItem="RTl-hc-MpS" secondAttribute="trailing" constant="4" id="Km6-eL-FFz"/>
+                    <constraint firstAttribute="bottom" secondItem="RTl-hc-MpS" secondAttribute="bottom" constant="8" id="LtH-fq-Ruk"/>
+                    <constraint firstItem="RTl-hc-MpS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="TJK-nH-ny2"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -124,6 +117,7 @@
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
             <connections>
+                <outlet property="mainView" destination="RTl-hc-MpS" id="J0x-ew-e72"/>
                 <outlet property="productDescription" destination="oNu-kN-tbf" id="VYa-Qx-0Ox"/>
                 <outlet property="productImage" destination="q9f-x3-yat" id="MHj-Wb-psQ"/>
                 <outlet property="productPrice" destination="iQg-Og-NZk" id="Fj3-PU-kII"/>
@@ -139,8 +133,5 @@
         <namedColor name="AccentColor">
             <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

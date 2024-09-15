@@ -11,11 +11,12 @@ class PopularsTableViewCell: UITableViewCell {
 
     //MARK: -IBoutlets
     
-    @IBOutlet var productImage: UIImageView!
-    @IBOutlet var productTitle: UILabel!
-    @IBOutlet var productDescription: UILabel!
-    @IBOutlet var productRating: UILabel!
-    @IBOutlet var productPrice: UILabel!
+    @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var productImage: UIImageView!
+    @IBOutlet weak var productTitle: UILabel!
+    @IBOutlet weak var productDescription: UILabel!
+    @IBOutlet weak var productRating: UILabel!
+    @IBOutlet weak var productPrice: UILabel!
     
     // MARK: - variables
 
@@ -28,6 +29,18 @@ class PopularsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        conigureViewShadow()
+        self.selectionStyle = .none
+    }
+    
+    func conigureViewShadow() {
+        mainView.layer.cornerRadius = 8
+        mainView.layer.masksToBounds = false
+        
+        mainView.layer.shadowColor = UIColor.black.cgColor
+        mainView.layer.shadowOffset = CGSize(width: 0, height: 2)
+        mainView.layer.shadowRadius = 5
+        mainView.layer.shadowOpacity = 0.3
     }
 }
 

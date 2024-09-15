@@ -8,19 +8,15 @@
 import Foundation
 import UIKit
 
-class SelfSizedUITableView: UITableView {
-    
-    weak var heightDelegate: UIScrollViewHeightDelegate? // تصحيح الاسم
+class SelfSizedTableView: UITableView {
+    override var intrinsicContentSize: CGSize {
+        self.layoutIfNeeded()
+        return self.contentSize
+    }
     
     override var contentSize: CGSize {
         didSet {
-            // إعلام الـ delegate بارتفاع المحتوى الجديد دون ضرب بـ zoomScale
-            heightDelegate?.scrollView(self, didScrollViewHeightChange: contentSize.height)
+            self.invalidateIntrinsicContentSize()
         }
     }
 }
-
-protocol UIScrollViewHeightDelegate: AnyObject { // تصحيح الاسم
-    func scrollView(_ scrollView: UIScrollView, didScrollViewHeightChange height: CGFloat)
-}
-

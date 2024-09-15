@@ -16,8 +16,6 @@ class StartScreenViewController: UIViewController {
     //MARK: -ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.isNavigationBarHidden = true
-
     }
     
     //MARK: -IBAction
