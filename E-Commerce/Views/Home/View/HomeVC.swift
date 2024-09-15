@@ -36,7 +36,6 @@ class HomeVC: UIViewController{
         sleep(2)
         popularTableView.reloadData()
     }
-    
 }
 
 // MARK: - SETUP VIEW

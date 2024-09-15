@@ -472,12 +472,12 @@
 			isa = PBXGroup;
 			children = (
 				7FBAD9CD2C965C2100CBA3D2 /* Auth */,
+				269363B62C821AAE00662442 /* MainTabBar */,
+				269363B92C821C2C00662442 /* Home */,
 				26FCD8442C8D25B900D7C3A8 /* Cart */,
 				2610DCFF2C8CBD4D005739A3 /* ProductDetails */,
 				2658C9A02C8B1FF20044CC37 /* Categories */,
 				26AE38A52C89D86D0086E8FB /* SearchCategories */,
-				269363B92C821C2C00662442 /* Home */,
-				269363B62C821AAE00662442 /* MainTabBar */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1100,9 +1100,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X9L33G82W3;
+				DEVELOPMENT_TEAM = 587KJ2SYVV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "E-Commerce/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1128,9 +1129,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X9L33G82W3;
+				DEVELOPMENT_TEAM = 587KJ2SYVV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "E-Commerce/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
