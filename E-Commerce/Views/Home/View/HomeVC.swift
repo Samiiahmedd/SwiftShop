@@ -125,7 +125,7 @@ extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UIColle
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch collectionView {
         case bannerCollectionView:
-            return CGSize(width: fullScreenWidth, height: collectionView.collectionViewHeight+20)
+            return CGSize(width: fullScreenWidth-40, height: collectionView.collectionViewHeight)
             
         case newArriivalCollectionView:
             return CGSize(width: halfScreenWidth - 40, height: collectionView.collectionViewHeight)

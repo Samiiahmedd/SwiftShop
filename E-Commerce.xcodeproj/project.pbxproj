@@ -26,18 +26,6 @@
 		2658C9A72C8B212F0044CC37 /* ClothesCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2658C9A62C8B212F0044CC37 /* ClothesCategoryViewController.xib */; };
 		2658C9A82C8B212F0044CC37 /* ClothesCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2658C9A52C8B212F0044CC37 /* ClothesCategoryViewController.swift */; };
 		2658C9AA2C8B220D0044CC37 /* ClothesCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2658C9A92C8B220D0044CC37 /* ClothesCategoryViewModel.swift */; };
-		2658C9B02C8B36110044CC37 /* BagsCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2658C9AF2C8B36110044CC37 /* BagsCategoryViewController.xib */; };
-		2658C9B12C8B36110044CC37 /* BagsCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2658C9AE2C8B36110044CC37 /* BagsCategoryViewController.swift */; };
-		2658C9B32C8B36200044CC37 /* BagsCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2658C9B22C8B36200044CC37 /* BagsCategoryViewModel.swift */; };
-		2658C9B92C8B3A680044CC37 /* NewArrivalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2658C9B82C8B3A680044CC37 /* NewArrivalViewController.xib */; };
-		2658C9BA2C8B3A680044CC37 /* NewArrivalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2658C9B72C8B3A680044CC37 /* NewArrivalViewController.swift */; };
-		2658C9BC2C8B3A7B0044CC37 /* NewArrivalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2658C9BB2C8B3A7B0044CC37 /* NewArrivalViewModel.swift */; };
-		2658C9C22C8B3F0F0044CC37 /* ShosesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2658C9C12C8B3F0F0044CC37 /* ShosesViewController.xib */; };
-		2658C9C32C8B3F0F0044CC37 /* ShosesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2658C9C02C8B3F0F0044CC37 /* ShosesViewController.swift */; };
-		2658C9C52C8B3F1F0044CC37 /* ShosesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2658C9C42C8B3F1F0044CC37 /* ShosesViewModel.swift */; };
-		2658C9CB2C8B40F40044CC37 /* ElectronicsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2658C9CA2C8B40F40044CC37 /* ElectronicsViewController.xib */; };
-		2658C9CC2C8B40F40044CC37 /* ElectronicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2658C9C92C8B40F40044CC37 /* ElectronicsViewController.swift */; };
-		2658C9CE2C8B41000044CC37 /* ElectronicsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2658C9CD2C8B41000044CC37 /* ElectronicsViewModel.swift */; };
 		266859382C482A0200EC2718 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266859372C482A0200EC2718 /* AppDelegate.swift */; };
 		2668593A2C482A0200EC2718 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266859392C482A0200EC2718 /* SceneDelegate.swift */; };
 		266859412C482A0500EC2718 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 266859402C482A0500EC2718 /* Assets.xcassets */; };
@@ -103,18 +91,6 @@
 		2658C9A52C8B212F0044CC37 /* ClothesCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCategoryViewController.swift; sourceTree = "<group>"; };
 		2658C9A62C8B212F0044CC37 /* ClothesCategoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClothesCategoryViewController.xib; sourceTree = "<group>"; };
 		2658C9A92C8B220D0044CC37 /* ClothesCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCategoryViewModel.swift; sourceTree = "<group>"; };
-		2658C9AE2C8B36110044CC37 /* BagsCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagsCategoryViewController.swift; sourceTree = "<group>"; };
-		2658C9AF2C8B36110044CC37 /* BagsCategoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BagsCategoryViewController.xib; sourceTree = "<group>"; };
-		2658C9B22C8B36200044CC37 /* BagsCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagsCategoryViewModel.swift; sourceTree = "<group>"; };
-		2658C9B72C8B3A680044CC37 /* NewArrivalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArrivalViewController.swift; sourceTree = "<group>"; };
-		2658C9B82C8B3A680044CC37 /* NewArrivalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewArrivalViewController.xib; sourceTree = "<group>"; };
-		2658C9BB2C8B3A7B0044CC37 /* NewArrivalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArrivalViewModel.swift; sourceTree = "<group>"; };
-		2658C9C02C8B3F0F0044CC37 /* ShosesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShosesViewController.swift; sourceTree = "<group>"; };
-		2658C9C12C8B3F0F0044CC37 /* ShosesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShosesViewController.xib; sourceTree = "<group>"; };
-		2658C9C42C8B3F1F0044CC37 /* ShosesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShosesViewModel.swift; sourceTree = "<group>"; };
-		2658C9C92C8B40F40044CC37 /* ElectronicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectronicsViewController.swift; sourceTree = "<group>"; };
-		2658C9CA2C8B40F40044CC37 /* ElectronicsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ElectronicsViewController.xib; sourceTree = "<group>"; };
-		2658C9CD2C8B41000044CC37 /* ElectronicsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectronicsViewModel.swift; sourceTree = "<group>"; };
 		266859342C482A0200EC2718 /* E-Commerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "E-Commerce.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		266859372C482A0200EC2718 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		266859392C482A0200EC2718 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -269,11 +245,7 @@
 		2658C9A02C8B1FF20044CC37 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				2658C9C62C8B40D20044CC37 /* ElectronicsCategory */,
-				2658C9BD2C8B3ED60044CC37 /* ShosesCategory */,
-				2658C9B42C8B3A180044CC37 /* NewArrivalCategory */,
-				2658C9AB2C8B35E60044CC37 /* BagsCategory */,
-				2658C9A42C8B210F0044CC37 /* ClothesCategory */,
+				2658C9A42C8B210F0044CC37 /* CategoryScreen */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -295,117 +267,13 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		2658C9A42C8B210F0044CC37 /* ClothesCategory */ = {
+		2658C9A42C8B210F0044CC37 /* CategoryScreen */ = {
 			isa = PBXGroup;
 			children = (
 				2658C9A32C8B20650044CC37 /* ViewModel */,
 				2658C9A22C8B205F0044CC37 /* View */,
 			);
-			path = ClothesCategory;
-			sourceTree = "<group>";
-		};
-		2658C9AB2C8B35E60044CC37 /* BagsCategory */ = {
-			isa = PBXGroup;
-			children = (
-				2658C9AD2C8B36040044CC37 /* ViewModel */,
-				2658C9AC2C8B35F00044CC37 /* View */,
-			);
-			path = BagsCategory;
-			sourceTree = "<group>";
-		};
-		2658C9AC2C8B35F00044CC37 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				2658C9AE2C8B36110044CC37 /* BagsCategoryViewController.swift */,
-				2658C9AF2C8B36110044CC37 /* BagsCategoryViewController.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		2658C9AD2C8B36040044CC37 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				2658C9B22C8B36200044CC37 /* BagsCategoryViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		2658C9B42C8B3A180044CC37 /* NewArrivalCategory */ = {
-			isa = PBXGroup;
-			children = (
-				2658C9B62C8B3A440044CC37 /* ViewModel */,
-				2658C9B52C8B3A3D0044CC37 /* View */,
-			);
-			path = NewArrivalCategory;
-			sourceTree = "<group>";
-		};
-		2658C9B52C8B3A3D0044CC37 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				2658C9B72C8B3A680044CC37 /* NewArrivalViewController.swift */,
-				2658C9B82C8B3A680044CC37 /* NewArrivalViewController.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		2658C9B62C8B3A440044CC37 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				2658C9BB2C8B3A7B0044CC37 /* NewArrivalViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		2658C9BD2C8B3ED60044CC37 /* ShosesCategory */ = {
-			isa = PBXGroup;
-			children = (
-				2658C9BF2C8B3EF20044CC37 /* ViewModel */,
-				2658C9BE2C8B3EED0044CC37 /* View */,
-			);
-			path = ShosesCategory;
-			sourceTree = "<group>";
-		};
-		2658C9BE2C8B3EED0044CC37 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				2658C9C02C8B3F0F0044CC37 /* ShosesViewController.swift */,
-				2658C9C12C8B3F0F0044CC37 /* ShosesViewController.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		2658C9BF2C8B3EF20044CC37 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				2658C9C42C8B3F1F0044CC37 /* ShosesViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		2658C9C62C8B40D20044CC37 /* ElectronicsCategory */ = {
-			isa = PBXGroup;
-			children = (
-				2658C9C82C8B40E00044CC37 /* ViewModel */,
-				2658C9C72C8B40DA0044CC37 /* View */,
-			);
-			path = ElectronicsCategory;
-			sourceTree = "<group>";
-		};
-		2658C9C72C8B40DA0044CC37 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				2658C9C92C8B40F40044CC37 /* ElectronicsViewController.swift */,
-				2658C9CA2C8B40F40044CC37 /* ElectronicsViewController.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		2658C9C82C8B40E00044CC37 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				2658C9CD2C8B41000044CC37 /* ElectronicsViewModel.swift */,
-			);
-			path = ViewModel;
+			path = CategoryScreen;
 			sourceTree = "<group>";
 		};
 		2668592B2C482A0200EC2718 = {
@@ -588,7 +456,7 @@
 		26AE38A52C89D86D0086E8FB /* SearchCategories */ = {
 			isa = PBXGroup;
 			children = (
-				26AE38B52C89DAD90086E8FB /* TableViewCell */,
+				26AE38B52C89DAD90086E8FB /* CollectionViewCell */,
 				26AE38A82C89D8820086E8FB /* ViewModel */,
 				26AE38A72C89D87E0086E8FB /* View */,
 			);
@@ -612,12 +480,12 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		26AE38B52C89DAD90086E8FB /* TableViewCell */ = {
+		26AE38B52C89DAD90086E8FB /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
 				26AE38B62C89DAF20086E8FB /* SearchCategoriesCollectionViewCell */,
 			);
-			path = TableViewCell;
+			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
 		26AE38B62C89DAF20086E8FB /* SearchCategoriesCollectionViewCell */ = {
@@ -878,7 +746,6 @@
 				26347A692C5D987700F500CB /* SignUpViewController.xib in Resources */,
 				2658C9A72C8B212F0044CC37 /* ClothesCategoryViewController.xib in Resources */,
 				26D66DAD2C603D6A00EC03A9 /* SucessViewController.xib in Resources */,
-				2658C9B02C8B36110044CC37 /* BagsCategoryViewController.xib in Resources */,
 				260781352C48917C00B778A2 /* StartScreenViewController.xib in Resources */,
 				2610DD062C8CBD92005739A3 /* ProductDetailsViewController.xib in Resources */,
 				266859442C482A0500EC2718 /* Base in Resources */,
@@ -888,13 +755,10 @@
 				26B043182C871880005DFF6A /* NewArriivalCollectionViewCell.xib in Resources */,
 				26FCD84B2C8D264000D7C3A8 /* CartViewController.xib in Resources */,
 				269363CC2C821F0100662442 /* HomeVC.xib in Resources */,
-				2658C9CB2C8B40F40044CC37 /* ElectronicsViewController.xib in Resources */,
 				26AE38C02C89E0EC0086E8FB /* SearchCategoriesCollectionViewCell.xib in Resources */,
 				26C301072C89130800CFE4AD /* PopularsTableViewCell.xib in Resources */,
 				26CB3D8C2C861E960029087C /* BannerCollectionViewCell.xib in Resources */,
-				2658C9C22C8B3F0F0044CC37 /* ShosesViewController.xib in Resources */,
 				26FCD8552C8D26A400D7C3A8 /* CartCollectionViewCell.xib in Resources */,
-				2658C9B92C8B3A680044CC37 /* NewArrivalViewController.xib in Resources */,
 				26AE38AF2C89D8E20086E8FB /* SearchCategoriesViewController.xib in Resources */,
 				7F5B02012C89007A00573B53 /* CustomNavBar.xib in Resources */,
 			);
@@ -915,15 +779,12 @@
 				7FBAD9C12C961D0400CBA3D2 /* LoginVIewModel.swift in Sources */,
 				2689C9942C4A47A200033590 /* LoginViewController.swift in Sources */,
 				2623C9492C889A770084D5F5 /* NewArrivalModel.swift in Sources */,
-				2658C9CC2C8B40F40044CC37 /* ElectronicsViewController.swift in Sources */,
 				2610DD052C8CBD92005739A3 /* ProductDetailsViewController.swift in Sources */,
-				2658C9B12C8B36110044CC37 /* BagsCategoryViewController.swift in Sources */,
 				26FCD84A2C8D264000D7C3A8 /* CartViewController.swift in Sources */,
 				2658C9AA2C8B220D0044CC37 /* ClothesCategoryViewModel.swift in Sources */,
 				26B043192C871880005DFF6A /* NewArriivalCollectionViewCell.swift in Sources */,
 				26AE38B02C89D8E20086E8FB /* SearchCategoriesViewController.swift in Sources */,
 				2669F0372C88CEEE00A386B2 /* PopularModel.swift in Sources */,
-				2658C9C52C8B3F1F0044CC37 /* ShosesViewModel.swift in Sources */,
 				2610DD0C2C8CBDC5005739A3 /* ProductDetailsModel.swift in Sources */,
 				7F5B01FF2C89006800573B53 /* CustomNavBar.swift in Sources */,
 				260781342C48917C00B778A2 /* StartScreenViewController.swift in Sources */,
@@ -934,25 +795,20 @@
 				26AE38BD2C89DFC90086E8FB /* SerachCategoriesModel.swift in Sources */,
 				26C301082C89130800CFE4AD /* PopularsTableViewCell.swift in Sources */,
 				269363CB2C821F0100662442 /* HomeVC.swift in Sources */,
-				2658C9C32C8B3F0F0044CC37 /* ShosesViewController.swift in Sources */,
 				26AE38C12C89E0EC0086E8FB /* SearchCategoriesCollectionViewCell.swift in Sources */,
 				262786312C483F580024D80B /* OnBoardingModel.swift in Sources */,
-				2658C9BC2C8B3A7B0044CC37 /* NewArrivalViewModel.swift in Sources */,
-				2658C9BA2C8B3A680044CC37 /* NewArrivalViewController.swift in Sources */,
 				26347A682C5D987600F500CB /* SignUpViewController.swift in Sources */,
 				266859382C482A0200EC2718 /* AppDelegate.swift in Sources */,
 				7FBAD9C72C964CB600CBA3D2 /* SignUpViewModel.swift in Sources */,
 				26FCD84E2C8D265700D7C3A8 /* CartViewModel.swift in Sources */,
 				2668593A2C482A0200EC2718 /* SceneDelegate.swift in Sources */,
 				7FBAD9CA2C96505200CBA3D2 /* FirebaseManager.swift in Sources */,
-				2658C9CE2C8B41000044CC37 /* ElectronicsViewModel.swift in Sources */,
 				26CB3D8F2C861ED20029087C /* BannerModel.swift in Sources */,
 				26AE38C32C89EE420086E8FB /* SelfSizedUITableView.swift in Sources */,
 				7FBAD9CC2C96551B00CBA3D2 /* UIViewControllerExtention.swift in Sources */,
 				2668595D2C48313400EC2718 /* UIView+Extentions.swift in Sources */,
 				26FCD8542C8D26A400D7C3A8 /* CartCollectionViewCell.swift in Sources */,
 				26CB3D8B2C861E960029087C /* BannerCollectionViewCell.swift in Sources */,
-				2658C9B32C8B36200044CC37 /* BagsCategoryViewModel.swift in Sources */,
 				7F5B02032C89034900573B53 /* CollectionView+.swift in Sources */,
 				269363B82C821AFF00662442 /* MainTabBarViewController.swift in Sources */,
 				260781302C488E0400B778A2 /* Fonts.swift in Sources */,

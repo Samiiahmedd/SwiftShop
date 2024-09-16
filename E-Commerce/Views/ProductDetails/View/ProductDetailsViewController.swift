@@ -14,9 +14,8 @@ class ProductDetailsViewController: UIViewController {
     @IBOutlet var addToCartButton: UIButton!
     @IBOutlet var favouriteButton: UIButton!
     
-    @IBOutlet var productName: UILabel!
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet var secondView: UIView!
-    @IBOutlet var productDescription: UILabel!
     //MARK: - Variables
     
     
@@ -24,7 +23,8 @@ class ProductDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        secondView.roundCorners(corners: [.topLeft,.topRight], radius:20 )
+        secondView.roundCorners(corners: [.topLeft,.topRight], radius:30 )
+        
         
     }
     

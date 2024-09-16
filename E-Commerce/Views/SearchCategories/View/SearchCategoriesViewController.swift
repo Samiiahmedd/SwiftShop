@@ -69,26 +69,6 @@ extension SearchCategoriesViewController: UICollectionViewDelegate,UICollectionV
             let clothesCategoryVC = ClothesCategoryViewController(nibName: "ClothesCategoryViewController", bundle: nil)
             clothesCategoryVC.title = "Clothes"
             navigationController?.pushViewController(clothesCategoryVC, animated: true)
-            
-        case "Bags":
-            let bagsCategoryVC = BagsCategoryViewController(nibName: "BagsCategoryViewController", bundle: nil)
-            bagsCategoryVC.title = "Bags"
-            navigationController?.pushViewController(bagsCategoryVC, animated: true)
-            
-        case "New Arrivals":
-            let newArrivalVC = NewArrivalViewController(nibName: "NewArrivalViewController", bundle: nil)
-            newArrivalVC.title = "New Arrivals"
-            navigationController?.pushViewController(newArrivalVC, animated: true)
-            
-        case "Shoses":
-            let shosesVC = ShosesViewController(nibName: "ShosesViewController", bundle: nil)
-            shosesVC.title = "Shoses"
-            navigationController?.pushViewController(shosesVC, animated: true)   
-            
-        case "Electronics":
-            let elecronicVC = ElectronicsViewController(nibName: "ElectronicsViewController", bundle: nil)
-            elecronicVC.title = "Electronics"
-            navigationController?.pushViewController(elecronicVC, animated: true)
         default:
             break
         }
