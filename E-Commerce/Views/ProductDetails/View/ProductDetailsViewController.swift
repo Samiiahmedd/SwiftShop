@@ -11,13 +11,19 @@ class ProductDetailsViewController: UIViewController {
     //MARK: - IBOUTLETS
     
     @IBOutlet var productImage: UIImageView!
+    @IBOutlet weak var productName: UILabel!
+    @IBOutlet weak var productDescription: UILabel!
+    @IBOutlet weak var productReviews: UILabel!
     @IBOutlet var addToCartButton: UIButton!
     @IBOutlet var favouriteButton: UIButton!
-    
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var stepperView: StapperView!
     @IBOutlet var secondView: UIView!
-    //MARK: - Variables
-    
+
+    @IBOutlet weak var productFullDescription: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var sizeCollectionView: UICollectionView!
+    @IBOutlet weak var colorsCollectionView: UICollectionView!
     
     //MARK: - VIEWLIFECYCLE
     
@@ -36,5 +42,7 @@ class ProductDetailsViewController: UIViewController {
     @IBAction func favouriteButton(_ sender: Any) {
     }
     
+    @IBAction func addToCartFooterButton(_ sender: Any) {
+    }
 }
 
