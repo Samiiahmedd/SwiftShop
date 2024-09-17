@@ -34,6 +34,7 @@
 		266859662C4836C400EC2718 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266859642C4836C400EC2718 /* OnBoardingViewController.swift */; };
 		266859672C4836C400EC2718 /* OnBoardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 266859652C4836C400EC2718 /* OnBoardingViewController.xib */; };
 		2669F0372C88CEEE00A386B2 /* PopularModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2669F0362C88CEEE00A386B2 /* PopularModel.swift */; };
+		2683A0492C990DEE0032A3FA /* SizeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2683A0482C990DEE0032A3FA /* SizeModel.swift */; };
 		2689C9932C4A47A200033590 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2689C9922C4A47A200033590 /* LoginViewController.xib */; };
 		2689C9942C4A47A200033590 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2689C9912C4A47A200033590 /* LoginViewController.swift */; };
 		269363B82C821AFF00662442 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269363B72C821AFF00662442 /* MainTabBarViewController.swift */; };
@@ -48,6 +49,8 @@
 		26AE38C32C89EE420086E8FB /* SelfSizedUITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AE38C22C89EE420086E8FB /* SelfSizedUITableView.swift */; };
 		26B043182C871880005DFF6A /* NewArriivalCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26B043172C871880005DFF6A /* NewArriivalCollectionViewCell.xib */; };
 		26B043192C871880005DFF6A /* NewArriivalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B043162C871880005DFF6A /* NewArriivalCollectionViewCell.swift */; };
+		26B39D462C990FD5002582DC /* SizeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26B39D452C990FD5002582DC /* SizeCollectionViewCell.xib */; };
+		26B39D472C990FD5002582DC /* SizeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B39D442C990FD5002582DC /* SizeCollectionViewCell.swift */; };
 		26C301022C88F86D00CFE4AD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26C301012C88F86D00CFE4AD /* GoogleService-Info.plist */; };
 		26C301072C89130800CFE4AD /* PopularsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26C301062C89130800CFE4AD /* PopularsTableViewCell.xib */; };
 		26C301082C89130800CFE4AD /* PopularsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C301052C89130800CFE4AD /* PopularsTableViewCell.swift */; };
@@ -101,6 +104,7 @@
 		266859642C4836C400EC2718 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		266859652C4836C400EC2718 /* OnBoardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnBoardingViewController.xib; sourceTree = "<group>"; };
 		2669F0362C88CEEE00A386B2 /* PopularModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularModel.swift; sourceTree = "<group>"; };
+		2683A0482C990DEE0032A3FA /* SizeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeModel.swift; sourceTree = "<group>"; };
 		2689C9912C4A47A200033590 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2689C9922C4A47A200033590 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		269363B72C821AFF00662442 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +119,8 @@
 		26AE38C22C89EE420086E8FB /* SelfSizedUITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizedUITableView.swift; sourceTree = "<group>"; };
 		26B043162C871880005DFF6A /* NewArriivalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArriivalCollectionViewCell.swift; sourceTree = "<group>"; };
 		26B043172C871880005DFF6A /* NewArriivalCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewArriivalCollectionViewCell.xib; sourceTree = "<group>"; };
+		26B39D442C990FD5002582DC /* SizeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeCollectionViewCell.swift; sourceTree = "<group>"; };
+		26B39D452C990FD5002582DC /* SizeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SizeCollectionViewCell.xib; sourceTree = "<group>"; };
 		26C301012C88F86D00CFE4AD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		26C301052C89130800CFE4AD /* PopularsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularsTableViewCell.swift; sourceTree = "<group>"; };
 		26C301062C89130800CFE4AD /* PopularsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularsTableViewCell.xib; sourceTree = "<group>"; };
@@ -175,6 +181,7 @@
 		2610DCFF2C8CBD4D005739A3 /* ProductDetails */ = {
 			isa = PBXGroup;
 			children = (
+				2683A0422C9909FC0032A3FA /* CollectionViewCells */,
 				2610DD022C8CBD7B005739A3 /* ViewModel */,
 				2610DD012C8CBD70005739A3 /* View */,
 				2610DD002C8CBD6D005739A3 /* Model */,
@@ -374,6 +381,24 @@
 				266859652C4836C400EC2718 /* OnBoardingViewController.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		2683A0422C9909FC0032A3FA /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				2683A0472C990DD80032A3FA /* SizeCell */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		2683A0472C990DD80032A3FA /* SizeCell */ = {
+			isa = PBXGroup;
+			children = (
+				2683A0482C990DEE0032A3FA /* SizeModel.swift */,
+				26B39D442C990FD5002582DC /* SizeCollectionViewCell.swift */,
+				26B39D452C990FD5002582DC /* SizeCollectionViewCell.xib */,
+			);
+			path = SizeCell;
 			sourceTree = "<group>";
 		};
 		2689C98B2C4A475B00033590 /* Login */ = {
@@ -752,6 +777,7 @@
 				26C301022C88F86D00CFE4AD /* GoogleService-Info.plist in Resources */,
 				264ACA972C8DE4D1001B0AE3 /* StapperView.xib in Resources */,
 				2689C9932C4A47A200033590 /* LoginViewController.xib in Resources */,
+				26B39D462C990FD5002582DC /* SizeCollectionViewCell.xib in Resources */,
 				26B043182C871880005DFF6A /* NewArriivalCollectionViewCell.xib in Resources */,
 				26FCD84B2C8D264000D7C3A8 /* CartViewController.xib in Resources */,
 				269363CC2C821F0100662442 /* HomeVC.xib in Resources */,
@@ -792,6 +818,7 @@
 				260781382C48982800B778A2 /* NavigationController.swift in Sources */,
 				26AE38B22C89D9300086E8FB /* SearchCategoriesViewModel.swift in Sources */,
 				2610DD092C8CBDAE005739A3 /* ProductDetailsViewModel.swift in Sources */,
+				2683A0492C990DEE0032A3FA /* SizeModel.swift in Sources */,
 				26AE38BD2C89DFC90086E8FB /* SerachCategoriesModel.swift in Sources */,
 				26C301082C89130800CFE4AD /* PopularsTableViewCell.swift in Sources */,
 				269363CB2C821F0100662442 /* HomeVC.swift in Sources */,
@@ -807,6 +834,7 @@
 				26AE38C32C89EE420086E8FB /* SelfSizedUITableView.swift in Sources */,
 				7FBAD9CC2C96551B00CBA3D2 /* UIViewControllerExtention.swift in Sources */,
 				2668595D2C48313400EC2718 /* UIView+Extentions.swift in Sources */,
+				26B39D472C990FD5002582DC /* SizeCollectionViewCell.swift in Sources */,
 				26FCD8542C8D26A400D7C3A8 /* CartCollectionViewCell.swift in Sources */,
 				26CB3D8B2C861E960029087C /* BannerCollectionViewCell.swift in Sources */,
 				7F5B02032C89034900573B53 /* CollectionView+.swift in Sources */,
