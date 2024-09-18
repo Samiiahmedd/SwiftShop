@@ -9,7 +9,7 @@ import UIKit
 
 class SizeCollectionViewCell: UICollectionViewCell {
     
-//MARK: - IBOUTLETS
+    //MARK: - IBOUTLETS
     
     @IBOutlet weak var sizeLabel: UILabel!
     
@@ -17,13 +17,11 @@ class SizeCollectionViewCell: UICollectionViewCell {
     //MARK: - VARIABLES
     
     static let identifier = String(describing: SizeCollectionViewCell.self)
-
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-
 }
 
 // MARK: - SETUP CELL

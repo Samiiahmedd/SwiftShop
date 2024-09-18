@@ -26,6 +26,8 @@
 		2658C9A72C8B212F0044CC37 /* ClothesCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2658C9A62C8B212F0044CC37 /* ClothesCategoryViewController.xib */; };
 		2658C9A82C8B212F0044CC37 /* ClothesCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2658C9A52C8B212F0044CC37 /* ClothesCategoryViewController.swift */; };
 		2658C9AA2C8B220D0044CC37 /* ClothesCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2658C9A92C8B220D0044CC37 /* ClothesCategoryViewModel.swift */; };
+		266611B22C9A332C006F79DF /* ColorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 266611B12C9A332C006F79DF /* ColorCollectionViewCell.xib */; };
+		266611B32C9A332C006F79DF /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266611B02C9A332C006F79DF /* ColorCollectionViewCell.swift */; };
 		266859382C482A0200EC2718 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266859372C482A0200EC2718 /* AppDelegate.swift */; };
 		2668593A2C482A0200EC2718 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266859392C482A0200EC2718 /* SceneDelegate.swift */; };
 		266859412C482A0500EC2718 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 266859402C482A0500EC2718 /* Assets.xcassets */; };
@@ -94,6 +96,8 @@
 		2658C9A52C8B212F0044CC37 /* ClothesCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCategoryViewController.swift; sourceTree = "<group>"; };
 		2658C9A62C8B212F0044CC37 /* ClothesCategoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClothesCategoryViewController.xib; sourceTree = "<group>"; };
 		2658C9A92C8B220D0044CC37 /* ClothesCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCategoryViewModel.swift; sourceTree = "<group>"; };
+		266611B02C9A332C006F79DF /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
+		266611B12C9A332C006F79DF /* ColorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorCollectionViewCell.xib; sourceTree = "<group>"; };
 		266859342C482A0200EC2718 /* E-Commerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "E-Commerce.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		266859372C482A0200EC2718 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		266859392C482A0200EC2718 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -283,6 +287,15 @@
 			path = CategoryScreen;
 			sourceTree = "<group>";
 		};
+		266611AF2C9A331D006F79DF /* ColorCell */ = {
+			isa = PBXGroup;
+			children = (
+				266611B02C9A332C006F79DF /* ColorCollectionViewCell.swift */,
+				266611B12C9A332C006F79DF /* ColorCollectionViewCell.xib */,
+			);
+			path = ColorCell;
+			sourceTree = "<group>";
+		};
 		2668592B2C482A0200EC2718 = {
 			isa = PBXGroup;
 			children = (
@@ -386,6 +399,7 @@
 		2683A0422C9909FC0032A3FA /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				266611AF2C9A331D006F79DF /* ColorCell */,
 				2683A0472C990DD80032A3FA /* SizeCell */,
 			);
 			path = CollectionViewCells;
@@ -766,6 +780,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				266611B22C9A332C006F79DF /* ColorCollectionViewCell.xib in Resources */,
 				266859672C4836C400EC2718 /* OnBoardingViewController.xib in Resources */,
 				266859412C482A0500EC2718 /* Assets.xcassets in Resources */,
 				26347A692C5D987700F500CB /* SignUpViewController.xib in Resources */,
@@ -812,6 +827,7 @@
 				26AE38B02C89D8E20086E8FB /* SearchCategoriesViewController.swift in Sources */,
 				2669F0372C88CEEE00A386B2 /* PopularModel.swift in Sources */,
 				2610DD0C2C8CBDC5005739A3 /* ProductDetailsModel.swift in Sources */,
+				266611B32C9A332C006F79DF /* ColorCollectionViewCell.swift in Sources */,
 				7F5B01FF2C89006800573B53 /* CustomNavBar.swift in Sources */,
 				260781342C48917C00B778A2 /* StartScreenViewController.swift in Sources */,
 				26D66DAC2C603D6A00EC03A9 /* SucessViewController.swift in Sources */,

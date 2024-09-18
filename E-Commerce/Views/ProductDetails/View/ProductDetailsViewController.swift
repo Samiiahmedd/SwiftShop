@@ -33,6 +33,10 @@ class ProductDetailsViewController: UIViewController {
                               .init(size: "XL"),
                               .init(size: "XXL")]
     
+    var colors: [UIColor] = [.red, .black, .lightGray, .green, .orange]
+    
+    var selectedColorIndex: Int?
+    
     var selectedSizeIndex: IndexPath?
     
     
@@ -70,42 +74,81 @@ private extension ProductDetailsViewController {
     func configerCollectionViews() {
         sizeCollectionView.delegate = self
         sizeCollectionView.dataSource = self
+        colorsCollectionView.delegate = self
+        colorsCollectionView.dataSource = self
     }
     
     func registerCells() {
         sizeCollectionView.register(UINib(nibName: SizeCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: "SizeCollectionViewCell")
+        colorsCollectionView.register(UINib(nibName: ColorCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: "ColorCollectionViewCell")
     }
 }
 extension ProductDetailsViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Size.count
+        switch collectionView {
+        case sizeCollectionView:
+            return Size.count
+        case colorsCollectionView:
+            return colors.count
+        default:
+            return 0
+            
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SizeCollectionViewCell.identifier, for: indexPath) as! SizeCollectionViewCell
-        let sizeModel = Size[indexPath.row]
-        cell.sizeLabel.text = sizeModel.size
-        
-        if selectedSizeIndex == indexPath {
-            cell.sizeView.backgroundColor = .black
-            cell.sizeLabel.textColor = .white
-        } else {
-            cell.sizeView.backgroundColor = .white
-            cell.sizeLabel.textColor = .darkGray
+        switch collectionView {
+        case sizeCollectionView:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SizeCollectionViewCell.identifier, for: indexPath) as! SizeCollectionViewCell
+            let sizeModel = Size[indexPath.row]
+            cell.sizeLabel.text = sizeModel.size
+            
+            if selectedSizeIndex == indexPath {
+                cell.sizeView.backgroundColor = .black
+                cell.sizeLabel.textColor = .white
+            } else {
+                cell.sizeView.backgroundColor = .white
+                cell.sizeLabel.textColor = .darkGray
+            }
+            return cell
+            
+        case colorsCollectionView:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorCollectionViewCell.identifier, for: indexPath) as! ColorCollectionViewCell
+            let color = colors[indexPath.row]
+            let isSelected = indexPath.row == selectedColorIndex
+            cell.configure(with: color, isSelected: isSelected)
+            return cell
+        default:
+            return UICollectionViewCell()
         }
-        
-        return cell
-        
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 60, height: 60)
+        switch collectionView {
+        case sizeCollectionView :
+            return CGSize(width: 50, height: 50)
+        case colorsCollectionView :
+            return CGSize(width: 35, height: 35)
+            
+        default:
+            return CGSize(width: 100, height: 100)
+            
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedSizeIndex = indexPath
-        collectionView.reloadData()
+        switch collectionView {
+        case  sizeCollectionView:
+            selectedSizeIndex = indexPath
+            sizeCollectionView.reloadData()
+        case colorsCollectionView :
+            selectedColorIndex = indexPath.row
+            colorsCollectionView.reloadData()
+        default:
+            return
+        }
     }
 }
 
