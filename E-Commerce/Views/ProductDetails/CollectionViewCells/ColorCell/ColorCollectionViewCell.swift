@@ -13,6 +13,8 @@ class ColorCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var containerView: UIView!
     
+    @IBOutlet weak var checkmark: UIImageView!
+    
     //MARK: - VARIABLES
     
     static let identifier = String(describing: ColorCollectionViewCell.self)

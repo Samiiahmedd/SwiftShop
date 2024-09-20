@@ -133,6 +133,11 @@
 		26CB3D8E2C861ED20029087C /* BannerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerModel.swift; sourceTree = "<group>"; };
 		26D66DAA2C603D6A00EC03A9 /* SucessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucessViewController.swift; sourceTree = "<group>"; };
 		26D66DAB2C603D6A00EC03A9 /* SucessViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SucessViewController.xib; sourceTree = "<group>"; };
+		26DF7C182C9E293D00755090 /* PoppinsRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PoppinsRegular.ttf; sourceTree = "<group>"; };
+		26DF7C192C9E294200755090 /* PoppinsBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PoppinsBold.ttf; sourceTree = "<group>"; };
+		26DF7C1A2C9E294600755090 /* PoppinsSemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PoppinsSemiBold.ttf; sourceTree = "<group>"; };
+		26DF7C1B2C9E294B00755090 /* PoppinsLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PoppinsLight.ttf; sourceTree = "<group>"; };
+		26DF7C1C2C9E295400755090 /* PoppinsMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PoppinsMedium.ttf; sourceTree = "<group>"; };
 		26FCD8482C8D264000D7C3A8 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		26FCD8492C8D264000D7C3A8 /* CartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartViewController.xib; sourceTree = "<group>"; };
 		26FCD84D2C8D265700D7C3A8 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
@@ -318,6 +323,11 @@
 				26C301012C88F86D00CFE4AD /* GoogleService-Info.plist */,
 				7FBAD9C82C96504100CBA3D2 /* FirebaseManage */,
 				260781362C4897FA00B778A2 /* CustomViews */,
+				26DF7C1C2C9E295400755090 /* PoppinsMedium.ttf */,
+				26DF7C1B2C9E294B00755090 /* PoppinsLight.ttf */,
+				26DF7C1A2C9E294600755090 /* PoppinsSemiBold.ttf */,
+				26DF7C192C9E294200755090 /* PoppinsBold.ttf */,
+				26DF7C182C9E293D00755090 /* PoppinsRegular.ttf */,
 				2668594E2C482FDD00EC2718 /* Fonts */,
 				2668594D2C482F8900EC2718 /* Extentions */,
 				2668595F2C48343C00EC2718 /* Views */,

@@ -8,8 +8,14 @@
 import Foundation
 import UIKit
 
-enum CustomFonts {
-    struct Poppins {
-        let black = UIFont(name: "Poppins-Black", size: 16)
+extension UIFont {
+    static private func fontName(forWeight weight: UIFont.Weight) -> String {
+        switch weight {
+        case .regular: return "PoppinsRegular"
+        case .medium: return "PoppinsMedium"
+        case .semibold: return "PoppinsSemiBold"
+        case .bold: return "PoppinsBold"
+        default: return "PoppinsRegular"
+        }
     }
 }

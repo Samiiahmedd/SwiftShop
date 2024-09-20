@@ -11,6 +11,7 @@ class ProductDetailsViewController: UIViewController {
     //MARK: - IBOUTLETS
     
     @IBOutlet var productImage: UIImageView!
+    @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productDescription: UILabel!
     @IBOutlet weak var productReviews: UILabel!
@@ -26,7 +27,12 @@ class ProductDetailsViewController: UIViewController {
     
     
     //MARK: VARIABLES
-    
+    var images: [productImages] = []
+    var currentPage = 0 {
+        didSet{
+            pageControl.currentPage = currentPage
+        }
+    }
     var Size : [SizeModel] = [
         .init(size: "S"),
         .init(size: "M"),
@@ -37,7 +43,7 @@ class ProductDetailsViewController: UIViewController {
     var colors: [UIColor] = [.red, .black, .lightGray, .green, .orange]
     var selectedColorIndex: Int?
     var selectedSizeIndex: IndexPath?
-
+    
     //MARK: - VIEWLIFECYCLE
     
     override func viewDidLoad() {
@@ -48,6 +54,11 @@ class ProductDetailsViewController: UIViewController {
     }
     
     //MARK: - IBACTIONS
+    
+    @IBAction func pageControlChanged(_ sender: UIPageControl) {
+        let selectedPage = sender.currentPage
+        productImage.image = images[selectedPage].image
+    }
     
     @IBAction func addToCartButton(_ sender: Any) {
     }
@@ -64,8 +75,18 @@ class ProductDetailsViewController: UIViewController {
 private extension ProductDetailsViewController {
     
     func setupView() {
+        setProductImages()
         configerCollectionViews()
         registerCells()
+    }
+    
+    func setProductImages() {
+        images = [.init(image: UIImage(named: "productImage1")!),
+                  .init(image: UIImage(named: "productImage2")!),
+                  .init(image: UIImage(named: "productImage3")!),
+        ]
+        pageControl.numberOfPages = images.count
+        productImage.image = images.first?.image
     }
     
     func configerCollectionViews() {
@@ -103,9 +124,13 @@ extension ProductDetailsViewController: UICollectionViewDelegate,UICollectionVie
             let color = colors[indexPath.row]
             cell.configure(with: color)
             if selectedColorIndex == indexPath.row {
-                cell.containerView.backgroundColor = .white
+                cell.checkmark.isHidden = false
                 cell.containerView.borderWidth = 1
                 cell.containerView.borderColor = .black
+            } else {
+                cell.checkmark.isHidden = true
+                cell.containerView.layer.borderWidth = 0
+                cell.containerView.layer.borderColor = UIColor.clear.cgColor
             }
             return cell
         default:
@@ -149,8 +174,10 @@ private extension ProductDetailsViewController {
             cell.sizeLabel.textColor = .white
         } else {
             cell.sizeView.backgroundColor = .white
-            cell.sizeLabel.textColor = .darkGray
+            cell.sizeLabel.textColor = .black
         }
         return cell
     }
 }
+
+

@@ -5,4 +5,8 @@
 //  Created by Sami Ahmed on 07/09/2024.
 //
 
-import Foundation
+import UIKit
+
+struct productImages {
+    let image : UIImage
+}
