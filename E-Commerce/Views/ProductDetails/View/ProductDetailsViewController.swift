@@ -27,20 +27,17 @@ class ProductDetailsViewController: UIViewController {
     
     //MARK: VARIABLES
     
-    var Size : [SizeModel] = [.init(size: "S"),
-                              .init(size: "M"),
-                              .init(size: "L"),
-                              .init(size: "XL"),
-                              .init(size: "XXL")]
-    
+    var Size : [SizeModel] = [
+        .init(size: "S"),
+        .init(size: "M"),
+        .init(size: "L"),
+        .init(size: "XL"),
+        .init(size: "XXL")
+    ]
     var colors: [UIColor] = [.red, .black, .lightGray, .green, .orange]
-    
     var selectedColorIndex: Int?
-    
     var selectedSizeIndex: IndexPath?
-    
-    
-    
+
     //MARK: - VIEWLIFECYCLE
     
     override func viewDidLoad() {
@@ -83,6 +80,7 @@ private extension ProductDetailsViewController {
         colorsCollectionView.register(UINib(nibName: ColorCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: "ColorCollectionViewCell")
     }
 }
+
 extension ProductDetailsViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
@@ -99,24 +97,16 @@ extension ProductDetailsViewController: UICollectionViewDelegate,UICollectionVie
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView {
         case sizeCollectionView:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SizeCollectionViewCell.identifier, for: indexPath) as! SizeCollectionViewCell
-            let sizeModel = Size[indexPath.row]
-            cell.sizeLabel.text = sizeModel.size
-            
-            if selectedSizeIndex == indexPath {
-                cell.sizeView.backgroundColor = .black
-                cell.sizeLabel.textColor = .white
-            } else {
-                cell.sizeView.backgroundColor = .white
-                cell.sizeLabel.textColor = .darkGray
-            }
-            return cell
-            
+            return configureSizesCell(for: collectionView, with: indexPath)
         case colorsCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorCollectionViewCell.identifier, for: indexPath) as! ColorCollectionViewCell
             let color = colors[indexPath.row]
-            let isSelected = indexPath.row == selectedColorIndex
-            cell.configure(with: color, isSelected: isSelected)
+            cell.configure(with: color)
+            if selectedColorIndex == indexPath.row {
+                cell.containerView.backgroundColor = .white
+                cell.containerView.borderWidth = 1
+                cell.containerView.borderColor = .black
+            }
             return cell
         default:
             return UICollectionViewCell()
@@ -127,15 +117,12 @@ extension ProductDetailsViewController: UICollectionViewDelegate,UICollectionVie
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch collectionView {
         case sizeCollectionView :
-            return CGSize(width: 50, height: 50)
+            return CGSize(width: 40, height: 40)
         case colorsCollectionView :
-            return CGSize(width: 35, height: 35)
-            
+            return CGSize(width: 20, height: 20)
         default:
             return CGSize(width: 100, height: 100)
-            
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -152,4 +139,18 @@ extension ProductDetailsViewController: UICollectionViewDelegate,UICollectionVie
     }
 }
 
-
+private extension ProductDetailsViewController {
+    func configureSizesCell(for collectionView: UICollectionView, with indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SizeCollectionViewCell.identifier, for: indexPath) as! SizeCollectionViewCell
+        let sizeModel = Size[indexPath.row]
+        cell.sizeLabel.text = sizeModel.size
+        if selectedSizeIndex == indexPath {
+            cell.sizeView.backgroundColor = .black
+            cell.sizeLabel.textColor = .white
+        } else {
+            cell.sizeView.backgroundColor = .white
+            cell.sizeLabel.textColor = .darkGray
+        }
+        return cell
+    }
+}

@@ -12,12 +12,14 @@ class SizeCollectionViewCell: UICollectionViewCell {
     //MARK: - IBOUTLETS
     
     @IBOutlet weak var sizeLabel: UILabel!
-    
     @IBOutlet weak var sizeView: UIView!
+    
     //MARK: - VARIABLES
     
     static let identifier = String(describing: SizeCollectionViewCell.self)
     
+    
+    // MARK: - INITILIZER
     
     override func awakeFromNib() {
         super.awakeFromNib()

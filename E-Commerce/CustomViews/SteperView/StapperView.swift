@@ -14,8 +14,9 @@ public protocol StapperViewDelegate: AnyObject {
 }
 
 open class StapperView: UIView {
+    
     // MARK: - Outlets
-    //
+    
     @IBOutlet weak private(set) var counterLabel: UILabel!
     @IBOutlet weak private(set) var plusButton: UIButton!
     @IBOutlet weak private(set) var minusButton: UIButton!
@@ -27,24 +28,22 @@ open class StapperView: UIView {
     var minmumValue: Int = 0 {
         didSet {
             updateLabel(minmumValue)
-           value = minmumValue
+            value = minmumValue
         }
     }
     
     weak var delegate: (any StapperViewDelegate)?
-
+    
     // MARK: - Initialization
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        loadNib()
-        setup()
+        setupView()
     }
     
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
-        loadNib()
-        setup()
+        setupView()
     }
     
     public func setTintColor(_ color: UIColor) {
@@ -52,25 +51,36 @@ open class StapperView: UIView {
         minusButton.setTitleColor(color, for: .normal)
         counterLabel.textColor = color
     }
-    
-    // MARK: - Setup
-    
-    private func setup() {
+}
+
+// MARK: - Setup
+
+private extension StapperView {
+    func setupView() {
+        loadNib()
         configureCounterLabel()
         configureContainerView()
         configureStepperButtons()
     }
     
-    private func configureCounterLabel() {
+    func loadNib() {
+        if let loadedViews = Bundle.main.loadNibNamed(String(describing: Self.self), owner: self, options: nil),
+           let view = loadedViews.first as? UIView {
+            addSubview(view)
+            view.frame = bounds
+        }
+    }
+    
+    func configureCounterLabel() {
         counterLabel.text = String(minmumValue)
     }
     
-    private func configureContainerView() {
+    func configureContainerView() {
         backgroundColor = .white
         layer.cornerRadius = 15
     }
     
-    private func configureStepperButtons() {
+    func configureStepperButtons() {
         stepperButton(button: plusButton, text: "+", value: 1)
         stepperButton(button: minusButton, text: "-", value: -1)
         
@@ -78,46 +88,39 @@ open class StapperView: UIView {
         minusButton.addAction(.init(handler: {_ in self.minusButtonTapped() }), for: .touchUpInside)
     }
     
-    private func stepperButton(button: UIButton, text: String, value: Int) {
+    func stepperButton(button: UIButton, text: String, value: Int) {
         button.setTitle(text, for: .normal)
         button.tag = value
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 15
         button.backgroundColor = .clear
     }
-    
-    private func plusButtonTapped() {
+}
+
+// MARK: - ACTIONS
+
+private extension StapperView {
+    func plusButtonTapped() {
         if value <= maximumValue {
             value += 1
             updateValue(value)
         }
     }
     
-    private func minusButtonTapped() {
+    func minusButtonTapped() {
         if value > minmumValue {
             value -= 1
             updateValue(value)
         }
     }
     
-    private func updateValue(_ value: Int) {
+    func updateValue(_ value: Int) {
         updateLabel(value)
         delegate?.stapperView(self, didSet: value)
     }
     
-    private func updateLabel(_ value: Int) {
+    func updateLabel(_ value: Int) {
         counterLabel.text = String(value)
     }
-    
-    /// Loads the view from a nib file and adds it as a subview to the OnboardingTextField view.
-    private func loadNib() {
-        // swiftlint:disable all
-        if let loadedViews = Bundle.main.loadNibNamed(String(describing: Self.self), owner: self, options: nil),
-            let view = loadedViews.first as? UIView {
-            addSubview(view)
-            view.frame = bounds
-        }
-    }
-
 }
 
