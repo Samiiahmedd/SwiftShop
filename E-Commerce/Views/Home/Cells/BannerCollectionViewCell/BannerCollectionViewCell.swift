@@ -31,6 +31,5 @@ class BannerCollectionViewCell: UICollectionViewCell {
 extension BannerCollectionViewCell {
     func Setup(banner: BannerModel) {
         bannerImageView.image = banner.image
-
     }
 }

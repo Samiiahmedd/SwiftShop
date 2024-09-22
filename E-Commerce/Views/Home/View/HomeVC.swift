@@ -22,7 +22,6 @@ class HomeVC: UIViewController{
     
     private let viewModel = HomeViewModel()
     
-    
     //MARK: - viewLifeCycle
     
     override func viewDidLoad() {
@@ -62,8 +61,8 @@ private extension HomeVC {
             with: "",
             and: UIImage(systemName: "magnifyingglass")!) {
                 print("Button tapped")
-                let search = SearchCategoriesViewController(nibName: "SearchCategoriesViewController", bundle: nil)
-                self.navigationController?.pushViewController(search, animated: true)
+                let filter = FilterViewController(nibName: "FilterViewController", bundle: nil)
+                self.navigationController?.pushViewController(filter, animated: true)
                 self.navigationItem.hidesBackButton = true
             }
         
