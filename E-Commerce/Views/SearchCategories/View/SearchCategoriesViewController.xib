@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -11,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchCategoriesViewController" customModule="E_Commerce" customModuleProvider="target">
             <connections>
                 <outlet property="SearchView" destination="VDh-56-C1o" id="MvK-lF-tRg"/>
+                <outlet property="navBar" destination="ag7-ve-BRh" id="3qr-5J-CqX"/>
                 <outlet property="searchCategoriesCollectionView" destination="1me-NO-klc" id="q9q-3Y-N4d"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -20,15 +22,15 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VDh-56-C1o" customClass="SearchView" customModule="E_Commerce" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="48" width="393" height="100"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VDh-56-C1o" customClass="CustomSearchBar" customModule="E_Commerce" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="107" width="393" height="55"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="100" id="92D-1U-3mH"/>
+                        <constraint firstAttribute="height" constant="55" id="92D-1U-3mH"/>
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="1me-NO-klc">
-                    <rect key="frame" x="0.0" y="156" width="393" height="696"/>
+                    <rect key="frame" x="0.0" y="174" width="393" height="678"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hMt-gk-pP0">
                         <size key="itemSize" width="128" height="128"/>
@@ -37,17 +39,26 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ag7-ve-BRh" customClass="CustomNavBar" customModule="E_Commerce" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="59" width="393" height="42"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="42" id="N0o-xT-NjF"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="VDh-56-C1o" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="48" id="5ja-N4-DhX"/>
                 <constraint firstItem="VDh-56-C1o" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="72M-Jx-IpE"/>
+                <constraint firstItem="VDh-56-C1o" firstAttribute="top" secondItem="ag7-ve-BRh" secondAttribute="bottom" constant="6" id="7pA-AH-BMm"/>
+                <constraint firstItem="ag7-ve-BRh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9iT-5W-bLG"/>
                 <constraint firstItem="VDh-56-C1o" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Pfw-S3-qDH"/>
+                <constraint firstAttribute="trailing" secondItem="ag7-ve-BRh" secondAttribute="trailing" id="R3n-Vm-EXi"/>
                 <constraint firstItem="1me-NO-klc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="SAJ-oY-dG2"/>
-                <constraint firstItem="1me-NO-klc" firstAttribute="top" secondItem="VDh-56-C1o" secondAttribute="bottom" constant="8" id="X3G-Ce-T2I"/>
                 <constraint firstItem="1me-NO-klc" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="bNv-0N-R4A"/>
+                <constraint firstItem="ag7-ve-BRh" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="gwE-tP-7PL"/>
                 <constraint firstAttribute="bottom" secondItem="1me-NO-klc" secondAttribute="bottom" id="j74-rY-S7O"/>
+                <constraint firstItem="1me-NO-klc" firstAttribute="top" secondItem="VDh-56-C1o" secondAttribute="bottom" constant="12" id="pVN-1K-gva"/>
             </constraints>
             <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
         </view>

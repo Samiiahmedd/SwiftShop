@@ -26,14 +26,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ArT-kB-fTQ" customClass="CustomNavBar" customModule="E_Commerce" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="52" width="393" height="50"/>
+                    <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="ODN-QR-fDc"/>
+                        <constraint firstAttribute="height" constant="44" id="LGX-ks-ZSN"/>
                     </constraints>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sgx-Jg-aMv">
-                    <rect key="frame" x="0.0" y="118" width="393" height="700"/>
+                    <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                     <subviews>
                         <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="lvF-71-4S4" userLabel="Container">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="820"/>
@@ -175,8 +175,8 @@
                 <constraint firstItem="Sgx-Jg-aMv" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="6Rj-mW-cP3"/>
                 <constraint firstItem="Sgx-Jg-aMv" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="8sW-63-p2x"/>
                 <constraint firstItem="Sgx-Jg-aMv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="LoO-Mo-CbS"/>
-                <constraint firstItem="ArT-kB-fTQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="52" id="cAz-r0-hPC"/>
-                <constraint firstItem="Sgx-Jg-aMv" firstAttribute="top" secondItem="ArT-kB-fTQ" secondAttribute="bottom" constant="16" id="o6y-q2-oau"/>
+                <constraint firstItem="Sgx-Jg-aMv" firstAttribute="top" secondItem="ArT-kB-fTQ" secondAttribute="bottom" id="kLV-eh-2P5"/>
+                <constraint firstItem="ArT-kB-fTQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="mGk-3g-qRa"/>
                 <constraint firstItem="ArT-kB-fTQ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="t6g-Po-5Zb"/>
             </constraints>
             <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>

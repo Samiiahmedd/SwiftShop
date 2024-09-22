@@ -11,6 +11,7 @@ class SearchCategoriesViewController: UIViewController {
     
     //MARK: - IBoutlet
     
+    @IBOutlet weak var navBar: CustomNavBar!
     @IBOutlet var searchCategoriesCollectionView: UICollectionView!
     
     @IBOutlet weak var SearchView: UIView!
@@ -24,6 +25,13 @@ class SearchCategoriesViewController: UIViewController {
         super.viewDidLoad()
         setupView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        self.navigationItem.hidesBackButton = true
+        
+    }
 }
 
 // MARK: - SETUP VIEW
@@ -32,6 +40,18 @@ private extension SearchCategoriesViewController {
     func setupView() {
         configerCollectionViews()
         registerCells()
+        configureNavBar()
+    }
+    
+    func configureNavBar() {
+        navBar.setupFirstLeadingButton(
+            with: "",
+            and: UIImage(named: "back")!) {
+                print("Button tapped")
+                let home = HomeVC(nibName: "HomeVC", bundle: nil)
+                self.navigationController?.pushViewController(home, animated: true)
+            }
+        navBar.firstTralingButton.isHidden = true
     }
     
     func configerCollectionViews() {

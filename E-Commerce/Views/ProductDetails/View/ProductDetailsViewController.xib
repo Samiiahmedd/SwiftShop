@@ -17,6 +17,7 @@
                 <outlet property="colorsCollectionView" destination="S3V-SJ-Kgh" id="L2E-ZE-TuK"/>
                 <outlet property="containerView" destination="4Y1-HV-Pnf" id="ecz-WO-qap"/>
                 <outlet property="favouriteButton" destination="ElN-YW-RPI" id="rwr-oU-7BU"/>
+                <outlet property="navBar" destination="Bik-mC-V19" id="CwG-KV-6L8"/>
                 <outlet property="pageControl" destination="l3r-bW-KbC" id="BuW-Xz-k30"/>
                 <outlet property="priceLabel" destination="fR8-9B-3VH" id="gzH-xr-X32"/>
                 <outlet property="productDescription" destination="UHA-iA-pao" id="ydc-gr-etn"/>
@@ -35,29 +36,20 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProductDetails" translatesAutoresizingMaskIntoConstraints="NO" id="gfi-gD-Vo3">
-                    <rect key="frame" x="0.0" y="0.0" width="393" height="400"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bik-mC-V19" customClass="CustomNavBar" customModule="E_Commerce" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="48" width="393" height="44"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="400" id="hNe-u6-2By"/>
+                        <constraint firstAttribute="height" constant="44" id="ArA-9f-Z7X"/>
+                    </constraints>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="productImage1" translatesAutoresizingMaskIntoConstraints="NO" id="gfi-gD-Vo3">
+                    <rect key="frame" x="0.0" y="92" width="393" height="360"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="360" id="OjQ-0Q-CfU"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YxT-HC-NfQ">
-                    <rect key="frame" x="327.33333333333331" y="42" width="49.666666666666686" height="32"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="32" id="2x6-V6-C79"/>
-                    </constraints>
-                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain">
-                        <imageReference key="image" image="bag.circle" catalog="system" symbolScale="large"/>
-                        <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </buttonConfiguration>
-                    <connections>
-                        <action selector="addToCartButton:" destination="-1" eventType="touchUpInside" id="5Tb-zG-Flj"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ElN-YW-RPI">
-                    <rect key="frame" x="331.33333333333331" y="352" width="49.666666666666686" height="30"/>
+                    <rect key="frame" x="331.33333333333331" y="404" width="49.666666666666686" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="UZ7-QF-wFF"/>
                     </constraints>
@@ -69,10 +61,10 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Y1-HV-Pnf" userLabel="ContainerView">
-                    <rect key="frame" x="0.0" y="390" width="393" height="462"/>
+                    <rect key="frame" x="0.0" y="442" width="393" height="410"/>
                     <subviews>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oaB-xj-fSd">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="462"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="410"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I6y-C2-ns9">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="429"/>
@@ -181,10 +173,10 @@
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="tld-9h-UWO" userLabel="SizeColorStackView">
-                                                    <rect key="frame" x="0.0" y="80.666666666666686" width="345" height="136"/>
+                                                    <rect key="frame" x="0.0" y="80.666666666666629" width="345" height="136"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="o6j-62-sN1">
-                                                            <rect key="frame" x="0.0" y="32.333333333333307" width="281" height="71.333333333333314"/>
+                                                            <rect key="frame" x="0.0" y="32.333333333333364" width="281" height="71.333333333333314"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kpi-va-n4t">
                                                                     <rect key="frame" x="0.0" y="0.0" width="281" height="19.333333333333332"/>
@@ -349,37 +341,55 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="l3r-bW-KbC">
-                    <rect key="frame" x="138.66666666666666" y="362.33333333333331" width="115.66666666666666" height="25.666666666666686"/>
+                    <rect key="frame" x="138.66666666666666" y="414.33333333333331" width="115.66666666666666" height="25.666666666666686"/>
                     <connections>
                         <action selector="pageControlChanged:" destination="-1" eventType="valueChanged" id="kPS-dc-tal"/>
                     </connections>
                 </pageControl>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YxT-HC-NfQ">
+                    <rect key="frame" x="327.33333333333331" y="104" width="49.666666666666686" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="2x6-V6-C79"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain">
+                        <imageReference key="image" image="bag.circle" catalog="system" symbolScale="large"/>
+                        <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="addToCartButton:" destination="-1" eventType="touchUpInside" id="5Tb-zG-Flj"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="4Y1-HV-Pnf" firstAttribute="top" secondItem="l3r-bW-KbC" secondAttribute="bottom" constant="2" id="0Sk-dc-xP6"/>
                 <constraint firstItem="4Y1-HV-Pnf" firstAttribute="top" secondItem="gfi-gD-Vo3" secondAttribute="bottom" constant="-10" id="1Rs-Sw-hE8"/>
+                <constraint firstItem="YxT-HC-NfQ" firstAttribute="top" secondItem="Bik-mC-V19" secondAttribute="bottom" constant="12" id="1o1-B0-mEc"/>
+                <constraint firstItem="gfi-gD-Vo3" firstAttribute="top" secondItem="Bik-mC-V19" secondAttribute="bottom" id="37y-oQ-ib8"/>
                 <constraint firstItem="gfi-gD-Vo3" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="45t-KI-3yX"/>
                 <constraint firstItem="gfi-gD-Vo3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="4Kw-Oa-VXI"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ElN-YW-RPI" secondAttribute="trailing" constant="12" id="76u-gU-nVl"/>
                 <constraint firstItem="4Y1-HV-Pnf" firstAttribute="top" secondItem="ElN-YW-RPI" secondAttribute="bottom" constant="8" symbolic="YES" id="J7e-fz-xP5"/>
-                <constraint firstItem="gfi-gD-Vo3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="KAc-Q7-U4g"/>
                 <constraint firstAttribute="bottom" secondItem="4Y1-HV-Pnf" secondAttribute="bottom" id="Kxe-c9-Krh"/>
                 <constraint firstItem="l3r-bW-KbC" firstAttribute="centerX" secondItem="gfi-gD-Vo3" secondAttribute="centerX" id="LtB-gP-gBF"/>
                 <constraint firstItem="4Y1-HV-Pnf" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="M5j-hF-g5y"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YxT-HC-NfQ" secondAttribute="trailing" constant="16" id="bO1-ro-81v"/>
-                <constraint firstItem="YxT-HC-NfQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="42" id="gGJ-TB-GJr"/>
+                <constraint firstItem="Bik-mC-V19" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="48" id="fX6-Z8-T4j"/>
                 <constraint firstItem="4Y1-HV-Pnf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="s0I-kN-g2L"/>
+                <constraint firstItem="Bik-mC-V19" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ssf-Mu-okT"/>
+                <constraint firstItem="Bik-mC-V19" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="ufy-l3-ZS7"/>
             </constraints>
             <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
         </view>
     </objects>
     <resources>
-        <image name="ProductDetails" width="375" height="430"/>
         <image name="bag.circle" catalog="system" width="128" height="123"/>
         <image name="cart.circle" catalog="system" width="128" height="123"/>
         <image name="heart.circle" catalog="system" width="128" height="123"/>
+        <image name="productImage1" width="375" height="430"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <namedColor name="AccentColor">
             <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

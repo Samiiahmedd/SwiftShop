@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -11,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ClothesCategoryViewController" customModule="E_Commerce" customModuleProvider="target">
             <connections>
                 <outlet property="clothesCollectionView" destination="ANb-cH-lFs" id="iG0-gq-vzy"/>
+                <outlet property="nanBar" destination="Ec2-KO-9hZ" id="Fxc-7E-l5V"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,8 +21,15 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ec2-KO-9hZ" customClass="CustomNavBar" customModule="E_Commerce" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="cY5-Sj-EYo"/>
+                    </constraints>
+                </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ANb-cH-lFs">
-                    <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                    <rect key="frame" x="0.0" y="103" width="393" height="749"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="85S-j9-6Rf">
                         <size key="itemSize" width="155" height="240"/>
@@ -33,9 +42,12 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="Ec2-KO-9hZ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="9S3-ie-LVh"/>
                 <constraint firstItem="ANb-cH-lFs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Cif-ys-Hvd"/>
-                <constraint firstItem="ANb-cH-lFs" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="DgD-dq-n33"/>
+                <constraint firstItem="Ec2-KO-9hZ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="LfL-1v-Q9I"/>
                 <constraint firstAttribute="bottom" secondItem="ANb-cH-lFs" secondAttribute="bottom" id="WMc-wn-VvP"/>
+                <constraint firstItem="Ec2-KO-9hZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="YKd-rB-XIe"/>
+                <constraint firstItem="ANb-cH-lFs" firstAttribute="top" secondItem="Ec2-KO-9hZ" secondAttribute="bottom" id="mDL-wH-c3E"/>
                 <constraint firstItem="ANb-cH-lFs" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="rT9-fR-P23"/>
             </constraints>
             <point key="canvasLocation" x="113.74045801526717" y="-11.267605633802818"/>

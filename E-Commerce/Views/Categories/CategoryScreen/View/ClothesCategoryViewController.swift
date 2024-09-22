@@ -12,6 +12,8 @@ class ClothesCategoryViewController: UIViewController {
 
     //MARK: - IBOUTLETS
     
+    @IBOutlet weak var nanBar: CustomNavBar!
+    
     @IBOutlet var clothesCollectionView: UICollectionView!
 
     //MARK: - VARIABLES
@@ -31,8 +33,22 @@ class ClothesCategoryViewController: UIViewController {
 
 private extension ClothesCategoryViewController {
     func setupView() {
+        configureNavBar()
         configerCollectionViews()
         registerCells()
+    }
+    
+    func configureNavBar() {
+        
+        nanBar.setupFirstLeadingButton(
+            with: "",
+            and: UIImage(named: "back")!) {
+                print("Button tapped")
+                let search = SearchCategoriesViewController(nibName: "SearchCategoriesViewController", bundle: nil)
+                self.navigationController?.pushViewController(search, animated: true)
+                self.navigationItem.hidesBackButton = true
+            }
+        nanBar.firstTralingButton.isHidden = true
     }
     
     func configerCollectionViews() {

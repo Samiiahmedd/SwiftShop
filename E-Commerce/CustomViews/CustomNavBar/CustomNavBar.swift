@@ -13,12 +13,11 @@ class CustomNavBar: UIView {
     
     @IBOutlet var containerView: UIView!
     @IBOutlet weak var firstTralingButton: UIButton!
-
     @IBOutlet weak var firstLeadingButton: UIButton!
+    
     // MARK: - PROPERTYS
     
     private var firstTralingButtonAction: (() -> Void)?
-    
     private var firstLeadingButtonAction: (() -> Void)?
     
     // MARK: - INITLIZER
@@ -58,7 +57,6 @@ extension CustomNavBar {
 
 private extension CustomNavBar {
     func nibSetup() {
-        backgroundColor = .red
         containerView = loadViewFromNib()
         containerView.frame = bounds
         containerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -79,6 +77,7 @@ private extension CustomNavBar {
         firstTralingButton.setTitle(title, for: .normal)
         firstTralingButton.setImage(image, for: .normal)
     } 
+    
     func configureLeadingButton(with title: String, and image: UIImage, with action: @escaping () -> Void) {
         firstLeadingButton.isHidden = false
         firstLeadingButtonAction = action

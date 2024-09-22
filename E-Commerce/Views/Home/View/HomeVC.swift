@@ -8,7 +8,7 @@
 import UIKit
 
 class HomeVC: UIViewController{
-        
+    
     //MARK: - IBOutlet
     
     @IBOutlet weak var navBar: CustomNavBar!
@@ -21,7 +21,7 @@ class HomeVC: UIViewController{
     // MARK: - Variables
     
     private let viewModel = HomeViewModel()
-
+    
     
     //MARK: - viewLifeCycle
     
@@ -35,6 +35,14 @@ class HomeVC: UIViewController{
         popularTableView.layoutIfNeeded()
         sleep(2)
         popularTableView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Hide the default navigation bar
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        self.navigationItem.hidesBackButton = true
+        
     }
 }
 
@@ -56,6 +64,7 @@ private extension HomeVC {
                 print("Button tapped")
                 let search = SearchCategoriesViewController(nibName: "SearchCategoriesViewController", bundle: nil)
                 self.navigationController?.pushViewController(search, animated: true)
+                self.navigationItem.hidesBackButton = true
             }
         
         navBar.setupFirstLeadingButton(
@@ -64,9 +73,10 @@ private extension HomeVC {
                 print("Button tapped")
                 let search = SearchCategoriesViewController(nibName: "SearchCategoriesViewController", bundle: nil)
                 self.navigationController?.pushViewController(search, animated: true)
+                self.navigationItem.hidesBackButton = true
             }
         navBar.tintColor = .black
-       
+        
     }
     
     

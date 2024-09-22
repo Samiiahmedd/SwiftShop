@@ -6,10 +6,12 @@
 //
 
 import UIKit
+
 class ProductDetailsViewController: UIViewController {
     
     //MARK: - IBOUTLETS
     
+    @IBOutlet weak var navBar: CustomNavBar!
     @IBOutlet var productImage: UIImageView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var productName: UILabel!
@@ -27,6 +29,7 @@ class ProductDetailsViewController: UIViewController {
     
     
     //MARK: VARIABLES
+    
     var images: [productImages] = []
     var currentPage = 0 {
         didSet{
@@ -75,9 +78,26 @@ class ProductDetailsViewController: UIViewController {
 private extension ProductDetailsViewController {
     
     func setupView() {
+        configureNavBar()
         setProductImages()
         configerCollectionViews()
         registerCells()
+    }
+    
+    func configureNavBar() {
+        navBar.setupFirstTralingButton(
+            with: "",
+            and: UIImage(systemName: "magnifyingglass")!) {
+                print("Button tapped")
+            }
+        
+        navBar.setupFirstLeadingButton(
+            with: "",
+            and: UIImage(named: "back")!) {
+                print("Button tapped")
+            }
+        navBar.tintColor = .black
+       
     }
     
     func setProductImages() {
