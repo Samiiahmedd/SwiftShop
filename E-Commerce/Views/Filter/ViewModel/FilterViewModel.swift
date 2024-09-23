@@ -23,4 +23,8 @@ class FilterViewModel {
                                           .init(categoryName: "Lingenies"),
                                           .init(categoryName: "Cots"),]
     
+    var sortBy : [SortByModel] = [.init(name: "New Today"),
+                                  .init(name: "New This Week"),
+                                  .init(name: "Top Seller")]
+    
 }

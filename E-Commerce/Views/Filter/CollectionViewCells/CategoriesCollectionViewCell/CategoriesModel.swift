@@ -9,3 +9,7 @@ import Foundation
 struct CategoriesModel {
     let categoryName : String
 }
+
+struct SortByModel {
+    let name : String
+}
