@@ -10,12 +10,12 @@ import UIKit
 class CartViewController: UIViewController {
     
     var viewModel = CartViewModel()
-    @IBOutlet var cartProductsCollectionView: UICollectionView!
     
+    @IBOutlet weak var cartProductsTableView: SelfSizedTableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-
+        
         
     }
 }
@@ -25,47 +25,53 @@ class CartViewController: UIViewController {
 private extension CartViewController {
     
     func setupView() {
-        configerCollectionViews()
+        configureTableViews()
         registerCells()
         
     }
     
-    func configerCollectionViews() {
-        cartProductsCollectionView.delegate = self
-        cartProductsCollectionView.dataSource = self
+    func configureTableViews() {
+        cartProductsTableView.delegate = self
+        cartProductsTableView.dataSource = self
     }
     
     func registerCells() {
-        cartProductsCollectionView.register(UINib(nibName: CartCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: CartCollectionViewCell.identifier)
+        cartProductsTableView.register(UINib(nibName: "CartTableViewCell", bundle: nil), forCellReuseIdentifier: "CartTableViewCell")
         
     }
 }
 
 //MARK: - Extentions
 
-extension CartViewController :  UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.CartItems.count
+extension CartViewController :  UITableViewDelegate,UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = cartProductsTableView.dequeueReusableCell(withIdentifier: CartTableViewCell.identifier, for: indexPath) as! CartTableViewCell
+        let Cartitems = viewModel.CartItems[indexPath.row]
+        cell.Setup(Cart: Cartitems)
+        return cell
     }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CartCollectionViewCell.identifier, for: indexPath) as! CartCollectionViewCell
-            let cartt = viewModel.CartItems[indexPath.row]
-        cell.Setup(cart: cartt)
-            return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-        return CGSize(width: (collectionView.frame.width) - 40 , height: 240)
-
-        }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.CartItems.count
     }
-
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: nil) { _, _, complete in
+            self.viewModel.CartItems.remove(at: indexPath.row)
+            self.cartProductsTableView.deleteRows(at: [indexPath], with: .automatic) //
+            complete(true)
+        }
+        
+        // here set your image and background color
+        deleteAction.image = UIImage(systemName: "trash.fill")
+        deleteAction.image?.withTintColor(.white)
+        deleteAction.backgroundColor = .black
+        
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        configuration.performsFirstActionWithFullSwipe = true
+        return configuration
+    }
+    
     
 }
 
