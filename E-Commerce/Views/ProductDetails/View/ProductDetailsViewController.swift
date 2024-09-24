@@ -89,15 +89,21 @@ private extension ProductDetailsViewController {
             with: "",
             and: UIImage(systemName: "magnifyingglass")!) {
                 print("Button tapped")
+                let filter = FilterViewController(nibName: "FilterViewController", bundle: nil)
+                self.navigationController?.pushViewController(filter, animated: true)
+                self.navigationItem.hidesBackButton = true
             }
         
         navBar.setupFirstLeadingButton(
             with: "",
             and: UIImage(named: "back")!) {
                 print("Button tapped")
+                let search = HomeVC(nibName: "HomeVC", bundle: nil)
+                self.navigationController?.pushViewController(search, animated: true)
+                self.navigationItem.hidesBackButton = true
             }
         navBar.tintColor = .black
-       
+        
     }
     
     func setProductImages() {

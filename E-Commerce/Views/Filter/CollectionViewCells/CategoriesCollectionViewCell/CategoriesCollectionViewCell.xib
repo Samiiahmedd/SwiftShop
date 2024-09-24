@@ -32,12 +32,11 @@
                         <constraints>
                             <constraint firstItem="WCy-wq-3Z7" firstAttribute="centerY" secondItem="TcV-HO-b3A" secondAttribute="centerY" id="1TI-Ka-hjx"/>
                             <constraint firstItem="WCy-wq-3Z7" firstAttribute="centerX" secondItem="TcV-HO-b3A" secondAttribute="centerX" id="H9l-2J-X4C"/>
-                            <constraint firstAttribute="width" constant="98" id="cHw-Q7-UEi"/>
                             <constraint firstAttribute="height" constant="30" id="h8P-Ib-Bh9"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="15"/>
+                                <real key="value" value="16"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>

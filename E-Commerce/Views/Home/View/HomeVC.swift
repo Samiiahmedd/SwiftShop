@@ -21,6 +21,7 @@ class HomeVC: UIViewController{
     // MARK: - Variables
     
     private let viewModel = HomeViewModel()
+    var path: String = ""
     
     //MARK: - viewLifeCycle
     
@@ -28,6 +29,7 @@ class HomeVC: UIViewController{
         super.viewDidLoad()
         setupView()
     }
+
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -44,6 +46,7 @@ class HomeVC: UIViewController{
         
     }
 }
+
 
 // MARK: - SETUP VIEW
 
@@ -142,6 +145,11 @@ extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UIColle
         default:
             return CGSize(width: 100, height: 100)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailedScreen = ProductDetailsViewController()
+        self.navigationController?.pushViewController(detailedScreen, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

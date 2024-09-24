@@ -34,14 +34,14 @@
                         <constraint firstAttribute="height" constant="44" id="WqE-CS-oQ8"/>
                     </constraints>
                 </view>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AYK-QV-Ucl">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYK-QV-Ucl">
                     <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rse-28-7J2">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="772.33333333333337"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="732.33333333333337"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="2Jr-or-x0o">
-                                    <rect key="frame" x="12" y="22" width="369" height="590.33333333333337"/>
+                                    <rect key="frame" x="12" y="22" width="369" height="550.33333333333337"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="mcd-Ov-Ss5" userLabel="Categories Stack">
                                             <rect key="frame" x="0.0" y="0.0" width="369" height="160.33333333333334"/>
@@ -88,7 +88,7 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Hk5-HH-ECt" userLabel="Sort Stack">
-                                            <rect key="frame" x="0.0" y="295.66666666666669" width="369" height="115.33333333333331"/>
+                                            <rect key="frame" x="0.0" y="295.66666666666669" width="369" height="75.333333333333314"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54V-iV-3Gd">
                                                     <rect key="frame" x="0.0" y="0.0" width="369" height="19.333333333333332"/>
@@ -97,13 +97,12 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="neZ-ZW-m3E">
-                                                    <rect key="frame" x="0.0" y="35.333333333333314" width="369" height="80"/>
+                                                    <rect key="frame" x="0.0" y="35.333333333333314" width="369" height="40"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="369" id="Av4-Pb-E4f"/>
-                                                        <constraint firstAttribute="height" constant="80" id="pvA-xW-uPW"/>
+                                                        <constraint firstAttribute="height" constant="40" id="pvA-xW-uPW"/>
                                                     </constraints>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eJi-bM-5Ia">
+                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wtY-br-JTJ">
                                                         <size key="itemSize" width="128" height="128"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -113,7 +112,7 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Jt5-cr-rkl" userLabel="Rating Stack">
-                                            <rect key="frame" x="0.0" y="431" width="369" height="159.33333333333337"/>
+                                            <rect key="frame" x="0.0" y="391" width="369" height="159.33333333333337"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ratting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwh-iw-AbP">
                                                     <rect key="frame" x="0.0" y="0.0" width="369" height="19.333333333333332"/>
@@ -337,13 +336,33 @@
                                         </stackView>
                                     </subviews>
                                 </stackView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oct-r4-aMf">
+                                    <rect key="frame" x="12" y="632.33333333333337" width="369" height="50"/>
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="xGW-OC-QVc"/>
+                                    </constraints>
+                                    <color key="tintColor" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Apply Now">
+                                        <fontDescription key="titleFontDescription" type="boldSystem" pointSize="17"/>
+                                    </buttonConfiguration>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="20"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="2Jr-or-x0o" firstAttribute="top" secondItem="Rse-28-7J2" secondAttribute="top" constant="22" id="E1n-Wo-fWl"/>
                                 <constraint firstAttribute="trailing" secondItem="2Jr-or-x0o" secondAttribute="trailing" constant="12" id="EY3-J5-eRh"/>
+                                <constraint firstAttribute="trailing" secondItem="oct-r4-aMf" secondAttribute="trailing" constant="12" id="Lyh-gE-R9f"/>
                                 <constraint firstItem="2Jr-or-x0o" firstAttribute="leading" secondItem="Rse-28-7J2" secondAttribute="leading" constant="12" id="k8b-Sj-y62"/>
-                                <constraint firstAttribute="bottom" secondItem="2Jr-or-x0o" secondAttribute="bottom" constant="160" id="rQK-8u-DZm"/>
+                                <constraint firstItem="oct-r4-aMf" firstAttribute="leading" secondItem="Rse-28-7J2" secondAttribute="leading" constant="12" id="l2Q-Fc-jG3"/>
+                                <constraint firstAttribute="bottom" secondItem="oct-r4-aMf" secondAttribute="bottom" constant="50" id="oRu-Bt-GWK"/>
+                                <constraint firstItem="oct-r4-aMf" firstAttribute="top" secondItem="2Jr-or-x0o" secondAttribute="bottom" constant="60" id="swg-Zd-m7Q"/>
                             </constraints>
                         </view>
                     </subviews>

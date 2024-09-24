@@ -27,14 +27,14 @@ class FilterViewController: UIViewController {
     var selectedSortIndex: IndexPath?
     var selectedButton: UIButton?
     
-    
-    
     //MARK: - VIEW LIFE CYCLE
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
+    
+    //@obj func
     @objc func checkmarkButtonTapped(_ sender: UIButton) {
         if let selectedButton = starsButton.first(where: { $0.isSelected }) {
             selectedButton.isSelected = false
@@ -56,7 +56,6 @@ private extension FilterViewController {
     }
     
     func configureNavBar() {
-        
         navBar.setupFirstLeadingButton(
             with: "",
             and: UIImage(named: "back")!) {
@@ -85,7 +84,7 @@ private extension FilterViewController {
         for button in starsButton {
             button.setImage(UIImage(systemName: "circle"), for: .normal)
             button.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .selected)
-            button.tintColor = .clear 
+            button.tintColor = .clear
             button.addTarget(self, action: #selector(checkmarkButtonTapped(_:)), for: .touchUpInside)
         }
     }
@@ -128,14 +127,15 @@ extension FilterViewController : UICollectionViewDelegate, UICollectionViewDataS
             let textWidth = label.frame.width + 32
             let textHeight = label.frame.height + 16
             return CGSize(width: textWidth, height: textHeight)
+            
         case sortCollectionView:
             let sortBy = viewModel.sortBy[indexPath.row]
             let label = UILabel()
             label.text = sortBy.name
             label.font = UIFont.systemFont(ofSize: 12)
             label.sizeToFit()
-            let textWidth = label.frame.width + 32
-            let textHeight = label.frame.height + 16
+            let textWidth = label.frame.width + 34
+            let textHeight = label.frame.height + 18
             return CGSize(width: textWidth, height: textHeight)
         default:
             return CGSize(width: 50, height: 50)
@@ -146,7 +146,7 @@ extension FilterViewController : UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 5
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -163,6 +163,7 @@ extension FilterViewController : UICollectionViewDelegate, UICollectionViewDataS
     }
     
 }
+
 private extension FilterViewController {
     func configureCategoryCell(for collectionView: UICollectionView, with indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoriesCollectionViewCell.identifier, for: indexPath) as! CategoriesCollectionViewCell
