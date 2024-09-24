@@ -9,14 +9,27 @@ import UIKit
 
 class CartViewController: UIViewController {
     
+    //MARK: - VARIABLES
+    
     var viewModel = CartViewModel()
     
+    //MARK: - IBOUTLETS
+    
     @IBOutlet weak var cartProductsTableView: SelfSizedTableView!
+    
+    @IBOutlet weak var subtotalPrice: UILabel!
+    
+    @IBOutlet weak var shippingPrice: UILabel!
+    
+    @IBOutlet weak var bagTotalPrice: UILabel!
+    
+    @IBOutlet weak var bagTotalItems: UILabel!
+    
+    //MARK: - VIEW LIFE CYCLE
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        
-        
     }
 }
 
@@ -41,7 +54,7 @@ private extension CartViewController {
     }
 }
 
-//MARK: - Extentions
+//MARK: - EXTENSION
 
 extension CartViewController :  UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -58,11 +71,9 @@ extension CartViewController :  UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { _, _, complete in
             self.viewModel.CartItems.remove(at: indexPath.row)
-            self.cartProductsTableView.deleteRows(at: [indexPath], with: .automatic) //
+            self.cartProductsTableView.deleteRows(at: [indexPath], with: .automatic)
             complete(true)
         }
-        
-        // here set your image and background color
         deleteAction.image = UIImage(systemName: "trash.fill")
         deleteAction.image?.withTintColor(.white)
         deleteAction.backgroundColor = .black
