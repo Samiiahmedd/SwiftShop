@@ -33,6 +33,7 @@ open class StapperView: UIView {
     }
     
     weak var delegate: (any StapperViewDelegate)?
+    var onValueChange: ((Int) -> Void)?
     
     // MARK: - Initialization
     
@@ -114,9 +115,10 @@ private extension StapperView {
         }
     }
     
-    func updateValue(_ value: Int) {
+     func updateValue(_ value: Int) {
         updateLabel(value)
         delegate?.stapperView(self, didSet: value)
+        onValueChange?(value) // Notify via closure
     }
     
     func updateLabel(_ value: Int) {

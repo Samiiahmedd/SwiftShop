@@ -15,14 +15,12 @@ class CartViewController: UIViewController {
     
     //MARK: - IBOUTLETS
     
+    @IBOutlet weak var navBar: CustomNavBar!
     @IBOutlet weak var cartProductsTableView: SelfSizedTableView!
-    
+    @IBOutlet weak var noDataImage: UIImageView!
     @IBOutlet weak var subtotalPrice: UILabel!
-    
     @IBOutlet weak var shippingPrice: UILabel!
-    
     @IBOutlet weak var bagTotalPrice: UILabel!
-    
     @IBOutlet weak var bagTotalItems: UILabel!
     
     //MARK: - VIEW LIFE CYCLE
@@ -38,8 +36,32 @@ class CartViewController: UIViewController {
 private extension CartViewController {
     
     func setupView() {
+        configureNavBar()
         configureTableViews()
         registerCells()
+        updateNoDataImage()
+    }
+    
+    func configureNavBar() {
+        navBar.setupFirstTralingButton(
+            with: "",
+            and:UIImage(named: "cart")!)
+        {
+            print("Button tapped")
+            let filter = FilterViewController(nibName: "FilterViewController", bundle: nil)
+            self.navigationController?.pushViewController(filter, animated: true)
+            self.navigationItem.hidesBackButton = true
+        }
+        
+        navBar.setupFirstLeadingButton(
+            with: "",
+            and: UIImage(named: "back")!) {
+                print("Button tapped")
+                let search = SearchCategoriesViewController(nibName: "SearchCategoriesViewController", bundle: nil)
+                self.navigationController?.pushViewController(search, animated: true)
+                self.navigationItem.hidesBackButton = true
+            }
+        navBar.tintColor = .black
         
     }
     
@@ -51,6 +73,11 @@ private extension CartViewController {
     func registerCells() {
         cartProductsTableView.register(UINib(nibName: "CartTableViewCell", bundle: nil), forCellReuseIdentifier: "CartTableViewCell")
         
+    }
+    
+    func updateNoDataImage() {
+        noDataImage.isHidden = true
+        noDataImage.isHidden = viewModel.CartItems.count > 0
     }
 }
 
@@ -65,7 +92,9 @@ extension CartViewController :  UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.CartItems.count
+        let count = viewModel.CartItems.count
+        noDataImage.isHidden = count > 0
+        return count
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

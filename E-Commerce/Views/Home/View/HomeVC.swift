@@ -12,11 +12,11 @@ class HomeVC: UIViewController{
     //MARK: - IBOutlet
     
     @IBOutlet weak var navBar: CustomNavBar!
-    @IBOutlet var scrollView: UIScrollView!
-    @IBOutlet var stackView: UIStackView!
-    @IBOutlet var bannerCollectionView: UICollectionView!
-    @IBOutlet var newArriivalCollectionView: UICollectionView!
-    @IBOutlet var popularTableView: SelfSizedTableView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var bannerCollectionView: UICollectionView!
+    @IBOutlet weak var newArriivalCollectionView: UICollectionView!
+    @IBOutlet weak var popularTableView: SelfSizedTableView!
     
     // MARK: - Variables
     
@@ -30,23 +30,21 @@ class HomeVC: UIViewController{
         setupView()
     }
 
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        popularTableView.layoutIfNeeded()
-        sleep(2)
-        popularTableView.reloadData()
-    }
+//    
+//    override func viewWillLayoutSubviews() {
+//        super.viewWillLayoutSubviews()
+//        popularTableView.layoutIfNeeded()
+//        sleep(2)
+//        popularTableView.reloadData()
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Hide the default navigation bar
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         self.navigationItem.hidesBackButton = true
-        
     }
 }
-
 
 // MARK: - SETUP VIEW
 
@@ -161,7 +159,6 @@ extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UIColle
         let PopularsSection = viewModel.popular[indexPath.row]
         cell.Setup(Populars: PopularsSection)
         return cell
-        
     }
     
     
