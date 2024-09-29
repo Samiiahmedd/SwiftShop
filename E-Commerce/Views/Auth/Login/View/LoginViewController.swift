@@ -12,6 +12,7 @@ class LoginViewController: UIViewController {
     
     //MARK: -IBOUtlet
     
+    @IBOutlet weak var navBar: CustomNavBar!
     @IBOutlet weak var loaderView: UIActivityIndicatorView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet var emailTxtFiedl: UITextField!
@@ -32,6 +33,13 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         bindViewModel()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Hide the default navigation bar
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        self.navigationItem.hidesBackButton = true
     }
     
     //MARK: -IBActions
@@ -59,6 +67,17 @@ private extension LoginViewController {
     func setupView() {
         handelEndEditing()
         configureTextFields()
+        configureNavBar()
+    }
+    
+    func configureNavBar() {
+        navBar.setupFirstLeadingButton(with: "",
+                                       and: UIImage(named: "back")!) {
+            let start = StartScreenViewController(nibName: "StartScreenViewController", bundle: nil)
+            self.navigationController?.pushViewController(start, animated: true)
+            self.navigationItem.hidesBackButton = true
+        }
+        navBar.firstTralingButton.isHidden = true
     }
     
     func configureTextFields() {

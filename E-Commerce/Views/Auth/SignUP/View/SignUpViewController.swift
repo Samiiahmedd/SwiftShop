@@ -12,6 +12,7 @@ class SignUpViewController: UIViewController {
     
     //MARK: -IBOUtlet
     
+    @IBOutlet weak var navBar: CustomNavBar!
     @IBOutlet weak var loaderView: UIActivityIndicatorView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet var nameTxtField: UITextField!
@@ -44,11 +45,22 @@ private extension SignUpViewController {
     func setupView() {
         handelEndEditing()
         configureTextFields()
+        configureNavBar()
     }
             
     func configureTextFields() {
         let textFields: [UITextField] = [nameTxtField, emailTxtField,passwordTxtField,confirmPasswordTxtField ]
         textFields.forEach { $0.delegate = self }
+    }
+    
+    func configureNavBar() {
+        navBar.setupFirstLeadingButton(with: "",
+                                       and: UIImage(named: "back")!) {
+            let start = StartScreenViewController(nibName: "StartScreenViewController", bundle: nil)
+            self.navigationController?.pushViewController(start, animated: true)
+            self.navigationItem.hidesBackButton = true
+        }
+        navBar.firstTralingButton.isHidden = true
     }
 }
 

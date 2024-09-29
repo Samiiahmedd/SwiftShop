@@ -40,6 +40,7 @@ private extension CartViewController {
         configureTableViews()
         registerCells()
         updateNoDataImage()
+        updateBagItems()
     }
     
     func configureNavBar() {
@@ -78,6 +79,10 @@ private extension CartViewController {
     func updateNoDataImage() {
         noDataImage.isHidden = true
         noDataImage.isHidden = viewModel.CartItems.count > 0
+    }
+    
+    func updateBagItems() {
+        bagTotalItems.text = String(viewModel.CartItems.count) 
     }
 }
 

@@ -29,14 +29,6 @@ class HomeVC: UIViewController{
         super.viewDidLoad()
         setupView()
     }
-
-//    
-//    override func viewWillLayoutSubviews() {
-//        super.viewWillLayoutSubviews()
-//        popularTableView.layoutIfNeeded()
-//        sleep(2)
-//        popularTableView.reloadData()
-//    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
