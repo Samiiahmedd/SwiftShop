@@ -18,6 +18,7 @@ class LoginViewController: UIViewController {
     @IBOutlet var emailTxtFiedl: UITextField!
     @IBOutlet var loginBtn: UIButton!
     @IBOutlet var passwordTxtField: UITextField!
+    @IBOutlet weak var forgetPasswordButton: UIButton!
     @IBOutlet var fbLogin: UIButton!
     @IBOutlet var appleLogin: UIButton!
     @IBOutlet var googleLogin: UIButton!
@@ -46,6 +47,9 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginBtn(_ sender: Any) {
         makeLoginRequest()
+    }
+    
+    @IBAction func forgetPasswordButton(_ sender: Any) {
     }
     
     @IBAction func fbLogin(_ sender: Any) {
@@ -99,10 +103,9 @@ private extension LoginViewController {
         viewModel.isLoading.sink { [weak self] isLoading in
             guard let self else { return }
             if isLoading {
-                loaderView.isHidden = false
-                loaderView.startAnimating()
+                self.showLoader()
             } else {
-                loaderView.stopAnimating()
+                self.hideLoader()
             }
         }.store(in: &cancellable)
     }
@@ -124,7 +127,7 @@ private extension LoginViewController {
     func makeLoginRequest() {
         Task {
             guard let email = emailTxtFiedl.text, !email.isEmpty,
-                  let password = passwordTxtField.text, !password.isEmpty else { return }
+                  let password = passwordTxtField.text, !password.isEmpty else {return}
             await viewModel.login(with: email, password: password)
         }
     }

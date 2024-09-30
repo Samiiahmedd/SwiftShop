@@ -18,6 +18,7 @@
                 <outlet property="nameTxtField" destination="4m7-Jb-amm" id="TDy-0e-XPs"/>
                 <outlet property="navBar" destination="TZb-wu-J9I" id="FtQ-D7-mIO"/>
                 <outlet property="passwordTxtField" destination="Twq-pX-tyK" id="7U6-vK-lQr"/>
+                <outlet property="signupButton" destination="VFg-ix-yBS" id="zOe-Qi-Zv1"/>
                 <outlet property="view" destination="gej-hY-WGL" id="XuY-0t-e3n"/>
             </connections>
         </placeholder>
@@ -225,7 +226,7 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
-                                                <action selector="loginBtb:" destination="-1" eventType="touchUpInside" id="Db7-ie-zCB"/>
+                                                <action selector="signupButton:" destination="-1" eventType="touchUpInside" id="Vlw-zR-c5S"/>
                                             </connections>
                                         </button>
                                     </subviews>

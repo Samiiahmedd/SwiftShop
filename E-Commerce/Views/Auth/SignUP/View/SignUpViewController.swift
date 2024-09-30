@@ -20,6 +20,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet var confirmPasswordTxtField: UITextField!
     @IBOutlet var passwordTxtField: UITextField!
     
+    @IBOutlet weak var signupButton: UIButton!
     
     //MARK: - VARIBALES
     
@@ -30,11 +31,12 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        bindViewModel()
     }
     
     //MARK: -IBActions
     
-    @IBAction func loginBtb(_ sender: Any) {
+    @IBAction func signupButton(_ sender: Any) {
         makeSignupRequest()
     }
 }
@@ -77,10 +79,9 @@ private extension SignUpViewController {
         viewModel.isLoading.sink { [weak self] isLoading in
             guard let self else { return }
             if isLoading {
-                loaderView.isHidden = false
-                loaderView.startAnimating()
+                self.showLoader()
             } else {
-                loaderView.stopAnimating()
+                self.hideLoader()
             }
         }.store(in: &cancellable)
     }
@@ -106,11 +107,11 @@ private extension SignUpViewController {
                   let password = passwordTxtField.text, !password.isEmpty,
                   let confirmPassword = confirmPasswordTxtField.text, !confirmPassword.isEmpty,
                   password == confirmPassword else { return }
-            await viewModel.signup(with: email, password: password)
+            
+            await viewModel.signup(with: name, email: email, password: password, confirmPassword: confirmPassword)
         }
     }
 }
-
 
 
 // MARK: - TEXT FIELD DELEGATE
