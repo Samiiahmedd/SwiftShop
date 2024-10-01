@@ -6,33 +6,53 @@
 //
 
 import UIKit
+import Combine
 
 class OTPViewController: UIViewController, UITextFieldDelegate, OTPFieldDelegate {
     
     //MARK: - @IBOUTLETS
     
     @IBOutlet weak var navBar: CustomNavBar!
+    @IBOutlet weak var message: UILabel!
     @IBOutlet weak var txtOtp1: OTPTextField!
     @IBOutlet weak var txtOtp2: OTPTextField!
     @IBOutlet weak var txtOtp3: OTPTextField!
     @IBOutlet weak var txtOtp4: OTPTextField!
     @IBOutlet weak var txtOtp5: OTPTextField!
+    @IBOutlet weak var txtOtp6: OTPTextField!
     @IBOutlet weak var veifyButton: UIButton!
+    
+    
+    // MARK: - VARIABLES
+    var email: String?
+    private var viewModel: OTPViewModelProtocol = OTPViewModel()
+    private var cancellable = Set<AnyCancellable>()
     
     //MARK: - VIEW LIFE CYCLE
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        bindViewModel()
     }
     
     //MARK: - @IBACTIONS
     
     @IBAction func verifyCodeButton(_ sender: Any) {
-        let UpdatePass = UpdatePasswordViewController(nibName: "UpdatePasswordViewController", bundle: nil)
-        self.navigationController?.pushViewController(UpdatePass, animated: true)
-        self.navigationItem.hidesBackButton = true
-    }
+        let otp = "\(txtOtp1.text ?? "")\(txtOtp2.text ?? "")\(txtOtp3.text ?? "")\(txtOtp4.text ?? "")\(txtOtp5.text ?? "")\(txtOtp6.text ?? "")"
+        
+        guard otp.count == 6 else {
+            showErrorAlert(message: "Please enter a complete OTP.")
+            return
+        }
+         if let email = self.email {
+             Task {
+                 await viewModel.verifyOTP(with: otp, email: email)
+             }
+         } else {
+             showErrorAlert(message: "Make sure that OTP Is Correct Or Valid")
+         }
+     }
     
     //Text Fields Set
     
@@ -90,6 +110,18 @@ class OTPViewController: UIViewController, UITextFieldDelegate, OTPFieldDelegate
                 //restrict to only numbers
                 if let _ = Int(string) {
                     txtOtp5.text = string
+                    txtOtp6.becomeFirstResponder()
+                }
+            }       
+        case txtOtp6:
+            if string.isEmpty {
+                txtOtp6.text = string
+                txtOtp5.becomeFirstResponder()
+            } else {
+                //restrict to only numbers
+                if let _ = Int(string) {
+                    txtOtp6.text = string
+
                 }
             }
         default:
@@ -109,7 +141,9 @@ class OTPViewController: UIViewController, UITextFieldDelegate, OTPFieldDelegate
         case txtOtp4:
             txtOtp3.becomeFirstResponder()
         case txtOtp5:
-            txtOtp4.becomeFirstResponder()
+            txtOtp4.becomeFirstResponder() 
+        case txtOtp6:
+            txtOtp5.becomeFirstResponder()
         default:
             print("at default")
         }
@@ -140,15 +174,53 @@ private extension OTPViewController {
         txtOtp3.delegate = self
         txtOtp4.delegate = self
         txtOtp5.delegate = self
+        txtOtp6.delegate = self
         
         txtOtp1.backDelegate = self
         txtOtp2.backDelegate = self
         txtOtp3.backDelegate = self
         txtOtp4.backDelegate = self
         txtOtp5.backDelegate = self
+        txtOtp6.backDelegate = self
     }
-    
 }
+
+ extension OTPViewController {
+    
+    func bindViewModel() {
+            bindIsLoading()
+            bindErrorState()
+            bindIsVerified()
+        }
+        
+        func bindIsLoading() {
+            viewModel.isLoading.sink { [weak self] isLoading in
+                guard let self = self else { return }
+                if isLoading {
+                    self.showLoader()  // Show loader
+                } else {
+                    self.hideLoader()  // Hide loader
+                }
+            }.store(in: &cancellable)
+        }
+        
+        func bindErrorState() {
+            viewModel.errorMessage.sink { [weak self] error in
+                guard let self = self else { return }
+                showErrorAlert(message: error)  // Show error message
+            }.store(in: &cancellable)
+        }
+        
+        func bindIsVerified() {
+            viewModel.isVerified.sink { [weak self] isVerified in
+                guard let self = self else { return }
+                let updatePassVC = UpdatePasswordViewController(nibName: "UpdatePasswordViewController", bundle: nil)
+                updatePassVC.email = self.email
+                self.navigationController?.pushViewController(updatePassVC, animated: true)
+                self.navigationItem.hidesBackButton = true
+            }.store(in: &cancellable)
+        }
+    }
 
 //MARK: - to detect backspace in empty textfield
 

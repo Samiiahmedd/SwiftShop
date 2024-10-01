@@ -56,15 +56,15 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func fbLogin(_ sender: Any) {
-        // Implement Facebook login logic here
+        // Facebook login
     }
     
     @IBAction func appleLogin(_ sender: Any) {
-        // Implement Apple login logic here
+        // Apple login
     }
     
     @IBAction func googleLogin(_ sender: Any) {
-        // Implement Google login logic here
+        //  Google login
     }
 }
 

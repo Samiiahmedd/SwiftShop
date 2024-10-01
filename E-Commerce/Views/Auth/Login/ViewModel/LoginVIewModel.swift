@@ -88,6 +88,7 @@ extension LoginViewModel: LoginViewModelProtocol {
                 isLoading.send(false)
                 errorMessage.send("Failed to receive a valid response from the server.")
             }
+            
         } catch {
             isLoading.send(false)
             errorMessage.send(error.localizedDescription)

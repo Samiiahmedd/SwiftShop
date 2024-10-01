@@ -11,12 +11,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OTPViewController" customModule="E_Commerce" customModuleProvider="target">
             <connections>
+                <outlet property="message" destination="WKh-wD-DRs" id="01t-oB-M8G"/>
                 <outlet property="navBar" destination="Eyj-dV-cKF" id="3u5-24-iaY"/>
                 <outlet property="txtOtp1" destination="Ckx-Fe-eBO" id="vt1-si-RJW"/>
-                <outlet property="txtOtp2" destination="FlY-ah-OGm" id="Zzv-MU-f4u"/>
-                <outlet property="txtOtp3" destination="Y9G-Kn-3qx" id="ZmQ-pQ-sSf"/>
-                <outlet property="txtOtp4" destination="t3F-tf-E1A" id="lRv-4d-kW5"/>
-                <outlet property="txtOtp5" destination="s5x-O8-SIx" id="1NP-1r-DpC"/>
+                <outlet property="txtOtp2" destination="2lc-gN-YuC" id="laL-zO-LDv"/>
+                <outlet property="txtOtp3" destination="zHP-VY-DaP" id="7fn-gR-3h7"/>
+                <outlet property="txtOtp4" destination="V3v-yb-Z2o" id="YOB-nb-0MZ"/>
+                <outlet property="txtOtp5" destination="CcD-ld-Kif" id="zC9-qP-VNt"/>
+                <outlet property="txtOtp6" destination="wvF-UK-PJg" id="26D-Sp-i56"/>
                 <outlet property="veifyButton" destination="hs6-uP-fdI" id="Cpp-w4-4WO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -42,58 +44,67 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We sent a reset link to your email enter 5 digit code that mentioned in the email" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WKh-wD-DRs">
-                            <rect key="frame" x="0.0" y="36" width="351" height="40.666666666666657"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We sent a reset link to your email enter 6 digit code that mentioned in the email" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WKh-wD-DRs">
+                            <rect key="frame" x="0.0" y="36" width="351.33333333333331" height="40.666666666666657"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                 </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="kwe-il-S8A">
-                    <rect key="frame" x="13.666666666666657" y="239.66666666666663" width="366" height="50"/>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="kwe-il-S8A">
+                    <rect key="frame" x="46.666666666666657" y="239.66666666666663" width="300" height="40"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ckx-Fe-eBO" customClass="OTPTextField" customModule="E_Commerce" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="50" id="8o0-rJ-b17"/>
-                                <constraint firstAttribute="height" constant="50" id="TT3-A9-ebg"/>
+                                <constraint firstAttribute="width" constant="40" id="8o0-rJ-b17"/>
+                                <constraint firstAttribute="height" constant="40" id="TT3-A9-ebg"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FlY-ah-OGm" customClass="OTPTextField" customModule="E_Commerce" customModuleProvider="target">
-                            <rect key="frame" x="79" y="0.0" width="50" height="50"/>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2lc-gN-YuC" customClass="OTPTextField" customModule="E_Commerce" customModuleProvider="target">
+                            <rect key="frame" x="52" y="0.0" width="40" height="40"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="50" id="ZXI-tF-58E"/>
-                                <constraint firstAttribute="height" constant="50" id="wG5-g2-tXU"/>
+                                <constraint firstAttribute="height" constant="40" id="9B8-mv-etS"/>
+                                <constraint firstAttribute="width" constant="40" id="9tx-Li-2Gh"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y9G-Kn-3qx" customClass="OTPTextField" customModule="E_Commerce" customModuleProvider="target">
-                            <rect key="frame" x="158" y="0.0" width="50" height="50"/>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zHP-VY-DaP" customClass="OTPTextField" customModule="E_Commerce" customModuleProvider="target">
+                            <rect key="frame" x="104" y="0.0" width="40" height="40"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="50" id="7Gn-eU-o8j"/>
-                                <constraint firstAttribute="width" constant="50" id="A8a-93-Hff"/>
+                                <constraint firstAttribute="width" constant="40" id="Eef-by-ZHB"/>
+                                <constraint firstAttribute="height" constant="40" id="FlS-Tc-0ku"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t3F-tf-E1A" customClass="OTPTextField" customModule="E_Commerce" customModuleProvider="target">
-                            <rect key="frame" x="237" y="0.0" width="50" height="50"/>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V3v-yb-Z2o" customClass="OTPTextField" customModule="E_Commerce" customModuleProvider="target">
+                            <rect key="frame" x="156" y="0.0" width="40" height="40"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="50" id="GuV-KX-J4Y"/>
-                                <constraint firstAttribute="height" constant="50" id="oDH-La-3Go"/>
+                                <constraint firstAttribute="width" constant="40" id="J9F-pc-edY"/>
+                                <constraint firstAttribute="height" constant="40" id="ymA-qN-dXH"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                         </textField>
-                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s5x-O8-SIx" customClass="OTPTextField" customModule="E_Commerce" customModuleProvider="target">
-                            <rect key="frame" x="316" y="0.0" width="50" height="50"/>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CcD-ld-Kif" customClass="OTPTextField" customModule="E_Commerce" customModuleProvider="target">
+                            <rect key="frame" x="208" y="0.0" width="40" height="40"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="50" id="a6O-96-bIr"/>
-                                <constraint firstAttribute="height" constant="50" id="bks-8S-hid"/>
+                                <constraint firstAttribute="width" constant="40" id="R0g-K5-PZH"/>
+                                <constraint firstAttribute="height" constant="40" id="XxF-d3-4qQ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wvF-UK-PJg" customClass="OTPTextField" customModule="E_Commerce" customModuleProvider="target">
+                            <rect key="frame" x="260" y="0.0" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="CTJ-Cq-Hw3"/>
+                                <constraint firstAttribute="width" constant="40" id="xUN-Lj-TDg"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -101,7 +112,7 @@
                     </subviews>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hs6-uP-fdI">
-                    <rect key="frame" x="12" y="329.66666666666669" width="369" height="50"/>
+                    <rect key="frame" x="12" y="319.66666666666669" width="369" height="50"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="fcn-wn-aeA"/>
