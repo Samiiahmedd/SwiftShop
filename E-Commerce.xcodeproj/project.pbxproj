@@ -61,6 +61,12 @@
 		269363CC2C821F0100662442 /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 269363CA2C821F0100662442 /* HomeVC.xib */; };
 		26A18D812CA3085D00924658 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A18D7F2CA3085D00924658 /* CartTableViewCell.swift */; };
 		26A18D822CA3085D00924658 /* CartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26A18D802CA3085D00924658 /* CartTableViewCell.xib */; };
+		26AD3FF32CAB7D9900C23CC7 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AD3FF12CAB7D9900C23CC7 /* OTPViewController.swift */; };
+		26AD3FF42CAB7D9900C23CC7 /* OTPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26AD3FF22CAB7D9900C23CC7 /* OTPViewController.xib */; };
+		26AD3FFB2CAB860500C23CC7 /* UpdatePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26AD3FFA2CAB860500C23CC7 /* UpdatePasswordViewController.xib */; };
+		26AD3FFC2CAB860500C23CC7 /* UpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AD3FF92CAB860500C23CC7 /* UpdatePasswordViewController.swift */; };
+		26AD40002CAB899600C23CC7 /* ResetPasswordSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26AD3FFF2CAB899600C23CC7 /* ResetPasswordSuccessViewController.xib */; };
+		26AD40012CAB899600C23CC7 /* ResetPasswordSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AD3FFE2CAB899600C23CC7 /* ResetPasswordSuccessViewController.swift */; };
 		26AE38AF2C89D8E20086E8FB /* SearchCategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26AE38AE2C89D8E20086E8FB /* SearchCategoriesViewController.xib */; };
 		26AE38B02C89D8E20086E8FB /* SearchCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AE38AD2C89D8E20086E8FB /* SearchCategoriesViewController.swift */; };
 		26AE38B22C89D9300086E8FB /* SearchCategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AE38B12C89D9300086E8FB /* SearchCategoriesViewModel.swift */; };
@@ -150,6 +156,12 @@
 		269363CA2C821F0100662442 /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
 		26A18D7F2CA3085D00924658 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		26A18D802CA3085D00924658 /* CartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartTableViewCell.xib; sourceTree = "<group>"; };
+		26AD3FF12CAB7D9900C23CC7 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
+		26AD3FF22CAB7D9900C23CC7 /* OTPViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OTPViewController.xib; sourceTree = "<group>"; };
+		26AD3FF92CAB860500C23CC7 /* UpdatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewController.swift; sourceTree = "<group>"; };
+		26AD3FFA2CAB860500C23CC7 /* UpdatePasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpdatePasswordViewController.xib; sourceTree = "<group>"; };
+		26AD3FFE2CAB899600C23CC7 /* ResetPasswordSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordSuccessViewController.swift; sourceTree = "<group>"; };
+		26AD3FFF2CAB899600C23CC7 /* ResetPasswordSuccessViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetPasswordSuccessViewController.xib; sourceTree = "<group>"; };
 		26AE38AD2C89D8E20086E8FB /* SearchCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategoriesViewController.swift; sourceTree = "<group>"; };
 		26AE38AE2C89D8E20086E8FB /* SearchCategoriesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCategoriesViewController.xib; sourceTree = "<group>"; };
 		26AE38B12C89D9300086E8FB /* SearchCategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategoriesViewModel.swift; sourceTree = "<group>"; };
@@ -664,6 +676,81 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		26AD3FED2CAB7D7600C23CC7 /* OTP */ = {
+			isa = PBXGroup;
+			children = (
+				26AD3FEF2CAB7D8400C23CC7 /* View */,
+				26AD3FEE2CAB7D8000C23CC7 /* Model */,
+				26AD3FF02CAB7D8600C23CC7 /* ViewModel */,
+			);
+			path = OTP;
+			sourceTree = "<group>";
+		};
+		26AD3FEE2CAB7D8000C23CC7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		26AD3FEF2CAB7D8400C23CC7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				26AD3FF12CAB7D9900C23CC7 /* OTPViewController.swift */,
+				26AD3FF22CAB7D9900C23CC7 /* OTPViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		26AD3FF02CAB7D8600C23CC7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		26AD3FF52CAB85BE00C23CC7 /* UpdatePassword */ = {
+			isa = PBXGroup;
+			children = (
+				26AD3FF82CAB85DC00C23CC7 /* ViewModel */,
+				26AD3FF72CAB85D900C23CC7 /* View */,
+				26AD3FF62CAB85D600C23CC7 /* Model */,
+			);
+			path = UpdatePassword;
+			sourceTree = "<group>";
+		};
+		26AD3FF62CAB85D600C23CC7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		26AD3FF72CAB85D900C23CC7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				26AD3FF92CAB860500C23CC7 /* UpdatePasswordViewController.swift */,
+				26AD3FFA2CAB860500C23CC7 /* UpdatePasswordViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		26AD3FF82CAB85DC00C23CC7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		26AD3FFD2CAB897700C23CC7 /* ResetPasswordSuccess */ = {
+			isa = PBXGroup;
+			children = (
+				26AD3FFE2CAB899600C23CC7 /* ResetPasswordSuccessViewController.swift */,
+				26AD3FFF2CAB899600C23CC7 /* ResetPasswordSuccessViewController.xib */,
+			);
+			path = ResetPasswordSuccess;
+			sourceTree = "<group>";
+		};
 		26AE38A42C89D78D0086E8FB /* NavigationController */ = {
 			isa = PBXGroup;
 			children = (
@@ -891,6 +978,9 @@
 				266859602C48348600EC2718 /* OnBoarding */,
 				2689C98B2C4A475B00033590 /* Login */,
 				265701962CAB38F200B0240C /* ForgetPassword */,
+				26AD3FED2CAB7D7600C23CC7 /* OTP */,
+				26AD3FF52CAB85BE00C23CC7 /* UpdatePassword */,
+				26AD3FFD2CAB897700C23CC7 /* ResetPasswordSuccess */,
 				26347A622C5D983F00F500CB /* SignUP */,
 				26D66DA92C603D5200EC03A9 /* Succssful */,
 			);
@@ -965,9 +1055,12 @@
 				266859672C4836C400EC2718 /* OnBoardingViewController.xib in Resources */,
 				266859412C482A0500EC2718 /* Assets.xcassets in Resources */,
 				26347A692C5D987700F500CB /* SignUpViewController.xib in Resources */,
+				26AD3FFB2CAB860500C23CC7 /* UpdatePasswordViewController.xib in Resources */,
+				26AD3FF42CAB7D9900C23CC7 /* OTPViewController.xib in Resources */,
 				2658C9A72C8B212F0044CC37 /* ClothesCategoryViewController.xib in Resources */,
 				26D66DAD2C603D6A00EC03A9 /* SucessViewController.xib in Resources */,
 				260781352C48917C00B778A2 /* StartScreenViewController.xib in Resources */,
+				26AD40002CAB899600C23CC7 /* ResetPasswordSuccessViewController.xib in Resources */,
 				2610DD062C8CBD92005739A3 /* ProductDetailsViewController.xib in Resources */,
 				266859442C482A0500EC2718 /* Base in Resources */,
 				26C301022C88F86D00CFE4AD /* GoogleService-Info.plist in Resources */,
@@ -1015,6 +1108,7 @@
 				2658C9AA2C8B220D0044CC37 /* ClothesCategoryViewModel.swift in Sources */,
 				2657018B2CAB15EA00B0240C /* Codable.swift in Sources */,
 				26B043192C871880005DFF6A /* NewArriivalCollectionViewCell.swift in Sources */,
+				26AD40012CAB899600C23CC7 /* ResetPasswordSuccessViewController.swift in Sources */,
 				26AE38B02C89D8E20086E8FB /* SearchCategoriesViewController.swift in Sources */,
 				2669F0372C88CEEE00A386B2 /* PopularModel.swift in Sources */,
 				2610DD0C2C8CBDC5005739A3 /* ProductDetailsModel.swift in Sources */,
@@ -1037,7 +1131,9 @@
 				26AE38C12C89E0EC0086E8FB /* SearchCategoriesCollectionViewCell.swift in Sources */,
 				262786312C483F580024D80B /* OnBoardingModel.swift in Sources */,
 				26347A682C5D987600F500CB /* SignUpViewController.swift in Sources */,
+				26AD3FFC2CAB860500C23CC7 /* UpdatePasswordViewController.swift in Sources */,
 				266859382C482A0200EC2718 /* AppDelegate.swift in Sources */,
+				26AD3FF32CAB7D9900C23CC7 /* OTPViewController.swift in Sources */,
 				263D6E882C9F96FF00994E64 /* FilterViewController.swift in Sources */,
 				7FBAD9C72C964CB600CBA3D2 /* SignUpViewModel.swift in Sources */,
 				26FCD84E2C8D265700D7C3A8 /* CartViewModel.swift in Sources */,

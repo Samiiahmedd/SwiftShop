@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OTPViewController" customModule="E_Commerce" customModuleProvider="target">
+            <connections>
+                <outlet property="navBar" destination="Eyj-dV-cKF" id="3u5-24-iaY"/>
+                <outlet property="txtOtp1" destination="Ckx-Fe-eBO" id="vt1-si-RJW"/>
+                <outlet property="txtOtp2" destination="FlY-ah-OGm" id="Zzv-MU-f4u"/>
+                <outlet property="txtOtp3" destination="Y9G-Kn-3qx" id="ZmQ-pQ-sSf"/>
+                <outlet property="txtOtp4" destination="t3F-tf-E1A" id="lRv-4d-kW5"/>
+                <outlet property="txtOtp5" destination="s5x-O8-SIx" id="1NP-1r-DpC"/>
+                <outlet property="veifyButton" destination="hs6-uP-fdI" id="Cpp-w4-4WO"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eyj-dV-cKF" customClass="CustomNavBar" customModule="E_Commerce" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="IIJ-D6-jGm"/>
+                    </constraints>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="QGV-xI-4HC">
+                    <rect key="frame" x="12" y="123" width="369" height="76.666666666666686"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check your email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jG-n7-dBt">
+                            <rect key="frame" x="0.0" y="0.0" width="162" height="24"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We sent a reset link to your email enter 5 digit code that mentioned in the email" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WKh-wD-DRs">
+                            <rect key="frame" x="0.0" y="36" width="351" height="40.666666666666657"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="kwe-il-S8A">
+                    <rect key="frame" x="13.666666666666657" y="239.66666666666663" width="366" height="50"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ckx-Fe-eBO" customClass="OTPTextField" customModule="E_Commerce" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="8o0-rJ-b17"/>
+                                <constraint firstAttribute="height" constant="50" id="TT3-A9-ebg"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FlY-ah-OGm" customClass="OTPTextField" customModule="E_Commerce" customModuleProvider="target">
+                            <rect key="frame" x="79" y="0.0" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="ZXI-tF-58E"/>
+                                <constraint firstAttribute="height" constant="50" id="wG5-g2-tXU"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y9G-Kn-3qx" customClass="OTPTextField" customModule="E_Commerce" customModuleProvider="target">
+                            <rect key="frame" x="158" y="0.0" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="7Gn-eU-o8j"/>
+                                <constraint firstAttribute="width" constant="50" id="A8a-93-Hff"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t3F-tf-E1A" customClass="OTPTextField" customModule="E_Commerce" customModuleProvider="target">
+                            <rect key="frame" x="237" y="0.0" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="GuV-KX-J4Y"/>
+                                <constraint firstAttribute="height" constant="50" id="oDH-La-3Go"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s5x-O8-SIx" customClass="OTPTextField" customModule="E_Commerce" customModuleProvider="target">
+                            <rect key="frame" x="316" y="0.0" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="a6O-96-bIr"/>
+                                <constraint firstAttribute="height" constant="50" id="bks-8S-hid"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                        </textField>
+                    </subviews>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hs6-uP-fdI">
+                    <rect key="frame" x="12" y="329.66666666666669" width="369" height="50"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="fcn-wn-aeA"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Verify Code">
+                        <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
+                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </buttonConfiguration>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="12"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="verifyCodeButton:" destination="-1" eventType="touchUpInside" id="AaV-7v-29M"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="QGV-xI-4HC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="3eA-vE-gJE"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="QGV-xI-4HC" secondAttribute="trailing" constant="12" id="BbN-hT-aOB"/>
+                <constraint firstItem="hs6-uP-fdI" firstAttribute="top" secondItem="kwe-il-S8A" secondAttribute="bottom" constant="40" id="QbJ-TO-RyJ"/>
+                <constraint firstItem="kwe-il-S8A" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Qou-ck-wqe"/>
+                <constraint firstItem="hs6-uP-fdI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="VUJ-iX-3Cu"/>
+                <constraint firstItem="QGV-xI-4HC" firstAttribute="top" secondItem="Eyj-dV-cKF" secondAttribute="bottom" constant="20" id="aQ1-Bw-nyg"/>
+                <constraint firstItem="Eyj-dV-cKF" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="kDW-u0-Bbq"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hs6-uP-fdI" secondAttribute="trailing" constant="12" id="mch-7E-Dn0"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Eyj-dV-cKF" secondAttribute="trailing" id="pB6-Rd-HLI"/>
+                <constraint firstItem="Eyj-dV-cKF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="wcH-gs-O2w"/>
+                <constraint firstItem="kwe-il-S8A" firstAttribute="top" secondItem="QGV-xI-4HC" secondAttribute="bottom" constant="40" id="woD-vr-twI"/>
+            </constraints>
+            <point key="canvasLocation" x="0.76335877862595414" y="-11.267605633802818"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -50,6 +50,9 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func forgetPasswordButton(_ sender: Any) {
+        let forgetPass = ForgetPasswordViewController(nibName: "ForgetPasswordViewController", bundle: nil)
+        self.navigationController?.pushViewController(forgetPass, animated: true)
+        self.navigationItem.hidesBackButton = true
     }
     
     @IBAction func fbLogin(_ sender: Any) {
