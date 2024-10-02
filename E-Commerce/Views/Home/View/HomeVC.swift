@@ -71,7 +71,6 @@ private extension HomeVC {
         
     }
     
-    
     func configureTableViews() {
         popularTableView.delegate = self
         popularTableView.dataSource = self
