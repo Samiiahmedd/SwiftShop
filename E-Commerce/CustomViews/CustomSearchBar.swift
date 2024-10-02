@@ -11,6 +11,7 @@ class CustomSearchBar: UIView {
     
     //MARK: - VIEWLIFECYCLE
     
+    @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet var containerView: UIView!
     
     // MARK: - INITLIZER
@@ -34,6 +35,8 @@ private extension CustomSearchBar {
         containerView.frame = bounds
         containerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         containerView.translatesAutoresizingMaskIntoConstraints = true
+       addPaddingToTextField(searchTextField, padding: 40)
+        
         addSubview(containerView)
     }
     

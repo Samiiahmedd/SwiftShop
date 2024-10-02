@@ -29,7 +29,6 @@ class UpdatePasswordViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         bindViewModel()
-        
     }
     
     //MARK: - @IBACTIONS

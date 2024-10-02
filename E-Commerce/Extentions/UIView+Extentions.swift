@@ -25,16 +25,14 @@ extension UIView {
     
     @IBInspectable var shadowColor: UIColor? {
         get {
-            if let color = self.layer.shadowColor {
-                return UIColor(cgColor: color)
-            }
-            return nil
+            guard let color = self.layer.shadowColor else { return nil }
+            return UIColor(cgColor: color)
         }
         set {
             self.layer.shadowColor = newValue?.cgColor
         }
     }
-    
+
     @IBInspectable var shadowOpacity: Float {
         get {
             return self.layer.shadowOpacity
@@ -43,7 +41,7 @@ extension UIView {
             self.layer.shadowOpacity = newValue
         }
     }
-    
+
     @IBInspectable var shadowOffset: CGSize {
         get {
             return self.layer.shadowOffset
@@ -52,7 +50,7 @@ extension UIView {
             self.layer.shadowOffset = newValue
         }
     }
-    
+
     @IBInspectable var shadowRadius: CGFloat {
         get {
             return self.layer.shadowRadius

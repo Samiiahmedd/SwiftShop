@@ -18,9 +18,7 @@ protocol UpdatePasswordViewModelProtocol {
 }
 
 class UpdatePasswordViewModel {
-    
     var responseHandler: ((_ result: Result<UpdatePasswordResponse, Error>) -> Void)?
-    
     var isUpdated: PassthroughSubject<Bool, Never> = .init()
     var isLoading: PassthroughSubject<Bool, Never> = .init()
     var errorMessage: PassthroughSubject<String, Never> = .init()
@@ -56,7 +54,7 @@ extension UpdatePasswordViewModel: UpdatePasswordViewModelProtocol {
                 case 200:
                     let decoder = JSONDecoder()
                     do {
-                        let result = try decoder.decode(ResetPasswordResponse.self, from: data)
+                        let result = try decoder.decode(UpdatePasswordResponse.self, from: data)
                         isUpdated.send(true) 
                         print("Password reset successfully: \(result)")
                         errorMessage.send(result.message)
@@ -74,10 +72,8 @@ extension UpdatePasswordViewModel: UpdatePasswordViewModelProtocol {
         } catch {
             errorMessage.send("Request failed: \(error.localizedDescription)")
         }
-        
         isLoading.send(false)
     }
-    
 }
 
 

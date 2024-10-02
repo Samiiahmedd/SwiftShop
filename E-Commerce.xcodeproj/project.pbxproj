@@ -92,7 +92,13 @@
 		26CB3D8F2C861ED20029087C /* BannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CB3D8E2C861ED20029087C /* BannerModel.swift */; };
 		26D66DAC2C603D6A00EC03A9 /* SucessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D66DAA2C603D6A00EC03A9 /* SucessViewController.swift */; };
 		26D66DAD2C603D6A00EC03A9 /* SucessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26D66DAB2C603D6A00EC03A9 /* SucessViewController.xib */; };
+		26D902D32CACC68F00B1BF1E /* WishlistTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26D902D22CACC68F00B1BF1E /* WishlistTableViewCell.xib */; };
+		26D902D42CACC68F00B1BF1E /* WishlistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D902D12CACC68F00B1BF1E /* WishlistTableViewCell.swift */; };
 		26F4C3A92CAC56AB004BBEC0 /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F4C3A82CAC56AB004BBEC0 /* OTPViewModel.swift */; };
+		26F8A2692CACCF2F00699D1E /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8A2672CACCF2F00699D1E /* WishlistViewController.swift */; };
+		26F8A26A2CACCF2F00699D1E /* WishlistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26F8A2682CACCF2F00699D1E /* WishlistViewController.xib */; };
+		26F8A26C2CACD89D00699D1E /* WishlistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8A26B2CACD89D00699D1E /* WishlistModel.swift */; };
+		26F8A26E2CACDA8400699D1E /* WishlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8A26D2CACDA8400699D1E /* WishlistViewModel.swift */; };
 		26FCD84A2C8D264000D7C3A8 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FCD8482C8D264000D7C3A8 /* CartViewController.swift */; };
 		26FCD84B2C8D264000D7C3A8 /* CartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26FCD8492C8D264000D7C3A8 /* CartViewController.xib */; };
 		26FCD84E2C8D265700D7C3A8 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FCD84D2C8D265700D7C3A8 /* CartViewModel.swift */; };
@@ -194,12 +200,18 @@
 		26CB3D8E2C861ED20029087C /* BannerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerModel.swift; sourceTree = "<group>"; };
 		26D66DAA2C603D6A00EC03A9 /* SucessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucessViewController.swift; sourceTree = "<group>"; };
 		26D66DAB2C603D6A00EC03A9 /* SucessViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SucessViewController.xib; sourceTree = "<group>"; };
+		26D902D12CACC68F00B1BF1E /* WishlistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistTableViewCell.swift; sourceTree = "<group>"; };
+		26D902D22CACC68F00B1BF1E /* WishlistTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishlistTableViewCell.xib; sourceTree = "<group>"; };
 		26DF7C182C9E293D00755090 /* PoppinsRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PoppinsRegular.ttf; sourceTree = "<group>"; };
 		26DF7C192C9E294200755090 /* PoppinsBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PoppinsBold.ttf; sourceTree = "<group>"; };
 		26DF7C1A2C9E294600755090 /* PoppinsSemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PoppinsSemiBold.ttf; sourceTree = "<group>"; };
 		26DF7C1B2C9E294B00755090 /* PoppinsLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PoppinsLight.ttf; sourceTree = "<group>"; };
 		26DF7C1C2C9E295400755090 /* PoppinsMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PoppinsMedium.ttf; sourceTree = "<group>"; };
 		26F4C3A82CAC56AB004BBEC0 /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
+		26F8A2672CACCF2F00699D1E /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
+		26F8A2682CACCF2F00699D1E /* WishlistViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishlistViewController.xib; sourceTree = "<group>"; };
+		26F8A26B2CACD89D00699D1E /* WishlistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistModel.swift; sourceTree = "<group>"; };
+		26F8A26D2CACDA8400699D1E /* WishlistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewModel.swift; sourceTree = "<group>"; };
 		26FCD8482C8D264000D7C3A8 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		26FCD8492C8D264000D7C3A8 /* CartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartViewController.xib; sourceTree = "<group>"; };
 		26FCD84D2C8D265700D7C3A8 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
@@ -582,6 +594,7 @@
 		2668595F2C48343C00EC2718 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				26D902CA2CACC54E00B1BF1E /* Wishlist */,
 				7FBAD9CD2C965C2100CBA3D2 /* Auth */,
 				269363B62C821AAE00662442 /* MainTabBar */,
 				269363B92C821C2C00662442 /* Home */,
@@ -914,6 +927,67 @@
 			path = Succssful;
 			sourceTree = "<group>";
 		};
+		26D902CA2CACC54E00B1BF1E /* Wishlist */ = {
+			isa = PBXGroup;
+			children = (
+				26D902CE2CACC65000B1BF1E /* TableViewCell */,
+				26D902CD2CACC58D00B1BF1E /* ViewModel */,
+				26D902CC2CACC58900B1BF1E /* View */,
+				26D902CB2CACC58400B1BF1E /* Model */,
+			);
+			path = Wishlist;
+			sourceTree = "<group>";
+		};
+		26D902CB2CACC58400B1BF1E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		26D902CC2CACC58900B1BF1E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				26F8A2672CACCF2F00699D1E /* WishlistViewController.swift */,
+				26F8A2682CACCF2F00699D1E /* WishlistViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		26D902CD2CACC58D00B1BF1E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				26F8A26D2CACDA8400699D1E /* WishlistViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		26D902CE2CACC65000B1BF1E /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				26D902D02CACC66300B1BF1E /* View */,
+				26D902CF2CACC65F00B1BF1E /* Model */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		26D902CF2CACC65F00B1BF1E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				26F8A26B2CACD89D00699D1E /* WishlistModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		26D902D02CACC66300B1BF1E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				26D902D12CACC68F00B1BF1E /* WishlistTableViewCell.swift */,
+				26D902D22CACC68F00B1BF1E /* WishlistTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		26FCD8442C8D25B900D7C3A8 /* Cart */ = {
 			isa = PBXGroup;
 			children = (
@@ -1081,7 +1155,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				266611B22C9A332C006F79DF /* ColorCollectionViewCell.xib in Resources */,
+				26F8A26A2CACCF2F00699D1E /* WishlistViewController.xib in Resources */,
 				266859672C4836C400EC2718 /* OnBoardingViewController.xib in Resources */,
+				26D902D32CACC68F00B1BF1E /* WishlistTableViewCell.xib in Resources */,
 				266859412C482A0500EC2718 /* Assets.xcassets in Resources */,
 				26347A692C5D987700F500CB /* SignUpViewController.xib in Resources */,
 				26AD3FFB2CAB860500C23CC7 /* UpdatePasswordViewController.xib in Resources */,
@@ -1138,10 +1214,12 @@
 				265E2F082CAC7A6600DEB18D /* UpdatePasswordModel.swift in Sources */,
 				2610DD052C8CBD92005739A3 /* ProductDetailsViewController.swift in Sources */,
 				26FCD84A2C8D264000D7C3A8 /* CartViewController.swift in Sources */,
+				26F8A26C2CACD89D00699D1E /* WishlistModel.swift in Sources */,
 				2658C9AA2C8B220D0044CC37 /* ClothesCategoryViewModel.swift in Sources */,
 				2657018B2CAB15EA00B0240C /* Codable.swift in Sources */,
 				26B043192C871880005DFF6A /* NewArriivalCollectionViewCell.swift in Sources */,
 				26AD40012CAB899600C23CC7 /* ResetPasswordSuccessViewController.swift in Sources */,
+				26F8A2692CACCF2F00699D1E /* WishlistViewController.swift in Sources */,
 				26AE38B02C89D8E20086E8FB /* SearchCategoriesViewController.swift in Sources */,
 				2669F0372C88CEEE00A386B2 /* PopularModel.swift in Sources */,
 				2610DD0C2C8CBDC5005739A3 /* ProductDetailsModel.swift in Sources */,
@@ -1182,8 +1260,10 @@
 				2668595D2C48313400EC2718 /* UIView+Extentions.swift in Sources */,
 				26B39D472C990FD5002582DC /* SizeCollectionViewCell.swift in Sources */,
 				267E8D2D2CAC4BA6009AC330 /* OtpModel.swift in Sources */,
+				26F8A26E2CACDA8400699D1E /* WishlistViewModel.swift in Sources */,
 				26CB3D8B2C861E960029087C /* BannerCollectionViewCell.swift in Sources */,
 				7F5B02032C89034900573B53 /* CollectionView+.swift in Sources */,
+				26D902D42CACC68F00B1BF1E /* WishlistTableViewCell.swift in Sources */,
 				269363B82C821AFF00662442 /* MainTabBarViewController.swift in Sources */,
 				266859662C4836C400EC2718 /* OnBoardingViewController.swift in Sources */,
 				267E8D2F2CAC4BF1009AC330 /* ForgetPasswordModel.swift in Sources */,
