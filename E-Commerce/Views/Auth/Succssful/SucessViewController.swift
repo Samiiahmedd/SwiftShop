@@ -19,7 +19,8 @@ class SucessViewController: UIViewController {
         let Home = HomeVC()
         Home.modalPresentationStyle = .overFullScreen
         Home.modalTransitionStyle = .crossDissolve
-        self.present(Home, animated: true)    }
+        self.present(Home, animated: true)
+    }
     
     
     

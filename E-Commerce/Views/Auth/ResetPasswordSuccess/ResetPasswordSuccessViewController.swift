@@ -14,15 +14,14 @@ class ResetPasswordSuccessViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     
     //MARK: - VIEW LIFE CYCLE
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     //MARK: - @IBACTIONS
-
+    
     @IBAction func loginButton(_ sender: Any) {
-        let login = LoginViewController(nibName: "LoginViewController", bundle: nil)
-        self.navigationController?.pushViewController(login, animated: true)
-        self.navigationItem.hidesBackButton = true    }
+        navigationController?.popToRootViewController(animated: true)
+    }
 }
