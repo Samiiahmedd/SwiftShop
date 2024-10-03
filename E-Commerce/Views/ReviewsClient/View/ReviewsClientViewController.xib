@@ -35,12 +35,9 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="NLb-AU-Lj5">
-                    <rect key="frame" x="12" y="150" width="369" height="614"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="NLb-AU-Lj5">
+                    <rect key="frame" x="12" y="150" width="369" height="668"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="614" id="wox-He-GIg"/>
-                    </constraints>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -50,6 +47,7 @@
                 <constraint firstItem="NLb-AU-Lj5" firstAttribute="top" secondItem="kyZ-FP-CJT" secondAttribute="bottom" constant="12" id="5Kk-S1-cqF"/>
                 <constraint firstItem="KY7-if-kL0" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="6TF-mi-dgg"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="KY7-if-kL0" secondAttribute="trailing" id="OEd-rY-5Od"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="NLb-AU-Lj5" secondAttribute="bottom" id="dRC-oZ-mV1"/>
                 <constraint firstItem="kyZ-FP-CJT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="f4F-CI-fFr"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="NLb-AU-Lj5" secondAttribute="trailing" constant="12" id="p5W-Hw-S6t"/>
                 <constraint firstItem="KY7-if-kL0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="wIo-mf-i1G"/>
