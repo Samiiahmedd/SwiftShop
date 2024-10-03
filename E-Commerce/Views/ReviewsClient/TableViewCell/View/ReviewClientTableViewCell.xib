@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -37,6 +36,11 @@
                                                             <constraint firstAttribute="width" constant="60" id="AL7-ls-an5"/>
                                                             <constraint firstAttribute="height" constant="60" id="c3B-Ub-VBl"/>
                                                         </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </imageView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cgj-RG-Jbw">
                                                         <rect key="frame" x="0.0" y="65" width="60" height="60"/>
@@ -48,8 +52,8 @@
                                                     </view>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="ruX-Uj-XzB">
-                                                <rect key="frame" x="72" y="19" width="229" height="110"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ruX-Uj-XzB">
+                                                <rect key="frame" x="72" y="16.666666666666664" width="229" height="114.66666666666669"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="hff-2c-jYJ">
                                                         <rect key="frame" x="0.0" y="0.0" width="229" height="35.666666666666664"/>
@@ -64,7 +68,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 june, 2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sr9-Gl-7fl">
-                                                                        <rect key="frame" x="0.0" y="22.333333333333329" width="145" height="13.333333333333336"/>
+                                                                        <rect key="frame" x="0.0" y="22.333333333333336" width="145" height="13.333333333333336"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
                                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
@@ -76,35 +80,35 @@
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="EWb-GB-dZp">
                                                                         <rect key="frame" x="0.0" y="-0.33333333333333215" width="12" height="35.333333333333329"/>
-                                                                        <color key="tintColor" name="AccentColor"/>
+                                                                        <color key="tintColor" systemColor="systemYellowColor"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="12" id="cGt-Zk-jpZ"/>
                                                                         </constraints>
                                                                     </imageView>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="abn-zv-FgH">
                                                                         <rect key="frame" x="12" y="-0.33333333333333215" width="12" height="35.333333333333329"/>
-                                                                        <color key="tintColor" name="AccentColor"/>
+                                                                        <color key="tintColor" systemColor="systemYellowColor"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="12" id="GiM-PK-m1y"/>
                                                                         </constraints>
                                                                     </imageView>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="afs-XK-SH1">
                                                                         <rect key="frame" x="24" y="-0.33333333333333215" width="12" height="35.333333333333329"/>
-                                                                        <color key="tintColor" name="AccentColor"/>
+                                                                        <color key="tintColor" systemColor="systemYellowColor"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="12" id="XGg-0s-oPO"/>
                                                                         </constraints>
                                                                     </imageView>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="16d-5Y-R0n">
                                                                         <rect key="frame" x="36" y="-0.33333333333333215" width="12" height="35.333333333333329"/>
-                                                                        <color key="tintColor" name="AccentColor"/>
+                                                                        <color key="tintColor" systemColor="systemYellowColor"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="12" id="MO2-jp-tSH"/>
                                                                         </constraints>
                                                                     </imageView>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="7xA-8X-bnz">
                                                                         <rect key="frame" x="48" y="-0.33333333333333215" width="12" height="35.333333333333329"/>
-                                                                        <color key="tintColor" name="AccentColor"/>
+                                                                        <color key="tintColor" systemColor="systemYellowColor"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="12" id="gRc-wM-4ue"/>
                                                                         </constraints>
@@ -113,8 +117,8 @@
                                                             </stackView>
                                                         </subviews>
                                                     </stackView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvK-RL-LCn">
-                                                        <rect key="frame" x="0.0" y="59.666666666666671" width="229" height="50.333333333333329"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using." lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvK-RL-LCn">
+                                                        <rect key="frame" x="0.0" y="47.666666666666657" width="229" height="67"/>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -144,12 +148,14 @@
                                 <real key="value" value="0.10000000000000001"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                <size key="value" width="1" height="1"/>
+                                <size key="value" width="1" height="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                <real key="value" value="6"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
-                <color key="backgroundColor" systemColor="linkColor"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="jJy-0V-vyr" secondAttribute="bottom" constant="12" id="Aoy-Su-zYh"/>
                     <constraint firstAttribute="trailing" secondItem="jJy-0V-vyr" secondAttribute="trailing" constant="8" id="TRL-mU-H5j"/>
@@ -158,19 +164,22 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="ratingDate" destination="sr9-Gl-7fl" id="qpd-6P-TPV"/>
+                <outlet property="ratingDescription" destination="jvK-RL-LCn" id="aYc-Hw-7kF"/>
+                <outlet property="userImage" destination="dck-Lm-1Ac" id="v8R-To-8Eq"/>
+                <outlet property="userName" destination="E3f-Qg-4ME" id="gjl-RW-iEm"/>
+            </connections>
             <point key="canvasLocation" x="0.76335877862595414" y="42.253521126760567"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="star.fill" catalog="system" width="128" height="116"/>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <image name="star.fill" catalog="system" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

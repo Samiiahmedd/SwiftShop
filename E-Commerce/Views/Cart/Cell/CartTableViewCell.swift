@@ -44,4 +44,4 @@ extension CartTableViewCell {
         productDescription.text = Cart.productDescription
         productPrice.text = Cart.productPrice
     }
-}
+}   
