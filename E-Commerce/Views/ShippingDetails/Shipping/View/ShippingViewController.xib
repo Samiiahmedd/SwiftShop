@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShippingViewController" customModule="E_Commerce" customModuleProvider="target">
+            <connections>
+                <outlet property="addAddressLabel" destination="DcV-1l-6Gj" id="yP4-QS-ewx"/>
+                <outlet property="addressView" destination="dCc-4r-Pre" id="KzL-Yi-sdX"/>
+                <outlet property="nanBar" destination="aED-XN-OPK" id="wwh-Fj-VNd"/>
+                <outlet property="titsle" destination="gwe-Rc-EtR" id="W6O-ji-lsj"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aED-XN-OPK" customClass="CustomNavBar" customModule="E_Commerce" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="alQ-fk-AMl"/>
+                    </constraints>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="fnH-iN-9JT">
+                    <rect key="frame" x="12" y="115" width="369" height="170"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shipping" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwe-Rc-EtR">
+                            <rect key="frame" x="0.0" y="0.0" width="369" height="23"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCc-4r-Pre">
+                            <rect key="frame" x="0.0" y="45" width="369" height="125"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9rm-Ta-g4Z">
+                                    <rect key="frame" x="134.66666666666666" y="12.666666666666657" width="100" height="100"/>
+                                    <color key="backgroundColor" white="1" alpha="0.096131677656727824" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="100" id="1pH-k8-uy8"/>
+                                        <constraint firstAttribute="height" constant="100" id="eTR-Yo-yDY"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="12"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="3Dn-nG-jQZ">
+                                    <rect key="frame" x="142.33333333333334" y="35.333333333333343" width="84.666666666666657" height="54.333333333333343"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DcV-1l-6Gj">
+                                            <rect key="frame" x="17.333333333333311" y="0.0" width="49.666666666666657" height="34.333333333333336"/>
+                                            <color key="tintColor" name="main1"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain">
+                                                <imageReference key="image" image="mappin.and.ellipse.circle.fill" catalog="system" symbolScale="large"/>
+                                                <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
+                                            </buttonConfiguration>
+                                            <connections>
+                                                <action selector="addAddressAction:" destination="-1" eventType="touchUpInside" id="YLR-cA-l8F"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haf-Hs-ZF2">
+                                            <rect key="frame" x="0.0" y="37.333333333333314" width="84.666666666666671" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                            <color key="textColor" name="main1"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="9rm-Ta-g4Z" firstAttribute="centerY" secondItem="dCc-4r-Pre" secondAttribute="centerY" id="Bwh-1f-erd"/>
+                                <constraint firstItem="9rm-Ta-g4Z" firstAttribute="centerX" secondItem="dCc-4r-Pre" secondAttribute="centerX" id="DHB-NS-QxG"/>
+                                <constraint firstItem="3Dn-nG-jQZ" firstAttribute="centerX" secondItem="dCc-4r-Pre" secondAttribute="centerX" id="FEQ-vc-7fr"/>
+                                <constraint firstItem="3Dn-nG-jQZ" firstAttribute="centerY" secondItem="dCc-4r-Pre" secondAttribute="centerY" id="m4R-tz-aiH"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="18"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                    <size key="value" width="0.0" height="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                    <real key="value" value="7"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="170" id="3ZJ-vv-lgZ"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="aED-XN-OPK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="0NH-0K-ueN"/>
+                <constraint firstItem="fnH-iN-9JT" firstAttribute="top" secondItem="aED-XN-OPK" secondAttribute="bottom" constant="12" id="G8i-FF-hEQ"/>
+                <constraint firstItem="aED-XN-OPK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="MKm-E0-YaD"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="aED-XN-OPK" secondAttribute="trailing" id="QoR-cP-RCJ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fnH-iN-9JT" secondAttribute="trailing" constant="12" id="dXF-BZ-Cpq"/>
+                <constraint firstItem="fnH-iN-9JT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="vnP-sP-bG1"/>
+            </constraints>
+            <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="mappin.and.ellipse.circle.fill" catalog="system" width="128" height="123"/>
+        <namedColor name="main1">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

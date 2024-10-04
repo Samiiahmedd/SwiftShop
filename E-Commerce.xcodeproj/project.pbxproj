@@ -39,6 +39,8 @@
 		265701952CAB362E00B0240C /* loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265701942CAB362E00B0240C /* loader.swift */; };
 		2657019C2CAB392700B0240C /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2657019A2CAB392700B0240C /* ForgetPasswordViewController.swift */; };
 		2657019D2CAB392700B0240C /* ForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2657019B2CAB392700B0240C /* ForgetPasswordViewController.xib */; };
+		2657E94C2CB0620C00ADDA3B /* ShippingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2657E94B2CB0620C00ADDA3B /* ShippingViewController.xib */; };
+		2657E94D2CB0620C00ADDA3B /* ShippingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2657E94A2CB0620C00ADDA3B /* ShippingViewController.swift */; };
 		2658C9A72C8B212F0044CC37 /* ClothesCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2658C9A62C8B212F0044CC37 /* ClothesCategoryViewController.xib */; };
 		2658C9A82C8B212F0044CC37 /* ClothesCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2658C9A52C8B212F0044CC37 /* ClothesCategoryViewController.swift */; };
 		2658C9AA2C8B220D0044CC37 /* ClothesCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2658C9A92C8B220D0044CC37 /* ClothesCategoryViewModel.swift */; };
@@ -63,6 +65,8 @@
 		266859662C4836C400EC2718 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266859642C4836C400EC2718 /* OnBoardingViewController.swift */; };
 		266859672C4836C400EC2718 /* OnBoardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 266859652C4836C400EC2718 /* OnBoardingViewController.xib */; };
 		2669F0372C88CEEE00A386B2 /* PopularModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2669F0362C88CEEE00A386B2 /* PopularModel.swift */; };
+		267E2F062CB0721200F9B5D8 /* ShippingAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267E2F042CB0721200F9B5D8 /* ShippingAddressViewController.swift */; };
+		267E2F072CB0721200F9B5D8 /* ShippingAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 267E2F052CB0721200F9B5D8 /* ShippingAddressViewController.xib */; };
 		267E8D2B2CAC3A13009AC330 /* ForgetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267E8D2A2CAC3A13009AC330 /* ForgetPasswordViewModel.swift */; };
 		267E8D2D2CAC4BA6009AC330 /* OtpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267E8D2C2CAC4BA6009AC330 /* OtpModel.swift */; };
 		267E8D2F2CAC4BF1009AC330 /* ForgetPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267E8D2E2CAC4BF1009AC330 /* ForgetPasswordModel.swift */; };
@@ -157,6 +161,8 @@
 		265701942CAB362E00B0240C /* loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loader.swift; sourceTree = "<group>"; };
 		2657019A2CAB392700B0240C /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		2657019B2CAB392700B0240C /* ForgetPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgetPasswordViewController.xib; sourceTree = "<group>"; };
+		2657E94A2CB0620C00ADDA3B /* ShippingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingViewController.swift; sourceTree = "<group>"; };
+		2657E94B2CB0620C00ADDA3B /* ShippingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShippingViewController.xib; sourceTree = "<group>"; };
 		2658C9A52C8B212F0044CC37 /* ClothesCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCategoryViewController.swift; sourceTree = "<group>"; };
 		2658C9A62C8B212F0044CC37 /* ClothesCategoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClothesCategoryViewController.xib; sourceTree = "<group>"; };
 		2658C9A92C8B220D0044CC37 /* ClothesCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCategoryViewModel.swift; sourceTree = "<group>"; };
@@ -183,6 +189,8 @@
 		266859642C4836C400EC2718 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		266859652C4836C400EC2718 /* OnBoardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnBoardingViewController.xib; sourceTree = "<group>"; };
 		2669F0362C88CEEE00A386B2 /* PopularModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularModel.swift; sourceTree = "<group>"; };
+		267E2F042CB0721200F9B5D8 /* ShippingAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingAddressViewController.swift; sourceTree = "<group>"; };
+		267E2F052CB0721200F9B5D8 /* ShippingAddressViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShippingAddressViewController.xib; sourceTree = "<group>"; };
 		267E8D2A2CAC3A13009AC330 /* ForgetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewModel.swift; sourceTree = "<group>"; };
 		267E8D2C2CAC4BA6009AC330 /* OtpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpModel.swift; sourceTree = "<group>"; };
 		267E8D2E2CAC4BF1009AC330 /* ForgetPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordModel.swift; sourceTree = "<group>"; };
@@ -489,6 +497,32 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		2657E9452CB0609800ADDA3B /* ShippingDetails */ = {
+			isa = PBXGroup;
+			children = (
+				267E2F002CB0718200F9B5D8 /* Shipping+Address */,
+				2657E9492CB061D900ADDA3B /* Shipping */,
+			);
+			path = ShippingDetails;
+			sourceTree = "<group>";
+		};
+		2657E9472CB060F100ADDA3B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2657E94A2CB0620C00ADDA3B /* ShippingViewController.swift */,
+				2657E94B2CB0620C00ADDA3B /* ShippingViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2657E9492CB061D900ADDA3B /* Shipping */ = {
+			isa = PBXGroup;
+			children = (
+				2657E9472CB060F100ADDA3B /* View */,
+			);
+			path = Shipping;
+			sourceTree = "<group>";
+		};
 		2658C9A02C8B1FF20044CC37 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -687,6 +721,7 @@
 		2668595F2C48343C00EC2718 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2657E9452CB0609800ADDA3B /* ShippingDetails */,
 				265E1CAF2CAEF86A00C588AD /* Notifications */,
 				26B5B7D92CADBDF800082441 /* ReviewsClient */,
 				26D902CA2CACC54E00B1BF1E /* Wishlist */,
@@ -726,6 +761,39 @@
 				266859652C4836C400EC2718 /* OnBoardingViewController.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		267E2F002CB0718200F9B5D8 /* Shipping+Address */ = {
+			isa = PBXGroup;
+			children = (
+				267E2F032CB071B800F9B5D8 /* ViewModel */,
+				267E2F022CB071B200F9B5D8 /* View */,
+				267E2F012CB071AD00F9B5D8 /* Model */,
+			);
+			path = "Shipping+Address";
+			sourceTree = "<group>";
+		};
+		267E2F012CB071AD00F9B5D8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		267E2F022CB071B200F9B5D8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				267E2F042CB0721200F9B5D8 /* ShippingAddressViewController.swift */,
+				267E2F052CB0721200F9B5D8 /* ShippingAddressViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		267E2F032CB071B800F9B5D8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		2683A0422C9909FC0032A3FA /* CollectionViewCells */ = {
@@ -1320,6 +1388,7 @@
 				2657019D2CAB392700B0240C /* ForgetPasswordViewController.xib in Resources */,
 				26D04EF82CADC16000E7B2D9 /* ReviewClientTableViewCell.xib in Resources */,
 				264ACA972C8DE4D1001B0AE3 /* StapperView.xib in Resources */,
+				2657E94C2CB0620C00ADDA3B /* ShippingViewController.xib in Resources */,
 				2689C9932C4A47A200033590 /* LoginViewController.xib in Resources */,
 				261D541F2C9F8C3F001620BF /* CustomSearchBar.xib in Resources */,
 				265E1CC02CAEFCB600C588AD /* NotificationsTableViewCell.xib in Resources */,
@@ -1332,6 +1401,7 @@
 				26AE38C02C89E0EC0086E8FB /* SearchCategoriesCollectionViewCell.xib in Resources */,
 				26C301072C89130800CFE4AD /* PopularsTableViewCell.xib in Resources */,
 				26CB3D8C2C861E960029087C /* BannerCollectionViewCell.xib in Resources */,
+				267E2F072CB0721200F9B5D8 /* ShippingAddressViewController.xib in Resources */,
 				26A18D822CA3085D00924658 /* CartTableViewCell.xib in Resources */,
 				26055E842CA065A00073D79E /* CategoriesCollectionViewCell.xib in Resources */,
 				26B5B7E12CADBE3900082441 /* ReviewsClientViewController.xib in Resources */,
@@ -1386,8 +1456,10 @@
 				26D66DAC2C603D6A00EC03A9 /* SucessViewController.swift in Sources */,
 				260781382C48982800B778A2 /* NavigationController.swift in Sources */,
 				265701902CAB165400B0240C /* LoginModel.swift in Sources */,
+				267E2F062CB0721200F9B5D8 /* ShippingAddressViewController.swift in Sources */,
 				265AE97D2CA091BE00216175 /* RangeSlider.swift in Sources */,
 				26AE38B22C89D9300086E8FB /* SearchCategoriesViewModel.swift in Sources */,
+				2657E94D2CB0620C00ADDA3B /* ShippingViewController.swift in Sources */,
 				263D6E8A2C9F970E00994E64 /* FilterViewModel.swift in Sources */,
 				2610DD092C8CBDAE005739A3 /* ProductDetailsViewModel.swift in Sources */,
 				26055E812CA065210073D79E /* CategoriesModel.swift in Sources */,
