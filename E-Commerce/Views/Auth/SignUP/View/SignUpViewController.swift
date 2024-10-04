@@ -53,6 +53,7 @@ private extension SignUpViewController {
     func configureTextFields() {
         let textFields: [UITextField] = [nameTxtField, emailTxtField,passwordTxtField,confirmPasswordTxtField ]
         textFields.forEach { $0.delegate = self }
+        addPasswordToggleButtons()
     }
     
     func configureNavBar() {
@@ -63,6 +64,44 @@ private extension SignUpViewController {
             self.navigationItem.hidesBackButton = true
         }
         navBar.firstTralingButton.isHidden = true
+    }
+    
+    func addPasswordToggleButtons() {
+        let passwordToggleBtn = UIButton(type: .custom)
+        passwordToggleBtn.setImage(UIImage(systemName: "eye"), for: .normal)
+        passwordToggleBtn.setImage(UIImage(systemName: "eye.slash"), for: .selected)
+        passwordToggleBtn.addTarget(self, action: #selector(togglePasswordVisibility(_:)), for: .touchUpInside)
+        passwordToggleBtn.tintColor = .black
+        passwordTxtField.rightView = passwordToggleBtn
+        passwordTxtField.rightViewMode = .always
+
+        let confirmPasswordToggleBtn = UIButton(type: .custom)
+        confirmPasswordToggleBtn.setImage(UIImage(systemName: "eye"), for: .normal)
+        confirmPasswordToggleBtn.setImage(UIImage(systemName: "eye.slash"), for: .selected)
+        confirmPasswordToggleBtn.addTarget(self, action: #selector(toggleConfirmPasswordVisibility(_:)), for: .touchUpInside)
+        confirmPasswordToggleBtn.tintColor = .black
+        confirmPasswordTxtField.rightView = confirmPasswordToggleBtn
+        confirmPasswordTxtField.rightViewMode = .always
+    }
+
+    @objc func togglePasswordVisibility(_ sender: UIButton) {
+        sender.isSelected.toggle()
+        passwordTxtField.isSecureTextEntry.toggle()
+        
+        if let existingText = passwordTxtField.text, passwordTxtField.isSecureTextEntry {
+            passwordTxtField.deleteBackward()
+            passwordTxtField.insertText(existingText)
+        }
+    }
+
+    @objc func toggleConfirmPasswordVisibility(_ sender: UIButton) {
+        sender.isSelected.toggle()
+        confirmPasswordTxtField.isSecureTextEntry.toggle()
+        
+        if let existingText = confirmPasswordTxtField.text, confirmPasswordTxtField.isSecureTextEntry {
+            confirmPasswordTxtField.deleteBackward()
+            confirmPasswordTxtField.insertText(existingText)
+        }
     }
 }
 

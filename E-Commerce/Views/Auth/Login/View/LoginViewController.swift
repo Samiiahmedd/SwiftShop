@@ -90,8 +90,31 @@ private extension LoginViewController {
     func configureTextFields() {
         let textFields: [UITextField] = [emailTxtFiedl, passwordTxtField]
         textFields.forEach { $0.delegate = self }
+        addPasswordToggleButton()
     }
-}
+    
+    func addPasswordToggleButton() {
+         let passwordToggleBtn = UIButton(type: .custom)
+        passwordToggleBtn.setImage (UIImage(systemName: "eye"), for: .normal)
+         passwordToggleBtn.setImage(UIImage(systemName: "eye.slash"), for: .selected)
+         passwordToggleBtn.addTarget(self, action: #selector(togglePasswordVisibility), for: .touchUpInside)
+        passwordToggleBtn.tintColor = .black
+         passwordTxtField.rightView = passwordToggleBtn
+         passwordTxtField.rightViewMode = .always
+     }
+    
+    @objc func togglePasswordVisibility(_ sender: UIButton) {
+          sender.isSelected.toggle()
+          
+          passwordTxtField.isSecureTextEntry.toggle()
+          
+          if let existingText = passwordTxtField.text, passwordTxtField.isSecureTextEntry {
+              passwordTxtField.deleteBackward()
+              passwordTxtField.insertText(existingText)
+          }
+      }
+  }
+
 
 // MARK: - VIEW MODEL
 

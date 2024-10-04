@@ -36,16 +36,16 @@
                     <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                     <subviews>
                         <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="lvF-71-4S4" userLabel="Container">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="820"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="800"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="hiW-j3-sPa">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="820"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="800"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="yGK-Ny-d34">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="210"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="180"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="210" id="kMh-cW-nZq"/>
+                                                <constraint firstAttribute="height" constant="180" id="kMh-cW-nZq"/>
                                             </constraints>
                                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8ep-zz-f8C">
                                                 <size key="itemSize" width="128" height="128"/>
@@ -55,12 +55,12 @@
                                             </collectionViewFlowLayout>
                                         </collectionView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7YP-7y-gSU">
-                                            <rect key="frame" x="0.0" y="222" width="393" height="358"/>
+                                            <rect key="frame" x="0.0" y="192" width="393" height="368"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tnM-gj-TPO">
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="128"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Cni-7x-6Ea">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="Cni-7x-6Ea">
                                                             <rect key="frame" x="24" y="0.0" width="345" height="128"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Arrivals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paU-Va-ic1">
@@ -70,11 +70,11 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eay-rj-QyH">
-                                                                    <rect key="frame" x="270.66666666666669" y="0.0" width="74.333333333333314" height="128"/>
-                                                                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <rect key="frame" x="273" y="0.0" width="72" height="128"/>
+                                                                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <state key="normal" title="Button"/>
-                                                                    <buttonConfiguration key="configuration" style="plain" title="Veiw All">
-                                                                        <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
+                                                                    <buttonConfiguration key="configuration" style="plain" title="View All">
+                                                                        <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
                                                                     </buttonConfiguration>
                                                                 </button>
                                                             </subviews>
@@ -89,10 +89,10 @@
                                                     </constraints>
                                                 </view>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="tt8-Sg-vgr">
-                                                    <rect key="frame" x="0.0" y="128" width="393" height="230"/>
+                                                    <rect key="frame" x="0.0" y="128" width="393" height="240"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="230" id="GCa-Wz-hXy"/>
+                                                        <constraint firstAttribute="height" constant="240" id="GCa-Wz-hXy"/>
                                                     </constraints>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Pdt-AG-jma">
                                                         <size key="itemSize" width="128" height="128"/>
@@ -104,12 +104,12 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bwC-yP-Sng">
-                                            <rect key="frame" x="0.0" y="592" width="393" height="228"/>
+                                            <rect key="frame" x="0.0" y="572" width="393" height="228"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wbg-fD-siH">
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="128"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="OzD-8k-tWz">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="OzD-8k-tWz">
                                                             <rect key="frame" x="24" y="0.0" width="345" height="128"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Populars" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EXR-QA-2Vq">
@@ -119,11 +119,11 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gjK-OD-Dph">
-                                                                    <rect key="frame" x="270.66666666666669" y="0.0" width="74.333333333333314" height="128"/>
-                                                                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <rect key="frame" x="273.66666666666669" y="0.0" width="71.333333333333314" height="128"/>
+                                                                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain" title="Veiw All">
-                                                                        <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
+                                                                        <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
                                                                     </buttonConfiguration>
                                                                 </button>
                                                             </subviews>
