@@ -22,12 +22,26 @@ class HomeVC: UIViewController{
     
     private let viewModel = HomeViewModel()
     var path: String = ""
+    var lastNewArrivals : [NewArrivals] = []
     
     //MARK: - viewLifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        
+        //getNewArrivals
+        HomeViewModel().getNewArrivals { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let data):
+                    self?.lastNewArrivals = data.data
+                    self?.newArriivalCollectionView.reloadData()
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -98,7 +112,7 @@ extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UIColle
         case bannerCollectionView:
             return viewModel.banners.count
         case newArriivalCollectionView :
-            return viewModel.newArrivals.count
+            return lastNewArrivals.count
         default:
             return 0
         }
@@ -114,10 +128,8 @@ extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UIColle
             
         case newArriivalCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewArriivalCollectionViewCell.identifier, for: indexPath) as! NewArriivalCollectionViewCell
-            let newArrival = viewModel.newArrivals[indexPath.row]
-            cell.Setup(newArrival: newArrival)
+            cell.Setup(newArrival: lastNewArrivals[indexPath.row])
             return cell
-            
         default:
             return UICollectionViewCell()
         }

@@ -10,8 +10,7 @@ import UIKit
 
 class HomeViewModel {
     
-    //MARK: - Variables
-    
+
     var banners : [BannerModel] = [
         .init(image: UIImage(named: "Banner")!),
         .init(image: UIImage(named: "Banner")!),
@@ -19,33 +18,27 @@ class HomeViewModel {
         .init(image: UIImage(named: "Banner")!),
     ]
     
-    var newArrivals : [NewArrivalModel] = [
-        
-        .init(productImage: UIImage(named: "Arrival")!,
-              productTitle: "The Marc Jacobs",
-              productType: "Traveler Tote",
-              productPrice: "$200.00"),
-        
-        .init(productImage: UIImage(named: "Arrival")!,
-              productTitle: "The Marc Jacobs",
-              productType: "Traveler Tote",
-              productPrice: "$195.00"),
-        
-        .init(productImage: UIImage(named: "Arrival")!,
-              productTitle: "The Marc Jacobs",
-              productType: "Traveler Tote",
-              productPrice: "$195.00"),      
-        
-            .init(productImage: UIImage(named: "Arrival")!,
-              productTitle: "The Marc Jacobs",
-              productType: "Traveler Tote",
-              productPrice: "$195.00"),
-        
-        .init(productImage: UIImage(named: "Arrival")!,
-              productTitle: "The Marc Jacobs",
-              productType: "Traveler Tote",
-              productPrice: "$195.00"),
-    ]
+    //NewArrival
+    @MainActor
+    func getNewArrivals(completion:@escaping (Result <NewArrivalsModel, Error>) -> Void) {
+        guard let url = URL(string: "\(Constants.baseURL)/products/first5") else {return}
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else{
+                return
+            }
+            do{
+                let results = try JSONDecoder().decode(NewArrivalsModel.self, from: data)
+                print(data)
+                completion(.success(results))
+            }catch{
+                print("Error")
+                completion(.failure(APIError.failedTogetData))
+            }
+        }
+        task.resume()
+    }
+    
+    
     
     var popular : [PopularModel]  = [
         .init(popularImage: UIImage(named: "popular")!,

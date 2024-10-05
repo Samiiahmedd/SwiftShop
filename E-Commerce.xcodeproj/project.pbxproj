@@ -110,6 +110,8 @@
 		26D66DAD2C603D6A00EC03A9 /* SucessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26D66DAB2C603D6A00EC03A9 /* SucessViewController.xib */; };
 		26D902D32CACC68F00B1BF1E /* WishlistTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26D902D22CACC68F00B1BF1E /* WishlistTableViewCell.xib */; };
 		26D902D42CACC68F00B1BF1E /* WishlistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D902D12CACC68F00B1BF1E /* WishlistTableViewCell.swift */; };
+		26F28D7C2CB1741B00EACB92 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F28D7B2CB1741B00EACB92 /* HomeModel.swift */; };
+		26F28D7E2CB17A7600EACB92 /* NewArrivalsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F28D7D2CB17A7600EACB92 /* NewArrivalsModel.swift */; };
 		26F4C3A92CAC56AB004BBEC0 /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F4C3A82CAC56AB004BBEC0 /* OTPViewModel.swift */; };
 		26F8A2692CACCF2F00699D1E /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8A2672CACCF2F00699D1E /* WishlistViewController.swift */; };
 		26F8A26A2CACCF2F00699D1E /* WishlistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26F8A2682CACCF2F00699D1E /* WishlistViewController.xib */; };
@@ -239,6 +241,8 @@
 		26DF7C1A2C9E294600755090 /* PoppinsSemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PoppinsSemiBold.ttf; sourceTree = "<group>"; };
 		26DF7C1B2C9E294B00755090 /* PoppinsLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PoppinsLight.ttf; sourceTree = "<group>"; };
 		26DF7C1C2C9E295400755090 /* PoppinsMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PoppinsMedium.ttf; sourceTree = "<group>"; };
+		26F28D7B2CB1741B00EACB92 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		26F28D7D2CB17A7600EACB92 /* NewArrivalsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArrivalsModel.swift; sourceTree = "<group>"; };
 		26F4C3A82CAC56AB004BBEC0 /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
 		26F8A2672CACCF2F00699D1E /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
 		26F8A2682CACCF2F00699D1E /* WishlistViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishlistViewController.xib; sourceTree = "<group>"; };
@@ -856,6 +860,7 @@
 		269363BA2C821C3700662442 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				26F28D7B2CB1741B00EACB92 /* HomeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1031,6 +1036,7 @@
 			isa = PBXGroup;
 			children = (
 				2623C9482C889A770084D5F5 /* NewArrivalModel.swift */,
+				26F28D7D2CB17A7600EACB92 /* NewArrivalsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1099,9 +1105,9 @@
 		26C301032C89128C00CFE4AD /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				26CB3D882C861E560029087C /* BannerCollectionViewCell */,
 				26C301042C8912D500CFE4AD /* PopularsTableViewCell */,
 				26B043152C871849005DFF6A /* NewArriivalCollectionViewCell */,
-				26CB3D882C861E560029087C /* BannerCollectionViewCell */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1428,6 +1434,7 @@
 				26055E852CA065A00073D79E /* CategoriesCollectionViewCell.swift in Sources */,
 				264ACA952C8DE4B9001B0AE3 /* StapperView.swift in Sources */,
 				7FBAD9C42C964AA800CBA3D2 /* Alert.swift in Sources */,
+				26F28D7E2CB17A7600EACB92 /* NewArrivalsModel.swift in Sources */,
 				265701862CAB149200B0240C /* Constants.swift in Sources */,
 				7FBAD9C12C961D0400CBA3D2 /* LoginVIewModel.swift in Sources */,
 				267E8D2B2CAC3A13009AC330 /* ForgetPasswordViewModel.swift in Sources */,
@@ -1498,6 +1505,7 @@
 				26D902D42CACC68F00B1BF1E /* WishlistTableViewCell.swift in Sources */,
 				269363B82C821AFF00662442 /* MainTabBarViewController.swift in Sources */,
 				266859662C4836C400EC2718 /* OnBoardingViewController.swift in Sources */,
+				26F28D7C2CB1741B00EACB92 /* HomeModel.swift in Sources */,
 				267E8D2F2CAC4BF1009AC330 /* ForgetPasswordModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

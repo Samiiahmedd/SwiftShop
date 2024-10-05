@@ -39,10 +39,9 @@ class NewArriivalCollectionViewCell: UICollectionViewCell {
 // MARK: - SETUP CELL
 
 extension NewArriivalCollectionViewCell {
-    func Setup(newArrival: NewArrivalModel) {
-        imageView.image = newArrival.productImage
-        productTitleLabel.text = newArrival.productTitle
-        productType.text = newArrival.productType
-        productPrice.text = newArrival.productPrice
+    func Setup(newArrival: NewArrivals) {
+        productTitleLabel.text = newArrival.title
+        productType.text = newArrival.description
+        productPrice.text = String(newArrival.price)
     }
 }

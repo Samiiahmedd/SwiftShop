@@ -40,7 +40,7 @@ class GFNavigationController: UINavigationController, UINavigationControllerDele
         //            self.viewControllers = [LoginVC()]
         //        }
         //        else {
-        self.viewControllers = [ShippingViewController()]
+        self.viewControllers = [HomeVC()]
         //        }
     }
 }
