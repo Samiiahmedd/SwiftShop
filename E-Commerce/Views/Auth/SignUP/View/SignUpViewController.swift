@@ -23,7 +23,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var signupButton: UIButton!
     
     //MARK: - VARIBALES
-    
+    var coordinator: AuthCoordinatorProtocol?
     private var viewModel: SignUpViewModelProtocol = SignUpViewModel()
     private var cancellable = Set<AnyCancellable>()
     
@@ -58,10 +58,9 @@ private extension SignUpViewController {
     
     func configureNavBar() {
         navBar.setupFirstLeadingButton(with: "",
-                                       and: UIImage(named: "back")!) {
-            let start = StartScreenViewController(nibName: "StartScreenViewController", bundle: nil)
-            self.navigationController?.pushViewController(start, animated: true)
-            self.navigationItem.hidesBackButton = true
+                                       and: UIImage(named: "back")!) { [weak self] in
+            guard let self else { return }
+            coordinator?.pop()
         }
         navBar.firstTralingButton.isHidden = true
     }

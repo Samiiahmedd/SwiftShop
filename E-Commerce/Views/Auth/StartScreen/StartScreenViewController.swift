@@ -13,6 +13,8 @@ class StartScreenViewController: UIViewController {
     @IBOutlet var loginBtn: UIButton!
     @IBOutlet var signUpBtn: UIButton!
     
+    var coordinator: AuthCoordinatorProtocol?
+    
     //MARK: -ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,13 +22,10 @@ class StartScreenViewController: UIViewController {
     
     //MARK: -IBAction
     @IBAction func loginBtn(_ sender: Any) {
-        let LoginVC = LoginViewController()
-        self.navigationController?.pushViewController(LoginVC, animated: true)
-        
+        coordinator?.displayLogin()
     }
     
     @IBAction func signUpBtn(_ sender: Any) {
-        let SignUpVC = SignUpViewController()
-        self.navigationController?.pushViewController(SignUpVC, animated: true)
+        coordinator?.displaySignup()
     }
 }

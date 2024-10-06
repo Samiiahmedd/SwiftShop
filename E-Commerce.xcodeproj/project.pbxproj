@@ -35,7 +35,6 @@
 		265701892CAB152100B0240C /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265701882CAB152100B0240C /* RequestError.swift */; };
 		2657018B2CAB15EA00B0240C /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2657018A2CAB15EA00B0240C /* Codable.swift */; };
 		265701902CAB165400B0240C /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2657018F2CAB165400B0240C /* LoginModel.swift */; };
-		265701932CAB180000B0240C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 265701922CAB180000B0240C /* Kingfisher */; };
 		265701952CAB362E00B0240C /* loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265701942CAB362E00B0240C /* loader.swift */; };
 		2657019C2CAB392700B0240C /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2657019A2CAB392700B0240C /* ForgetPasswordViewController.swift */; };
 		2657019D2CAB392700B0240C /* ForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2657019B2CAB392700B0240C /* ForgetPasswordViewController.xib */; };
@@ -124,6 +123,11 @@
 		7F5B01FF2C89006800573B53 /* CustomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5B01FE2C89006800573B53 /* CustomNavBar.swift */; };
 		7F5B02012C89007A00573B53 /* CustomNavBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F5B02002C89007A00573B53 /* CustomNavBar.xib */; };
 		7F5B02032C89034900573B53 /* CollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5B02022C89034900573B53 /* CollectionView+.swift */; };
+		7F8256922CB1D822009294E8 /* UserDefultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8256912CB1D822009294E8 /* UserDefultsWrapper.swift */; };
+		7F8256942CB1D930009294E8 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8256932CB1D930009294E8 /* UserDefaults.swift */; };
+		7F8256962CB1DF2F009294E8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8256952CB1DF2F009294E8 /* NetworkManager.swift */; };
+		7F82569C2CB1E730009294E8 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F82569B2CB1E730009294E8 /* AuthCoordinator.swift */; };
+		7F82569E2CB1F8AC009294E8 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F82569D2CB1F8AC009294E8 /* HomeCoordinator.swift */; };
 		7FBAD9C12C961D0400CBA3D2 /* LoginVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBAD9C02C961D0400CBA3D2 /* LoginVIewModel.swift */; };
 		7FBAD9C42C964AA800CBA3D2 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBAD9C32C964AA800CBA3D2 /* Alert.swift */; };
 		7FBAD9C72C964CB600CBA3D2 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBAD9C62C964CB600CBA3D2 /* SignUpViewModel.swift */; };
@@ -255,6 +259,11 @@
 		7F5B01FE2C89006800573B53 /* CustomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBar.swift; sourceTree = "<group>"; };
 		7F5B02002C89007A00573B53 /* CustomNavBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomNavBar.xib; sourceTree = "<group>"; };
 		7F5B02022C89034900573B53 /* CollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionView+.swift"; sourceTree = "<group>"; };
+		7F8256912CB1D822009294E8 /* UserDefultsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefultsWrapper.swift; sourceTree = "<group>"; };
+		7F8256932CB1D930009294E8 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		7F8256952CB1DF2F009294E8 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		7F82569B2CB1E730009294E8 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		7F82569D2CB1F8AC009294E8 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		7FBAD9C02C961D0400CBA3D2 /* LoginVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVIewModel.swift; sourceTree = "<group>"; };
 		7FBAD9C32C964AA800CBA3D2 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		7FBAD9C62C964CB600CBA3D2 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
@@ -267,7 +276,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				265701932CAB180000B0240C /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +462,7 @@
 			children = (
 				265701882CAB152100B0240C /* RequestError.swift */,
 				2657018A2CAB15EA00B0240C /* Codable.swift */,
+				7F8256952CB1DF2F009294E8 /* NetworkManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -680,6 +689,7 @@
 				2668594E2C482FDD00EC2718 /* Fonts */,
 				7FBAD9C82C96504100CBA3D2 /* FirebaseManage */,
 				2668594D2C482F8900EC2718 /* Extentions */,
+				7F8256902CB1D7FB009294E8 /* Wrappers */,
 				260781362C4897FA00B778A2 /* CustomViews */,
 				2668595F2C48343C00EC2718 /* Views */,
 				2668595E2C48335100EC2718 /* Common */,
@@ -697,6 +707,7 @@
 				7F5B02022C89034900573B53 /* CollectionView+.swift */,
 				7FBAD9CB2C96551B00CBA3D2 /* UIViewControllerExtention.swift */,
 				265701942CAB362E00B0240C /* loader.swift */,
+				7F8256932CB1D930009294E8 /* UserDefaults.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -725,11 +736,11 @@
 		2668595F2C48343C00EC2718 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7FBAD9CD2C965C2100CBA3D2 /* Auth */,
 				2657E9452CB0609800ADDA3B /* ShippingDetails */,
 				265E1CAF2CAEF86A00C588AD /* Notifications */,
 				26B5B7D92CADBDF800082441 /* ReviewsClient */,
 				26D902CA2CACC54E00B1BF1E /* Wishlist */,
-				7FBAD9CD2C965C2100CBA3D2 /* Auth */,
 				269363B62C821AAE00662442 /* MainTabBar */,
 				269363B92C821C2C00662442 /* Home */,
 				26FCD8442C8D25B900D7C3A8 /* Cart */,
@@ -822,9 +833,9 @@
 		2689C98B2C4A475B00033590 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				7FBAD9BF2C961CF800CBA3D2 /* ViewModel */,
-				2689C98D2C4A476F00033590 /* View */,
 				2657018E2CAB164700B0240C /* Model */,
+				2689C98D2C4A476F00033590 /* View */,
+				7FBAD9BF2C961CF800CBA3D2 /* ViewModel */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -849,6 +860,7 @@
 		269363B92C821C2C00662442 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				7F82569D2CB1F8AC009294E8 /* HomeCoordinator.swift */,
 				26C301032C89128C00CFE4AD /* Cells */,
 				269363BC2C821C4600662442 /* ViewModel */,
 				269363BB2C821C3D00662442 /* View */,
@@ -1264,6 +1276,22 @@
 			path = CustomNavBar;
 			sourceTree = "<group>";
 		};
+		7F8256902CB1D7FB009294E8 /* Wrappers */ = {
+			isa = PBXGroup;
+			children = (
+				7F8256912CB1D822009294E8 /* UserDefultsWrapper.swift */,
+			);
+			path = Wrappers;
+			sourceTree = "<group>";
+		};
+		7F8256982CB1E6FC009294E8 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				7F82569B2CB1E730009294E8 /* AuthCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		7FBAD9BF2C961CF800CBA3D2 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1299,14 +1327,15 @@
 		7FBAD9CD2C965C2100CBA3D2 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				260781312C48914200B778A2 /* StartScreen */,
+				7F8256982CB1E6FC009294E8 /* Coordinator */,
 				266859602C48348600EC2718 /* OnBoarding */,
+				260781312C48914200B778A2 /* StartScreen */,
 				2689C98B2C4A475B00033590 /* Login */,
+				26347A622C5D983F00F500CB /* SignUP */,
 				265701962CAB38F200B0240C /* ForgetPassword */,
 				26AD3FED2CAB7D7600C23CC7 /* OTP */,
 				26AD3FF52CAB85BE00C23CC7 /* UpdatePassword */,
 				26AD3FFD2CAB897700C23CC7 /* ResetPasswordSuccess */,
-				26347A622C5D983F00F500CB /* SignUP */,
 				26D66DA92C603D5200EC03A9 /* Succssful */,
 			);
 			path = Auth;
@@ -1329,7 +1358,6 @@
 			);
 			name = "E-Commerce";
 			packageProductDependencies = (
-				265701922CAB180000B0240C /* Kingfisher */,
 			);
 			productName = "E-Commerce";
 			productReference = 266859342C482A0200EC2718 /* E-Commerce.app */;
@@ -1360,7 +1388,6 @@
 			);
 			mainGroup = 2668592B2C482A0200EC2718;
 			packageReferences = (
-				265701912CAB180000B0240C /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 266859352C482A0200EC2718 /* Products */;
 			projectDirPath = "";
@@ -1432,12 +1459,15 @@
 				265E2F0A2CAC7A7900DEB18D /* UpdatePasswordViewModel.swift in Sources */,
 				263D6E8C2C9F971600994E64 /* FilterModel.swift in Sources */,
 				26055E852CA065A00073D79E /* CategoriesCollectionViewCell.swift in Sources */,
+				7F82569E2CB1F8AC009294E8 /* HomeCoordinator.swift in Sources */,
 				264ACA952C8DE4B9001B0AE3 /* StapperView.swift in Sources */,
 				7FBAD9C42C964AA800CBA3D2 /* Alert.swift in Sources */,
 				26F28D7E2CB17A7600EACB92 /* NewArrivalsModel.swift in Sources */,
 				265701862CAB149200B0240C /* Constants.swift in Sources */,
 				7FBAD9C12C961D0400CBA3D2 /* LoginVIewModel.swift in Sources */,
+				7F82569C2CB1E730009294E8 /* AuthCoordinator.swift in Sources */,
 				267E8D2B2CAC3A13009AC330 /* ForgetPasswordViewModel.swift in Sources */,
+				7F8256922CB1D822009294E8 /* UserDefultsWrapper.swift in Sources */,
 				261C37E92CAF012D00C97E1C /* NotificationsModel.swift in Sources */,
 				2689C9942C4A47A200033590 /* LoginViewController.swift in Sources */,
 				265E2F0D2CAC80D900DEB18D /* TextFieldPadding.swift in Sources */,
@@ -1479,6 +1509,7 @@
 				26347A682C5D987600F500CB /* SignUpViewController.swift in Sources */,
 				265E1CBC2CAEFB2F00C588AD /* NotificationsViewModel.swift in Sources */,
 				26AD3FFC2CAB860500C23CC7 /* UpdatePasswordViewController.swift in Sources */,
+				7F8256942CB1D930009294E8 /* UserDefaults.swift in Sources */,
 				266859382C482A0200EC2718 /* AppDelegate.swift in Sources */,
 				26AD3FF32CAB7D9900C23CC7 /* OTPViewController.swift in Sources */,
 				26F4C3A92CAC56AB004BBEC0 /* OTPViewModel.swift in Sources */,
@@ -1506,6 +1537,7 @@
 				269363B82C821AFF00662442 /* MainTabBarViewController.swift in Sources */,
 				266859662C4836C400EC2718 /* OnBoardingViewController.swift in Sources */,
 				26F28D7C2CB1741B00EACB92 /* HomeModel.swift in Sources */,
+				7F8256962CB1DF2F009294E8 /* NetworkManager.swift in Sources */,
 				267E8D2F2CAC4BF1009AC330 /* ForgetPasswordModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1650,7 +1682,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 587KJ2SYVV;
+				DEVELOPMENT_TEAM = X9L33G82W3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "E-Commerce/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
@@ -1679,7 +1711,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 587KJ2SYVV;
+				DEVELOPMENT_TEAM = X9L33G82W3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "E-Commerce/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
@@ -1723,25 +1755,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		265701912CAB180000B0240C /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 8.0.3;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		265701922CAB180000B0240C /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 265701912CAB180000B0240C /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2668592C2C482A0200EC2718 /* Project object */;
 }

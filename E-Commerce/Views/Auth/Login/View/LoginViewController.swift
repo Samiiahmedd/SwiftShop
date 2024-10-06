@@ -25,10 +25,21 @@ class LoginViewController: UIViewController {
     
     //MARK: -Variables
     
-    private var viewModel: LoginViewModelProtocol = LoginViewModel()
+    var coordinator: AuthCoordinatorProtocol?
+    private var viewModel: LoginViewModelProtocol
     private var cancellable = Set<AnyCancellable>()
     
     //MARK: -ViewLifeCycle
+    
+    init() {
+        let coordinator = MainCoordinator(window: UIApplication.shared.windows.first!)
+        viewModel = LoginViewModel(coordinator: coordinator)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,9 +49,6 @@ class LoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // Hide the default navigation bar
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
-        self.navigationItem.hidesBackButton = true
     }
     
     //MARK: -IBActions
@@ -50,9 +58,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func forgetPasswordButton(_ sender: Any) {
-        let forgetPass = ForgetPasswordViewController(nibName: "ForgetPasswordViewController", bundle: nil)
-        self.navigationController?.pushViewController(forgetPass, animated: true)
-        self.navigationItem.hidesBackButton = true
+        coordinator?.displayForgetPassword()
     }
     
     @IBAction func fbLogin(_ sender: Any) {
@@ -79,10 +85,9 @@ private extension LoginViewController {
     
     func configureNavBar() {
         navBar.setupFirstLeadingButton(with: "",
-                                       and: UIImage(named: "back")!) {
-            let start = StartScreenViewController(nibName: "StartScreenViewController", bundle: nil)
-            self.navigationController?.pushViewController(start, animated: true)
-            self.navigationItem.hidesBackButton = true
+                                       and: UIImage(named: "back")!) { [weak self] in
+            guard let self else { return }
+            coordinator?.pop()
         }
         navBar.firstTralingButton.isHidden = true
     }
@@ -94,26 +99,26 @@ private extension LoginViewController {
     }
     
     func addPasswordToggleButton() {
-         let passwordToggleBtn = UIButton(type: .custom)
+        let passwordToggleBtn = UIButton(type: .custom)
         passwordToggleBtn.setImage (UIImage(systemName: "eye"), for: .normal)
-         passwordToggleBtn.setImage(UIImage(systemName: "eye.slash"), for: .selected)
-         passwordToggleBtn.addTarget(self, action: #selector(togglePasswordVisibility), for: .touchUpInside)
+        passwordToggleBtn.setImage(UIImage(systemName: "eye.slash"), for: .selected)
+        passwordToggleBtn.addTarget(self, action: #selector(togglePasswordVisibility), for: .touchUpInside)
         passwordToggleBtn.tintColor = .black
-         passwordTxtField.rightView = passwordToggleBtn
-         passwordTxtField.rightViewMode = .always
-     }
+        passwordTxtField.rightView = passwordToggleBtn
+        passwordTxtField.rightViewMode = .always
+    }
     
     @objc func togglePasswordVisibility(_ sender: UIButton) {
-          sender.isSelected.toggle()
-          
-          passwordTxtField.isSecureTextEntry.toggle()
-          
-          if let existingText = passwordTxtField.text, passwordTxtField.isSecureTextEntry {
-              passwordTxtField.deleteBackward()
-              passwordTxtField.insertText(existingText)
-          }
-      }
-  }
+        sender.isSelected.toggle()
+        
+        passwordTxtField.isSecureTextEntry.toggle()
+        
+        if let existingText = passwordTxtField.text, passwordTxtField.isSecureTextEntry {
+            passwordTxtField.deleteBackward()
+            passwordTxtField.insertText(existingText)
+        }
+    }
+}
 
 
 // MARK: - VIEW MODEL
@@ -122,7 +127,6 @@ private extension LoginViewController {
     func bindViewModel() {
         bindIsLoading()
         bindErrorState()
-        bindIsLogin()
     }
     
     func bindIsLoading() {
@@ -143,19 +147,10 @@ private extension LoginViewController {
         }.store(in: &cancellable)
     }
     
-    func bindIsLogin() {
-        viewModel.isLogin.sink { [weak self] isLogin in
-            guard let self else { return }
-            navigateToHomeVC()
-        }.store(in: &cancellable)
-    }
-    
     func makeLoginRequest() {
-        Task {
-            guard let email = emailTxtFiedl.text, !email.isEmpty,
-                  let password = passwordTxtField.text, !password.isEmpty else {return}
-            await viewModel.login(with: email, password: password)
-        }
+        viewModel.email = emailTxtFiedl.text ?? ""
+        viewModel.password = passwordTxtField.text ?? ""
+        viewModel.loginTriggered.send()
     }
 }
 

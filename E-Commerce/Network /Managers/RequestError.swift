@@ -21,6 +21,7 @@ enum RequestError: Error, LocalizedError {
     case unauthorized
     case unexpectedStatusCode
     case noData
+    case serverError
         
     var errorDescription: String? {
         switch self {
@@ -50,6 +51,8 @@ enum RequestError: Error, LocalizedError {
             return NSLocalizedString("Woops, invalid URL Please try agine later.", comment: "")
         case .noData:
             return NSLocalizedString("There is no data to show.", comment: "")
+        case .serverError:
+            return NSLocalizedString("Server error please try again later", comment: "")
         }
     }
 }

@@ -19,6 +19,7 @@ class UpdatePasswordViewController: UIViewController {
     @IBOutlet weak var updatePasswordButton: UIButton!
     
     //MARK: Variables
+    var coordinator: AuthCoordinatorProtocol?
     var email : String?
     private var viewModel: UpdatePasswordViewModelProtocol = UpdatePasswordViewModel()
     private var cancellable = Set<AnyCancellable>()
@@ -60,10 +61,9 @@ private extension UpdatePasswordViewController {
     
     func configureNavBar() {
         navBar.setupFirstLeadingButton(with: "",
-                                       and: UIImage(named: "back")!) {
-            let otp = OTPViewController(nibName: "OTPViewController", bundle: nil)
-            self.navigationController?.pushViewController(otp, animated: true)
-            self.navigationItem.hidesBackButton = true
+                                       and: UIImage(named: "back")!) { [weak self] in
+            guard let self else { return }
+            coordinator?.pop()
         }
         navBar.firstTralingButton.isHidden = true
     }
@@ -104,9 +104,7 @@ extension UpdatePasswordViewController {
        func bindIsUpdated() {
            viewModel.isUpdated.sink { [weak self] isUpdated in
                guard let self = self else { return }
-               let success = ResetPasswordSuccessViewController(nibName: "ResetPasswordSuccessViewController", bundle: nil)
-               self.navigationController?.pushViewController(success, animated: true)
-               self.navigationItem.hidesBackButton = true
+               coordinator?.displaySuccessScreen()
            }.store(in: &cancellable)
        }
    }

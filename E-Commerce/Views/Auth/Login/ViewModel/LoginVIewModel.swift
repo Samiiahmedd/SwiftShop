@@ -10,88 +10,61 @@ import Combine
 
 @MainActor
 protocol LoginViewModelProtocol {
-    var isLogin: PassthroughSubject<Bool, Never> { get }
     var isLoading: PassthroughSubject<Bool, Never> { get }
     var errorMessage: PassthroughSubject<String, Never> { get }
+    var loginTriggered: PassthroughSubject<Void, Never> { get }
     
-    func login(with email: String, password: String) async
+    var email: String { get set }
+    var password: String { get set }
 }
 
+@MainActor
 class LoginViewModel {
-    var responseHandler: ((_ result: Result<User, Error>) -> Void)?
-    var isLogin: PassthroughSubject<Bool, Never> = .init()
+    
+    var coordinator: MainCoordinator
+    private var cancellable = Set<AnyCancellable>()
+
+    var loginTriggered: PassthroughSubject<Void, Never> = .init()
     var isLoading: PassthroughSubject<Bool, Never> = .init()
     var errorMessage: PassthroughSubject<String, Never> = .init()
+
+    var email: String = ""
+    var password: String = ""
     
-    init() { }
+    init(coordinator: MainCoordinator) {
+        self.coordinator = coordinator
+        bindIsLoginTriggered()
+    }
 }
 
 extension LoginViewModel: LoginViewModelProtocol {
-    
-    func login(with email: String, password: String) async {
+    func bindIsLoginTriggered() {
+        loginTriggered
+            .sink { [weak self] _ in self?.login() }
+            .store(in: &cancellable)
         
+    }
+}
+
+private extension LoginViewModel {
+    func login() {
+        guard !email.isEmpty, !password.isEmpty else {
+            errorMessage.send("Please enter valid email and password")
+            return
+        }
         isLoading.send(true)
-        guard let url = URL(string: "\(Constants.baseURL)/auth/login") else {
-            isLoading.send(false)
-            errorMessage.send("Invalid URL")
-            return
-        }
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        let body: [String: Any] = ["email": email, "password": password]
-        
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: body, options: [])
-        } catch {
-            isLoading.send(false)
-            errorMessage.send("Failed to encode login data.")
-            return
-        }
-        do {
-            let (data, response) = try await URLSession.shared.data(for: request)
-            if let httpResponse = response as? HTTPURLResponse {
+        let netowkManager = NetworkManager<User>()
+        Task {
+            do {
+                let body: [String: Any] = ["email": email, "password": password]
+                let user = try await netowkManager.postData(to: "/auth/login", body: body)
+                print("User data: \(user)")
                 isLoading.send(false)
-                
-                switch httpResponse.statusCode {
-                case 200:
-                    // Successful login
-                    let user = try JSONDecoder().decode(User.self, from: data)
-                    isLogin.send(true)
-                    print(user)
-                    
-                case 400:
-                    // Bad Request
-                    errorMessage.send("Invalid email or password.")
-                    
-                case 401:
-                    // Unauthorized
-                    errorMessage.send("Unauthorized access. Please check your credentials.")
-                    
-                case 403:
-                    // Forbidden
-                    errorMessage.send("You do not have permission to access this resource.")
-                    
-                case 404:
-                    // Not Found
-                    errorMessage.send("Endpoint not found.")
-                    
-                case 500:
-                    // Internal Server Error
-                    errorMessage.send("Server is currently unavailable. Please try again later.")
-                    
-                default:
-                    // Handle other status codes as necessary
-                    errorMessage.send("An unexpected error occurred. Status code: \(httpResponse.statusCode)")
-                }
-            } else {
+                coordinator.start()
+            } catch {
                 isLoading.send(false)
-                errorMessage.send("Failed to receive a valid response from the server.")
+                errorMessage.send(error.localizedDescription)
             }
-            
-        } catch {
-            isLoading.send(false)
-            errorMessage.send(error.localizedDescription)
         }
     }
 }

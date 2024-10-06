@@ -17,7 +17,7 @@ class ForgetPasswordViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     
     //MARK: - VARIABLES
-    
+    var coordinator: AuthCoordinatorProtocol?
     private var viewModel: ForgetPasswordViewModelProtocol = ForgetPasswordViewModel()
     private var cancellable = Set<AnyCancellable>()
     
@@ -47,15 +47,14 @@ private extension ForgetPasswordViewController {
     
     func configureNavBar() {
         navBar.setupFirstLeadingButton(with: "",
-                                       and: UIImage(named: "back")!) {
-            let login = LoginViewController(nibName: "LoginViewController", bundle: nil)
-            self.navigationController?.pushViewController(login, animated: true)
-            self.navigationItem.hidesBackButton = true
+                                       and: UIImage(named: "back")!) { [weak self] in
+            guard let self else { return }
+            coordinator?.pop()
         }
         navBar.firstTralingButton.isHidden = true
     }
     func configureTextFields() {
-     addPaddingToTextField(emailTextField, padding: 10)
+        addPaddingToTextField(emailTextField, padding: 10)
     }
 }
 
@@ -87,13 +86,12 @@ private extension ForgetPasswordViewController {
     }
     
     func bindIsReset() {
-        viewModel.isReset.sink { [weak self] isReset in
-                    guard let self = self else { return }
-                    let otpVC = OTPViewController(nibName: "OTPViewController", bundle: nil)
-                    otpVC.email = self.emailTextField.text 
-                    self.navigationController?.pushViewController(otpVC, animated: true)
-                    self.navigationItem.hidesBackButton = true
-                }.store(in: &cancellable)
+        viewModel.isReset
+            .sink { [weak self] isReset in
+                guard let self = self else { return }
+                coordinator?.displayVerifyOtp(with: self.emailTextField.text ?? "")
+            }
+            .store(in: &cancellable)
     }
     
     func makeResetRequest() {

@@ -13,6 +13,8 @@ class ResetPasswordSuccessViewController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
     
+    var coordinator: AuthCoordinatorProtocol?
+    
     //MARK: - VIEW LIFE CYCLE
     
     override func viewDidLoad() {
@@ -22,6 +24,6 @@ class ResetPasswordSuccessViewController: UIViewController {
     //MARK: - @IBACTIONS
     
     @IBAction func loginButton(_ sender: Any) {
-        navigationController?.popToRootViewController(animated: true)
+        coordinator?.popToLogin()
     }
 }

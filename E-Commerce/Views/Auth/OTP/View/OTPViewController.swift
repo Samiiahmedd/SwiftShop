@@ -24,6 +24,7 @@ class OTPViewController: UIViewController, UITextFieldDelegate, OTPFieldDelegate
     
     
     // MARK: - VARIABLES
+    var coordinator: AuthCoordinatorProtocol?
     var email: String?
     private var viewModel: OTPViewModelProtocol = OTPViewModel()
     private var cancellable = Set<AnyCancellable>()
@@ -160,10 +161,9 @@ private extension OTPViewController {
     
     func configureNavBar() {
         navBar.setupFirstLeadingButton(with: "",
-                                       and: UIImage(named: "back")!) {
-            let login = LoginViewController(nibName: "LoginViewController", bundle: nil)
-            self.navigationController?.pushViewController(login, animated: true)
-            self.navigationItem.hidesBackButton = true
+                                       and: UIImage(named: "back")!) { [weak self] in
+            guard let self else { return }
+            coordinator?.pop()
         }
         navBar.firstTralingButton.isHidden = true
     }
@@ -214,10 +214,7 @@ private extension OTPViewController {
         func bindIsVerified() {
             viewModel.isVerified.sink { [weak self] isVerified in
                 guard let self = self else { return }
-                let updatePassVC = UpdatePasswordViewController(nibName: "UpdatePasswordViewController", bundle: nil)
-                updatePassVC.email = self.email
-                self.navigationController?.pushViewController(updatePassVC, animated: true)
-                self.navigationItem.hidesBackButton = true
+                coordinator?.displayNewPassword(with: self.email ?? "")
             }.store(in: &cancellable)
         }
     }

@@ -13,12 +13,17 @@ class GFNavigationController: UINavigationController, UINavigationControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavigationController()
+
         self.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.setNavigationBarHidden(true, animated: animated)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        setupNavBar()
+//        setupNavBar()
     }
     
     func setupNavBar() {
@@ -36,11 +41,13 @@ class GFNavigationController: UINavigationController, UINavigationControllerDele
     }
     
     func setUpNavigationController() {
-        //        if UserDefaults().hasOnboarded == true {
-        //            self.viewControllers = [LoginVC()]
-        //        }
-        //        else {
-        self.viewControllers = [HomeVC()]
-        //        }
+        let isLogin = UserDefaults.isLogin ?? false
+        if isLogin {
+            self.viewControllers = [HomeVC()]
+        } else {
+            let coordinator = AuthCoordinator(navigationController: self)
+            coordinator.start()
+//            self.viewControllers = [LoginViewController()]
+        }
     }
 }
