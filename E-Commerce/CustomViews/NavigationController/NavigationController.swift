@@ -45,9 +45,9 @@ class GFNavigationController: UINavigationController, UINavigationControllerDele
         if isLogin {
             self.viewControllers = [HomeVC()]
         } else {
-            let coordinator = AuthCoordinator(navigationController: self)
-            coordinator.start()
-//            self.viewControllers = [LoginViewController()]
+//            let coordinator = AuthCoordinator(navigationController: self)
+//            coordinator.start()
+            self.viewControllers = [ProfileViewController()]
         }
     }
 }

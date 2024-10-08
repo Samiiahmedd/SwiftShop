@@ -51,7 +51,7 @@ class LoginViewController: UIViewController {
         super.viewWillAppear(animated)
     }
     
-    //MARK: -IBActions
+    //MARK: - @IBACTIONS
     
     @IBAction func loginBtn(_ sender: Any) {
         makeLoginRequest()
