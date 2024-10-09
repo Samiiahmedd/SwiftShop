@@ -14,7 +14,6 @@ class SettingViewModel{
     var settings : [ProfileTableViewCellModel] =
     [.init(image: UIImage(named: "Language")!, title: "Language"),
     .init(image: UIImage(named: "Notifications")!, title: "Notifications"),
-    .init(image: UIImage(named: "Notifications")!, title: "Notifications"),
     .init(image: UIImage(named: "Mode")!, title: "Dark Mode"),
     .init(image: UIImage(named: "Help")!, title: "Help Center"),
     ]

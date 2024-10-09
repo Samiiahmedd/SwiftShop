@@ -61,6 +61,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="arrow" destination="LZk-fL-D3H" id="gPa-j5-RqP"/>
+                <outlet property="mainView" destination="H2p-sc-9uM" id="DG5-dw-94v"/>
                 <outlet property="photo" destination="xJN-Rj-egS" id="X9Q-LJ-I8v"/>
                 <outlet property="title" destination="fzK-Ca-Gde" id="Q5A-wj-mPs"/>
             </connections>

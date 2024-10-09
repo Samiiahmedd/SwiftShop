@@ -57,8 +57,6 @@ private extension ProfileViewController {
         helpCenterTableView.dataSource = self
         presonal_InformationTableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
         helpCenterTableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
-        
-        
     }
     
     func registerCells() {

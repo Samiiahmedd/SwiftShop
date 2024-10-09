@@ -37,6 +37,10 @@
 		263D6E8C2C9F971600994E64 /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263D6E8B2C9F971600994E64 /* FilterModel.swift */; };
 		264ACA952C8DE4B9001B0AE3 /* StapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264ACA942C8DE4B9001B0AE3 /* StapperView.swift */; };
 		264ACA972C8DE4D1001B0AE3 /* StapperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264ACA962C8DE4D1001B0AE3 /* StapperView.xib */; };
+		264F5F7F2CB6E240003E18E5 /* SelectLanguageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 264F5F7E2CB6E240003E18E5 /* SelectLanguageViewController.xib */; };
+		264F5F802CB6E240003E18E5 /* SelectLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264F5F7D2CB6E240003E18E5 /* SelectLanguageViewController.swift */; };
+		264F5F822CB6E24A003E18E5 /* LanguageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264F5F812CB6E24A003E18E5 /* LanguageModel.swift */; };
+		264F5F842CB6E258003E18E5 /* SelectLanguageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264F5F832CB6E258003E18E5 /* SelectLanguageViewModel.swift */; };
 		265701862CAB149200B0240C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265701852CAB149200B0240C /* Constants.swift */; };
 		265701892CAB152100B0240C /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265701882CAB152100B0240C /* RequestError.swift */; };
 		2657018B2CAB15EA00B0240C /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2657018A2CAB15EA00B0240C /* Codable.swift */; };
@@ -179,6 +183,10 @@
 		263D6E8B2C9F971600994E64 /* FilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
 		264ACA942C8DE4B9001B0AE3 /* StapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StapperView.swift; sourceTree = "<group>"; };
 		264ACA962C8DE4D1001B0AE3 /* StapperView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StapperView.xib; sourceTree = "<group>"; };
+		264F5F7D2CB6E240003E18E5 /* SelectLanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLanguageViewController.swift; sourceTree = "<group>"; };
+		264F5F7E2CB6E240003E18E5 /* SelectLanguageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectLanguageViewController.xib; sourceTree = "<group>"; };
+		264F5F812CB6E24A003E18E5 /* LanguageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageModel.swift; sourceTree = "<group>"; };
+		264F5F832CB6E258003E18E5 /* SelectLanguageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLanguageViewModel.swift; sourceTree = "<group>"; };
 		265701852CAB149200B0240C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		265701882CAB152100B0240C /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		2657018A2CAB15EA00B0240C /* Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
@@ -508,6 +516,73 @@
 				264ACA962C8DE4D1001B0AE3 /* StapperView.xib */,
 			);
 			path = SteperView;
+			sourceTree = "<group>";
+		};
+		264F5F792CB6E208003E18E5 /* LanguageSelect */ = {
+			isa = PBXGroup;
+			children = (
+				264F5F852CB6E5A1003E18E5 /* TableViewCell */,
+				264F5F7A2CB6E213003E18E5 /* Model */,
+				264F5F7B2CB6E218003E18E5 /* View */,
+				264F5F7C2CB6E21B003E18E5 /* ViewModel */,
+			);
+			path = LanguageSelect;
+			sourceTree = "<group>";
+		};
+		264F5F7A2CB6E213003E18E5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				264F5F812CB6E24A003E18E5 /* LanguageModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		264F5F7B2CB6E218003E18E5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				264F5F7D2CB6E240003E18E5 /* SelectLanguageViewController.swift */,
+				264F5F7E2CB6E240003E18E5 /* SelectLanguageViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		264F5F7C2CB6E21B003E18E5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				264F5F832CB6E258003E18E5 /* SelectLanguageViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		264F5F852CB6E5A1003E18E5 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				264F5F882CB6E5B6003E18E5 /* ViewModel */,
+				264F5F872CB6E5B4003E18E5 /* View */,
+				264F5F862CB6E5A9003E18E5 /* Model */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		264F5F862CB6E5A9003E18E5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		264F5F872CB6E5B4003E18E5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		264F5F882CB6E5B6003E18E5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		265701832CAB146E00B0240C /* Network  */ = {
@@ -967,6 +1042,7 @@
 		26A38A3D2CB5954C000C826A /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				264F5F792CB6E208003E18E5 /* LanguageSelect */,
 				26A38A452CB59C28000C826A /* TableViewCell */,
 				26AAA3B72CB5EDA400C4F92D /* MainProfile */,
 				26AAA3B82CB5EDDE00C4F92D /* Setting */,
@@ -990,19 +1066,11 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		26A38A402CB59580000C826A /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		26A38A452CB59C28000C826A /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
 				26A38A462CB59C36000C826A /* Model */,
 				26A38A472CB59C39000C826A /* View */,
-				26A38A482CB59C3C000C826A /* ViewModel */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -1037,7 +1105,7 @@
 			children = (
 				26A38A3E2CB59579000C826A /* Model */,
 				26A38A3F2CB5957D000C826A /* View */,
-				26A38A402CB59580000C826A /* ViewModel */,
+				26A38A482CB59C3C000C826A /* ViewModel */,
 			);
 			path = MainProfile;
 			sourceTree = "<group>";
@@ -1614,6 +1682,7 @@
 				26C301072C89130800CFE4AD /* PopularsTableViewCell.xib in Resources */,
 				26CB3D8C2C861E960029087C /* BannerCollectionViewCell.xib in Resources */,
 				267E2F072CB0721200F9B5D8 /* ShippingAddressViewController.xib in Resources */,
+				264F5F7F2CB6E240003E18E5 /* SelectLanguageViewController.xib in Resources */,
 				26A18D822CA3085D00924658 /* CartTableViewCell.xib in Resources */,
 				26055E842CA065A00073D79E /* CategoriesCollectionViewCell.xib in Resources */,
 				26B5B7E12CADBE3900082441 /* ReviewsClientViewController.xib in Resources */,
@@ -1666,6 +1735,7 @@
 				26AD40012CAB899600C23CC7 /* ResetPasswordSuccessViewController.swift in Sources */,
 				26F8A2692CACCF2F00699D1E /* WishlistViewController.swift in Sources */,
 				26AE38B02C89D8E20086E8FB /* SearchCategoriesViewController.swift in Sources */,
+				264F5F842CB6E258003E18E5 /* SelectLanguageViewModel.swift in Sources */,
 				2669F0372C88CEEE00A386B2 /* PopularModel.swift in Sources */,
 				2610DD0C2C8CBDC5005739A3 /* ProductDetailsModel.swift in Sources */,
 				266611B32C9A332C006F79DF /* ColorCollectionViewCell.swift in Sources */,
@@ -1682,6 +1752,7 @@
 				2657E94D2CB0620C00ADDA3B /* ShippingViewController.swift in Sources */,
 				263D6E8A2C9F970E00994E64 /* FilterViewModel.swift in Sources */,
 				2610DD092C8CBDAE005739A3 /* ProductDetailsViewModel.swift in Sources */,
+				264F5F822CB6E24A003E18E5 /* LanguageModel.swift in Sources */,
 				26055E812CA065210073D79E /* CategoriesModel.swift in Sources */,
 				2683A0492C990DEE0032A3FA /* SizeModel.swift in Sources */,
 				26AE38BD2C89DFC90086E8FB /* SerachCategoriesModel.swift in Sources */,
@@ -1715,6 +1786,7 @@
 				261018CD2CB6178800724863 /* GenderCollectionViewCell.swift in Sources */,
 				267E8D2D2CAC4BA6009AC330 /* OtpModel.swift in Sources */,
 				26B5B7E22CADBE3900082441 /* ReviewsClientViewController.swift in Sources */,
+				264F5F802CB6E240003E18E5 /* SelectLanguageViewController.swift in Sources */,
 				26F8A26E2CACDA8400699D1E /* WishlistViewModel.swift in Sources */,
 				261018D02CB6179D00724863 /* GenderModel.swift in Sources */,
 				26CB3D8B2C861E960029087C /* BannerCollectionViewCell.swift in Sources */,

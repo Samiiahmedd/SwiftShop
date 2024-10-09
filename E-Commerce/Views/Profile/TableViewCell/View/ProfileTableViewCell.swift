@@ -13,6 +13,7 @@ class ProfileTableViewCell: UITableViewCell {
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var arrow: UIImageView!
+    @IBOutlet weak var mainView: UIView!
     
     // MARK: - VARIABLES
     

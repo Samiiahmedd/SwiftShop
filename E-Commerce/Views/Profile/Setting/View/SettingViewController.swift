@@ -110,17 +110,17 @@ extension SettingViewController : UICollectionViewDelegate, UICollectionViewData
         return CGSize(width: textWidth, height: textHeight)
     }
     
+    ///Table view
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedGenderIndex = indexPath
         
         collectionView.reloadData()
     }
     
-    ///Table view
-    ///
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return viewModel.settings.count
-
+        return viewModel.settings.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -128,6 +128,17 @@ extension SettingViewController : UICollectionViewDelegate, UICollectionViewData
         let settings = viewModel.settings[indexPath.row]
         cell.Setup(ProfileCell: settings)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            let languageVC = SelectLanguageViewController(nibName: "SelectLanguageViewController", bundle: nil)
+            navigationController?.pushViewController(languageVC, animated: true)
+        default:
+            print("No action for this row in Personal Information TableView")
+        }
+        
     }
 }
 
