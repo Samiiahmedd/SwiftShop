@@ -11,7 +11,6 @@ import UIKit
 class ProfileViewModel {
     
     var ProfileHeaderTable : [ProfileTableViewCellModel] = [
-        .init(image: UIImage(named: "Personal Details")!, title: "Personal Details"),
         .init(image: UIImage(named: "My Order")!, title: "My Order"),
         .init(image: UIImage(named: "My Favourites")!, title: "My Favourites"),
         .init(image: UIImage(named: "Shipping Address")!, title: "Shipping Address"),

@@ -47,10 +47,7 @@ private extension ProfileViewController {
         navBar.setupFirstLeadingButton(with: "", and: UIImage(named: "back")!) {
             print("back")
         }
-        navBar.setupFirstTralingButton(with: "", and: UIImage(named: "back")!) {
-            print("back")
-        }
-        
+        navBar.firstTralingButton.isHidden = true
     }
     
     func setupTableViews() {
@@ -105,9 +102,8 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
         if tableView == presonal_InformationTableView {
             switch indexPath.row {
             case 0:
-                print("Navigating to HomeVC")
-                let homeVC = HomeVC(nibName: "HomeVC", bundle: nil)
-                navigationController?.pushViewController(homeVC, animated: true)
+                let settingVC = SettingViewController(nibName: "SettingViewController", bundle: nil)
+                navigationController?.pushViewController(settingVC, animated: true)
             case 1:
                 print("Navigating to NotificationsViewController")
                 let notificationsVC = NotificationsViewController(nibName: "NotificationsViewController", bundle: nil)

@@ -13,6 +13,12 @@
 		260781342C48917C00B778A2 /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260781322C48917C00B778A2 /* StartScreenViewController.swift */; };
 		260781352C48917C00B778A2 /* StartScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 260781332C48917C00B778A2 /* StartScreenViewController.xib */; };
 		260781382C48982800B778A2 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260781372C48982800B778A2 /* NavigationController.swift */; };
+		261018C42CB6150F00724863 /* GenderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 261018C32CB6150F00724863 /* GenderViewController.xib */; };
+		261018C52CB6150F00724863 /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261018C22CB6150F00724863 /* GenderViewController.swift */; };
+		261018CC2CB6178800724863 /* GenderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 261018CB2CB6178800724863 /* GenderCollectionViewCell.xib */; };
+		261018CD2CB6178800724863 /* GenderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261018CA2CB6178800724863 /* GenderCollectionViewCell.swift */; };
+		261018D02CB6179D00724863 /* GenderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261018CF2CB6179D00724863 /* GenderModel.swift */; };
+		261018D22CB6214700724863 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261018D12CB6214700724863 /* SettingViewModel.swift */; };
 		2610DD052C8CBD92005739A3 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2610DD032C8CBD92005739A3 /* ProductDetailsViewController.swift */; };
 		2610DD062C8CBD92005739A3 /* ProductDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2610DD042C8CBD92005739A3 /* ProductDetailsViewController.xib */; };
 		2610DD092C8CBDAE005739A3 /* ProductDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2610DD082C8CBDAE005739A3 /* ProductDetailsViewModel.swift */; };
@@ -149,6 +155,12 @@
 		260781322C48917C00B778A2 /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
 		260781332C48917C00B778A2 /* StartScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartScreenViewController.xib; sourceTree = "<group>"; };
 		260781372C48982800B778A2 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		261018C22CB6150F00724863 /* GenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewController.swift; sourceTree = "<group>"; };
+		261018C32CB6150F00724863 /* GenderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenderViewController.xib; sourceTree = "<group>"; };
+		261018CA2CB6178800724863 /* GenderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderCollectionViewCell.swift; sourceTree = "<group>"; };
+		261018CB2CB6178800724863 /* GenderCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenderCollectionViewCell.xib; sourceTree = "<group>"; };
+		261018CF2CB6179D00724863 /* GenderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderModel.swift; sourceTree = "<group>"; };
+		261018D12CB6214700724863 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		2610DD032C8CBD92005739A3 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
 		2610DD042C8CBD92005739A3 /* ProductDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailsViewController.xib; sourceTree = "<group>"; };
 		2610DD082C8CBDAE005739A3 /* ProductDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -326,6 +338,7 @@
 		260781362C4897FA00B778A2 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				261018C12CB614EA00724863 /* GenderView */,
 				265E2F0B2CAC80C900DEB18D /* TextFieldPadding */,
 				265AE9752CA0917900216175 /* RangeSlider */,
 				26AE38A42C89D78D0086E8FB /* NavigationController */,
@@ -336,6 +349,49 @@
 				7F5B01FD2C89005C00573B53 /* CustomNavBar */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		261018C12CB614EA00724863 /* GenderView */ = {
+			isa = PBXGroup;
+			children = (
+				261018C22CB6150F00724863 /* GenderViewController.swift */,
+				261018C32CB6150F00724863 /* GenderViewController.xib */,
+			);
+			path = GenderView;
+			sourceTree = "<group>";
+		};
+		261018C62CB615B000724863 /* GenderCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				261018C72CB6175D00724863 /* Model */,
+				261018C82CB6176100724863 /* View */,
+				261018C92CB6176400724863 /* ViewModel */,
+			);
+			path = GenderCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		261018C72CB6175D00724863 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				261018CF2CB6179D00724863 /* GenderModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		261018C82CB6176100724863 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				261018CA2CB6178800724863 /* GenderCollectionViewCell.swift */,
+				261018CB2CB6178800724863 /* GenderCollectionViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		261018C92CB6176400724863 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		2610DCFF2C8CBD4D005739A3 /* ProductDetails */ = {
@@ -989,6 +1045,7 @@
 		26AAA3B82CB5EDDE00C4F92D /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				261018C62CB615B000724863 /* GenderCollectionViewCell */,
 				26AAA3B92CB5F0ED00C4F92D /* Model */,
 				26AAA3BA2CB5F0F000C4F92D /* View */,
 				26AAA3BB2CB5F0F300C4F92D /* ViewModel */,
@@ -1015,6 +1072,7 @@
 		26AAA3BB2CB5F0F300C4F92D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				261018D12CB6214700724863 /* SettingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1527,6 +1585,7 @@
 				26A38A442CB5974D000C826A /* ProfileViewController.xib in Resources */,
 				26D902D32CACC68F00B1BF1E /* WishlistTableViewCell.xib in Resources */,
 				266859412C482A0500EC2718 /* Assets.xcassets in Resources */,
+				261018C42CB6150F00724863 /* GenderViewController.xib in Resources */,
 				26347A692C5D987700F500CB /* SignUpViewController.xib in Resources */,
 				26AD3FFB2CAB860500C23CC7 /* UpdatePasswordViewController.xib in Resources */,
 				26AD3FF42CAB7D9900C23CC7 /* OTPViewController.xib in Resources */,
@@ -1558,6 +1617,7 @@
 				26A18D822CA3085D00924658 /* CartTableViewCell.xib in Resources */,
 				26055E842CA065A00073D79E /* CategoriesCollectionViewCell.xib in Resources */,
 				26B5B7E12CADBE3900082441 /* ReviewsClientViewController.xib in Resources */,
+				261018CC2CB6178800724863 /* GenderCollectionViewCell.xib in Resources */,
 				26AE38AF2C89D8E20086E8FB /* SearchCategoriesViewController.xib in Resources */,
 				263D6E872C9F96FF00994E64 /* FilterViewController.xib in Resources */,
 				7F5B02012C89007A00573B53 /* CustomNavBar.xib in Resources */,
@@ -1601,6 +1661,7 @@
 				26F8A26C2CACD89D00699D1E /* WishlistModel.swift in Sources */,
 				2658C9AA2C8B220D0044CC37 /* ClothesCategoryViewModel.swift in Sources */,
 				2657018B2CAB15EA00B0240C /* Codable.swift in Sources */,
+				261018C52CB6150F00724863 /* GenderViewController.swift in Sources */,
 				26B043192C871880005DFF6A /* NewArriivalCollectionViewCell.swift in Sources */,
 				26AD40012CAB899600C23CC7 /* ResetPasswordSuccessViewController.swift in Sources */,
 				26F8A2692CACCF2F00699D1E /* WishlistViewController.swift in Sources */,
@@ -1651,14 +1712,17 @@
 				26B5B7E42CADBE4500082441 /* ReviewsClientViewModel.swift in Sources */,
 				2668595D2C48313400EC2718 /* UIView+Extentions.swift in Sources */,
 				26B39D472C990FD5002582DC /* SizeCollectionViewCell.swift in Sources */,
+				261018CD2CB6178800724863 /* GenderCollectionViewCell.swift in Sources */,
 				267E8D2D2CAC4BA6009AC330 /* OtpModel.swift in Sources */,
 				26B5B7E22CADBE3900082441 /* ReviewsClientViewController.swift in Sources */,
 				26F8A26E2CACDA8400699D1E /* WishlistViewModel.swift in Sources */,
+				261018D02CB6179D00724863 /* GenderModel.swift in Sources */,
 				26CB3D8B2C861E960029087C /* BannerCollectionViewCell.swift in Sources */,
 				7F5B02032C89034900573B53 /* CollectionView+.swift in Sources */,
 				26D902D42CACC68F00B1BF1E /* WishlistTableViewCell.swift in Sources */,
 				269363B82C821AFF00662442 /* MainTabBarViewController.swift in Sources */,
 				26AAA3BE2CB5F11C00C4F92D /* SettingViewController.swift in Sources */,
+				261018D22CB6214700724863 /* SettingViewModel.swift in Sources */,
 				266859662C4836C400EC2718 /* OnBoardingViewController.swift in Sources */,
 				26F28D7C2CB1741B00EACB92 /* HomeModel.swift in Sources */,
 				7F8256962CB1DF2F009294E8 /* NetworkManager.swift in Sources */,
