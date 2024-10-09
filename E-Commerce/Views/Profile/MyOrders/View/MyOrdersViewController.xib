@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyOrdersViewController" customModule="E_Commerce" customModuleProvider="target">
+            <connections>
+                <outlet property="completedButton" destination="xSR-SL-eZn" id="i5s-fZ-K9Z"/>
+                <outlet property="myOrdersLabel" destination="FID-Ij-3dj" id="lUi-ar-gv2"/>
+                <outlet property="myOrdersTableView" destination="wAj-sf-e0l" id="X5e-fj-Tu5"/>
+                <outlet property="navBar" destination="sRL-mf-Cat" id="8eu-VB-bGf"/>
+                <outlet property="ongoingButton" destination="gcU-Za-4Is" id="DRI-ke-lW1"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sRL-mf-Cat" customClass="CustomNavBar" customModule="E_Commerce" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="yUD-dp-vTV"/>
+                    </constraints>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="ce5-em-gkb">
+                    <rect key="frame" x="24" y="127" width="345" height="31"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Orders" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FID-Ij-3dj">
+                            <rect key="frame" x="0.0" y="0.0" width="138" height="31"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="yx3-dd-Thq">
+                            <rect key="frame" x="151" y="0.0" width="194" height="31"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcU-Za-4Is">
+                                    <rect key="frame" x="0.0" y="0.0" width="82.333333333333329" height="31"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Ongoing">
+                                        <fontDescription key="titleFontDescription" type="boldSystem" pointSize="14"/>
+                                    </buttonConfiguration>
+                                    <connections>
+                                        <action selector="ongoingButtonAction:" destination="-1" eventType="touchUpInside" id="9ic-1B-bQe"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSR-SL-eZn">
+                                    <rect key="frame" x="94.333333333333314" y="0.0" width="99.666666666666686" height="31"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Completed">
+                                        <fontDescription key="titleFontDescription" type="boldSystem" pointSize="14"/>
+                                    </buttonConfiguration>
+                                    <connections>
+                                        <action selector="completedButtonAction:" destination="-1" eventType="touchUpInside" id="IDY-WG-Nhv"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wAj-sf-e0l">
+                    <rect key="frame" x="18" y="180" width="357" height="638"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="wAj-sf-e0l" firstAttribute="top" secondItem="ce5-em-gkb" secondAttribute="bottom" constant="22" id="9dn-hz-v8v"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sRL-mf-Cat" secondAttribute="trailing" id="EzI-bV-EVb"/>
+                <constraint firstItem="ce5-em-gkb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="HCb-HG-73o"/>
+                <constraint firstItem="ce5-em-gkb" firstAttribute="top" secondItem="sRL-mf-Cat" secondAttribute="bottom" constant="24" id="Hc7-y2-ejm"/>
+                <constraint firstAttribute="trailing" secondItem="ce5-em-gkb" secondAttribute="trailing" constant="24" id="JUF-np-HO5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="wAj-sf-e0l" secondAttribute="bottom" id="KAN-jg-cQc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wAj-sf-e0l" secondAttribute="trailing" constant="18" id="QsJ-ht-GeJ"/>
+                <constraint firstItem="sRL-mf-Cat" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cVZ-l7-rcs"/>
+                <constraint firstItem="sRL-mf-Cat" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="f1s-QC-r5J"/>
+                <constraint firstItem="wAj-sf-e0l" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="18" id="lIp-eZ-S57"/>
+            </constraints>
+            <point key="canvasLocation" x="67.938931297709928" y="-11.267605633802818"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

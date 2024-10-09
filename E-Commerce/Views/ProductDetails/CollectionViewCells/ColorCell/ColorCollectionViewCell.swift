@@ -21,6 +21,7 @@ class ColorCollectionViewCell: UICollectionViewCell {
     
     
     //MARK: - VIEW LIFE CYCLE
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
