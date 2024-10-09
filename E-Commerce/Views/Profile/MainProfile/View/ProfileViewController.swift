@@ -61,7 +61,7 @@ private extension ProfileViewController {
         presonal_InformationTableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
         helpCenterTableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
         
-
+        
     }
     
     func registerCells() {
@@ -98,8 +98,36 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
         default:
             return UITableViewCell()
         }
+        
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView == presonal_InformationTableView {
+            switch indexPath.row {
+            case 0:
+                print("Navigating to HomeVC")
+                let homeVC = HomeVC(nibName: "HomeVC", bundle: nil)
+                navigationController?.pushViewController(homeVC, animated: true)
+            case 1:
+                print("Navigating to NotificationsViewController")
+                let notificationsVC = NotificationsViewController(nibName: "NotificationsViewController", bundle: nil)
+                navigationController?.pushViewController(notificationsVC, animated: true)
+            default:
+                print("No action for this row in Personal Information TableView")
+            }
+        } else if tableView == helpCenterTableView {
+            switch indexPath.row {
+            case 0:
+                print("Navigating to HelpCenterViewController")
+                let helpCenterVC = CartViewController(nibName: "CartViewController", bundle: nil)
+                navigationController?.pushViewController(helpCenterVC, animated: true)
+            default:
+                print("No action for this row in Help Center TableView")
+            }
+        }
+    }
 }
+
+
+
 

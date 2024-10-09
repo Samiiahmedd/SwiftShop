@@ -83,6 +83,8 @@
 		26A38A4D2CB59C9D000C826A /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26A38A4B2CB59C9D000C826A /* ProfileTableViewCell.xib */; };
 		26A38A4F2CB5A3B1000C826A /* ProfileTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A38A4E2CB5A3B1000C826A /* ProfileTableViewCellModel.swift */; };
 		26A38A512CB5A970000C826A /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A38A502CB5A970000C826A /* ProfileViewModel.swift */; };
+		26AAA3BE2CB5F11C00C4F92D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AAA3BC2CB5F11C00C4F92D /* SettingViewController.swift */; };
+		26AAA3BF2CB5F11C00C4F92D /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26AAA3BD2CB5F11C00C4F92D /* SettingViewController.xib */; };
 		26AD3FF32CAB7D9900C23CC7 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AD3FF12CAB7D9900C23CC7 /* OTPViewController.swift */; };
 		26AD3FF42CAB7D9900C23CC7 /* OTPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26AD3FF22CAB7D9900C23CC7 /* OTPViewController.xib */; };
 		26AD3FFB2CAB860500C23CC7 /* UpdatePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26AD3FFA2CAB860500C23CC7 /* UpdatePasswordViewController.xib */; };
@@ -219,6 +221,8 @@
 		26A38A4B2CB59C9D000C826A /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
 		26A38A4E2CB5A3B1000C826A /* ProfileTableViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCellModel.swift; sourceTree = "<group>"; };
 		26A38A502CB5A970000C826A /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		26AAA3BC2CB5F11C00C4F92D /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		26AAA3BD2CB5F11C00C4F92D /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 		26AD3FF12CAB7D9900C23CC7 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
 		26AD3FF22CAB7D9900C23CC7 /* OTPViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OTPViewController.xib; sourceTree = "<group>"; };
 		26AD3FF92CAB860500C23CC7 /* UpdatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewController.swift; sourceTree = "<group>"; };
@@ -908,9 +912,8 @@
 			isa = PBXGroup;
 			children = (
 				26A38A452CB59C28000C826A /* TableViewCell */,
-				26A38A3E2CB59579000C826A /* Model */,
-				26A38A3F2CB5957D000C826A /* View */,
-				26A38A402CB59580000C826A /* ViewModel */,
+				26AAA3B72CB5EDA400C4F92D /* MainProfile */,
+				26AAA3B82CB5EDDE00C4F92D /* Setting */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -969,6 +972,49 @@
 			isa = PBXGroup;
 			children = (
 				26A38A502CB5A970000C826A /* ProfileViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		26AAA3B72CB5EDA400C4F92D /* MainProfile */ = {
+			isa = PBXGroup;
+			children = (
+				26A38A3E2CB59579000C826A /* Model */,
+				26A38A3F2CB5957D000C826A /* View */,
+				26A38A402CB59580000C826A /* ViewModel */,
+			);
+			path = MainProfile;
+			sourceTree = "<group>";
+		};
+		26AAA3B82CB5EDDE00C4F92D /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				26AAA3B92CB5F0ED00C4F92D /* Model */,
+				26AAA3BA2CB5F0F000C4F92D /* View */,
+				26AAA3BB2CB5F0F300C4F92D /* ViewModel */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		26AAA3B92CB5F0ED00C4F92D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		26AAA3BA2CB5F0F000C4F92D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				26AAA3BC2CB5F11C00C4F92D /* SettingViewController.swift */,
+				26AAA3BD2CB5F11C00C4F92D /* SettingViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		26AAA3BB2CB5F0F300C4F92D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1475,6 +1521,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				266611B22C9A332C006F79DF /* ColorCollectionViewCell.xib in Resources */,
+				26AAA3BF2CB5F11C00C4F92D /* SettingViewController.xib in Resources */,
 				26F8A26A2CACCF2F00699D1E /* WishlistViewController.xib in Resources */,
 				266859672C4836C400EC2718 /* OnBoardingViewController.xib in Resources */,
 				26A38A442CB5974D000C826A /* ProfileViewController.xib in Resources */,
@@ -1611,6 +1658,7 @@
 				7F5B02032C89034900573B53 /* CollectionView+.swift in Sources */,
 				26D902D42CACC68F00B1BF1E /* WishlistTableViewCell.swift in Sources */,
 				269363B82C821AFF00662442 /* MainTabBarViewController.swift in Sources */,
+				26AAA3BE2CB5F11C00C4F92D /* SettingViewController.swift in Sources */,
 				266859662C4836C400EC2718 /* OnBoardingViewController.swift in Sources */,
 				26F28D7C2CB1741B00EACB92 /* HomeModel.swift in Sources */,
 				7F8256962CB1DF2F009294E8 /* NetworkManager.swift in Sources */,

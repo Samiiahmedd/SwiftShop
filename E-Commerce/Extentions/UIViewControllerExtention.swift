@@ -23,4 +23,11 @@ extension UIViewController {
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
+    
+}
+
+extension UIViewController {
+    static func instantiateFromXIB() -> Self? {
+        return Self(nibName: String(describing: self), bundle: nil)
+    }
 }
