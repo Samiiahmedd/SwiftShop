@@ -1182,6 +1182,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		26A893E32CB75ED700593DDD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				26AE38BE2C89E0EC0086E8FB /* SearchCategoriesCollectionViewCell.swift */,
+				26AE38BF2C89E0EC0086E8FB /* SearchCategoriesCollectionViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		26AAA3B72CB5EDA400C4F92D /* MainProfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -1353,6 +1362,7 @@
 			isa = PBXGroup;
 			children = (
 				26AE38BB2C89DB2C0086E8FB /* Model */,
+				26A893E32CB75ED700593DDD /* View */,
 			);
 			path = SearchCategoriesCollectionViewCell;
 			sourceTree = "<group>";
@@ -1361,8 +1371,6 @@
 			isa = PBXGroup;
 			children = (
 				26AE38BC2C89DFC90086E8FB /* SerachCategoriesModel.swift */,
-				26AE38BE2C89E0EC0086E8FB /* SearchCategoriesCollectionViewCell.swift */,
-				26AE38BF2C89E0EC0086E8FB /* SearchCategoriesCollectionViewCell.xib */,
 			);
 			path = Model;
 			sourceTree = "<group>";
