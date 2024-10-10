@@ -100,21 +100,29 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
         if tableView == presonal_InformationTableView {
             switch indexPath.row {
             case 0:
+                let myOrdersVC = MyOrdersViewController(nibName: "MyOrdersViewController", bundle: nil)
+                navigationController?.pushViewController(myOrdersVC, animated: true)
+            case 1:
+                print("My fav")
+            case 2:
+                print("shipping address")
+            case 3:
+                print("add card ")
+            case 4:
                 let settingVC = SettingViewController(nibName: "SettingViewController", bundle: nil)
                 navigationController?.pushViewController(settingVC, animated: true)
-            case 1:
-                print("Navigating to NotificationsViewController")
-                let notificationsVC = NotificationsViewController(nibName: "NotificationsViewController", bundle: nil)
-                navigationController?.pushViewController(notificationsVC, animated: true)
             default:
                 print("No action for this row in Personal Information TableView")
             }
+            
         } else if tableView == helpCenterTableView {
             switch indexPath.row {
             case 0:
-                print("Navigating to HelpCenterViewController")
-                let helpCenterVC = CartViewController(nibName: "CartViewController", bundle: nil)
-                navigationController?.pushViewController(helpCenterVC, animated: true)
+                print("FAQs")
+            case 1:
+                print("Privacy Policy")
+            case 2:
+                print("Community")
             default:
                 print("No action for this row in Help Center TableView")
             }
