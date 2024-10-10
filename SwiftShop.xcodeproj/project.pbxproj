@@ -218,7 +218,7 @@
 		265E2F0C2CAC80D900DEB18D /* TextFieldPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldPadding.swift; sourceTree = "<group>"; };
 		266611B02C9A332C006F79DF /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		266611B12C9A332C006F79DF /* ColorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorCollectionViewCell.xib; sourceTree = "<group>"; };
-		266859342C482A0200EC2718 /* E-Commerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "E-Commerce.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		266859342C482A0200EC2718 /* SwiftShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		266859372C482A0200EC2718 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		266859392C482A0200EC2718 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		266859402C482A0500EC2718 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -894,7 +894,7 @@
 		2668592B2C482A0200EC2718 = {
 			isa = PBXGroup;
 			children = (
-				266859362C482A0200EC2718 /* E-Commerce */,
+				266859362C482A0200EC2718 /* SwiftShop */,
 				266859352C482A0200EC2718 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -902,12 +902,12 @@
 		266859352C482A0200EC2718 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				266859342C482A0200EC2718 /* E-Commerce.app */,
+				266859342C482A0200EC2718 /* SwiftShop.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		266859362C482A0200EC2718 /* E-Commerce */ = {
+		266859362C482A0200EC2718 /* SwiftShop */ = {
 			isa = PBXGroup;
 			children = (
 				26C301012C88F86D00CFE4AD /* GoogleService-Info.plist */,
@@ -923,7 +923,7 @@
 				266859422C482A0500EC2718 /* LaunchScreen.storyboard */,
 				266859452C482A0500EC2718 /* Info.plist */,
 			);
-			path = "E-Commerce";
+			path = SwiftShop;
 			sourceTree = "<group>";
 		};
 		2668594D2C482F8900EC2718 /* Extentions */ = {
@@ -1669,9 +1669,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		266859332C482A0200EC2718 /* E-Commerce */ = {
+		266859332C482A0200EC2718 /* SwiftShop */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 266859482C482A0500EC2718 /* Build configuration list for PBXNativeTarget "E-Commerce" */;
+			buildConfigurationList = 266859482C482A0500EC2718 /* Build configuration list for PBXNativeTarget "SwiftShop" */;
 			buildPhases = (
 				266859302C482A0200EC2718 /* Sources */,
 				266859312C482A0200EC2718 /* Frameworks */,
@@ -1681,11 +1681,11 @@
 			);
 			dependencies = (
 			);
-			name = "E-Commerce";
+			name = SwiftShop;
 			packageProductDependencies = (
 			);
 			productName = "E-Commerce";
-			productReference = 266859342C482A0200EC2718 /* E-Commerce.app */;
+			productReference = 266859342C482A0200EC2718 /* SwiftShop.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1703,7 +1703,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2668592F2C482A0200EC2718 /* Build configuration list for PBXProject "E-Commerce" */;
+			buildConfigurationList = 2668592F2C482A0200EC2718 /* Build configuration list for PBXProject "SwiftShop" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -1718,7 +1718,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				266859332C482A0200EC2718 /* E-Commerce */,
+				266859332C482A0200EC2718 /* SwiftShop */,
 			);
 		};
 /* End PBXProject section */
@@ -2032,8 +2032,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 587KJ2SYVV;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "E-Commerce/Info.plist";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_FILE = SwiftShop/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SwiftShop;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.shopping";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -2044,7 +2045,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "sami.E-Commerce";
+				PRODUCT_BUNDLE_IDENTIFIER = sami.SwiftShop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -2061,8 +2062,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 587KJ2SYVV;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "E-Commerce/Info.plist";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_FILE = SwiftShop/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SwiftShop;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.shopping";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -2073,7 +2075,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "sami.E-Commerce";
+				PRODUCT_BUNDLE_IDENTIFIER = sami.SwiftShop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -2084,7 +2086,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2668592F2C482A0200EC2718 /* Build configuration list for PBXProject "E-Commerce" */ = {
+		2668592F2C482A0200EC2718 /* Build configuration list for PBXProject "SwiftShop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				266859462C482A0500EC2718 /* Debug */,
@@ -2093,7 +2095,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		266859482C482A0500EC2718 /* Build configuration list for PBXNativeTarget "E-Commerce" */ = {
+		266859482C482A0500EC2718 /* Build configuration list for PBXNativeTarget "SwiftShop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				266859492C482A0500EC2718 /* Debug */,

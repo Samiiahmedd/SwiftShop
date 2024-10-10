@@ -1,6 +1,6 @@
 //
 //  AuthCoordinator.swift
-//  E-Commerce
+//  SwiftShop
 //
 //  Created by Abdalazem Saleh on 06/10/2024.
 //
