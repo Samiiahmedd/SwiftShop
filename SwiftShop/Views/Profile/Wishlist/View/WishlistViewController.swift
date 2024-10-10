@@ -18,7 +18,7 @@ class WishlistViewController: UIViewController {
     //MARK: - VARIABLES
     
     private let viewModel = WishlistViewModel()
-
+    
     
     //MARK: - VIEW LIFE CYCLE
     
@@ -36,14 +36,15 @@ private extension WishlistViewController {
         configureNavBar()
         configureTableViews()
         registerCells()
+        configureSearchBar()
     }
     
     func configureNavBar() {
         navBar.setupFirstLeadingButton(with: "", and: UIImage(named: "back")!) {
-            print("ok")
+            self.navigationController?.popViewController(animated: true)
         }
         navBar.firstTralingButton.isHidden = true
-
+        
     }
     
     func configureTableViews() {
@@ -53,6 +54,13 @@ private extension WishlistViewController {
     
     func registerCells() {
         wishlistTableView.register(UINib(nibName: "WishlistTableViewCell", bundle: nil), forCellReuseIdentifier: "WishlistTableViewCell")
+    }
+    func configureSearchBar() {
+        searchBar.searchTextField.cornerRadius = 24
+        searchBar.searchTextField.borderColor = .systemGray3
+        searchBar.searchTextField.borderWidth = 1
+        searchBar.searchTextField.placeholder = "Search..."
+        
     }
 }
 
@@ -69,9 +77,5 @@ extension WishlistViewController : UITableViewDelegate,UITableViewDataSource {
         cell.Setup(Wishlist: wishlistItem)
         return cell
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
-    
     
 }

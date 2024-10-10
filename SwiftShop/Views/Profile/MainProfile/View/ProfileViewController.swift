@@ -103,7 +103,8 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
                 let myOrdersVC = MyOrdersViewController(nibName: "MyOrdersViewController", bundle: nil)
                 navigationController?.pushViewController(myOrdersVC, animated: true)
             case 1:
-                print("My fav")
+                let wishlistVC = WishlistViewController(nibName: "WishlistViewController", bundle: nil)
+                navigationController?.pushViewController(wishlistVC, animated: true)
             case 2:
                 print("shipping address")
             case 3:

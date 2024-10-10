@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WishlistViewController" customModule="E_Commerce" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WishlistViewController" customModule="SwiftShop" customModuleProvider="target">
             <connections>
                 <outlet property="navBar" destination="r6B-9Q-jlT" id="JKR-Bc-R0o"/>
                 <outlet property="searchBar" destination="QGA-eQ-EXP" id="iJU-tC-6aZ"/>
@@ -22,28 +22,38 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r6B-9Q-jlT" customClass="CustomNavBar" customModule="E_Commerce" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r6B-9Q-jlT" customClass="CustomNavBar" customModule="SwiftShop" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="Qdb-2V-xJK"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QGA-eQ-EXP" customClass="CustomSearchBar" customModule="E_Commerce" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="111" width="393" height="55"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="55" id="RZa-ug-Pf6"/>
-                    </constraints>
-                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="5Yr-aM-Onv">
+                    <rect key="frame" x="12" y="127" width="369" height="50"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QGA-eQ-EXP" customClass="CustomSearchBar" customModule="SwiftShop" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="286" height="50"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="RZa-ug-Pf6"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g59-mW-3fZ">
+                            <rect key="frame" x="290" y="0.0" width="79" height="50"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="screener"/>
+                        </button>
+                    </subviews>
+                </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wishlist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yg1-Au-e58">
-                    <rect key="frame" x="12" y="184" width="74" height="24"/>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                    <rect key="frame" x="16" y="201" width="82.666666666666671" height="26.333333333333343"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pnY-gT-L3d">
-                    <rect key="frame" x="8" y="220" width="377" height="577"/>
+                    <rect key="frame" x="8" y="251.33333333333337" width="377" height="577"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="577" id="uzx-nk-4EO"/>
@@ -53,22 +63,23 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="QGA-eQ-EXP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="B5k-is-Mk8"/>
-                <constraint firstItem="Yg1-Au-e58" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="HLk-xb-w5C"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5Yr-aM-Onv" secondAttribute="trailing" constant="12" id="BlF-jh-B3T"/>
+                <constraint firstItem="5Yr-aM-Onv" firstAttribute="top" secondItem="r6B-9Q-jlT" secondAttribute="bottom" constant="24" id="CrG-Eh-0XB"/>
+                <constraint firstItem="Yg1-Au-e58" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="HLk-xb-w5C"/>
                 <constraint firstItem="pnY-gT-L3d" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="IJB-7g-VHe"/>
-                <constraint firstItem="QGA-eQ-EXP" firstAttribute="top" secondItem="r6B-9Q-jlT" secondAttribute="bottom" constant="8" id="M8l-VT-oXS"/>
                 <constraint firstItem="r6B-9Q-jlT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="SUZ-Wr-Tbl"/>
+                <constraint firstItem="Yg1-Au-e58" firstAttribute="top" secondItem="5Yr-aM-Onv" secondAttribute="bottom" constant="24" id="dAd-aC-f0G"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="r6B-9Q-jlT" secondAttribute="trailing" id="f2l-qg-7QL"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pnY-gT-L3d" secondAttribute="trailing" constant="8" id="g9F-uE-2HZ"/>
+                <constraint firstItem="5Yr-aM-Onv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="gGc-eR-Id6"/>
                 <constraint firstItem="r6B-9Q-jlT" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="hOK-ca-t0c"/>
-                <constraint firstItem="Yg1-Au-e58" firstAttribute="top" secondItem="QGA-eQ-EXP" secondAttribute="bottom" constant="18" id="icz-65-mas"/>
-                <constraint firstItem="QGA-eQ-EXP" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="kkl-2X-5GE"/>
-                <constraint firstItem="pnY-gT-L3d" firstAttribute="top" secondItem="Yg1-Au-e58" secondAttribute="bottom" constant="12" id="oy6-JB-Ft9"/>
+                <constraint firstItem="pnY-gT-L3d" firstAttribute="top" secondItem="Yg1-Au-e58" secondAttribute="bottom" constant="24" id="oy6-JB-Ft9"/>
             </constraints>
             <point key="canvasLocation" x="-16.030534351145036" y="-11.267605633802818"/>
         </view>
     </objects>
     <resources>
+        <image name="screener" width="50" height="50"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
