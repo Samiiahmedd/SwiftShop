@@ -73,7 +73,7 @@ extension ClothesCategoryViewController:UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewArriivalCollectionViewCell.identifier, for: indexPath) as! NewArriivalCollectionViewCell
-        let newArrival = viewModel.newArrivals[indexPath.row]
+        let _ = viewModel.newArrivals[indexPath.row]
         return cell
     }
     
