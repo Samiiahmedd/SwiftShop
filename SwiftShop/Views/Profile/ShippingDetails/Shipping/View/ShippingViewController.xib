@@ -5,16 +5,14 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Image references" minToolsVersion="12.0"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShippingViewController" customModule="E_Commerce" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShippingViewController" customModule="SwiftShop" customModuleProvider="target">
             <connections>
-                <outlet property="addAddressLabel" destination="DcV-1l-6Gj" id="yP4-QS-ewx"/>
-                <outlet property="addressView" destination="dCc-4r-Pre" id="KzL-Yi-sdX"/>
+                <outlet property="addressCollectionView" destination="rtt-WV-1j5" id="wfz-Ao-M31"/>
                 <outlet property="nanBar" destination="aED-XN-OPK" id="wwh-Fj-VNd"/>
                 <outlet property="titsle" destination="gwe-Rc-EtR" id="W6O-ji-lsj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -25,111 +23,92 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aED-XN-OPK" customClass="CustomNavBar" customModule="E_Commerce" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aED-XN-OPK" customClass="CustomNavBar" customModule="SwiftShop" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="alQ-fk-AMl"/>
                     </constraints>
                 </view>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="fnH-iN-9JT">
-                    <rect key="frame" x="12" y="115" width="369" height="170"/>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="6Xn-7T-vGB">
+                    <rect key="frame" x="12" y="114.99999999999999" width="369" height="34.333333333333329"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shipping" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwe-Rc-EtR">
-                            <rect key="frame" x="0.0" y="0.0" width="369" height="23"/>
+                            <rect key="frame" x="0.0" y="0.0" width="78.333333333333329" height="34.333333333333336"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCc-4r-Pre">
-                            <rect key="frame" x="0.0" y="45" width="369" height="125"/>
-                            <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9rm-Ta-g4Z">
-                                    <rect key="frame" x="134.66666666666666" y="12.666666666666657" width="100" height="100"/>
-                                    <color key="backgroundColor" white="1" alpha="0.096131677656727824" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="100" id="1pH-k8-uy8"/>
-                                        <constraint firstAttribute="height" constant="100" id="eTR-Yo-yDY"/>
-                                    </constraints>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="12"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                </view>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="3Dn-nG-jQZ">
-                                    <rect key="frame" x="142.33333333333334" y="35.333333333333343" width="84.666666666666657" height="54.333333333333343"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DcV-1l-6Gj">
-                                            <rect key="frame" x="17.333333333333311" y="0.0" width="49.666666666666657" height="34.333333333333336"/>
-                                            <color key="tintColor" name="main1"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain">
-                                                <imageReference key="image" image="mappin.and.ellipse.circle.fill" catalog="system" symbolScale="large"/>
-                                                <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
-                                            </buttonConfiguration>
-                                            <connections>
-                                                <action selector="addAddressAction:" destination="-1" eventType="touchUpInside" id="YLR-cA-l8F"/>
-                                            </connections>
-                                        </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haf-Hs-ZF2">
-                                            <rect key="frame" x="0.0" y="37.333333333333314" width="84.666666666666671" height="17"/>
-                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                            <color key="textColor" name="main1"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </stackView>
-                            </subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYD-kh-gq3">
+                            <rect key="frame" x="229.66666666666663" y="0.0" width="139.33333333333337" height="34.333333333333336"/>
                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstItem="9rm-Ta-g4Z" firstAttribute="centerY" secondItem="dCc-4r-Pre" secondAttribute="centerY" id="Bwh-1f-erd"/>
-                                <constraint firstItem="9rm-Ta-g4Z" firstAttribute="centerX" secondItem="dCc-4r-Pre" secondAttribute="centerX" id="DHB-NS-QxG"/>
-                                <constraint firstItem="3Dn-nG-jQZ" firstAttribute="centerX" secondItem="dCc-4r-Pre" secondAttribute="centerX" id="FEQ-vc-7fr"/>
-                                <constraint firstItem="3Dn-nG-jQZ" firstAttribute="centerY" secondItem="dCc-4r-Pre" secondAttribute="centerY" id="m4R-tz-aiH"/>
-                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title=" Add Address">
+                                <imageReference key="image" image="plus" catalog="system" symbolScale="medium"/>
+                                <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
+                            </buttonConfiguration>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                    <real key="value" value="0.0"/>
-                                </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                    <real key="value" value="18"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                    <real key="value" value="0.0"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                    <size key="value" width="0.0" height="0.0"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                    <real key="value" value="7"/>
+                                    <real key="value" value="10"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
-                        </view>
+                            <connections>
+                                <action selector="addAddressAction:" destination="-1" eventType="touchUpInside" id="Oat-2u-kwn"/>
+                            </connections>
+                        </button>
                     </subviews>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="170" id="3ZJ-vv-lgZ"/>
-                    </constraints>
                 </stackView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="rtt-WV-1j5">
+                    <rect key="frame" x="12" y="167.33333333333337" width="369" height="567"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nuD-i5-4vW">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GuG-o8-sSk">
+                    <rect key="frame" x="12" y="752.33333333333337" width="369" height="50"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Jpe-ly-tvC"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Process to payment">
+                        <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
+                    </buttonConfiguration>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="14"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="aED-XN-OPK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="0NH-0K-ueN"/>
-                <constraint firstItem="fnH-iN-9JT" firstAttribute="top" secondItem="aED-XN-OPK" secondAttribute="bottom" constant="12" id="G8i-FF-hEQ"/>
+                <constraint firstItem="6Xn-7T-vGB" firstAttribute="top" secondItem="aED-XN-OPK" secondAttribute="bottom" constant="12" id="4W9-In-Hsu"/>
+                <constraint firstItem="rtt-WV-1j5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="5fi-1X-5qc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="GuG-o8-sSk" secondAttribute="bottom" constant="15.67" id="6ru-5b-8dV"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rtt-WV-1j5" secondAttribute="trailing" constant="12" id="Lqu-Vw-sNf"/>
                 <constraint firstItem="aED-XN-OPK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="MKm-E0-YaD"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="aED-XN-OPK" secondAttribute="trailing" id="QoR-cP-RCJ"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fnH-iN-9JT" secondAttribute="trailing" constant="12" id="dXF-BZ-Cpq"/>
-                <constraint firstItem="fnH-iN-9JT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="vnP-sP-bG1"/>
+                <constraint firstItem="rtt-WV-1j5" firstAttribute="top" secondItem="6Xn-7T-vGB" secondAttribute="bottom" constant="18" id="diA-z4-0f8"/>
+                <constraint firstItem="GuG-o8-sSk" firstAttribute="top" secondItem="rtt-WV-1j5" secondAttribute="bottom" constant="18" id="ePO-iw-Gmd"/>
+                <constraint firstItem="GuG-o8-sSk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="i53-QB-JAH"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6Xn-7T-vGB" secondAttribute="trailing" constant="12" id="la4-Cg-Gl6"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="GuG-o8-sSk" secondAttribute="trailing" constant="12" id="mJt-Rb-73k"/>
+                <constraint firstItem="6Xn-7T-vGB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="wyR-UL-Ekd"/>
             </constraints>
             <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
         </view>
     </objects>
     <resources>
-        <image name="mappin.and.ellipse.circle.fill" catalog="system" width="128" height="123"/>
-        <namedColor name="main1">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
