@@ -121,7 +121,8 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
             case 0:
                 print("FAQs")
             case 1:
-                print("Privacy Policy")
+                let privacyVC = Privacy_PolicyViewController(nibName: "Privacy_PolicyViewController", bundle: nil)
+                navigationController?.pushViewController(privacyVC, animated: true)
             case 2:
                 print("Community")
             default:

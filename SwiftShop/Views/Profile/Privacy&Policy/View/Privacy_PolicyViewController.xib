@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Privacy_PolicyViewController" customModule="SwiftShop" customModuleProvider="target">
             <connections>
+                <outlet property="navBar" destination="kIy-ow-dkY" id="e8x-AQ-9dX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -32,26 +33,151 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="960-B6-XdG">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Utb-vX-6ee">
                     <rect key="frame" x="0.0" y="152.33333333333331" width="393" height="665.66666666666674"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c8Q-2R-Lxh">
-                            <rect key="frame" x="0.0" y="0.0" width="2137.3333333333335" height="283"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IkH-Qg-Bs2">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="1472.6666666666667"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LV4-nx-PdQ">
-                                    <rect key="frame" x="12" y="12" width="2113.3333333333335" height="71.333333333333329"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="993-VT-hp1">
+                                    <rect key="frame" x="12" y="12" width="369" height="1448.6666666666667"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CJb-qf-nQC">
-                                            <rect key="frame" x="0.0" y="0.0" width="124.33333333333333" height="43"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xq1-C5-WvD">
+                                            <rect key="frame" x="0.0" y="0.0" width="369" height="26.333333333333332"/>
                                             <string key="text">1. Introduction
 </string>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3UT-WE-86H">
-                                            <rect key="frame" x="0.0" y="51" width="2113.3333333333335" height="20.333333333333329"/>
-                                            <string key="text">Welcome to SwiftShop! This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application. Please read this Privacy Policy carefully. By using the SwiftShop app, you consent to the data practices described in this policy.</string>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pE5-P3-I1O">
+                                            <rect key="frame" x="0.0" y="30.333333333333314" width="369" height="162.33333333333334"/>
+                                            <string key="text">Welcome to SwiftShop! This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application. Please read this Privacy Policy carefully. By using the SwiftShop app, you consent to the data practices described in this policy.
+</string>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bmF-qh-TDk">
+                                            <rect key="frame" x="0.0" y="196.66666666666666" width="369" height="26.333333333333343"/>
+                                            <string key="text">2. How We Use Your Information
+</string>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHM-KD-vAV">
+                                            <rect key="frame" x="0.0" y="227" width="369" height="203"/>
+                                            <string key="text">We use your information to:
+Process orders and provide the services you request.
+Communicate with you about your account, orders, and updates.
+Improve the performance and functionality of the SwiftShop app.
+Personalize your shopping experience.
+Prevent fraud and ensure security.
+</string>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBL-Nr-rbV">
+                                            <rect key="frame" x="0.0" y="434" width="369" height="26.333333333333314"/>
+                                            <string key="text">3. Sharing of Your Information
+</string>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8X-eK-I40">
+                                            <rect key="frame" x="0.0" y="464.33333333333326" width="369" height="122"/>
+                                            <string key="text">We implement industry-standard security measures to protect your personal information. However, no data transmission over the internet or mobile platform can be guaranteed 100% secure. You use the app at your own risk.
+</string>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eL0-QR-OFz">
+                                            <rect key="frame" x="0.0" y="590.33333333333326" width="369" height="26.333333333333371"/>
+                                            <string key="text">4. Data Security
+</string>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORu-VG-fyQ">
+                                            <rect key="frame" x="0.0" y="620.66666666666663" width="369" height="142.33333333333337"/>
+                                            <string key="text">We implement industry-standard security measures to protect your personal information. However, no data transmission over the internet or mobile platform can be guaranteed 100% secure. You use the app at your own risk.
+
+</string>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kSI-Jw-dq5">
+                                            <rect key="frame" x="0.0" y="767" width="369" height="26.333333333333371"/>
+                                            <string key="text">5. Your Rights
+</string>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMb-z0-07m">
+                                            <rect key="frame" x="0.0" y="797.33333333333326" width="369" height="162.33333333333337"/>
+                                            <string key="text">You have the right to:
+- Access, correct, or delete your personal information.
+- Opt-out of receiving promotional emails or notifications.
+- Disable location tracking through your device settings.
+</string>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GwW-Kz-cpP">
+                                            <rect key="frame" x="0.0" y="963.66666666666663" width="369" height="26.333333333333371"/>
+                                            <string key="text">6. Children's Privacy
+
+</string>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z9V-Mo-jQM">
+                                            <rect key="frame" x="0.0" y="993.99999999999989" width="369" height="142.33333333333337"/>
+                                            <string key="text">SwiftShop does not knowingly collect information from children under the age of 13. If we become aware that a child has provided personal information, we will take steps to delete such information.
+
+</string>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 7. Changes to This Privacy Policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cc3-vg-7af">
+                                            <rect key="frame" x="0.0" y="1140.3333333333335" width="369" height="26.333333333333258"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OCt-eu-VxW">
+                                            <rect key="frame" x="0.0" y="1170.6666666666667" width="369" height="162.33333333333326"/>
+                                            <string key="text">We may update this Privacy Policy from time to time. Any changes will be posted in the app, and your continued use of SwiftShop after such changes will constitute your acknowledgment and consent to the updated policy.
+
+
+</string>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXe-Ev-Xh8">
+                                            <rect key="frame" x="0.0" y="1337" width="369" height="26.333333333333258"/>
+                                            <string key="text">8. Contact Us
+</string>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugy-O8-dUI">
+                                            <rect key="frame" x="0.0" y="1367.3333333333335" width="369" height="81.333333333333258"/>
+                                            <string key="text">If you have any questions about this Privacy Policy, please contact us at:
+
+Email: support@swiftshop.com</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -61,40 +187,36 @@
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstItem="LV4-nx-PdQ" firstAttribute="top" secondItem="c8Q-2R-Lxh" secondAttribute="top" constant="12" id="0be-Ii-iET"/>
-                                <constraint firstAttribute="trailing" secondItem="LV4-nx-PdQ" secondAttribute="trailing" constant="12" id="1Xd-8v-WRs"/>
-                                <constraint firstAttribute="bottom" secondItem="LV4-nx-PdQ" secondAttribute="bottom" constant="199.66999999999999" id="6Jo-X2-kOS"/>
-                                <constraint firstItem="LV4-nx-PdQ" firstAttribute="leading" secondItem="c8Q-2R-Lxh" secondAttribute="leading" constant="12" id="MYt-P7-otR"/>
+                                <constraint firstItem="993-VT-hp1" firstAttribute="leading" secondItem="IkH-Qg-Bs2" secondAttribute="leading" constant="12" id="2cM-NJ-OIB"/>
+                                <constraint firstItem="993-VT-hp1" firstAttribute="top" secondItem="IkH-Qg-Bs2" secondAttribute="top" constant="12" id="9xn-f8-g29"/>
+                                <constraint firstAttribute="trailing" secondItem="993-VT-hp1" secondAttribute="trailing" constant="12" id="Mkz-7I-vwW"/>
+                                <constraint firstAttribute="bottom" secondItem="993-VT-hp1" secondAttribute="bottom" constant="12" id="sTQ-Gs-8xD"/>
                             </constraints>
                         </view>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="c8Q-2R-Lxh" secondAttribute="trailing" id="8Oz-Ee-2UH"/>
-                        <constraint firstItem="c8Q-2R-Lxh" firstAttribute="leading" secondItem="960-B6-XdG" secondAttribute="leading" id="8ed-5c-Tkt"/>
-                        <constraint firstAttribute="height" secondItem="c8Q-2R-Lxh" secondAttribute="height" multiplier="2.35218" id="G6a-wT-NSD"/>
-                        <constraint firstItem="c8Q-2R-Lxh" firstAttribute="top" secondItem="960-B6-XdG" secondAttribute="top" id="fZQ-JZ-GiP"/>
-                        <constraint firstItem="c8Q-2R-Lxh" firstAttribute="top" secondItem="7Bv-qc-fqA" secondAttribute="top" id="fcl-ez-10k"/>
-                        <constraint firstAttribute="trailing" secondItem="c8Q-2R-Lxh" secondAttribute="trailing" id="hpa-s2-AiG"/>
-                        <constraint firstItem="c8Q-2R-Lxh" firstAttribute="leading" secondItem="960-B6-XdG" secondAttribute="leading" id="rtA-F7-ygl"/>
-                        <constraint firstAttribute="bottom" secondItem="c8Q-2R-Lxh" secondAttribute="bottom" constant="200" id="s2K-dk-8u1"/>
-                        <constraint firstItem="c8Q-2R-Lxh" firstAttribute="top" secondItem="960-B6-XdG" secondAttribute="top" id="ylI-lS-3tY"/>
+                        <constraint firstItem="IkH-Qg-Bs2" firstAttribute="width" secondItem="Utb-vX-6ee" secondAttribute="width" id="GFi-cK-uQ4"/>
+                        <constraint firstAttribute="bottom" secondItem="IkH-Qg-Bs2" secondAttribute="bottom" id="Oig-L8-Oky"/>
+                        <constraint firstAttribute="trailing" secondItem="IkH-Qg-Bs2" secondAttribute="trailing" id="Ovy-5A-gkb"/>
+                        <constraint firstItem="IkH-Qg-Bs2" firstAttribute="leading" secondItem="Utb-vX-6ee" secondAttribute="leading" id="VuN-vE-XVj"/>
+                        <constraint firstItem="IkH-Qg-Bs2" firstAttribute="top" secondItem="Utb-vX-6ee" secondAttribute="top" id="fwY-ZH-KYA"/>
                     </constraints>
-                    <viewLayoutGuide key="contentLayoutGuide" id="lLb-fC-tNF"/>
-                    <viewLayoutGuide key="frameLayoutGuide" id="7Bv-qc-fqA"/>
+                    <viewLayoutGuide key="contentLayoutGuide" id="j1k-GJ-drT"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="bhG-lb-bEJ"/>
                 </scrollView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="960-B6-XdG" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="1iV-Jj-k3E"/>
                 <constraint firstItem="nD4-lH-73Y" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="4fc-yp-aY1"/>
-                <constraint firstItem="960-B6-XdG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="GyJ-qZ-JVO"/>
+                <constraint firstItem="Utb-vX-6ee" firstAttribute="top" secondItem="nD4-lH-73Y" secondAttribute="bottom" constant="12" id="HRE-GW-TwX"/>
                 <constraint firstItem="nD4-lH-73Y" firstAttribute="top" secondItem="kIy-ow-dkY" secondAttribute="bottom" constant="12" id="Nz4-vu-y7P"/>
-                <constraint firstItem="960-B6-XdG" firstAttribute="top" secondItem="nD4-lH-73Y" secondAttribute="bottom" constant="12" id="V6d-Nx-mHN"/>
                 <constraint firstItem="kIy-ow-dkY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cPj-ma-1D1"/>
                 <constraint firstItem="kIy-ow-dkY" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="li6-03-jF8"/>
                 <constraint firstItem="kIy-ow-dkY" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="sVk-XQ-3dU"/>
-                <constraint firstItem="960-B6-XdG" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="y0K-Zi-3K0"/>
+                <constraint firstItem="Utb-vX-6ee" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="t9j-Yo-bbK"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Utb-vX-6ee" secondAttribute="bottom" id="yFk-To-7Ir"/>
+                <constraint firstItem="Utb-vX-6ee" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="zao-J5-1tv"/>
             </constraints>
             <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
         </view>
