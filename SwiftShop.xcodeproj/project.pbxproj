@@ -94,6 +94,8 @@
 		269363B82C821AFF00662442 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269363B72C821AFF00662442 /* MainTabBarViewController.swift */; };
 		269363CB2C821F0100662442 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269363C92C821F0100662442 /* HomeVC.swift */; };
 		269363CC2C821F0100662442 /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 269363CA2C821F0100662442 /* HomeVC.xib */; };
+		2699BB8E2CB95660002AFF8E /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2699BB8C2CB95660002AFF8E /* AddCardViewController.swift */; };
+		2699BB8F2CB95660002AFF8E /* AddCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2699BB8D2CB95660002AFF8E /* AddCardViewController.xib */; };
 		26A18D812CA3085D00924658 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A18D7F2CA3085D00924658 /* CartTableViewCell.swift */; };
 		26A18D822CA3085D00924658 /* CartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26A18D802CA3085D00924658 /* CartTableViewCell.xib */; };
 		26A38A432CB5974D000C826A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A38A412CB5974D000C826A /* ProfileViewController.swift */; };
@@ -251,6 +253,8 @@
 		269363B72C821AFF00662442 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		269363C92C821F0100662442 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		269363CA2C821F0100662442 /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
+		2699BB8C2CB95660002AFF8E /* AddCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
+		2699BB8D2CB95660002AFF8E /* AddCardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCardViewController.xib; sourceTree = "<group>"; };
 		26A18D7F2CA3085D00924658 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		26A18D802CA3085D00924658 /* CartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartTableViewCell.xib; sourceTree = "<group>"; };
 		26A38A412CB5974D000C826A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -1159,9 +1163,43 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		2699BB882CB95629002AFF8E /* AddCard */ = {
+			isa = PBXGroup;
+			children = (
+				2699BB8B2CB9563E002AFF8E /* ViewModel */,
+				2699BB8A2CB9563B002AFF8E /* View */,
+				2699BB892CB95637002AFF8E /* Model */,
+			);
+			path = AddCard;
+			sourceTree = "<group>";
+		};
+		2699BB892CB95637002AFF8E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2699BB8A2CB9563B002AFF8E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2699BB8C2CB95660002AFF8E /* AddCardViewController.swift */,
+				2699BB8D2CB95660002AFF8E /* AddCardViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2699BB8B2CB9563E002AFF8E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		26A38A3D2CB5954C000C826A /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				2699BB882CB95629002AFF8E /* AddCard */,
 				26A38A452CB59C28000C826A /* TableViewCell */,
 				26AAA3B72CB5EDA400C4F92D /* MainProfile */,
 				264F5F892CB6FC32003E18E5 /* MyOrders */,
@@ -1789,6 +1827,7 @@
 				26347A692C5D987700F500CB /* SignUpViewController.xib in Resources */,
 				26AD3FFB2CAB860500C23CC7 /* UpdatePasswordViewController.xib in Resources */,
 				26AD3FF42CAB7D9900C23CC7 /* OTPViewController.xib in Resources */,
+				2699BB8F2CB95660002AFF8E /* AddCardViewController.xib in Resources */,
 				2658C9A72C8B212F0044CC37 /* ClothesCategoryViewController.xib in Resources */,
 				26D66DAD2C603D6A00EC03A9 /* SucessViewController.xib in Resources */,
 				260781352C48917C00B778A2 /* StartScreenViewController.xib in Resources */,
@@ -1920,6 +1959,7 @@
 				7FBAD9CC2C96551B00CBA3D2 /* UIViewControllerExtention.swift in Sources */,
 				26B5B7E42CADBE4500082441 /* ReviewsClientViewModel.swift in Sources */,
 				2668595D2C48313400EC2718 /* UIView+Extentions.swift in Sources */,
+				2699BB8E2CB95660002AFF8E /* AddCardViewController.swift in Sources */,
 				26B39D472C990FD5002582DC /* SizeCollectionViewCell.swift in Sources */,
 				261018CD2CB6178800724863 /* GenderCollectionViewCell.swift in Sources */,
 				267E8D2D2CAC4BA6009AC330 /* OtpModel.swift in Sources */,

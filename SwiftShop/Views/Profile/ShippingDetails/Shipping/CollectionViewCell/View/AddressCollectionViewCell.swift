@@ -19,6 +19,7 @@ class AddressCollectionViewCell: UICollectionViewCell {
 }
 
 //MARK: - SETUP
+
 extension AddressCollectionViewCell{
     func setup(with address: Address) {
         nameLabel.text = "Name: \(address.name)"
