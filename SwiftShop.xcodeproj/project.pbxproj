@@ -94,6 +94,8 @@
 		269363B82C821AFF00662442 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269363B72C821AFF00662442 /* MainTabBarViewController.swift */; };
 		269363CB2C821F0100662442 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269363C92C821F0100662442 /* HomeVC.swift */; };
 		269363CC2C821F0100662442 /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 269363CA2C821F0100662442 /* HomeVC.xib */; };
+		2694121C2CBAF93700A02B53 /* Privacy_PolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2694121A2CBAF93700A02B53 /* Privacy_PolicyViewController.swift */; };
+		2694121D2CBAF93700A02B53 /* Privacy_PolicyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2694121B2CBAF93700A02B53 /* Privacy_PolicyViewController.xib */; };
 		2699BB8E2CB95660002AFF8E /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2699BB8C2CB95660002AFF8E /* AddCardViewController.swift */; };
 		2699BB8F2CB95660002AFF8E /* AddCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2699BB8D2CB95660002AFF8E /* AddCardViewController.xib */; };
 		26A18D812CA3085D00924658 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A18D7F2CA3085D00924658 /* CartTableViewCell.swift */; };
@@ -253,6 +255,8 @@
 		269363B72C821AFF00662442 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		269363C92C821F0100662442 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		269363CA2C821F0100662442 /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
+		2694121A2CBAF93700A02B53 /* Privacy_PolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Privacy_PolicyViewController.swift; sourceTree = "<group>"; };
+		2694121B2CBAF93700A02B53 /* Privacy_PolicyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Privacy_PolicyViewController.xib; sourceTree = "<group>"; };
 		2699BB8C2CB95660002AFF8E /* AddCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
 		2699BB8D2CB95660002AFF8E /* AddCardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCardViewController.xib; sourceTree = "<group>"; };
 		26A18D7F2CA3085D00924658 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
@@ -1163,6 +1167,30 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		269412162CBAF85400A02B53 /* FAQs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FAQs;
+			sourceTree = "<group>";
+		};
+		269412172CBAF90900A02B53 /* Privacy&Policy */ = {
+			isa = PBXGroup;
+			children = (
+				269412182CBAF91900A02B53 /* View */,
+			);
+			path = "Privacy&Policy";
+			sourceTree = "<group>";
+		};
+		269412182CBAF91900A02B53 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2694121A2CBAF93700A02B53 /* Privacy_PolicyViewController.swift */,
+				2694121B2CBAF93700A02B53 /* Privacy_PolicyViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		2699BB882CB95629002AFF8E /* AddCard */ = {
 			isa = PBXGroup;
 			children = (
@@ -1199,6 +1227,8 @@
 		26A38A3D2CB5954C000C826A /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				269412172CBAF90900A02B53 /* Privacy&Policy */,
+				269412162CBAF85400A02B53 /* FAQs */,
 				2699BB882CB95629002AFF8E /* AddCard */,
 				26A38A452CB59C28000C826A /* TableViewCell */,
 				26AAA3B72CB5EDA400C4F92D /* MainProfile */,
@@ -1825,6 +1855,7 @@
 				266859412C482A0500EC2718 /* Assets.xcassets in Resources */,
 				261018C42CB6150F00724863 /* GenderViewController.xib in Resources */,
 				26347A692C5D987700F500CB /* SignUpViewController.xib in Resources */,
+				2694121D2CBAF93700A02B53 /* Privacy_PolicyViewController.xib in Resources */,
 				26AD3FFB2CAB860500C23CC7 /* UpdatePasswordViewController.xib in Resources */,
 				26AD3FF42CAB7D9900C23CC7 /* OTPViewController.xib in Resources */,
 				2699BB8F2CB95660002AFF8E /* AddCardViewController.xib in Resources */,
@@ -1968,6 +1999,7 @@
 				264F5F802CB6E240003E18E5 /* SelectLanguageViewController.swift in Sources */,
 				26F8A26E2CACDA8400699D1E /* WishlistViewModel.swift in Sources */,
 				261018D02CB6179D00724863 /* GenderModel.swift in Sources */,
+				2694121C2CBAF93700A02B53 /* Privacy_PolicyViewController.swift in Sources */,
 				26CB3D8B2C861E960029087C /* BannerCollectionViewCell.swift in Sources */,
 				7F5B02032C89034900573B53 /* CollectionView+.swift in Sources */,
 				26D902D42CACC68F00B1BF1E /* WishlistTableViewCell.swift in Sources */,
