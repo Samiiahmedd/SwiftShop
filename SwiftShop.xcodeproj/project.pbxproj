@@ -1174,8 +1174,7 @@
 		269412162CBAF85400A02B53 /* FAQs */ = {
 			isa = PBXGroup;
 			children = (
-				26156A2F2CBC724E00928C88 /* FAQsViewController.swift */,
-				26156A302CBC724E00928C88 /* FAQsViewController.xib */,
+				26AD5B562CBC8AE600CE42CD /* View */,
 			);
 			path = FAQs;
 			sourceTree = "<group>";
@@ -1233,16 +1232,15 @@
 		26A38A3D2CB5954C000C826A /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				269412172CBAF90900A02B53 /* Privacy&Policy */,
-				269412162CBAF85400A02B53 /* FAQs */,
-				2699BB882CB95629002AFF8E /* AddCard */,
 				26A38A452CB59C28000C826A /* TableViewCell */,
 				26AAA3B72CB5EDA400C4F92D /* MainProfile */,
 				264F5F892CB6FC32003E18E5 /* MyOrders */,
 				26D902CA2CACC54E00B1BF1E /* Wishlist */,
 				2657E9452CB0609800ADDA3B /* ShippingDetails */,
+				2699BB882CB95629002AFF8E /* AddCard */,
 				26AAA3B82CB5EDDE00C4F92D /* Setting */,
-				264F5F792CB6E208003E18E5 /* LanguageSelect */,
+				269412162CBAF85400A02B53 /* FAQs */,
+				269412172CBAF90900A02B53 /* Privacy&Policy */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1319,10 +1317,8 @@
 		26AAA3B82CB5EDDE00C4F92D /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				261018C62CB615B000724863 /* GenderCollectionViewCell */,
-				26AAA3B92CB5F0ED00C4F92D /* Model */,
-				26AAA3BA2CB5F0F000C4F92D /* View */,
-				26AAA3BB2CB5F0F300C4F92D /* ViewModel */,
+				26AD5B552CBC8A8800CE42CD /* MainSetting */,
+				264F5F792CB6E208003E18E5 /* LanguageSelect */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -1428,6 +1424,26 @@
 				26AD3FFF2CAB899600C23CC7 /* ResetPasswordSuccessViewController.xib */,
 			);
 			path = ResetPasswordSuccess;
+			sourceTree = "<group>";
+		};
+		26AD5B552CBC8A8800CE42CD /* MainSetting */ = {
+			isa = PBXGroup;
+			children = (
+				261018C62CB615B000724863 /* GenderCollectionViewCell */,
+				26AAA3B92CB5F0ED00C4F92D /* Model */,
+				26AAA3BA2CB5F0F000C4F92D /* View */,
+				26AAA3BB2CB5F0F300C4F92D /* ViewModel */,
+			);
+			path = MainSetting;
+			sourceTree = "<group>";
+		};
+		26AD5B562CBC8AE600CE42CD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				26156A2F2CBC724E00928C88 /* FAQsViewController.swift */,
+				26156A302CBC724E00928C88 /* FAQsViewController.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		26AE38A42C89D78D0086E8FB /* NavigationController */ = {
