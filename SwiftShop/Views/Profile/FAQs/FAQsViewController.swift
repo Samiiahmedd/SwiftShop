@@ -88,7 +88,7 @@ extension FAQsViewController {
     
     func configureNavBar() {
         navBar.setupFirstLeadingButton(with: "", and: UIImage(named: "back")!) {
-            print("")
+            self.navigationController?.popViewController(animated: true)
         }
         navBar.firstTralingButton.isHidden = true
     }

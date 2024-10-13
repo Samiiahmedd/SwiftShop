@@ -119,7 +119,8 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
         } else if tableView == helpCenterTableView {
             switch indexPath.row {
             case 0:
-                print("FAQs")
+                let FAQsVc = FAQsViewController(nibName: "FAQsViewController", bundle: nil)
+                navigationController?.pushViewController(FAQsVc, animated: true)
             case 1:
                 let privacyVC = Privacy_PolicyViewController(nibName: "Privacy_PolicyViewController", bundle: nil)
                 navigationController?.pushViewController(privacyVC, animated: true)
