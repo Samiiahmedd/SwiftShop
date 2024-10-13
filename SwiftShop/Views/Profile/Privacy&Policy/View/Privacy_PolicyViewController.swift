@@ -13,18 +13,16 @@ class Privacy_PolicyViewController: UIViewController {
     
     @IBOutlet weak var navBar: CustomNavBar!
     
-    
     //MARK: - VIEW LIFE CYCLE
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
-    
-    
-    
-    
 }
+
+//MARK: - SETUPVIEW
+
 extension Privacy_PolicyViewController {
     func setupView() {
         configureNavBar()
