@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddCardViewController" customModule="SwiftShop" customModuleProvider="target">
             <connections>
+                <outlet property="navBar" destination="eGx-uZ-dJW" id="k10-Uj-2rm"/>
+                <outlet property="paymentTableView" destination="3tp-dN-9Yd" id="ltD-wb-YjC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -32,17 +34,25 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3tp-dN-9Yd">
+                    <rect key="frame" x="12" y="161" width="369" height="657"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="4fN-DY-dmp" firstAttribute="top" secondItem="eGx-uZ-dJW" secondAttribute="bottom" constant="22" id="6og-Ip-XJV"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="3tp-dN-9Yd" secondAttribute="bottom" id="Eel-yf-ijr"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3tp-dN-9Yd" secondAttribute="trailing" constant="12" id="FYM-VH-2CD"/>
                 <constraint firstItem="eGx-uZ-dJW" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="VEr-u1-YBG"/>
                 <constraint firstItem="4fN-DY-dmp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Vrc-Xp-ujx"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eGx-uZ-dJW" secondAttribute="trailing" id="XxJ-mV-08F"/>
+                <constraint firstItem="3tp-dN-9Yd" firstAttribute="top" secondItem="4fN-DY-dmp" secondAttribute="bottom" constant="12" id="fen-sb-bU5"/>
                 <constraint firstItem="eGx-uZ-dJW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="gZ7-WO-Ue9"/>
+                <constraint firstItem="3tp-dN-9Yd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="mLA-7A-NF0"/>
             </constraints>
-            <point key="canvasLocation" x="31" y="-11"/>
+            <point key="canvasLocation" x="29.770992366412212" y="-11.267605633802818"/>
         </view>
     </objects>
     <resources>
