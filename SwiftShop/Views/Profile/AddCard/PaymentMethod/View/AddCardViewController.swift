@@ -1,5 +1,5 @@
 //
-//  AddCardViewController.swift
+//  PaymentMethodController.swift
 //  SwiftShop
 //
 //  Created by Sami Ahmed on 11/10/2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddCardViewController: UIViewController {
+class PaymentMethodViewController: UIViewController {
     
     //MARK: - IBOUTLETS
     
@@ -17,7 +17,7 @@ class AddCardViewController: UIViewController {
     
     //MARK: - VARIABLES
     
-    var viewModel = AddCardViewModel()
+    var viewModel = PaymentMethodViewModel()
     var selectedMethodIndex: IndexPath?
     
     //MARK: - VIEW LIFE CYCLE
@@ -30,7 +30,7 @@ class AddCardViewController: UIViewController {
 
 //MARK: - SETUP VIEW
 
-extension AddCardViewController {
+extension PaymentMethodViewController {
     
     func setupView() {
         configureNavBar()
@@ -58,7 +58,7 @@ extension AddCardViewController {
 }
 
 ///TableView
-extension AddCardViewController: UITableViewDelegate,UITableViewDataSource {
+extension PaymentMethodViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.paymentMethod.count
         
