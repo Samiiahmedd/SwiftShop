@@ -34,7 +34,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Utb-vX-6ee">
-                    <rect key="frame" x="0.0" y="153.33333333333331" width="393" height="664.66666666666652"/>
+                    <rect key="frame" x="0.0" y="153.33333333333331" width="393" height="664.66666666666674"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IkH-Qg-Bs2">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="997.66666666666663"/>

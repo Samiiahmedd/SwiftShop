@@ -35,6 +35,8 @@
 		2624F4DD2CB8AFCD005BF290 /* AddressCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2624F4DB2CB8AFCD005BF290 /* AddressCollectionViewCell.xib */; };
 		262786312C483F580024D80B /* OnBoardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262786302C483F580024D80B /* OnBoardingModel.swift */; };
 		262A21A32CBD7618000D6171 /* PaymentMethodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262A21A22CBD7618000D6171 /* PaymentMethodViewModel.swift */; };
+		262A21A82CBD968B000D6171 /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262A21A62CBD968B000D6171 /* CardViewController.swift */; };
+		262A21A92CBD968B000D6171 /* CardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 262A21A72CBD968B000D6171 /* CardViewController.xib */; };
 		262AFF212CB88B5300E2FA34 /* ShippingAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 262AFF1F2CB88B5300E2FA34 /* ShippingAddressViewController.swift */; };
 		262AFF222CB88B5300E2FA34 /* ShippingAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 262AFF202CB88B5300E2FA34 /* ShippingAddressViewController.xib */; };
 		26347A682C5D987600F500CB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26347A662C5D987600F500CB /* SignUpViewController.swift */; };
@@ -197,6 +199,8 @@
 		2624F4DB2CB8AFCD005BF290 /* AddressCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressCollectionViewCell.xib; sourceTree = "<group>"; };
 		262786302C483F580024D80B /* OnBoardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingModel.swift; sourceTree = "<group>"; };
 		262A21A22CBD7618000D6171 /* PaymentMethodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodViewModel.swift; sourceTree = "<group>"; };
+		262A21A62CBD968B000D6171 /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
+		262A21A72CBD968B000D6171 /* CardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardViewController.xib; sourceTree = "<group>"; };
 		262AFF1F2CB88B5300E2FA34 /* ShippingAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingAddressViewController.swift; sourceTree = "<group>"; };
 		262AFF202CB88B5300E2FA34 /* ShippingAddressViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShippingAddressViewController.xib; sourceTree = "<group>"; };
 		26347A662C5D987600F500CB /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -378,6 +382,7 @@
 		260781362C4897FA00B778A2 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				262A21A52CBD9677000D6171 /* CardView */,
 				261018C12CB614EA00724863 /* GenderView */,
 				265E2F0B2CAC80C900DEB18D /* TextFieldPadding */,
 				265AE9752CA0917900216175 /* RangeSlider */,
@@ -521,6 +526,15 @@
 				2699BB892CB95637002AFF8E /* Model */,
 			);
 			path = PaymentMethod;
+			sourceTree = "<group>";
+		};
+		262A21A52CBD9677000D6171 /* CardView */ = {
+			isa = PBXGroup;
+			children = (
+				262A21A62CBD968B000D6171 /* CardViewController.swift */,
+				262A21A72CBD968B000D6171 /* CardViewController.xib */,
+			);
+			path = CardView;
 			sourceTree = "<group>";
 		};
 		26347A622C5D983F00F500CB /* SignUP */ = {
@@ -1892,6 +1906,7 @@
 				26AD3FFB2CAB860500C23CC7 /* UpdatePasswordViewController.xib in Resources */,
 				26AD3FF42CAB7D9900C23CC7 /* OTPViewController.xib in Resources */,
 				2699BB8F2CB95660002AFF8E /* PaymentMethodViewController.xib in Resources */,
+				262A21A92CBD968B000D6171 /* CardViewController.xib in Resources */,
 				2658C9A72C8B212F0044CC37 /* ClothesCategoryViewController.xib in Resources */,
 				26D66DAD2C603D6A00EC03A9 /* SucessViewController.xib in Resources */,
 				260781352C48917C00B778A2 /* StartScreenViewController.xib in Resources */,
@@ -1946,6 +1961,7 @@
 				265E2F0A2CAC7A7900DEB18D /* UpdatePasswordViewModel.swift in Sources */,
 				26A38A432CB5974D000C826A /* ProfileViewController.swift in Sources */,
 				26A38A4F2CB5A3B1000C826A /* ProfileTableViewCellModel.swift in Sources */,
+				262A21A82CBD968B000D6171 /* CardViewController.swift in Sources */,
 				263D6E8C2C9F971600994E64 /* FilterModel.swift in Sources */,
 				26055E852CA065A00073D79E /* CategoriesCollectionViewCell.swift in Sources */,
 				262AFF212CB88B5300E2FA34 /* ShippingAddressViewController.swift in Sources */,
