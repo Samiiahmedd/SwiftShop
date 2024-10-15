@@ -47,7 +47,7 @@ class GFNavigationController: UINavigationController, UINavigationControllerDele
         } else {
 //            let coordinator = AuthCoordinator(navigationController: self)
 //            coordinator.start()
-            self.viewControllers = [CardEnterViewController()]
+            self.viewControllers = [CustomTabBarViewController()]
         }
     }
 }

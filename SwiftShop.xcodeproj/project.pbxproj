@@ -75,6 +75,7 @@
 		265E2F0A2CAC7A7900DEB18D /* UpdatePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265E2F092CAC7A7900DEB18D /* UpdatePasswordViewModel.swift */; };
 		265E2F0D2CAC80D900DEB18D /* TextFieldPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265E2F0C2CAC80D900DEB18D /* TextFieldPadding.swift */; };
 		2663FBE22CBEF87E005A6C05 /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663FBE12CBEF87E005A6C05 /* KeyboardHelper.swift */; };
+		2663FBEC2CBF049B005A6C05 /* CustomTabButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663FBEA2CBF049B005A6C05 /* CustomTabButtonView.swift */; };
 		266611B22C9A332C006F79DF /* ColorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 266611B12C9A332C006F79DF /* ColorCollectionViewCell.xib */; };
 		266611B32C9A332C006F79DF /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266611B02C9A332C006F79DF /* ColorCollectionViewCell.swift */; };
 		266859382C482A0200EC2718 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266859372C482A0200EC2718 /* AppDelegate.swift */; };
@@ -112,6 +113,9 @@
 		26A38A4D2CB59C9D000C826A /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26A38A4B2CB59C9D000C826A /* ProfileTableViewCell.xib */; };
 		26A38A4F2CB5A3B1000C826A /* ProfileTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A38A4E2CB5A3B1000C826A /* ProfileTableViewCellModel.swift */; };
 		26A38A512CB5A970000C826A /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A38A502CB5A970000C826A /* ProfileViewModel.swift */; };
+		26A7225A2CBF0EB7004AB9DA /* CustomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A722582CBF0EB7004AB9DA /* CustomTabBarViewController.swift */; };
+		26A7225B2CBF0EB7004AB9DA /* CustomTabBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26A722592CBF0EB7004AB9DA /* CustomTabBarViewController.xib */; };
+		26A7225D2CBF14DC004AB9DA /* CustomTabButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26A7225C2CBF14DC004AB9DA /* CustomTabButtonView.xib */; };
 		26AAA3BE2CB5F11C00C4F92D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AAA3BC2CB5F11C00C4F92D /* SettingViewController.swift */; };
 		26AAA3BF2CB5F11C00C4F92D /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26AAA3BD2CB5F11C00C4F92D /* SettingViewController.xib */; };
 		26AD3FF32CAB7D9900C23CC7 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AD3FF12CAB7D9900C23CC7 /* OTPViewController.swift */; };
@@ -242,6 +246,7 @@
 		265E2F092CAC7A7900DEB18D /* UpdatePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewModel.swift; sourceTree = "<group>"; };
 		265E2F0C2CAC80D900DEB18D /* TextFieldPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldPadding.swift; sourceTree = "<group>"; };
 		2663FBE12CBEF87E005A6C05 /* KeyboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHelper.swift; sourceTree = "<group>"; };
+		2663FBEA2CBF049B005A6C05 /* CustomTabButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabButtonView.swift; sourceTree = "<group>"; };
 		266611B02C9A332C006F79DF /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		266611B12C9A332C006F79DF /* ColorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorCollectionViewCell.xib; sourceTree = "<group>"; };
 		266859342C482A0200EC2718 /* SwiftShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -281,6 +286,9 @@
 		26A38A4B2CB59C9D000C826A /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
 		26A38A4E2CB5A3B1000C826A /* ProfileTableViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCellModel.swift; sourceTree = "<group>"; };
 		26A38A502CB5A970000C826A /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		26A722582CBF0EB7004AB9DA /* CustomTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarViewController.swift; sourceTree = "<group>"; };
+		26A722592CBF0EB7004AB9DA /* CustomTabBarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTabBarViewController.xib; sourceTree = "<group>"; };
+		26A7225C2CBF14DC004AB9DA /* CustomTabButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTabButtonView.xib; sourceTree = "<group>"; };
 		26AAA3BC2CB5F11C00C4F92D /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		26AAA3BD2CB5F11C00C4F92D /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 		26AD3FF12CAB7D9900C23CC7 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
@@ -976,6 +984,17 @@
 			path = KeyboardHelper;
 			sourceTree = "<group>";
 		};
+		2663FBE32CBF01F6005A6C05 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				26A7225C2CBF14DC004AB9DA /* CustomTabButtonView.xib */,
+				2663FBEA2CBF049B005A6C05 /* CustomTabButtonView.swift */,
+				26A722582CBF0EB7004AB9DA /* CustomTabBarViewController.swift */,
+				26A722592CBF0EB7004AB9DA /* CustomTabBarViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		266611AF2C9A331D006F79DF /* ColorCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1170,6 +1189,7 @@
 		269363B62C821AAE00662442 /* MainTabBar */ = {
 			isa = PBXGroup;
 			children = (
+				2663FBE32CBF01F6005A6C05 /* View */,
 				269363B72C821AFF00662442 /* MainTabBarViewController.swift */,
 			);
 			path = MainTabBar;
@@ -1973,6 +1993,7 @@
 				261D541F2C9F8C3F001620BF /* CustomSearchBar.xib in Resources */,
 				265E1CC02CAEFCB600C588AD /* NotificationsTableViewCell.xib in Resources */,
 				26B39D462C990FD5002582DC /* SizeCollectionViewCell.xib in Resources */,
+				26A7225B2CBF0EB7004AB9DA /* CustomTabBarViewController.xib in Resources */,
 				265E1CBA2CAEFB0600C588AD /* NotificationsViewController.xib in Resources */,
 				265AE97C2CA091BE00216175 /* RangeSlider.xib in Resources */,
 				26B043182C871880005DFF6A /* NewArriivalCollectionViewCell.xib in Resources */,
@@ -1981,6 +2002,7 @@
 				26A38A4D2CB59C9D000C826A /* ProfileTableViewCell.xib in Resources */,
 				266A7DA22CB72A2F009F3445 /* MyOrdersViewController.xib in Resources */,
 				26AE38C02C89E0EC0086E8FB /* SearchCategoriesCollectionViewCell.xib in Resources */,
+				26A7225D2CBF14DC004AB9DA /* CustomTabButtonView.xib in Resources */,
 				26C301072C89130800CFE4AD /* PopularsTableViewCell.xib in Resources */,
 				26156A312CBC724E00928C88 /* FAQsViewController.xib in Resources */,
 				26CB3D8C2C861E960029087C /* BannerCollectionViewCell.xib in Resources */,
@@ -2028,6 +2050,8 @@
 				261C37E92CAF012D00C97E1C /* NotificationsModel.swift in Sources */,
 				2689C9942C4A47A200033590 /* LoginViewController.swift in Sources */,
 				265E2F0D2CAC80D900DEB18D /* TextFieldPadding.swift in Sources */,
+				2663FBEC2CBF049B005A6C05 /* CustomTabButtonView.swift in Sources */,
+				26A7225A2CBF0EB7004AB9DA /* CustomTabBarViewController.swift in Sources */,
 				2623C9492C889A770084D5F5 /* NewArrivalModel.swift in Sources */,
 				265E2F082CAC7A6600DEB18D /* UpdatePasswordModel.swift in Sources */,
 				2610DD052C8CBD92005739A3 /* ProductDetailsViewController.swift in Sources */,
