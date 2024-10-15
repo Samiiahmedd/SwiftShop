@@ -74,6 +74,7 @@
 		265E2F082CAC7A6600DEB18D /* UpdatePasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265E2F072CAC7A6600DEB18D /* UpdatePasswordModel.swift */; };
 		265E2F0A2CAC7A7900DEB18D /* UpdatePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265E2F092CAC7A7900DEB18D /* UpdatePasswordViewModel.swift */; };
 		265E2F0D2CAC80D900DEB18D /* TextFieldPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265E2F0C2CAC80D900DEB18D /* TextFieldPadding.swift */; };
+		2663FBE22CBEF87E005A6C05 /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663FBE12CBEF87E005A6C05 /* KeyboardHelper.swift */; };
 		266611B22C9A332C006F79DF /* ColorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 266611B12C9A332C006F79DF /* ColorCollectionViewCell.xib */; };
 		266611B32C9A332C006F79DF /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266611B02C9A332C006F79DF /* ColorCollectionViewCell.swift */; };
 		266859382C482A0200EC2718 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266859372C482A0200EC2718 /* AppDelegate.swift */; };
@@ -240,6 +241,7 @@
 		265E2F072CAC7A6600DEB18D /* UpdatePasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordModel.swift; sourceTree = "<group>"; };
 		265E2F092CAC7A7900DEB18D /* UpdatePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewModel.swift; sourceTree = "<group>"; };
 		265E2F0C2CAC80D900DEB18D /* TextFieldPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldPadding.swift; sourceTree = "<group>"; };
+		2663FBE12CBEF87E005A6C05 /* KeyboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHelper.swift; sourceTree = "<group>"; };
 		266611B02C9A332C006F79DF /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		266611B12C9A332C006F79DF /* ColorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorCollectionViewCell.xib; sourceTree = "<group>"; };
 		266859342C482A0200EC2718 /* SwiftShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -386,6 +388,7 @@
 		260781362C4897FA00B778A2 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				2663FBE02CBEF874005A6C05 /* KeyboardHelper */,
 				262A21A52CBD9677000D6171 /* CardView */,
 				261018C12CB614EA00724863 /* GenderView */,
 				265E2F0B2CAC80C900DEB18D /* TextFieldPadding */,
@@ -963,6 +966,14 @@
 				265E2F0C2CAC80D900DEB18D /* TextFieldPadding.swift */,
 			);
 			path = TextFieldPadding;
+			sourceTree = "<group>";
+		};
+		2663FBE02CBEF874005A6C05 /* KeyboardHelper */ = {
+			isa = PBXGroup;
+			children = (
+				2663FBE12CBEF87E005A6C05 /* KeyboardHelper.swift */,
+			);
+			path = KeyboardHelper;
 			sourceTree = "<group>";
 		};
 		266611AF2C9A331D006F79DF /* ColorCell */ = {
@@ -2008,6 +2019,7 @@
 				264ACA952C8DE4B9001B0AE3 /* StapperView.swift in Sources */,
 				7FBAD9C42C964AA800CBA3D2 /* Alert.swift in Sources */,
 				26F28D7E2CB17A7600EACB92 /* NewArrivalsModel.swift in Sources */,
+				2663FBE22CBEF87E005A6C05 /* KeyboardHelper.swift in Sources */,
 				265701862CAB149200B0240C /* Constants.swift in Sources */,
 				7FBAD9C12C961D0400CBA3D2 /* LoginVIewModel.swift in Sources */,
 				7F82569C2CB1E730009294E8 /* AuthCoordinator.swift in Sources */,

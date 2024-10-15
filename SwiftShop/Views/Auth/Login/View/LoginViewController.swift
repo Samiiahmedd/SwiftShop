@@ -45,6 +45,11 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         bindViewModel()
+        configureKeyboardHandling()
+    }
+    deinit {
+        removeKeyboardHandling()
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {

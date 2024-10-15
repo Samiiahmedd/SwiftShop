@@ -54,6 +54,10 @@ class CardEnterViewController: UIViewController {
         cardHolderName.addTarget(self, action: #selector(cardHolderNameDidChange (_:)), for: .editingChanged)
         
         expierdDateTextField.addTarget(self, action: #selector(validThruDateDidChange(_:)), for: .editingChanged)
+        configureKeyboardHandling()
+    }
+    deinit {
+        removeKeyboardHandling()
     }
     
     @objc func cardNumberDidChange(_ textField: UITextField) {
@@ -79,7 +83,9 @@ class CardEnterViewController: UIViewController {
     @IBAction func cancelButtonAction(_ sender: Any) {
         
     }
+    
     @IBAction func confirmButtonAction(_ sender: Any) {
+        
     }
     
 }
@@ -103,7 +109,7 @@ extension CardEnterViewController {
     func configureTextFields() {
         let textFields: [UITextField] = [cardNumberTextField, cardHolderName,expierdDateTextField,cvvTextField ]
         textFields.forEach { $0.delegate = self }
-
+        
         addPaddingToTextField(cardNumberTextField, padding: 10)
         addPaddingToTextField(expierdDateTextField, padding: 10)
         addPaddingToTextField(cvvTextField, padding: 10)
