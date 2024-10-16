@@ -2,18 +2,19 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Poppins-Regular.ttf">
+        <array key="PoppinsRegular.ttf">
             <string>Poppins-Regular</string>
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OnBoardingViewController" customModule="E_Commerce" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OnBoardingViewController" customModule="SwiftShop" customModuleProvider="target">
             <connections>
                 <outlet property="nextButton" destination="3xs-1N-c6w" id="vh5-DH-7s6"/>
                 <outlet property="onBoardingDescription" destination="P6E-Ge-Li4" id="AFC-X4-BvS"/>
@@ -28,64 +29,66 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OnBoarding3" translatesAutoresizingMaskIntoConstraints="NO" id="Vua-mO-DSW">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OnBoarding3" translatesAutoresizingMaskIntoConstraints="NO" id="Vua-mO-DSW">
                     <rect key="frame" x="12" y="71" width="369" height="450"/>
                 </imageView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="uQm-qi-sdY">
-                    <rect key="frame" x="12" y="561" width="369" height="138"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="7rs-Ed-sEX">
+                    <rect key="frame" x="12" y="580" width="369" height="226"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take Advantage Of The Offer Shopping" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJN-GV-OMR">
-                            <rect key="frame" x="0.0" y="0.0" width="346.33333333333331" height="84"/>
-                            <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="30"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6E-Ge-Li4">
-                            <rect key="frame" x="0.0" y="96" width="341.66666666666669" height="42"/>
-                            <string key="text">Publish up your selfies to make yourself more beautiful with this app. 
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="uQm-qi-sdY">
+                            <rect key="frame" x="0.0" y="0.0" width="369" height="159.33333333333334"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Take Advantage Of The Offer Shopping" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJN-GV-OMR">
+                                    <rect key="frame" x="0.0" y="0.0" width="369" height="76.666666666666671"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="32"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6E-Ge-Li4">
+                                    <rect key="frame" x="0.0" y="82.666666666666629" width="369" height="76.666666666666686"/>
+                                    <string key="text">Publish up your selfies to make yourself more beautiful with this app. 
 </string>
-                            <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
-                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="182" translatesAutoresizingMaskIntoConstraints="NO" id="yAL-qA-VBX">
-                    <rect key="frame" x="12" y="749" width="369" height="71"/>
-                    <subviews>
-                        <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="8w0-lR-vS2">
-                            <rect key="frame" x="0.0" y="22.666666666666629" width="103" height="25.666666666666671"/>
-                            <color key="pageIndicatorTintColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </pageControl>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3xs-1N-c6w">
-                            <rect key="frame" x="285" y="5" width="84" height="61"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="84" id="7kl-yM-dFT"/>
-                                <constraint firstAttribute="height" constant="61" id="iro-2Y-Pf9"/>
-                            </constraints>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" image="arrow" title=""/>
-                            <connections>
-                                <action selector="nextButton:" destination="-1" eventType="touchUpInside" id="aJf-6o-9Lw"/>
-                            </connections>
-                        </button>
+                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
+                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yAL-qA-VBX">
+                            <rect key="frame" x="0.0" y="161.33333333333337" width="369" height="64.666666666666686"/>
+                            <subviews>
+                                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="8w0-lR-vS2">
+                                    <rect key="frame" x="0.0" y="19.666666666666629" width="115.66666666666667" height="25.666666666666671"/>
+                                    <color key="pageIndicatorTintColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </pageControl>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3xs-1N-c6w">
+                                    <rect key="frame" x="285" y="2" width="84" height="61"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="84" id="7kl-yM-dFT"/>
+                                        <constraint firstAttribute="height" constant="61" id="iro-2Y-Pf9"/>
+                                    </constraints>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="arrow" title=""/>
+                                    <connections>
+                                        <action selector="nextButton:" destination="-1" eventType="touchUpInside" id="aJf-6o-9Lw"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
                     </subviews>
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="uQm-qi-sdY" secondAttribute="trailing" constant="12" id="9oB-fi-va9"/>
-                <constraint firstItem="uQm-qi-sdY" firstAttribute="top" secondItem="Vua-mO-DSW" secondAttribute="bottom" constant="40" id="B2C-42-LtZ"/>
+                <constraint firstAttribute="trailing" secondItem="7rs-Ed-sEX" secondAttribute="trailing" constant="12" id="5ZA-0c-iSN"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Vua-mO-DSW" secondAttribute="trailing" constant="12" id="BFC-8e-aqD"/>
-                <constraint firstItem="uQm-qi-sdY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="12" id="BUO-hR-6vp"/>
-                <constraint firstItem="yAL-qA-VBX" firstAttribute="top" secondItem="uQm-qi-sdY" secondAttribute="bottom" constant="50" id="CJn-LU-r8M"/>
+                <constraint firstItem="7rs-Ed-sEX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="J4I-QG-NW9"/>
                 <constraint firstItem="Vua-mO-DSW" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="12" id="NSx-B6-CIj"/>
                 <constraint firstItem="Vua-mO-DSW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="RA6-JV-MLZ"/>
-                <constraint firstAttribute="bottom" secondItem="yAL-qA-VBX" secondAttribute="bottom" constant="32" id="Vxo-5D-lJ1"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yAL-qA-VBX" secondAttribute="trailing" constant="12" id="jxk-kT-n39"/>
-                <constraint firstItem="yAL-qA-VBX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="ome-Rp-B9X"/>
+                <constraint firstItem="7rs-Ed-sEX" firstAttribute="top" secondItem="Vua-mO-DSW" secondAttribute="bottom" constant="59" id="o2t-gp-DP1"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="7rs-Ed-sEX" secondAttribute="bottom" constant="12" id="vUg-uC-qwj"/>
             </constraints>
             <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
         </view>

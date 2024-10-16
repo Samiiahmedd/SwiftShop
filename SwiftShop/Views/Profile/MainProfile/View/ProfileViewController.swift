@@ -17,6 +17,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var helpCenterTableView: UITableView!
     
     //MARK: - VARIABLES
+    
     private let viewModel = ProfileViewModel()
     
     
