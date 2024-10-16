@@ -138,6 +138,10 @@
 		26B5B7E12CADBE3900082441 /* ReviewsClientViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26B5B7E02CADBE3900082441 /* ReviewsClientViewController.xib */; };
 		26B5B7E22CADBE3900082441 /* ReviewsClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B5B7DF2CADBE3900082441 /* ReviewsClientViewController.swift */; };
 		26B5B7E42CADBE4500082441 /* ReviewsClientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B5B7E32CADBE4500082441 /* ReviewsClientViewModel.swift */; };
+		26BB08162CC01F5400D1F0A6 /* NotificationsControllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BB08142CC01F5400D1F0A6 /* NotificationsControllViewController.swift */; };
+		26BB08172CC01F5400D1F0A6 /* NotificationsControllViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26BB08152CC01F5400D1F0A6 /* NotificationsControllViewController.xib */; };
+		26BB081B2CC021BB00D1F0A6 /* DarkModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BB08192CC021BB00D1F0A6 /* DarkModeViewController.swift */; };
+		26BB081C2CC021BB00D1F0A6 /* DarkModeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26BB081A2CC021BB00D1F0A6 /* DarkModeViewController.xib */; };
 		26C301022C88F86D00CFE4AD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26C301012C88F86D00CFE4AD /* GoogleService-Info.plist */; };
 		26C301072C89130800CFE4AD /* PopularsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26C301062C89130800CFE4AD /* PopularsTableViewCell.xib */; };
 		26C301082C89130800CFE4AD /* PopularsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C301052C89130800CFE4AD /* PopularsTableViewCell.swift */; };
@@ -311,6 +315,10 @@
 		26B5B7DF2CADBE3900082441 /* ReviewsClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsClientViewController.swift; sourceTree = "<group>"; };
 		26B5B7E02CADBE3900082441 /* ReviewsClientViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewsClientViewController.xib; sourceTree = "<group>"; };
 		26B5B7E32CADBE4500082441 /* ReviewsClientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsClientViewModel.swift; sourceTree = "<group>"; };
+		26BB08142CC01F5400D1F0A6 /* NotificationsControllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsControllViewController.swift; sourceTree = "<group>"; };
+		26BB08152CC01F5400D1F0A6 /* NotificationsControllViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationsControllViewController.xib; sourceTree = "<group>"; };
+		26BB08192CC021BB00D1F0A6 /* DarkModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeViewController.swift; sourceTree = "<group>"; };
+		26BB081A2CC021BB00D1F0A6 /* DarkModeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DarkModeViewController.xib; sourceTree = "<group>"; };
 		26C301012C88F86D00CFE4AD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		26C301052C89130800CFE4AD /* PopularsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularsTableViewCell.swift; sourceTree = "<group>"; };
 		26C301062C89130800CFE4AD /* PopularsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularsTableViewCell.xib; sourceTree = "<group>"; };
@@ -1380,6 +1388,8 @@
 			children = (
 				26AD5B552CBC8A8800CE42CD /* MainSetting */,
 				264F5F792CB6E208003E18E5 /* LanguageSelect */,
+				26BB08112CC01F2200D1F0A6 /* NotificationsControll */,
+				26BB08182CC0217000D1F0A6 /* DarkMode */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -1645,6 +1655,24 @@
 				265E1CAD2CAEE94D00C588AD /* ReviewClientModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		26BB08112CC01F2200D1F0A6 /* NotificationsControll */ = {
+			isa = PBXGroup;
+			children = (
+				26BB08142CC01F5400D1F0A6 /* NotificationsControllViewController.swift */,
+				26BB08152CC01F5400D1F0A6 /* NotificationsControllViewController.xib */,
+			);
+			path = NotificationsControll;
+			sourceTree = "<group>";
+		};
+		26BB08182CC0217000D1F0A6 /* DarkMode */ = {
+			isa = PBXGroup;
+			children = (
+				26BB08192CC021BB00D1F0A6 /* DarkModeViewController.swift */,
+				26BB081A2CC021BB00D1F0A6 /* DarkModeViewController.xib */,
+			);
+			path = DarkMode;
 			sourceTree = "<group>";
 		};
 		26C301032C89128C00CFE4AD /* Cells */ = {
@@ -1986,6 +2014,7 @@
 				26C301022C88F86D00CFE4AD /* GoogleService-Info.plist in Resources */,
 				2657019D2CAB392700B0240C /* ForgetPasswordViewController.xib in Resources */,
 				26D04EF82CADC16000E7B2D9 /* ReviewClientTableViewCell.xib in Resources */,
+				26BB081C2CC021BB00D1F0A6 /* DarkModeViewController.xib in Resources */,
 				266A7DA62CB72DB0009F3445 /* MyOrdersTableViewCell.xib in Resources */,
 				264ACA972C8DE4D1001B0AE3 /* StapperView.xib in Resources */,
 				2657E94C2CB0620C00ADDA3B /* ShippingViewController.xib in Resources */,
@@ -2004,6 +2033,7 @@
 				26AE38C02C89E0EC0086E8FB /* SearchCategoriesCollectionViewCell.xib in Resources */,
 				26A7225D2CBF14DC004AB9DA /* CustomTabButtonView.xib in Resources */,
 				26C301072C89130800CFE4AD /* PopularsTableViewCell.xib in Resources */,
+				26BB08172CC01F5400D1F0A6 /* NotificationsControllViewController.xib in Resources */,
 				26156A312CBC724E00928C88 /* FAQsViewController.xib in Resources */,
 				26CB3D8C2C861E960029087C /* BannerCollectionViewCell.xib in Resources */,
 				264F5F7F2CB6E240003E18E5 /* SelectLanguageViewController.xib in Resources */,
@@ -2035,6 +2065,7 @@
 				26A38A4F2CB5A3B1000C826A /* ProfileTableViewCellModel.swift in Sources */,
 				262A21A82CBD968B000D6171 /* CardView.swift in Sources */,
 				263D6E8C2C9F971600994E64 /* FilterModel.swift in Sources */,
+				26BB08162CC01F5400D1F0A6 /* NotificationsControllViewController.swift in Sources */,
 				26055E852CA065A00073D79E /* CategoriesCollectionViewCell.swift in Sources */,
 				262AFF212CB88B5300E2FA34 /* ShippingAddressViewController.swift in Sources */,
 				7F82569E2CB1F8AC009294E8 /* HomeCoordinator.swift in Sources */,
@@ -2049,6 +2080,7 @@
 				7F8256922CB1D822009294E8 /* UserDefultsWrapper.swift in Sources */,
 				261C37E92CAF012D00C97E1C /* NotificationsModel.swift in Sources */,
 				2689C9942C4A47A200033590 /* LoginViewController.swift in Sources */,
+				26BB081B2CC021BB00D1F0A6 /* DarkModeViewController.swift in Sources */,
 				265E2F0D2CAC80D900DEB18D /* TextFieldPadding.swift in Sources */,
 				2663FBEC2CBF049B005A6C05 /* CustomTabButtonView.swift in Sources */,
 				26A7225A2CBF0EB7004AB9DA /* CustomTabBarViewController.swift in Sources */,

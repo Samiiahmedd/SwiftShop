@@ -106,9 +106,11 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
                 let wishlistVC = WishlistViewController(nibName: "WishlistViewController", bundle: nil)
                 navigationController?.pushViewController(wishlistVC, animated: true)
             case 2:
-                print("shipping address")
+                let shippingVC = ShippingViewController(nibName: "ShippingViewController", bundle: nil)
+                navigationController?.pushViewController(shippingVC, animated: true)
             case 3:
-                print("add card ")
+                let addCardVC = CardEnterViewController(nibName: "CardEnterViewController", bundle: nil)
+                navigationController?.pushViewController(addCardVC, animated: true)
             case 4:
                 let settingVC = SettingViewController(nibName: "SettingViewController", bundle: nil)
                 navigationController?.pushViewController(settingVC, animated: true)

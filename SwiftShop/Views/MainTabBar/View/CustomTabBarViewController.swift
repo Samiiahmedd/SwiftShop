@@ -46,12 +46,12 @@ class CustomTabBarViewController: UIViewController {
 }
 
 //MARK: - SETUPVIEW
+
 extension CustomTabBarViewController {
     
     func setupView() {
         setupTabs()
         selectTab(homeTab)
-        applyTopCornerRadius()
     }
     private func setupTabs() {
         homeTab.configure(image: UIImage(named: "HomeNotSelected")! , name: "Home")
@@ -59,7 +59,6 @@ extension CustomTabBarViewController {
             notificationTab.configure(image: UIImage(named: "notificationNotSelected")!, name: "Notifications")
             profileTab.configure(image: UIImage(named: "profileNotSelected")!, name: "Profile")
             
-            // Add tap gestures
             let homeTapGesture = UITapGestureRecognizer(target: self, action: #selector(homeTapped))
             homeTab.addGestureRecognizer(homeTapGesture)
             
@@ -83,18 +82,4 @@ extension CustomTabBarViewController {
             // Select the clicked tab
             selectedTab.isSelectedTab = true
         }
-    private func applyTopCornerRadius() {
-            // Adding corner radius to the top corners only
-            self.mainView.layer.cornerRadius = 35
-            self.mainView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner] // Top left and top right corners
-            self.mainView.clipsToBounds = true
-            
-            // Optionally, add shadow for better visibility
-            self.mainView.layer.shadowColor = UIColor.black.cgColor
-            self.mainView.layer.shadowOpacity = 0.2
-            self.mainView.layer.shadowOffset = CGSize(width: 0, height: -2)
-            self.mainView.layer.shadowRadius = 10
-        }
-
-
 }

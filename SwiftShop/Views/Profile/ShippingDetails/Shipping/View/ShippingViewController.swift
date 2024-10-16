@@ -8,7 +8,7 @@
 import UIKit
 
 class ShippingViewController: UIViewController {
-        
+    
     //MARK: - @IBOUTLETS
     
     @IBOutlet weak var nanBar: CustomNavBar!
@@ -49,13 +49,12 @@ extension ShippingViewController {
     
     func setupNavBar() {
         nanBar.setupFirstLeadingButton(with: "", and: UIImage(named: "back")!) {
-            print("Back")
-        }
+            self.navigationController?.popViewController(animated: true)        }
         nanBar.firstTralingButton.isHidden = true
     }
     
     func configureCollectionView() {
-
+        
         addressCollectionView.delegate = self
         addressCollectionView.dataSource = self
     }
@@ -78,7 +77,7 @@ extension ShippingViewController: UICollectionViewDelegate,UICollectionViewDataS
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width-20, height: 120)
-
+        
     }
 }
 

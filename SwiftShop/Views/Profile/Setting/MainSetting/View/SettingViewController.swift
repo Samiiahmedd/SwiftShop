@@ -135,13 +135,18 @@ extension SettingViewController : UICollectionViewDelegate, UICollectionViewData
         case 0:
             let languageVC = SelectLanguageViewController(nibName: "SelectLanguageViewController", bundle: nil)
             navigationController?.pushViewController(languageVC, animated: true)
+        case 1:
+            let notificationsVC = NotificationsControllViewController(nibName: "NotificationsControllViewController", bundle: nil)
+            navigationController?.pushViewController(notificationsVC, animated: true)
+        case 2:
+            let darkModeVC = DarkModeViewController(nibName: "DarkModeViewController", bundle: nil)
+            navigationController?.pushViewController(darkModeVC, animated: true)
         default:
             print("No action for this row in Personal Information TableView")
         }
         
     }
 }
-
 
 private extension SettingViewController {
     func configureGenderCell(for collectionView: UICollectionView, with indexPath: IndexPath) -> UICollectionViewCell {
@@ -164,8 +169,6 @@ private extension SettingViewController {
             cell.mainView.borderWidth = 1
             cell.imageView.image = UIImage(systemName: "circle")
             cell.imageView.tintColor = .gray
-            
-            
         }
         return cell
     }
