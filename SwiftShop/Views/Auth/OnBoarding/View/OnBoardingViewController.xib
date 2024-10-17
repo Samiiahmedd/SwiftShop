@@ -8,11 +8,6 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="PoppinsRegular.ttf">
-            <string>Poppins-Regular</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OnBoardingViewController" customModule="SwiftShop" customModuleProvider="target">
             <connections>
@@ -33,29 +28,29 @@
                     <rect key="frame" x="12" y="71" width="369" height="450"/>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="7rs-Ed-sEX">
-                    <rect key="frame" x="12" y="580" width="369" height="226"/>
+                    <rect key="frame" x="18" y="580" width="357" height="226"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="uQm-qi-sdY">
-                            <rect key="frame" x="0.0" y="0.0" width="369" height="159.33333333333334"/>
+                            <rect key="frame" x="0.0" y="0.0" width="357" height="159.33333333333334"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Take Advantage Of The Offer Shopping" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJN-GV-OMR">
-                                    <rect key="frame" x="0.0" y="0.0" width="369" height="76.666666666666671"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="357" height="76.666666666666671"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="32"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6E-Ge-Li4">
-                                    <rect key="frame" x="0.0" y="82.666666666666629" width="369" height="76.666666666666686"/>
+                                    <rect key="frame" x="0.0" y="82.666666666666629" width="357" height="76.666666666666686"/>
                                     <string key="text">Publish up your selfies to make yourself more beautiful with this app. 
 </string>
-                                    <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yAL-qA-VBX">
-                            <rect key="frame" x="0.0" y="161.33333333333337" width="369" height="64.666666666666686"/>
+                            <rect key="frame" x="0.0" y="161.33333333333337" width="357" height="64.666666666666686"/>
                             <subviews>
                                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="8w0-lR-vS2">
                                     <rect key="frame" x="0.0" y="19.666666666666629" width="115.66666666666667" height="25.666666666666671"/>
@@ -63,7 +58,7 @@
                                     <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </pageControl>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3xs-1N-c6w">
-                                    <rect key="frame" x="285" y="2" width="84" height="61"/>
+                                    <rect key="frame" x="273" y="2" width="84" height="61"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="84" id="7kl-yM-dFT"/>
                                         <constraint firstAttribute="height" constant="61" id="iro-2Y-Pf9"/>
@@ -82,9 +77,9 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="7rs-Ed-sEX" secondAttribute="trailing" constant="12" id="5ZA-0c-iSN"/>
+                <constraint firstAttribute="trailing" secondItem="7rs-Ed-sEX" secondAttribute="trailing" constant="18" id="5ZA-0c-iSN"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Vua-mO-DSW" secondAttribute="trailing" constant="12" id="BFC-8e-aqD"/>
-                <constraint firstItem="7rs-Ed-sEX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="J4I-QG-NW9"/>
+                <constraint firstItem="7rs-Ed-sEX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="18" id="J4I-QG-NW9"/>
                 <constraint firstItem="Vua-mO-DSW" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="12" id="NSx-B6-CIj"/>
                 <constraint firstItem="Vua-mO-DSW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="RA6-JV-MLZ"/>
                 <constraint firstItem="7rs-Ed-sEX" firstAttribute="top" secondItem="Vua-mO-DSW" secondAttribute="bottom" constant="59" id="o2t-gp-DP1"/>
