@@ -6,10 +6,13 @@
 //
 
 import Foundation
-import UIKit
 
-struct SearchCategoriesModel {
-    let categoryImage : UIImage
-    let categoryTitle : String
-    let categoryCount : String
+struct CategoriesResponse: Codable {
+    let data : [Category]
+}
+
+struct Category : Codable {
+    let _id: String?
+    let name: String
+    let image: String
 }

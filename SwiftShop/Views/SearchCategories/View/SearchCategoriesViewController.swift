@@ -18,12 +18,27 @@ class SearchCategoriesViewController: UIViewController {
     //MARK: - Variables
     
     let viewModel = SearchCategoriesViewModel()
+    var categoriesList : [Category] = []
+
     
     //MARK: - ViewLifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        
+        //getCategoriesList
+        SearchCategoriesViewModel().getCategoriesList { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let data):
+                    self?.categoriesList = data.data
+                    self?.searchCategoriesCollectionView.reloadData()
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +56,7 @@ private extension SearchCategoriesViewController {
         configerCollectionViews()
         registerCells()
         configureNavBar()
+        fetchCategories()
     }
     
     func configureNavBar() {
@@ -62,35 +78,49 @@ private extension SearchCategoriesViewController {
     func registerCells() {
         searchCategoriesCollectionView.register(UINib(nibName: SearchCategoriesCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: SearchCategoriesCollectionViewCell.identifier)
     }
+    
+    private func fetchCategories() {
+        viewModel.getCategoriesList { [weak self] result in
+            switch result {
+            case .success(let response):
+                DispatchQueue.main.async {
+                    self?.categoriesList = response.data
+                    print("Categories fetched: \(self?.categoriesList)") // Check the fetched categories
+                    self?.searchCategoriesCollectionView.reloadData()
+                }
+            case .failure(let error):
+                print("Error fetching categories: \(error)")
+            }
+        }
+    }
 }
 
 //MARK: - EXTENTIONS
 
 extension SearchCategoriesViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.categories.count
+        return categoriesList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = searchCategoriesCollectionView.dequeueReusableCell(withReuseIdentifier: SearchCategoriesCollectionViewCell.identifier, for: indexPath) as! SearchCategoriesCollectionViewCell
-        let categorySection = viewModel.categories[indexPath.row]
-        cell.Setup(categories: categorySection)
+        cell.setup(categories: categoriesList[indexPath.row])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (collectionView.frame.width) - 40 , height: 120)
+        return CGSize(width: (collectionView.frame.width) - 40 , height: 130)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedCategory = viewModel.categories[indexPath.row]
-        switch selectedCategory.categoryTitle {
-        case "Clothes":
-            let clothesCategoryVC = ClothesCategoryViewController(nibName: "ClothesCategoryViewController", bundle: nil)
-            clothesCategoryVC.title = "Clothes"
-            navigationController?.pushViewController(clothesCategoryVC, animated: true)
-        default:
-            break
-        }
-    }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let selectedCategory = viewModel.categories[indexPath.row]
+//        switch selectedCategory.categoryTitle {
+//        case "Clothes":
+//            let clothesCategoryVC = ClothesCategoryViewController(nibName: "ClothesCategoryViewController", bundle: nil)
+//            clothesCategoryVC.title = "Clothes"
+//            navigationController?.pushViewController(clothesCategoryVC, animated: true)
+//        default:
+//            break
+//        }
+//    }
 }

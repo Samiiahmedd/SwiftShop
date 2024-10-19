@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 struct NewArrivalsModel : Codable {
     let status: String?
     let data : [NewArrivals]
