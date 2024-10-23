@@ -9,6 +9,7 @@ import UIKit
 
 @MainActor
 protocol AuthCoordinatorProtocol {
+    func pushOnBoardingScreen()
     func displayLogin()
     func displaySignup()
     func displayForgetPassword()
@@ -28,13 +29,19 @@ final class AuthCoordinator {
     }
 
     func start() {
-        let vc = StartScreenViewController()
+        let vc = OnBoardingViewController()
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
 }
 
 extension AuthCoordinator: AuthCoordinatorProtocol {
+    func pushOnBoardingScreen() {
+        let vc = StartScreenViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
     
     func displayLogin() {
         let vc = LoginViewController()

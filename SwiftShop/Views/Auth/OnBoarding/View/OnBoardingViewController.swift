@@ -17,6 +17,8 @@ class OnBoardingViewController: UIViewController {
             pageControl.currentPage = currentPage
         }
     }
+    var coordinator: AuthCoordinatorProtocol?
+
     
     //MARK: -IBOUtlet
     
@@ -55,9 +57,7 @@ class OnBoardingViewController: UIViewController {
             currentPage += 1
             updateSlideContent()
         } else {
-            let StartScreen  = StartScreenViewController()
-            self.navigationController?.pushViewController(StartScreen, animated: true)
-            print("goo")
+            coordinator?.pushOnBoardingScreen()
         }
     }
     
