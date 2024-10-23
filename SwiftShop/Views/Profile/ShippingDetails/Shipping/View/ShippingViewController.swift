@@ -17,6 +17,7 @@ class ShippingViewController: UIViewController {
     @IBOutlet weak var addAddressLabel: UIButton!
     @IBOutlet weak var addressCollectionView: UICollectionView!
     
+    @IBOutlet weak var processToPaymentButton: UIButton!
     //MARK: - VARIABLES
     
     var addresses: [Address] = []
@@ -34,6 +35,17 @@ class ShippingViewController: UIViewController {
         let addAddVC = ShippingAddressViewController.instantiateFromXIB()!
         addAddVC.delegate = self
         navigationController?.pushViewController(addAddVC, animated: true)
+    }
+    
+    @IBAction func processToPaymentButtonAction(_ sender: Any) {
+        if addresses.isEmpty {
+            let alert = UIAlertController(title: "No Address", message: "Please add an address before proceeding to payment.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let payment = CardEnterViewController.instantiateFromXIB()!
+            navigationController?.pushViewController(payment, animated: true)
+        }
     }
 }
 

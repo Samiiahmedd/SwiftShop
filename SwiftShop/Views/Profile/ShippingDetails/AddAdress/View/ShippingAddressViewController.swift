@@ -20,13 +20,15 @@ class ShippingAddressViewController: UIViewController {
     @IBOutlet weak var navBar: CustomNavBar!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var phoneNuberTextField: UITextField!
+    @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
+    @IBOutlet weak var zipcodeTextField: UITextField!
     @IBOutlet weak var addAdressButton: UIButton!
     
     //MARK: - VARIABLES
     
     weak var delegate: AddressDelegate?
-
+    
     
     //MARK: - VIEW LIFE CYCLE
     
@@ -39,14 +41,16 @@ class ShippingAddressViewController: UIViewController {
     
     @IBAction func addAdressButtonAction(_ sender: Any) {
         guard let name = nameTextField.text, !name.isEmpty,
-               let phone = phoneNuberTextField.text, !phone.isEmpty,
-               let address = addressTextField.text, !address.isEmpty else {
-            showErrorAlert(message: "Fill All Fields")
-             return
-         }
-         let newAddress = Address(name: name, phone: phone, address: address)
-         delegate?.didAddAddress(newAddress)
-         navigationController?.popViewController(animated: true)
+              let phone = phoneNuberTextField.text, !phone.isEmpty,
+              let city = cityTextField.text, !city.isEmpty,
+              let address = addressTextField.text, !address.isEmpty,
+              let zip = zipcodeTextField.text, !zip.isEmpty else {
+            showErrorAlert(message: "Please Fill All Fields!")
+            return
+        }
+        let newAddress = Address(name: name, phone: phone,city: city, address: address,zipCode: zip)
+        delegate?.didAddAddress(newAddress)
+        navigationController?.popViewController(animated: true)
     }
 }
 
@@ -69,9 +73,11 @@ extension ShippingAddressViewController {
     func configureTextFields() {
         addPaddingToTextField(nameTextField, padding: 10)
         addPaddingToTextField(phoneNuberTextField, padding: 10)
+        addPaddingToTextField(cityTextField, padding: 10)
         addPaddingToTextField(addressTextField, padding: 10)
+        addPaddingToTextField(zipcodeTextField, padding: 10)
         
-        let textFields: [UITextField] = [nameTextField, phoneNuberTextField,addressTextField ]
+        let textFields: [UITextField] = [nameTextField, phoneNuberTextField,cityTextField,addressTextField,zipcodeTextField ]
         textFields.forEach { $0.delegate = self }
         
     }
@@ -85,7 +91,11 @@ extension ShippingAddressViewController: UITextFieldDelegate {
         case nameTextField:
             phoneNuberTextField.becomeFirstResponder()
         case phoneNuberTextField:
+            cityTextField.becomeFirstResponder()
+        case cityTextField:
             addressTextField.becomeFirstResponder()
+        case addressTextField:
+            zipcodeTextField.becomeFirstResponder()
         default:
             view.endEditing(true)
         }

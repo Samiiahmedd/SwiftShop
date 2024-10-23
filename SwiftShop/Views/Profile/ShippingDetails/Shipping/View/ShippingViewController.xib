@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="addressCollectionView" destination="rtt-WV-1j5" id="wfz-Ao-M31"/>
                 <outlet property="nanBar" destination="aED-XN-OPK" id="wwh-Fj-VNd"/>
+                <outlet property="processToPaymentButton" destination="GuG-o8-sSk" id="dpl-oo-aAM"/>
                 <outlet property="titsle" destination="gwe-Rc-EtR" id="W6O-ji-lsj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -85,6 +86,9 @@
                             <real key="value" value="14"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="processToPaymentButtonAction:" destination="-1" eventType="touchUpInside" id="z65-wb-L7Q"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

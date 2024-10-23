@@ -18,7 +18,6 @@ class MainTabBarViewController: UITabBarController {
     
     func homeNC() -> UINavigationController {
         let mainVC = HomeVC()
-        mainVC.title      = "Home"
         mainVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house.fill"), tag: 0)
         
         return UINavigationController(rootViewController: mainVC)
@@ -26,7 +25,6 @@ class MainTabBarViewController: UITabBarController {
     
     func cartNC() -> UINavigationController {
         let cartVC        = CartViewController()
-        cartVC.title      = "Cart"
         cartVC.tabBarItem = UITabBarItem(title: "Cart", image: UIImage(systemName: "cart"), tag: 1)
         
         return UINavigationController(rootViewController: cartVC)
@@ -34,7 +32,6 @@ class MainTabBarViewController: UITabBarController {
     
     func notificationsNC() -> UINavigationController {
         let notificationsVC = NotificationsViewController()
-        notificationsVC.title      = "Notifications"
         notificationsVC.tabBarItem = UITabBarItem(title: "Notifications", image: UIImage(systemName: "bell"), tag: 2)
         
         return UINavigationController(rootViewController: notificationsVC)
@@ -42,8 +39,8 @@ class MainTabBarViewController: UITabBarController {
         
     func profileNC() -> UINavigationController {
         let profileVC        = ProfileViewController()
-        profileVC.title      = "Profile"
         profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.crop.circle"), tag: 3)
+        
         
         return UINavigationController(rootViewController: profileVC)
     }

@@ -69,10 +69,7 @@ private extension FilterViewController {
         navBar.setupFirstLeadingButton(
             with: "",
             and: UIImage(named: "back")!) {
-                print("Button tapped")
-                let home = HomeVC(nibName: "HomeVC", bundle: nil)
-                self.navigationController?.pushViewController(home, animated: true)
-                self.navigationItem.hidesBackButton = true
+                self.navigationController?.popViewController(animated: true)
             }
         navBar.firstTralingButton.isHidden = true
     }

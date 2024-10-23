@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -34,7 +35,7 @@
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2Rd-sp-kXp">
-                                                <rect key="frame" x="72" y="31" width="336" height="61"/>
+                                                <rect key="frame" x="72" y="10.666666666666664" width="336" height="101.66666666666669"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3J-Rr-Zi5">
                                                         <rect key="frame" x="0.0" y="0.0" width="336" height="20.333333333333332"/>
@@ -48,8 +49,20 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hwm-hD-Nsh">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v51-y7-wtu" userLabel="City Label">
                                                         <rect key="frame" x="0.0" y="40.666666666666671" width="336" height="20.333333333333329"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hwm-hD-Nsh">
+                                                        <rect key="frame" x="0.0" y="61.000000000000007" width="336" height="20.333333333333336"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10B-c2-LXw" userLabel="Zip Label">
+                                                        <rect key="frame" x="0.0" y="81.333333333333329" width="336" height="20.333333333333329"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -121,9 +134,11 @@
             <size key="customSize" width="420" height="131"/>
             <connections>
                 <outlet property="addressLabel" destination="Hwm-hD-Nsh" id="NBL-ER-f4t"/>
+                <outlet property="cityLabel" destination="v51-y7-wtu" id="m8y-ez-r4i"/>
                 <outlet property="nameLabel" destination="e3J-Rr-Zi5" id="0OT-xe-6LV"/>
                 <outlet property="phoneLabel" destination="fVk-Yq-uHX" id="gLp-eT-7ws"/>
                 <outlet property="pinImage" destination="vEv-lg-OmA" id="A9A-b2-c64"/>
+                <outlet property="zipLabel" destination="10B-c2-LXw" id="P31-xJ-cuP"/>
             </connections>
             <point key="canvasLocation" x="149.61832061068702" y="17.253521126760564"/>
         </collectionViewCell>

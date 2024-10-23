@@ -22,12 +22,26 @@ class CartViewController: UIViewController {
     @IBOutlet weak var shippingPrice: UILabel!
     @IBOutlet weak var bagTotalPrice: UILabel!
     @IBOutlet weak var bagTotalItems: UILabel!
+    @IBOutlet weak var checkoutButton: UIButton!
     
     //MARK: - VIEW LIFE CYCLE
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+         super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        self.navigationItem.hidesBackButton = true
+     }
+    
+    //MARK: - IBACTIONS
+    
+    @IBAction func chexkoutButtonAction(_ sender: Any) {
+        let checkout = ShippingViewController(nibName: "ShippingViewController", bundle: nil)
+        self.navigationController?.pushViewController(checkout, animated: true)
     }
 }
 
@@ -57,10 +71,7 @@ private extension CartViewController {
         navBar.setupFirstLeadingButton(
             with: "",
             and: UIImage(named: "back")!) {
-                print("Button tapped")
-                let search = SearchCategoriesViewController(nibName: "SearchCategoriesViewController", bundle: nil)
-                self.navigationController?.pushViewController(search, animated: true)
-                self.navigationItem.hidesBackButton = true
+                self.navigationController?.popViewController(animated: true)
             }
         navBar.tintColor = .black
         

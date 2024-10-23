@@ -9,11 +9,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CartViewController" customModule="E_Commerce" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CartViewController" customModule="SwiftShop" customModuleProvider="target">
             <connections>
                 <outlet property="bagTotalItems" destination="8Ta-1W-u0B" id="dAr-YE-qdF"/>
                 <outlet property="bagTotalPrice" destination="9Ny-72-2fR" id="bqk-85-yJ0"/>
                 <outlet property="cartProductsTableView" destination="TKt-lg-Bir" id="r5K-f2-WLA"/>
+                <outlet property="checkoutButton" destination="mCg-H8-MAj" id="sUi-wc-3TA"/>
                 <outlet property="navBar" destination="9ad-Pv-TDt" id="fch-NK-66X"/>
                 <outlet property="noDataImage" destination="6uh-dY-mm9" id="vIu-Dn-Akz"/>
                 <outlet property="shippingPrice" destination="qGF-du-74K" id="h3i-XS-PBg"/>
@@ -26,7 +27,7 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ad-Pv-TDt" customClass="CustomNavBar" customModule="E_Commerce" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ad-Pv-TDt" customClass="CustomNavBar" customModule="SwiftShop" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="vIG-uz-7aB"/>
@@ -44,7 +45,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TKt-lg-Bir" customClass="SelfSizedTableView" customModule="E_Commerce" customModuleProvider="target">
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TKt-lg-Bir" customClass="SelfSizedTableView" customModule="SwiftShop" customModuleProvider="target">
                                     <rect key="frame" x="12" y="58.333333333333343" width="361.33333333333331" height="300"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -188,6 +189,9 @@
                                             <real key="value" value="12"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="chexkoutButtonAction:" destination="-1" eventType="touchUpInside" id="aSs-67-dx1"/>
+                                    </connections>
                                 </button>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bag" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="6uh-dY-mm9">
                                     <rect key="frame" x="72.666666666666686" y="145" width="240" height="126.66666666666663"/>

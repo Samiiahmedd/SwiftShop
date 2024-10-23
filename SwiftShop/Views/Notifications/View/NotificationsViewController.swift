@@ -24,6 +24,12 @@ class NotificationsViewController: UIViewController {
         super.viewDidLoad()
         setupView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+         super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        self.navigationItem.hidesBackButton = true
+     }
 }
 
 // MARK: - SETUP VIEW
@@ -48,7 +54,7 @@ private extension NotificationsViewController {
         navBar.setupFirstLeadingButton(
             with: "",
             and: UIImage(named: "back")!) {
-                print("Button tapped")
+                self.navigationController?.popViewController(animated: true)
             }
         navBar.tintColor = .black
         

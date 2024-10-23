@@ -29,6 +29,8 @@
 		261C37E92CAF012D00C97E1C /* NotificationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261C37E82CAF012D00C97E1C /* NotificationsModel.swift */; };
 		261D541E2C9F8C3F001620BF /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261D541C2C9F8C3F001620BF /* CustomSearchBar.swift */; };
 		261D541F2C9F8C3F001620BF /* CustomSearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 261D541D2C9F8C3F001620BF /* CustomSearchBar.xib */; };
+		2621D81B2CC9A966002EB8D3 /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2621D81A2CC9A966002EB8D3 /* AlertViewController.xib */; };
+		2621D81C2CC9A966002EB8D3 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2621D8192CC9A966002EB8D3 /* AlertViewController.swift */; };
 		2623C9492C889A770084D5F5 /* NewArrivalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2623C9482C889A770084D5F5 /* NewArrivalModel.swift */; };
 		2623C94B2C889D100084D5F5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2623C94A2C889D100084D5F5 /* HomeViewModel.swift */; };
 		2624F4DC2CB8AFCD005BF290 /* AddressCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2624F4DA2CB8AFCD005BF290 /* AddressCollectionViewCell.swift */; };
@@ -206,6 +208,8 @@
 		261C37E82CAF012D00C97E1C /* NotificationsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsModel.swift; sourceTree = "<group>"; };
 		261D541C2C9F8C3F001620BF /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		261D541D2C9F8C3F001620BF /* CustomSearchBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSearchBar.xib; sourceTree = "<group>"; };
+		2621D8192CC9A966002EB8D3 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		2621D81A2CC9A966002EB8D3 /* AlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertViewController.xib; sourceTree = "<group>"; };
 		2623C9482C889A770084D5F5 /* NewArrivalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArrivalModel.swift; sourceTree = "<group>"; };
 		2623C94A2C889D100084D5F5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		2624F4DA2CB8AFCD005BF290 /* AddressCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -1912,6 +1916,8 @@
 			isa = PBXGroup;
 			children = (
 				7FBAD9C32C964AA800CBA3D2 /* Alert.swift */,
+				2621D8192CC9A966002EB8D3 /* AlertViewController.swift */,
+				2621D81A2CC9A966002EB8D3 /* AlertViewController.xib */,
 			);
 			path = AlertController;
 			sourceTree = "<group>";
@@ -2059,6 +2065,7 @@
 				26AE38AF2C89D8E20086E8FB /* SearchCategoriesViewController.xib in Resources */,
 				263D6E872C9F96FF00994E64 /* FilterViewController.xib in Resources */,
 				7F5B02012C89007A00573B53 /* CustomNavBar.xib in Resources */,
+				2621D81B2CC9A966002EB8D3 /* AlertViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2077,6 +2084,7 @@
 				265E2F0A2CAC7A7900DEB18D /* UpdatePasswordViewModel.swift in Sources */,
 				26A38A432CB5974D000C826A /* ProfileViewController.swift in Sources */,
 				26A38A4F2CB5A3B1000C826A /* ProfileTableViewCellModel.swift in Sources */,
+				2621D81C2CC9A966002EB8D3 /* AlertViewController.swift in Sources */,
 				262A21A82CBD968B000D6171 /* CardView.swift in Sources */,
 				263D6E8C2C9F971600994E64 /* FilterModel.swift in Sources */,
 				26BB08162CC01F5400D1F0A6 /* NotificationsControllViewController.swift in Sources */,

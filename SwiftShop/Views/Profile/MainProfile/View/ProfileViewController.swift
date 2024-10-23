@@ -28,6 +28,12 @@ class ProfileViewController: UIViewController {
         setupView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+         super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        self.navigationItem.hidesBackButton = true
+     }
+    
     //MARK: - @IBACTIONS
     
 }
