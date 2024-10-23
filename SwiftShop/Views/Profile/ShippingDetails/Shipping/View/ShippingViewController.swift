@@ -21,11 +21,13 @@ class ShippingViewController: UIViewController {
     //MARK: - VARIABLES
     
     var addresses: [Address] = []
+    let userDefaultsManager = UserDefaultsManager()
     
     //MARK: - VIEW LIFE CYCLE
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadAddresses()
         setupView()
     }
     
@@ -39,9 +41,8 @@ class ShippingViewController: UIViewController {
     
     @IBAction func processToPaymentButtonAction(_ sender: Any) {
         if addresses.isEmpty {
-            let alert = UIAlertController(title: "No Address", message: "Please add an address before proceeding to payment.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            AlertViewController.showAlert(on: self, image: UIImage(systemName: "exclamationmark.shield.fill")!, title: "No Address", message: "Please add an address before proceeding to payment.", buttonTitle: "OK") {
+            }
         } else {
             let payment = CardEnterViewController.instantiateFromXIB()!
             navigationController?.pushViewController(payment, animated: true)
@@ -74,7 +75,20 @@ extension ShippingViewController {
     func registerCells() {
         addressCollectionView.register(UINib(nibName: "AddressCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AddressCell")
     }
+    
+    private func loadAddresses() {
+        addresses = userDefaultsManager.loadAddresses()
+        addressCollectionView.reloadData()
+    }
+    
+    private func saveAddresses() {
+        userDefaultsManager.saveAddresses(addresses)
+    }
+    
+    
 }
+
+
 
 extension ShippingViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -96,7 +110,7 @@ extension ShippingViewController: UICollectionViewDelegate,UICollectionViewDataS
 extension ShippingViewController: AddressDelegate {
     func didAddAddress(_ address: Address) {
         addresses.append(address)
+        saveAddresses()
         addressCollectionView.reloadData()
     }
 }
-

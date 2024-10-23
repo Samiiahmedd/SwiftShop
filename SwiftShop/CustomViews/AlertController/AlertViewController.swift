@@ -8,23 +8,61 @@
 import UIKit
 
 class AlertViewController: UIViewController {
-
-    @IBOutlet weak var alert: UILabel!
+    
+    //MARK: - @IBOUTLETS
+    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var alertTitleLabel: UILabel!
+    @IBOutlet weak var alertMessageLabel: UILabel!
+    @IBOutlet weak var okButton: UIButton!
+    
+    // MARK: - Variables
+    
+    var alertImage: UIImage?
+    var alertTitle: String?
+    var alertMessage: String?
+    var buttonTitle: String?
+    var buttonAction: (() -> Void)?
+    
+    //MARK: - VIEW LIFE CYCLE
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupView()
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    //MARK: - @IBACTIONS
+    
+    @IBAction func okButtonAction(_ sender: UIButton) {
+        dismiss(animated: true) {
+            self.buttonAction?()
+        }
     }
-    */
+    
+}
 
+//MARK: - SETUP
+
+extension AlertViewController {
+    func setupView() {
+        setupAlert()
+    }
+    func setupAlert() {
+        imageView.image = alertImage
+        alertTitleLabel.text = alertTitle
+        alertMessageLabel.text = alertMessage
+        okButton.setTitle(buttonTitle, for: .normal)
+    }
+    
+    static func showAlert(on viewController: UIViewController, image: UIImage, title: String, message: String, buttonTitle: String, action: @escaping () -> Void) {
+        let alertVC = AlertViewController.instantiateFromXIB()!
+        alertVC.alertImage = image
+        alertVC.alertTitle = title
+        alertVC.alertMessage = message
+        alertVC.buttonTitle = buttonTitle
+        alertVC.buttonAction = action
+        alertVC.modalPresentationStyle = .overFullScreen
+        alertVC.modalTransitionStyle = .crossDissolve 
+        viewController.present(alertVC, animated: true, completion: nil)
+    }
 }

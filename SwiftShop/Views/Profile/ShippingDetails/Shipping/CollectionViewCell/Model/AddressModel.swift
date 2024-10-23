@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Address{
+struct Address:Codable{
     let name : String
     let phone : String
     let city : String
