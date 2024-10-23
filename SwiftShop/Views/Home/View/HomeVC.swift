@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeVC: UIViewController{
+class HomeVC: BaseViewController{
     
     //MARK: - IBOutlet
     
@@ -45,11 +45,10 @@ class HomeVC: UIViewController{
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        // Hide the default navigation bar
+         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         self.navigationItem.hidesBackButton = true
-    }
+     }
 }
 
 // MARK: - SETUP VIEW

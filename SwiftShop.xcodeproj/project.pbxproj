@@ -157,6 +157,7 @@
 		26E2A0CA2CBDD396003F6645 /* CardEnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E2A0C82CBDD396003F6645 /* CardEnterViewController.swift */; };
 		26E2A0CB2CBDD396003F6645 /* CardEnterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26E2A0C92CBDD396003F6645 /* CardEnterViewController.xib */; };
 		26EBD3912CC966AD00E7C45D /* AppCordinatoor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBD3902CC966AD00E7C45D /* AppCordinatoor.swift */; };
+		26EBD3952CC9726B00E7C45D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBD3942CC9726B00E7C45D /* BaseViewController.swift */; };
 		26F28D7C2CB1741B00EACB92 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F28D7B2CB1741B00EACB92 /* HomeModel.swift */; };
 		26F28D7E2CB17A7600EACB92 /* NewArrivalsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F28D7D2CB17A7600EACB92 /* NewArrivalsModel.swift */; };
 		26F4C3A92CAC56AB004BBEC0 /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F4C3A82CAC56AB004BBEC0 /* OTPViewModel.swift */; };
@@ -340,6 +341,7 @@
 		26E2A0C82CBDD396003F6645 /* CardEnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEnterViewController.swift; sourceTree = "<group>"; };
 		26E2A0C92CBDD396003F6645 /* CardEnterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardEnterViewController.xib; sourceTree = "<group>"; };
 		26EBD3902CC966AD00E7C45D /* AppCordinatoor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCordinatoor.swift; sourceTree = "<group>"; };
+		26EBD3942CC9726B00E7C45D /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		26F28D7B2CB1741B00EACB92 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		26F28D7D2CB17A7600EACB92 /* NewArrivalsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArrivalsModel.swift; sourceTree = "<group>"; };
 		26F4C3A82CAC56AB004BBEC0 /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
@@ -1202,6 +1204,7 @@
 			children = (
 				2663FBE32CBF01F6005A6C05 /* View */,
 				269363B72C821AFF00662442 /* MainTabBarViewController.swift */,
+				26EBD3942CC9726B00E7C45D /* BaseViewController.swift */,
 			);
 			path = MainTabBar;
 			sourceTree = "<group>";
@@ -2167,6 +2170,7 @@
 				267E8D2D2CAC4BA6009AC330 /* OtpModel.swift in Sources */,
 				2613E3FB2CB8B7CD0000AA06 /* AddressModel.swift in Sources */,
 				26B5B7E22CADBE3900082441 /* ReviewsClientViewController.swift in Sources */,
+				26EBD3952CC9726B00E7C45D /* BaseViewController.swift in Sources */,
 				264F5F802CB6E240003E18E5 /* SelectLanguageViewController.swift in Sources */,
 				26F8A26E2CACDA8400699D1E /* WishlistViewModel.swift in Sources */,
 				261018D02CB6179D00724863 /* GenderModel.swift in Sources */,

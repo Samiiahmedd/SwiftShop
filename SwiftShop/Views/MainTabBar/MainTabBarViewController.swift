@@ -41,7 +41,7 @@ class MainTabBarViewController: UITabBarController {
     }
         
     func profileNC() -> UINavigationController {
-        let profileVC        = UIViewController()
+        let profileVC        = ProfileViewController()
         profileVC.title      = "Profile"
         profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.crop.circle"), tag: 3)
         

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FilterViewController: UIViewController {
+class FilterViewController: BaseViewController {
     
     //MARK: - IBOUTLETS
     
@@ -33,6 +33,16 @@ class FilterViewController: UIViewController {
         super.viewDidLoad()
         setupView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+           super.viewWillAppear(animated)
+           tabBarController?.tabBar.isHidden = true
+       }
+
+       override func viewWillDisappear(_ animated: Bool) {
+           super.viewWillDisappear(animated)
+           tabBarController?.tabBar.isHidden = false
+       }
     
     //@obj func
     @objc func checkmarkButtonTapped(_ sender: UIButton) {

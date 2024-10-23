@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProductDetailsViewController: UIViewController {
+class ProductDetailsViewController: BaseViewController {
     
     //MARK: - IBOUTLETS
     
@@ -51,10 +51,21 @@ class ProductDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        secondView.roundCorners(corners: [.topLeft,.topRight], radius:30 )
+//        secondView.roundCorners(corners: [.topLeft,.topRight], radius:30 )
         setupView()
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+           super.viewWillAppear(animated)
+           // Hide the tab bar
+           tabBarController?.tabBar.isHidden = true
+       }
+
+       override func viewWillDisappear(_ animated: Bool) {
+           super.viewWillDisappear(animated)
+           // Ensure to show the tab bar when going back
+           tabBarController?.tabBar.isHidden = false
+       }
     
     //MARK: - IBACTIONS
     
@@ -85,6 +96,7 @@ private extension ProductDetailsViewController {
     }
     
     func configureNavBar() {
+        
         navBar.setupFirstTralingButton(
             with: "",
             and: UIImage(systemName: "magnifyingglass")!) {
@@ -103,6 +115,7 @@ private extension ProductDetailsViewController {
                 self.navigationItem.hidesBackButton = true
             }
         navBar.tintColor = .black
+        navBar.backgroundColor = .blue
         
     }
     
