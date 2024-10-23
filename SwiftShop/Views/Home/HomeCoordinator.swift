@@ -33,18 +33,18 @@ final class MainCoordinator {
 
 extension MainCoordinator: MainCoordinatorProtocol {
     func goToHomeTab() {
-        print("Go to home tab")
+        tabBar?.selectedIndex = 0
     }
     
     func gotToCartTab() {
-        print("Got to cart tab")
+        tabBar?.selectedIndex = 1
     }
     
     func goToNotificationsTab() {
-        print("Go to notifications tab")
+        tabBar?.selectedIndex = 2
     }
     
     func goToProfileTab() {
-        print("Go to profile tab")
+        tabBar?.selectedIndex = 3
     }
 }

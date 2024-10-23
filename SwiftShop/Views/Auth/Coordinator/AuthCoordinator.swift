@@ -42,6 +42,16 @@ extension AuthCoordinator: AuthCoordinatorProtocol {
         navigationController.pushViewController(vc, animated: true)
     }
     
+    func onLoginSuccess() {
+            // Save user login status
+            UserDefaults.standard.set(true, forKey: "isLoggedIn")
+            UserDefaults.standard.synchronize()
+            
+            // Switch to home flow
+            (UIApplication.shared.delegate as? AppDelegate)?.appCoordinator?.goToHomeFlow()
+        }
+
+    
     func displaySignup() {
         let vc = SignUpViewController()
         vc.coordinator = self

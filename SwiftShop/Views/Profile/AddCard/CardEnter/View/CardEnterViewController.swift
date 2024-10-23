@@ -43,6 +43,7 @@ class CardEnterViewController: UIViewController {
             return .unknown
         }
     }
+    
     //MARK: - VIEW LIFE CYCLE
     
     override func viewDidLoad() {

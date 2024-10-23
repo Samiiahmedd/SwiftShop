@@ -49,7 +49,7 @@ class LoginViewController: UIViewController {
     }
     deinit {
         removeKeyboardHandling()
-    
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -86,6 +86,7 @@ private extension LoginViewController {
         handelEndEditing()
         configureTextFields()
         configureNavBar()
+        loginUser()
     }
     
     func configureNavBar() {
@@ -111,6 +112,12 @@ private extension LoginViewController {
         passwordToggleBtn.tintColor = .black
         passwordTxtField.rightView = passwordToggleBtn
         passwordTxtField.rightViewMode = .always
+    }
+    
+    func loginUser() {
+        // After successful login
+        UserDefaults.isLogin = true
+        (coordinator as? AppCoordinator)?.goToHomeFlow()
     }
     
     @objc func togglePasswordVisibility(_ sender: UIButton) {

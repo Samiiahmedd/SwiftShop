@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomTabBarViewController" customModule="SwiftShop" customModuleProvider="target">
             <connections>
                 <outlet property="cartTab" destination="7Yr-iL-Xbj" id="2UB-AH-ZFs"/>
+                <outlet property="containerView" destination="i5M-Pr-FkT" id="Myh-LT-jCV"/>
                 <outlet property="homeTab" destination="uBV-zS-m8p" id="hrb-3b-NzN"/>
                 <outlet property="mainView" destination="9nq-NI-dsU" id="5L9-zI-3kp"/>
                 <outlet property="notificationTab" destination="wCw-Ix-IkO" id="e2v-q7-PcI"/>

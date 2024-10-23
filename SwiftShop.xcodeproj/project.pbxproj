@@ -156,6 +156,7 @@
 		26D902D42CACC68F00B1BF1E /* WishlistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D902D12CACC68F00B1BF1E /* WishlistTableViewCell.swift */; };
 		26E2A0CA2CBDD396003F6645 /* CardEnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E2A0C82CBDD396003F6645 /* CardEnterViewController.swift */; };
 		26E2A0CB2CBDD396003F6645 /* CardEnterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26E2A0C92CBDD396003F6645 /* CardEnterViewController.xib */; };
+		26EBD3912CC966AD00E7C45D /* AppCordinatoor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBD3902CC966AD00E7C45D /* AppCordinatoor.swift */; };
 		26F28D7C2CB1741B00EACB92 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F28D7B2CB1741B00EACB92 /* HomeModel.swift */; };
 		26F28D7E2CB17A7600EACB92 /* NewArrivalsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F28D7D2CB17A7600EACB92 /* NewArrivalsModel.swift */; };
 		26F4C3A92CAC56AB004BBEC0 /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F4C3A82CAC56AB004BBEC0 /* OTPViewModel.swift */; };
@@ -338,6 +339,7 @@
 		26DF7C1C2C9E295400755090 /* PoppinsMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PoppinsMedium.ttf; sourceTree = "<group>"; };
 		26E2A0C82CBDD396003F6645 /* CardEnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEnterViewController.swift; sourceTree = "<group>"; };
 		26E2A0C92CBDD396003F6645 /* CardEnterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardEnterViewController.xib; sourceTree = "<group>"; };
+		26EBD3902CC966AD00E7C45D /* AppCordinatoor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCordinatoor.swift; sourceTree = "<group>"; };
 		26F28D7B2CB1741B00EACB92 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		26F28D7D2CB17A7600EACB92 /* NewArrivalsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArrivalsModel.swift; sourceTree = "<group>"; };
 		26F4C3A82CAC56AB004BBEC0 /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
@@ -1036,6 +1038,7 @@
 				2668594E2C482FDD00EC2718 /* Fonts */,
 				2668594D2C482F8900EC2718 /* Extentions */,
 				7F8256902CB1D7FB009294E8 /* Wrappers */,
+				26EBD38F2CC9669800E7C45D /* AppCordinatoor */,
 				260781362C4897FA00B778A2 /* CustomViews */,
 				2668595F2C48343C00EC2718 /* Views */,
 				2668595E2C48335100EC2718 /* Common */,
@@ -1816,6 +1819,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		26EBD38F2CC9669800E7C45D /* AppCordinatoor */ = {
+			isa = PBXGroup;
+			children = (
+				26EBD3902CC966AD00E7C45D /* AppCordinatoor.swift */,
+			);
+			path = AppCordinatoor;
+			sourceTree = "<group>";
+		};
 		26FCD8442C8D25B900D7C3A8 /* Cart */ = {
 			isa = PBXGroup;
 			children = (
@@ -2067,6 +2078,7 @@
 				263D6E8C2C9F971600994E64 /* FilterModel.swift in Sources */,
 				26BB08162CC01F5400D1F0A6 /* NotificationsControllViewController.swift in Sources */,
 				26055E852CA065A00073D79E /* CategoriesCollectionViewCell.swift in Sources */,
+				26EBD3912CC966AD00E7C45D /* AppCordinatoor.swift in Sources */,
 				262AFF212CB88B5300E2FA34 /* ShippingAddressViewController.swift in Sources */,
 				7F82569E2CB1F8AC009294E8 /* HomeCoordinator.swift in Sources */,
 				264ACA952C8DE4B9001B0AE3 /* StapperView.swift in Sources */,

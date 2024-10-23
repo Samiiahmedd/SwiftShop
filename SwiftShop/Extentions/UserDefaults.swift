@@ -8,9 +8,9 @@
 import Foundation
 
 extension UserDefaults {
-    @UserDefaultsWrapper(key: "isUserLogin", defaultValue: nil)
+    @UserDefaultsWrapper(key: "isUserLogin", defaultValue: false)
     static var isLogin: Bool?
     
-    @UserDefaultsWrapper(key: "isOnBoardingActive", defaultValue: nil)
+    @UserDefaultsWrapper(key: "isOnBoardingActive", defaultValue: false)
     static var isOnBoardingActive: Bool?
 }
