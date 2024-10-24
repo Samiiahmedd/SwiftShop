@@ -75,12 +75,18 @@ class ProductDetailsViewController: BaseViewController {
     }
     
     @IBAction func addToCartButton(_ sender: Any) {
+        AlertViewController.showAlert(on: self, image:UIImage(systemName: "cart.fill")! , title: "Added To Cart", message: "product added to cart", buttonTitle: "Go") {
+        }
     }
     
     @IBAction func favouriteButton(_ sender: Any) {
+        AlertViewController.showAlert(on: self, image: UIImage(systemName: "exclamationmark.shield.fill")!, title: "No Address", message: "Please add an address before proceeding to payment.", buttonTitle: "OK") {
+        }
     }
     
     @IBAction func addToCartFooterButton(_ sender: Any) {
+        AlertViewController.showAlert(on: self, image: UIImage(systemName: "exclamationmark.shield.fill")!, title: "No Address", message: "Please add an address before proceeding to payment.", buttonTitle: "OK") {
+        }
     }
 }
 

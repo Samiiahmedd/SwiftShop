@@ -101,4 +101,5 @@ extension NotificationsViewController :  UITableViewDelegate,UITableViewDataSour
         let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
         configuration.performsFirstActionWithFullSwipe = true
         return configuration
-    }}
+    }
+}
