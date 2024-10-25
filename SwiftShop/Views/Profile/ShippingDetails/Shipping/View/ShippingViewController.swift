@@ -9,6 +9,11 @@ import UIKit
 
 class ShippingViewController: UIViewController {
     
+    enum Mode {
+        case checkout
+        case settings
+    }
+    
     //MARK: - @IBOUTLETS
     
     @IBOutlet weak var nanBar: CustomNavBar!
@@ -16,19 +21,21 @@ class ShippingViewController: UIViewController {
     @IBOutlet weak var addressView: UIView!
     @IBOutlet weak var addAddressLabel: UIButton!
     @IBOutlet weak var addressCollectionView: UICollectionView!
-    
     @IBOutlet weak var processToPaymentButton: UIButton!
+    
     //MARK: - VARIABLES
     
     var addresses: [Address] = []
     let userDefaultsManager = UserDefaultsManager()
-    
+    var mode: Mode = .checkout
+
     //MARK: - VIEW LIFE CYCLE
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadAddresses()
         setupView()
+        processToPaymentButton.isHidden = (mode == .settings)
     }
     
     //MARK: - @IBACTIONS

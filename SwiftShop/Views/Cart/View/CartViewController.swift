@@ -41,6 +41,7 @@ class CartViewController: UIViewController {
     
     @IBAction func chexkoutButtonAction(_ sender: Any) {
         let checkout = ShippingViewController(nibName: "ShippingViewController", bundle: nil)
+        checkout.mode = .checkout
         self.navigationController?.pushViewController(checkout, animated: true)
     }
 }

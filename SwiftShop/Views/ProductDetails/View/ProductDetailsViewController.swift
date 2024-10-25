@@ -57,13 +57,11 @@ class ProductDetailsViewController: BaseViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
            super.viewWillAppear(animated)
-           // Hide the tab bar
            tabBarController?.tabBar.isHidden = true
        }
 
        override func viewWillDisappear(_ animated: Bool) {
            super.viewWillDisappear(animated)
-           // Ensure to show the tab bar when going back
            tabBarController?.tabBar.isHidden = false
        }
     
