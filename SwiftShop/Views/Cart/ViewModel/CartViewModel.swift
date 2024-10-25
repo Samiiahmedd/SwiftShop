@@ -6,28 +6,37 @@
 //
 
 import Foundation
-import UIKit
 
 class CartViewModel {
-    var CartItems : [CartProductModel] = [
-        .init(productImage: UIImage(named: "staper")!,
-              productTitle: "On Ear Headphone",
-              productDescription: "Beats Solo3 Wireless Kulak",
-              productPrice: "$40.00"),
-        
-        .init(productImage: UIImage(named: "staper")!,
-              productTitle: "On Ear Headphone",
-              productDescription: "Beats Solo3 Wireless Kulak",
-              productPrice: "$40.00"),
-        
-        .init(productImage: UIImage(named: "six")!,
-              productTitle: "On Ear Headphone",
-              productDescription: "Beats Solo3 Wireless Kulak",
-              productPrice: "$40.00"),
-        
-        .init(productImage: UIImage(named: "six")!,
-              productTitle: "On Ear Headphone",
-              productDescription: "Beats Solo3 Wireless Kulak",
-              productPrice: "$40.00")
-    ]
+    
+    private(set) var CartItems: [CartProductModel] = []
+    
+    init() {
+        loadCartItems()
+    }
+    
+    func addToCart(_ product: CartProductModel) {
+        CartItems.append(product)
+        saveCartItems()
+    }
+    
+    func removeFromCart(at index: Int) {
+        guard index < CartItems.count else { return }
+        CartItems.remove(at: index)
+        saveCartItems()
+    }
+    
+    private func saveCartItems() {
+        if let encodedData = try? JSONEncoder().encode(CartItems) {
+            UserDefaults.standard.set(encodedData, forKey: "cartItems")
+        }
+    }
+    
+    private func loadCartItems() {
+        if let savedData = UserDefaults.standard.data(forKey: "cartItems"),
+           let decodedItems = try? JSONDecoder().decode([CartProductModel].self, from: savedData) {
+            CartItems = decodedItems
+        }
+    }
 }
+

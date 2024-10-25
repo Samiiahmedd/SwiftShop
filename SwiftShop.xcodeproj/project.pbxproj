@@ -65,6 +65,7 @@
 		2658C9A72C8B212F0044CC37 /* ClothesCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2658C9A62C8B212F0044CC37 /* ClothesCategoryViewController.xib */; };
 		2658C9A82C8B212F0044CC37 /* ClothesCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2658C9A52C8B212F0044CC37 /* ClothesCategoryViewController.swift */; };
 		2658C9AA2C8B220D0044CC37 /* ClothesCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2658C9A92C8B220D0044CC37 /* ClothesCategoryViewModel.swift */; };
+		265AC8432CCC1E0E00658142 /* CartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265AC8422CCC1E0E00658142 /* CartManager.swift */; };
 		265AE97C2CA091BE00216175 /* RangeSlider.xib in Resources */ = {isa = PBXBuildFile; fileRef = 265AE97B2CA091BE00216175 /* RangeSlider.xib */; };
 		265AE97D2CA091BE00216175 /* RangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265AE97A2CA091BE00216175 /* RangeSlider.swift */; };
 		265E1CAE2CAEE94D00C588AD /* ReviewClientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265E1CAD2CAEE94D00C588AD /* ReviewClientModel.swift */; };
@@ -245,6 +246,7 @@
 		2658C9A52C8B212F0044CC37 /* ClothesCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCategoryViewController.swift; sourceTree = "<group>"; };
 		2658C9A62C8B212F0044CC37 /* ClothesCategoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClothesCategoryViewController.xib; sourceTree = "<group>"; };
 		2658C9A92C8B220D0044CC37 /* ClothesCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCategoryViewModel.swift; sourceTree = "<group>"; };
+		265AC8422CCC1E0E00658142 /* CartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartManager.swift; sourceTree = "<group>"; };
 		265AE97A2CA091BE00216175 /* RangeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeSlider.swift; sourceTree = "<group>"; };
 		265AE97B2CA091BE00216175 /* RangeSlider.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RangeSlider.xib; sourceTree = "<group>"; };
 		265E1CAD2CAEE94D00C588AD /* ReviewClientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewClientModel.swift; sourceTree = "<group>"; };
@@ -1844,6 +1846,7 @@
 				26FCD8472C8D261D00D7C3A8 /* ViewModel */,
 				26FCD8462C8D261A00D7C3A8 /* View */,
 				26FCD8452C8D261600D7C3A8 /* Model */,
+				265AC8422CCC1E0E00658142 /* CartManager.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -2104,6 +2107,7 @@
 				7F82569C2CB1E730009294E8 /* AuthCoordinator.swift in Sources */,
 				267E8D2B2CAC3A13009AC330 /* ForgetPasswordViewModel.swift in Sources */,
 				7F8256922CB1D822009294E8 /* UserDefultsWrapper.swift in Sources */,
+				265AC8432CCC1E0E00658142 /* CartManager.swift in Sources */,
 				261C37E92CAF012D00C97E1C /* NotificationsModel.swift in Sources */,
 				2689C9942C4A47A200033590 /* LoginViewController.swift in Sources */,
 				26BB081B2CC021BB00D1F0A6 /* DarkModeViewController.swift in Sources */,

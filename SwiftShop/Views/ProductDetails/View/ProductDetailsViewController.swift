@@ -51,7 +51,7 @@ class ProductDetailsViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        secondView.roundCorners(corners: [.topLeft,.topRight], radius:30 )
+//        containerView.roundCorners(corners: [.topRight], radius:30 )
         setupView()
         
     }
@@ -73,17 +73,17 @@ class ProductDetailsViewController: BaseViewController {
     }
     
     @IBAction func addToCartButton(_ sender: Any) {
-        AlertViewController.showAlert(on: self, image:UIImage(systemName: "cart.fill")! , title: "Added To Cart", message: "product added to cart", buttonTitle: "Go") {
+        AlertViewController.showAlert(on: self, image:UIImage(systemName: "cart.fill")! , title: "Added To Cart", message: "product added to cart", buttonTitle: "OK") {
         }
     }
     
     @IBAction func favouriteButton(_ sender: Any) {
-        AlertViewController.showAlert(on: self, image: UIImage(systemName: "exclamationmark.shield.fill")!, title: "No Address", message: "Please add an address before proceeding to payment.", buttonTitle: "OK") {
+        AlertViewController.showAlert(on: self, image:UIImage(systemName: "heart.fill")! , title: "Added To Wishlist", message: "product added to wishlist", buttonTitle: "OK") {
         }
     }
     
     @IBAction func addToCartFooterButton(_ sender: Any) {
-        AlertViewController.showAlert(on: self, image: UIImage(systemName: "exclamationmark.shield.fill")!, title: "No Address", message: "Please add an address before proceeding to payment.", buttonTitle: "OK") {
+        AlertViewController.showAlert(on: self, image:UIImage(systemName: "cart.fill")! , title: "Added To Cart", message: "product added to cart", buttonTitle: "OK") {
         }
     }
 }

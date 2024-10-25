@@ -26,7 +26,6 @@ final class AppCoordinator {
     }
     
     func isAuthenticated() -> Bool {
-        // Replace with your actual authentication logic
         return UserDefaults.standard.bool(forKey: "isLoggedIn")
     }
     

@@ -29,7 +29,6 @@ class HomeVC: BaseViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        
         //getNewArrivals
         HomeViewModel().getNewArrivals { [weak self] result in
             DispatchQueue.main.async {

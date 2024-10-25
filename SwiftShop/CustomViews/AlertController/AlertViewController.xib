@@ -14,6 +14,8 @@
                 <outlet property="alertMessageLabel" destination="HVs-yo-Uz5" id="KcK-Fd-6ku"/>
                 <outlet property="alertTitleLabel" destination="0wi-Mj-TO5" id="vD7-53-sOL"/>
                 <outlet property="imageView" destination="Add-fs-HeG" id="LZO-Yb-nDq"/>
+                <outlet property="mainView" destination="i5M-Pr-FkT" id="hgw-Kf-xTq"/>
+                <outlet property="messageView" destination="Imh-Hi-6Pl" id="Esn-nt-IZj"/>
                 <outlet property="okButton" destination="Vko-8C-JJU" id="9hx-sQ-Iiu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -94,7 +96,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

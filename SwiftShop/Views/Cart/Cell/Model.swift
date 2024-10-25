@@ -8,9 +8,14 @@
 import Foundation
 import UIKit
 
-struct CartProductModel {
-    let productImage : UIImage
+struct CartProductModel: Codable {
     let productTitle : String
     let productDescription : String
     let productPrice : String
+    let productImageName : String
+    var productImage: UIImage? {
+           return UIImage(named: productImageName)
+       }
 }
+
+

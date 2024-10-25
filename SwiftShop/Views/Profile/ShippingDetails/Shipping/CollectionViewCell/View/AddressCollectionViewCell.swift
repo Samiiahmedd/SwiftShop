@@ -14,10 +14,8 @@ class AddressCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var pinImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
-    
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
-    
     @IBOutlet weak var zipLabel: UILabel!
 }
 

@@ -12,6 +12,7 @@ class CartViewController: UIViewController {
     //MARK: - VARIABLES
     
     var viewModel = CartViewModel()
+    private var cartItems: [CartProductModel] = []
     
     //MARK: - IBOUTLETS
     
@@ -29,13 +30,14 @@ class CartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-         super.viewWillAppear(animated)
+        super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         self.navigationItem.hidesBackButton = true
-     }
+    }
     
     //MARK: - IBACTIONS
     
@@ -94,8 +96,9 @@ private extension CartViewController {
     }
     
     func updateBagItems() {
-        bagTotalItems.text = String(viewModel.CartItems.count) 
+        bagTotalItems.text = String(viewModel.CartItems.count)
     }
+    
 }
 
 //MARK: - EXTENSION
@@ -104,7 +107,7 @@ extension CartViewController :  UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = cartProductsTableView.dequeueReusableCell(withIdentifier: CartTableViewCell.identifier, for: indexPath) as! CartTableViewCell
         let Cartitems = viewModel.CartItems[indexPath.row]
-        cell.Setup(Cart: Cartitems)
+        cell.Setup(cartItem: Cartitems)
         return cell
     }
     
@@ -116,17 +119,15 @@ extension CartViewController :  UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { _, _, complete in
-            self.viewModel.CartItems.remove(at: indexPath.row)
+            self.viewModel.removeFromCart(at: indexPath.row) // Updated to use ViewModel's remove method
             self.cartProductsTableView.deleteRows(at: [indexPath], with: .automatic)
+            self.updateBagItems() // Update bag total items count
             complete(true)
         }
         deleteAction.image = UIImage(systemName: "trash.fill")
-        deleteAction.image?.withTintColor(.white)
         deleteAction.backgroundColor = .black
         
-        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
-        configuration.performsFirstActionWithFullSwipe = true
-        return configuration
+        return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     
     

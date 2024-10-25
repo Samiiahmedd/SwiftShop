@@ -10,3 +10,11 @@ import UIKit
 struct productImages {
     let image : UIImage
 }
+
+struct ProductModel {
+    let id: String
+    let title: String
+    let description: String
+    let price: String
+    let image: UIImage
+}
