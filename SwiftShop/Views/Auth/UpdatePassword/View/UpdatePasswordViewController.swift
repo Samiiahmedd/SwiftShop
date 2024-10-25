@@ -20,11 +20,20 @@ class UpdatePasswordViewController: UIViewController {
     
     //MARK: Variables
     var coordinator: AuthCoordinatorProtocol?
-    var email : String?
+    var email : String
     private var viewModel: UpdatePasswordViewModelProtocol = UpdatePasswordViewModel()
     private var cancellable = Set<AnyCancellable>()
     
     //MARK: - VIEW LIFE CYCLE
+    
+    init(email: String) {
+        self.email = email
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,12 +49,8 @@ class UpdatePasswordViewController: UIViewController {
             showErrorAlert(message: "Please enter a new password.")
             return
         }
-        if let email = self.email { // Ensure email is available
-            Task {
-                await viewModel.updatePassword(with: email, newPassword: newPassword)
-            }
-        } else {
-            showErrorAlert(message: "Email not found.")
+        Task {
+            await viewModel.updatePassword(with: email, newPassword: newPassword)
         }
     }
 }

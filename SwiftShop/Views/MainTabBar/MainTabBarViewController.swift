@@ -9,39 +9,20 @@ import UIKit
 
 class MainTabBarViewController: UITabBarController {
 
+    private var controllers: [UIViewController]
+    
+    init(controllers: [UIViewController]) {
+        self.controllers = controllers
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         UITabBar.appearance().tintColor = .black
-        viewControllers = [homeNC(), cartNC(), notificationsNC(), profileNC()]
-    }
-
-    
-    func homeNC() -> UINavigationController {
-        let mainVC = HomeVC()
-        mainVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house.fill"), tag: 0)
-        
-        return UINavigationController(rootViewController: mainVC)
-    }
-    
-    func cartNC() -> UINavigationController {
-        let cartVC        = CartViewController()
-        cartVC.tabBarItem = UITabBarItem(title: "Cart", image: UIImage(systemName: "cart"), tag: 1)
-        
-        return UINavigationController(rootViewController: cartVC)
-    }
-    
-    func notificationsNC() -> UINavigationController {
-        let notificationsVC = NotificationsViewController()
-        notificationsVC.tabBarItem = UITabBarItem(title: "Notifications", image: UIImage(systemName: "bell"), tag: 2)
-        
-        return UINavigationController(rootViewController: notificationsVC)
-    }
-        
-    func profileNC() -> UINavigationController {
-        let profileVC        = ProfileViewController()
-        profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.crop.circle"), tag: 3)
-        
-        
-        return UINavigationController(rootViewController: profileVC)
+        viewControllers = controllers
     }
 }

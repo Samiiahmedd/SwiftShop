@@ -7,101 +7,91 @@
 
 import UIKit
 
-@MainActor
-protocol AuthCoordinatorProtocol {
-    func pushOnBoardingScreen()
+protocol AuthCoordinatorProtocol: Coordinator {
     func displayLogin()
     func displaySignup()
     func displayForgetPassword()
     func displayVerifyOtp(with email: String)
     func displayNewPassword(with email: String)
     func displaySuccessScreen()
+    func displayTabBar()
     func popToLogin()
-    func pop()
-    func dismiss()
 }
 
 final class AuthCoordinator {
-    let navigationController: UINavigationController
-
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    
+    var router: any Router
+    
+    init(router: Router) {
+        self.router = router
     }
-
+    
     func start() {
-        let vc = OnBoardingViewController()
-        vc.coordinator = self
-        navigationController.pushViewController(vc, animated: true)
+        displayLogin()
     }
 }
 
 extension AuthCoordinator: AuthCoordinatorProtocol {
-    func pushOnBoardingScreen() {
-        let vc = StartScreenViewController()
-        vc.coordinator = self
-        navigationController.pushViewController(vc, animated: true)
-    }
-    
-    
     func displayLogin() {
-        let vc = LoginViewController()
-        vc.coordinator = self
-        navigationController.pushViewController(vc, animated: true)
-    }
-    
-    func onLoginSuccess() {
-            // Save user login status
-            UserDefaults.standard.set(true, forKey: "isLoggedIn")
-            UserDefaults.standard.synchronize()
-            
-            // Switch to home flow
-            (UIApplication.shared.delegate as? AppDelegate)?.appCoordinator?.goToHomeFlow()
+        DispatchQueue.main.async {
+            let viewModel = LoginViewModel(coordinator: self)
+            let vc = LoginViewController(viewModel: viewModel)
+            self.router.push(vc)
         }
-
+    }
     
     func displaySignup() {
-        let vc = SignUpViewController()
-        vc.coordinator = self
-        navigationController.pushViewController(vc, animated: true)
+        DispatchQueue.main.async {
+            let vc = SignUpViewController()
+            vc.coordinator = self
+            self.router.push(vc)
+        }
     }
     
     func displayForgetPassword() {
-        let vc = ForgetPasswordViewController()
-        vc.coordinator = self
-        navigationController.pushViewController(vc, animated: true)
-    }
-    
-    func displayVerifyOtp(with email: String) {
-        let vc = OTPViewController()
-        vc.coordinator = self
-        vc.email = email
-        navigationController.pushViewController(vc, animated: true)
-    }
-    
-    func displayNewPassword(with email: String) {
-        let vc = UpdatePasswordViewController()
-        vc.coordinator = self
-        vc.email = email
-        navigationController.pushViewController(vc, animated: true)
-    }
-    
-    func displaySuccessScreen() {
-        let vc = ResetPasswordSuccessViewController()
-        vc.coordinator = self
-        navigationController.pushViewController(vc, animated: true)
-    }
-    
-    func popToLogin() {
-        if let targetViewController = navigationController.viewControllers.first(where: { $0 is LoginViewController }) {
-            navigationController.popToViewController(targetViewController, animated: true)
+        DispatchQueue.main.async {
+            let vc = ForgetPasswordViewController()
+            vc.coordinator = self
+            self.router.push(vc)
         }
     }
     
-    func pop() {
-        navigationController.popViewController(animated: true)
+    func displayVerifyOtp(with email: String) {
+        DispatchQueue.main.async {
+            let vc = OTPViewController(email: email)
+            vc.coordinator = self
+            self.router.push(vc)
+        }
     }
     
-    func dismiss() {
-        navigationController.dismiss(animated: true)
+    func displayNewPassword(with email: String) {
+        DispatchQueue.main.async {
+            let vc = UpdatePasswordViewController(email: email)
+            vc.coordinator = self
+            vc.email = email
+            self.router.push(vc)
+        }
+    }
+    
+    func displaySuccessScreen() {
+        DispatchQueue.main.async {
+            let vc = ResetPasswordSuccessViewController()
+            vc.coordinator = self
+            self.router.push(vc)
+        }
+    }
+    
+    func displayTabBar() {
+        DispatchQueue.main.async {
+            AppCoordinator.shared.showTabBar()
+        }
+    }
+
+    func popToLogin() {
+        DispatchQueue.main.async {
+            if let targetViewController = self.router.navigationController.viewControllers.first(where: { $0 is LoginViewController }) {
+                self.router.popToViewController(targetViewController)
+            }
+        }
     }
 }

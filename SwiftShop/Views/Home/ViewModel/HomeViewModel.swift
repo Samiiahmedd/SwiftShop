@@ -10,7 +10,25 @@ import UIKit
 
 class HomeViewModel {
     
+    /// input
 
+    /*
+     view all
+     nav bar buttons
+     banner click action
+     arrival cell clickd
+     popular as will as
+     */
+    
+    /// output
+    /*
+     banners
+     new arrival
+     populars
+     loading
+     error
+     */
+    
     var banners : [BannerModel] = [
         .init(image: UIImage(named: "Banner")!),
         .init(image: UIImage(named: "Banner")!),

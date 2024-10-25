@@ -41,14 +41,14 @@ class GFNavigationController: UINavigationController, UINavigationControllerDele
     }
     
     func setUpNavigationController() {
-        let isLogin = UserDefaults.isLogin
-        if isLogin ?? false {
-            let coordinator = AppCoordinator(window: UIApplication.shared.windows.first!)
-            coordinator.goToHomeFlow()
-        } else {
-            let coordinator = AuthCoordinator(navigationController: self)
-            coordinator.start()
-//            self.viewControllers = [LoginViewController()]
-        }
+//        let isLogin = UserDefaults.isLogin
+//        if isLogin ?? false {
+//            let coordinator = AppCoordinator(window: UIApplication.shared.windows.first!)
+//            coordinator.goToHomeFlow()
+//        } else {
+//            let coordinator = AuthCoordinator(navigationController: self)
+//            coordinator.start()
+////            self.viewControllers = [LoginViewController()]
+//        }
     }
 }

@@ -1,50 +1,17 @@
 //
-//  MainCoordinator.swift
-//  E-Commerce
+//  HomeCoordinator.swift
+//  SwiftShop
 //
-//  Created by Abdalazem Saleh on 06/10/2024.
+//  Created by Abdalazem Saleh on 26/10/2024.
 //
 
 import UIKit
 
-@MainActor
-protocol MainCoordinatorProtocol {
-    func goToHomeTab()
-    func gotToCartTab()
-    func goToNotificationsTab()
-    func goToProfileTab()
-}
-
-final class MainCoordinator {
-    let window: UIWindow
-    private var tabBar: MainTabBarViewController?
-
-    init(window: UIWindow) {
-        self.window = window
-    }
-    
-    func start() {
-        let tabBar = MainTabBarViewController()
-        window.rootViewController = tabBar
-        window.makeKeyAndVisible()
-        self.tabBar = tabBar
-    }
-}
-
-extension MainCoordinator: MainCoordinatorProtocol {
-    func goToHomeTab() {
-        tabBar?.selectedIndex = 0
-    }
-    
-    func gotToCartTab() {
-        tabBar?.selectedIndex = 1
-    }
-    
-    func goToNotificationsTab() {
-        tabBar?.selectedIndex = 2
-    }
-    
-    func goToProfileTab() {
-        tabBar?.selectedIndex = 3
-    }
-}
+/*
+ show product details with id
+ show search screen
+ show category screens
+ back to home
+ show added to cat alert
+ show category screen with category id
+ */

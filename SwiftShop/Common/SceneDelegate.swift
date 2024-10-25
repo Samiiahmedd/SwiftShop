@@ -12,19 +12,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-        window?.windowScene = windowScene
-        window?.rootViewController = GFNavigationController()
-        window?.makeKeyAndVisible()
+        guard let windowScene = (scene as? UIWindowScene) else {
+            return
+        }
+        AppCoordinator.shared.makeWindo(from: windowScene)
+        AppCoordinator.shared.start()
     }
 }
-
-// MARK: - HANDEL APP ROOT
-
-private extension SceneDelegate {
-    func appRoot(for window: UIWindow) {
-        window.rootViewController = GFNavigationController()
-        window.makeKeyAndVisible()
-    }
-}
-

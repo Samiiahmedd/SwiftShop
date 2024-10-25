@@ -25,11 +25,20 @@ class OTPViewController: UIViewController, UITextFieldDelegate, OTPFieldDelegate
     
     // MARK: - VARIABLES
     var coordinator: AuthCoordinatorProtocol?
-    var email: String?
+    var email: String
     private var viewModel: OTPViewModelProtocol = OTPViewModel()
     private var cancellable = Set<AnyCancellable>()
     
     //MARK: - VIEW LIFE CYCLE
+    
+    init(email: String) {
+        self.email = email
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,13 +55,10 @@ class OTPViewController: UIViewController, UITextFieldDelegate, OTPFieldDelegate
             showErrorAlert(message: "Please enter a complete OTP.")
             return
         }
-         if let email = self.email {
-             Task {
-                 await viewModel.verifyOTP(with: otp, email: email)
-             }
-         } else {
-             showErrorAlert(message: "Make sure that OTP Is Correct Or Valid")
-         }
+        
+        Task {
+            await viewModel.verifyOTP(with: otp, email: email)
+        }
      }
     
     //Text Fields Set

@@ -99,12 +99,14 @@ private extension ProductDetailsViewController {
         registerCells()
     }
     
+    
+    #warning("TODO: POP ViewController inset of push to home agine")
     func configureNavBar() {
         
         navBar.setupFirstTralingButton(
             with: "",
-            and: UIImage(systemName: "magnifyingglass")!) {
-                print("Button tapped")
+            and: UIImage(systemName: "magnifyingglass")!) { [weak self] in
+                guard let self else { return }
                 let filter = FilterViewController(nibName: "FilterViewController", bundle: nil)
                 self.navigationController?.pushViewController(filter, animated: true)
                 self.navigationItem.hidesBackButton = true
@@ -112,8 +114,8 @@ private extension ProductDetailsViewController {
         
         navBar.setupFirstLeadingButton(
             with: "",
-            and: UIImage(named: "back")!) {
-                print("Button tapped")
+            and: UIImage(named: "back")!) { [weak self] in
+                guard let self else { return }
                 let search = HomeVC(nibName: "HomeVC", bundle: nil)
                 self.navigationController?.pushViewController(search, animated: true)
                 self.navigationItem.hidesBackButton = true
@@ -154,7 +156,6 @@ extension ProductDetailsViewController: UICollectionViewDelegate,UICollectionVie
             return colors.count
         default:
             return 0
-            
         }
     }
     

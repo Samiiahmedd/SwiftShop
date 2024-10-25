@@ -57,7 +57,7 @@ class OnBoardingViewController: UIViewController {
             currentPage += 1
             updateSlideContent()
         } else {
-            coordinator?.pushOnBoardingScreen()
+//            coordinator?.pushOnBoardingScreen()
         }
     }
     

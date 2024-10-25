@@ -25,15 +25,13 @@ class LoginViewController: UIViewController {
     
     //MARK: -Variables
     
-    var coordinator: AuthCoordinatorProtocol?
     private var viewModel: LoginViewModelProtocol
     private var cancellable = Set<AnyCancellable>()
     
     //MARK: -ViewLifeCycle
     
-    init() {
-        let coordinator = MainCoordinator(window: UIApplication.shared.windows.first!)
-        viewModel = LoginViewModel(coordinator: coordinator)
+    init(viewModel: LoginViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -63,7 +61,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func forgetPasswordButton(_ sender: Any) {
-        coordinator?.displayForgetPassword()
+        viewModel.forgetPasswordActionTriggered.send()
     }
     
     @IBAction func fbLogin(_ sender: Any) {
@@ -86,14 +84,13 @@ private extension LoginViewController {
         handelEndEditing()
         configureTextFields()
         configureNavBar()
-        loginUser()
     }
     
     func configureNavBar() {
         navBar.setupFirstLeadingButton(with: "",
                                        and: UIImage(named: "back")!) { [weak self] in
             guard let self else { return }
-            coordinator?.pop()
+            viewModel.backActionTriggerd.send()
         }
         navBar.firstTralingButton.isHidden = true
     }
@@ -113,13 +110,7 @@ private extension LoginViewController {
         passwordTxtField.rightView = passwordToggleBtn
         passwordTxtField.rightViewMode = .always
     }
-    
-    func loginUser() {
-        // After successful login
-        UserDefaults.isLogin = true
-        (coordinator as? AppCoordinator)?.goToHomeFlow()
-    }
-    
+        
     @objc func togglePasswordVisibility(_ sender: UIButton) {
         sender.isSelected.toggle()
         

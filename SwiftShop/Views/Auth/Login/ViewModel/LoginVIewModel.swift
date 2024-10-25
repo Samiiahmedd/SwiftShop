@@ -10,10 +10,16 @@ import Combine
 
 @MainActor
 protocol LoginViewModelProtocol {
+    /// output
     var isLoading: PassthroughSubject<Bool, Never> { get }
     var errorMessage: PassthroughSubject<String, Never> { get }
-    var loginTriggered: PassthroughSubject<Void, Never> { get }
     
+    /// input
+    var loginTriggered: PassthroughSubject<Void, Never> { get }
+    var forgetPasswordActionTriggered: PassthroughSubject<Void, Never> { get }
+    var backActionTriggerd: PassthroughSubject<Void, Never> { get }
+    
+    ///  variables
     var email: String { get set }
     var password: String { get set }
 }
@@ -21,17 +27,20 @@ protocol LoginViewModelProtocol {
 @MainActor
 class LoginViewModel {
     
-    var coordinator: MainCoordinator
+    var coordinator: AuthCoordinatorProtocol
     private var cancellable = Set<AnyCancellable>()
 
     var loginTriggered: PassthroughSubject<Void, Never> = .init()
+    var forgetPasswordActionTriggered: PassthroughSubject<Void, Never> = .init()
+    var backActionTriggerd: PassthroughSubject<Void, Never> = .init()
+    
     var isLoading: PassthroughSubject<Bool, Never> = .init()
     var errorMessage: PassthroughSubject<String, Never> = .init()
 
     var email: String = ""
     var password: String = ""
     
-    init(coordinator: MainCoordinator) {
+    init(coordinator: AuthCoordinatorProtocol) {
         self.coordinator = coordinator
         bindIsLoginTriggered()
     }
@@ -43,6 +52,13 @@ extension LoginViewModel: LoginViewModelProtocol {
             .sink { [weak self] _ in self?.login() }
             .store(in: &cancellable)
         
+        forgetPasswordActionTriggered
+            .sink { [weak self] _ in self?.coordinator.displayForgetPassword() }
+            .store(in: &cancellable)
+        
+        backActionTriggerd
+            .sink { [weak self] _ in self?.coordinator.pop() }
+            .store(in: &cancellable)
     }
 }
 
@@ -60,7 +76,7 @@ private extension LoginViewModel {
                 let user = try await netowkManager.postData(to: "/auth/login", body: body)
                 print("User data: \(user)")
                 isLoading.send(false)
-                coordinator.start()
+                AppCoordinator.shared.showTabBar()
             } catch {
                 isLoading.send(false)
                 errorMessage.send(error.localizedDescription)
