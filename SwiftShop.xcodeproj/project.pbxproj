@@ -910,6 +910,21 @@
 			path = CategoryScreen;
 			sourceTree = "<group>";
 		};
+		265AC8442CCC2AA200658142 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				265AC8462CCC2AB000658142 /* View */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		265AC8462CCC2AB000658142 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		265AE9752CA0917900216175 /* RangeSlider */ = {
 			isa = PBXGroup;
 			children = (
@@ -1283,6 +1298,7 @@
 		2699BB882CB95629002AFF8E /* AddCard */ = {
 			isa = PBXGroup;
 			children = (
+				265AC8442CCC2AA200658142 /* Payment */,
 				26E2A0C42CBDD378003F6645 /* CardEnter */,
 				262A21A42CBD9438000D6171 /* PaymentMethod */,
 			);
