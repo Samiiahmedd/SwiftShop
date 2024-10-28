@@ -7,14 +7,21 @@
 
 import UIKit
 
-struct productImages {
-    let image : UIImage
-}
+// MARK: - NewArrival
 
-struct ProductModel {
-    let id: String
+
+struct ProductDetailsModel: Codable {
+    let id: Int
     let title: String
+    let price: Double
     let description: String
-    let price: String
-    let image: UIImage
+    let category: String
+    let image: String
+    let rating: Rating
+    
+    // MARK: - Rating
+    struct Rating: Codable {
+        let rate: Double
+        let count: Int
+    }
 }

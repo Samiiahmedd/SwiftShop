@@ -7,28 +7,52 @@
 
 import Foundation
 import UIKit
+import Combine
+
+//@MainActor
+//protocol HomeViewModelProtocol {
+//    /// output
+//    var isLoading: PassthroughSubject<Bool, Never> { get }
+//    var errorMessage: PassthroughSubject<String, Never> { get }
+//    var showBanners : PassthroughSubject<String,Never> { get }
+//    var showNewArrivals : PassthroughSubject<String,Never> { get }
+//    var showPopulars : PassthroughSubject<String,Never> { get }
+//
+//    /// input
+//    var newArrivalCellTriggered: PassthroughSubject<Void, Never> { get }
+//    var popularsCellTriggered: PassthroughSubject<Void, Never> { get }
+//    var viewAllButtonActionTriggered: PassthroughSubject<Void, Never> { get }
+//    var searchButtonActionTriggered: PassthroughSubject<Void, Never> { get }
+//    var categoriesButtonActionTriggered: PassthroughSubject<Void, Never> { get }
+//    var backActionTriggerd: PassthroughSubject<Void, Never> { get }
+//
+//
+//}
 
 class HomeViewModel {
-    
-    /// input
-
-    /*
-     view all
-     nav bar buttons
-     banner click action
-     arrival cell clickd
-     popular as will as
-     */
-    
-    /// output
-    /*
-     banners
-     new arrival
-     populars
-     loading
-     error
-     */
-    
+    //
+    //    var coordinator: HomeCoordinatorProtocol
+    //    private var cancellable = Set<AnyCancellable>()
+    //
+    //    var isLoading: PassthroughSubject<Bool, Never> = .init()
+    //    var errorMessage: PassthroughSubject<String, Never> = .init()
+    //    var showBanners : PassthroughSubject<String,Never> = .init()
+    //    var showNewArrivals : PassthroughSubject<String,Never> = .init()
+    //    var showPopulars : PassthroughSubject<String,Never> = .init()
+    //
+    //    var newArrivalCellTriggered: PassthroughSubject<Void, Never> = .init()
+    //    var popularsCellTriggered: PassthroughSubject<Void, Never> = .init()
+    //    var viewAllButtonActionTriggered: PassthroughSubject<Void, Never> = .init()
+    //    var searchButtonActionTriggered: PassthroughSubject<Void, Never> = .init()
+    //    var categoriesButtonActionTriggered: PassthroughSubject<Void, Never> = .init()
+    //    var backActionTriggerd: PassthroughSubject<Void, Never> = .init()
+    //
+    //
+    //
+    //    init(coordinator: HomeCoordinatorProtocol) {
+    //        self.coordinator = coordinator
+    ////        bindIsHome()
+    //    }
     var banners : [BannerModel] = [
         .init(image: UIImage(named: "Banner")!),
         .init(image: UIImage(named: "Banner")!),
@@ -38,16 +62,16 @@ class HomeViewModel {
     
     //NewArrival
     @MainActor
-    func getNewArrivals(completion:@escaping (Result <NewArrivalsModel, Error>) -> Void) {
-        guard let url = URL(string: "\(Constants.baseURL)/products/first5") else {return}
+    func getNewArrivals(completion:@escaping (Result <[NewArrival], Error>) -> Void) {
+        guard let url = URL(string: "https://fakestoreapi.com/products?limit=5") else {return}
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data, error == nil else{
                 return
             }
-            do{
-                let results = try JSONDecoder().decode(NewArrivalsModel.self, from: data)
-                print(data)
-                completion(.success(results))
+            do {
+                let newArrivals = try JSONDecoder().decode([NewArrival].self, from: data)
+                
+                completion(.success(newArrivals))
             }catch{
                 print("Error")
                 completion(.failure(APIError.failedTogetData))
@@ -58,41 +82,34 @@ class HomeViewModel {
     
     
     
-    var popular : [PopularModel]  = [
-        .init(popularImage: UIImage(named: "popular")!,
-              popularTitle: "Gia Borghini",
-              popularDescription: "RHW Rosie 1 Sandals",
-              popularRating: "(4.5)",
-              popularPrice: "$740.00"),
-        
-        .init(popularImage: UIImage(named: "popular")!,
-              popularTitle: "Gia Borghini",
-              popularDescription: "RHW Rosie 1 Sandals",
-              popularRating: "(4.5)",
-              popularPrice: "$722.00"),
-        
-        .init(popularImage: UIImage(named: "popular")!,
-              popularTitle: "Gia Borghini",
-              popularDescription: "RHW Rosie 1 Sandals",
-              popularRating: "(4)",
-              popularPrice: "$900.00"), 
-        
-            .init(popularImage: UIImage(named: "popular")!,
-              popularTitle: "Gia Borghini",
-              popularDescription: "RHW Rosie 1 Sandals",
-              popularRating: "(4)",
-              popularPrice: "$900.00"),
-        
-        .init(popularImage: UIImage(named: "popular")!,
-              popularTitle: "Gia Borghini",
-              popularDescription: "RHW Rosie 1 Sandals",
-              popularRating: "(4)",
-              popularPrice: "$900.00"),
-        
-        .init(popularImage: UIImage(named: "popular")!,
-              popularTitle: "Gia Borghini",
-              popularDescription: "RHW Rosie 1 Sandals",
-              popularRating: "(4)",
-              popularPrice: "$900.00"),
-    ]
+    //Populars
+    @MainActor
+    func getPopulars(completion:@escaping (Result <[PopularModel], Error>) -> Void) {
+        guard let url = URL(string: "https://fakestoreapi.com/products?sort=desc&limit=7") else {return}
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+            guard let data = data, error == nil else{
+                return
+            }
+            do {
+                let populars = try JSONDecoder().decode([PopularModel].self, from: data)
+                
+                completion(.success(populars))
+            }catch{
+                print("Error")
+                completion(.failure(APIError.failedTogetData))
+            }
+        }
+        task.resume()
+    }
+    
+    
+    
 }
+
+//extension HomeViewModel : HomeViewModelProtocol {
+//    func bindIsHome() {
+//        newArrivalCellTriggered
+//            .sink { [weak self] _ in self?.login() }
+//            .store(in: &cancellable)
+//    }
+//}

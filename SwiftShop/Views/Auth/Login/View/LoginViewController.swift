@@ -47,7 +47,6 @@ class LoginViewController: UIViewController {
     }
     deinit {
         removeKeyboardHandling()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

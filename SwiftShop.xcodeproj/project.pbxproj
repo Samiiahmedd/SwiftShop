@@ -94,6 +94,8 @@
 		266A7DA52CB72DB0009F3445 /* MyOrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266A7DA32CB72DB0009F3445 /* MyOrdersTableViewCell.swift */; };
 		266A7DA62CB72DB0009F3445 /* MyOrdersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 266A7DA42CB72DB0009F3445 /* MyOrdersTableViewCell.xib */; };
 		266A7DA82CB72DBA009F3445 /* MyOrdersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266A7DA72CB72DBA009F3445 /* MyOrdersModel.swift */; };
+		2676D1B92CCED94F006F13DD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 2676D1B82CCED94F006F13DD /* Kingfisher */; };
+		2676D1BB2CCEE648006F13DD /* Strings+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2676D1BA2CCEE648006F13DD /* Strings+Extentions.swift */; };
 		267C17EE2CB734EF00829D54 /* MyOrdersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267C17ED2CB734EF00829D54 /* MyOrdersViewModel.swift */; };
 		267E8D2B2CAC3A13009AC330 /* ForgetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267E8D2A2CAC3A13009AC330 /* ForgetPasswordViewModel.swift */; };
 		267E8D2D2CAC4BA6009AC330 /* OtpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267E8D2C2CAC4BA6009AC330 /* OtpModel.swift */; };
@@ -281,6 +283,7 @@
 		266A7DA32CB72DB0009F3445 /* MyOrdersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersTableViewCell.swift; sourceTree = "<group>"; };
 		266A7DA42CB72DB0009F3445 /* MyOrdersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyOrdersTableViewCell.xib; sourceTree = "<group>"; };
 		266A7DA72CB72DBA009F3445 /* MyOrdersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersModel.swift; sourceTree = "<group>"; };
+		2676D1BA2CCEE648006F13DD /* Strings+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+Extentions.swift"; sourceTree = "<group>"; };
 		267C17ED2CB734EF00829D54 /* MyOrdersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersViewModel.swift; sourceTree = "<group>"; };
 		267E8D2A2CAC3A13009AC330 /* ForgetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewModel.swift; sourceTree = "<group>"; };
 		267E8D2C2CAC4BA6009AC330 /* OtpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpModel.swift; sourceTree = "<group>"; };
@@ -388,6 +391,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2676D1B92CCED94F006F13DD /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1087,6 +1091,7 @@
 			isa = PBXGroup;
 			children = (
 				2668595C2C48313400EC2718 /* UIView+Extentions.swift */,
+				2676D1BA2CCEE648006F13DD /* Strings+Extentions.swift */,
 				7F5B02022C89034900573B53 /* CollectionView+.swift */,
 				7FBAD9CB2C96551B00CBA3D2 /* UIViewControllerExtention.swift */,
 				265701942CAB362E00B0240C /* loader.swift */,
@@ -1159,6 +1164,14 @@
 				266859652C4836C400EC2718 /* OnBoardingViewController.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		2676D1B62CCED011006F13DD /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				7FB312272CCC4D8300EF47C3 /* HomeCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		267E2F002CB0718200F9B5D8 /* AddAdress */ = {
@@ -1246,11 +1259,11 @@
 		269363B92C821C2C00662442 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				2676D1B62CCED011006F13DD /* Coordinator */,
 				26C301032C89128C00CFE4AD /* Cells */,
 				269363BC2C821C4600662442 /* ViewModel */,
 				269363BB2C821C3D00662442 /* View */,
 				269363BA2C821C3700662442 /* Model */,
-				7FB312272CCC4D8300EF47C3 /* HomeCoordinator.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -2014,6 +2027,7 @@
 			);
 			name = SwiftShop;
 			packageProductDependencies = (
+				2676D1B82CCED94F006F13DD /* Kingfisher */,
 			);
 			productName = "E-Commerce";
 			productReference = 266859342C482A0200EC2718 /* SwiftShop.app */;
@@ -2044,6 +2058,7 @@
 			);
 			mainGroup = 2668592B2C482A0200EC2718;
 			packageReferences = (
+				2676D1B72CCED94F006F13DD /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 266859352C482A0200EC2718 /* Products */;
 			projectDirPath = "";
@@ -2139,6 +2154,7 @@
 				263D6E8C2C9F971600994E64 /* FilterModel.swift in Sources */,
 				26BB08162CC01F5400D1F0A6 /* NotificationsControllViewController.swift in Sources */,
 				26055E852CA065A00073D79E /* CategoriesCollectionViewCell.swift in Sources */,
+				2676D1BB2CCEE648006F13DD /* Strings+Extentions.swift in Sources */,
 				26EBD3912CC966AD00E7C45D /* AppCordinatoor.swift in Sources */,
 				262AFF212CB88B5300E2FA34 /* ShippingAddressViewController.swift in Sources */,
 				264ACA952C8DE4B9001B0AE3 /* StapperView.swift in Sources */,
@@ -2469,6 +2485,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2676D1B72CCED94F006F13DD /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2676D1B82CCED94F006F13DD /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2676D1B72CCED94F006F13DD /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2668592C2C482A0200EC2718 /* Project object */;
 }

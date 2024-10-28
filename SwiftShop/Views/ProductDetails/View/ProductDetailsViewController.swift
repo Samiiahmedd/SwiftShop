@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ProductDetailsViewController: BaseViewController {
     
@@ -29,8 +30,7 @@ class ProductDetailsViewController: BaseViewController {
     
     
     //MARK: VARIABLES
-    
-    var images: [productImages] = []
+    var Product: [PopularModel] = []
     var currentPage = 0 {
         didSet{
             pageControl.currentPage = currentPage
@@ -46,30 +46,62 @@ class ProductDetailsViewController: BaseViewController {
     var colors: [UIColor] = [.red, .black, .lightGray, .green, .orange]
     var selectedColorIndex: Int?
     var selectedSizeIndex: IndexPath?
+    var id: Int
+    private let viewModel = ProductDetailsViewModel()
+    
+    func  setup(productDetails: ProductDetailsModel) {
+        productImage.kf.setImage(with: productDetails.image.asUrl)
+        productName.text = productDetails.title
+        productDescription.text = productDetails.category
+        productReviews.text = String(productDetails.rating.count)
+        priceLabel.text = "$\(productDetails.price)"
+        productReviews.text = String(productDetails.rating.rate)
+        productFullDescription.text = productDetails.description
+
+    }
     
     //MARK: - VIEWLIFECYCLE
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        containerView.roundCorners(corners: [.topRight], radius:30 )
         setupView()
         
+        // API
+        viewModel.getNewArrivalsProducts(id: id) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let productDetails):
+                    self?.setup(productDetails: productDetails)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
-           super.viewWillAppear(animated)
-           tabBarController?.tabBar.isHidden = true
-       }
-
-       override func viewWillDisappear(_ animated: Bool) {
-           super.viewWillDisappear(animated)
-           tabBarController?.tabBar.isHidden = false
-       }
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
+    
+    // MARK: - Initilizer
+    init(id: Int) {
+        self.id = id
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     //MARK: - IBACTIONS
     
     @IBAction func pageControlChanged(_ sender: UIPageControl) {
-        let selectedPage = sender.currentPage
-        productImage.image = images[selectedPage].image
+        
     }
     
     @IBAction func addToCartButton(_ sender: Any) {
@@ -94,13 +126,10 @@ private extension ProductDetailsViewController {
     
     func setupView() {
         configureNavBar()
-        setProductImages()
         configerCollectionViews()
         registerCells()
     }
     
-    
-    #warning("TODO: POP ViewController inset of push to home agine")
     func configureNavBar() {
         
         navBar.setupFirstTralingButton(
@@ -116,8 +145,7 @@ private extension ProductDetailsViewController {
             with: "",
             and: UIImage(named: "back")!) { [weak self] in
                 guard let self else { return }
-                let search = HomeVC(nibName: "HomeVC", bundle: nil)
-                self.navigationController?.pushViewController(search, animated: true)
+                self.navigationController?.popViewController(animated: true)
                 self.navigationItem.hidesBackButton = true
             }
         navBar.tintColor = .black
@@ -125,15 +153,7 @@ private extension ProductDetailsViewController {
         
     }
     
-    func setProductImages() {
-        images = [.init(image: UIImage(named: "productImage1")!),
-                  .init(image: UIImage(named: "productImage2")!),
-                  .init(image: UIImage(named: "productImage3")!),
-        ]
-        pageControl.numberOfPages = images.count
-        productImage.image = images.first?.image
-    }
-    
+
     func configerCollectionViews() {
         sizeCollectionView.delegate = self
         sizeCollectionView.dataSource = self

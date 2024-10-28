@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PopularsTableViewCell: UITableViewCell {
-
+    
     //MARK: -IBoutlets
     
     @IBOutlet weak var mainView: UIView!
@@ -19,11 +20,11 @@ class PopularsTableViewCell: UITableViewCell {
     @IBOutlet weak var productPrice: UILabel!
     
     // MARK: - variables
-
+    
     static let identifier = "PopularsTableViewCell"
     static func nib() -> UINib {
-           return UINib(nibName: "PopularsTableViewCell", bundle: nil)
-       }
+        return UINib(nibName: "PopularsTableViewCell", bundle: nil)
+    }
     
     //MARK: -ViewLifeCycle
     
@@ -37,10 +38,13 @@ class PopularsTableViewCell: UITableViewCell {
 
 extension PopularsTableViewCell {
     func Setup(Populars: PopularModel) {
-        productImage.image = Populars.popularImage
-        productTitle.text = Populars.popularTitle
-        productDescription.text = Populars.popularDescription
-        productRating.text = Populars.popularRating
-        productPrice.text = Populars.popularPrice
+        
+        let imageUrl = Populars.image.asUrl
+        productImage.kf.setImage(with: imageUrl)
+        productTitle.text = Populars.title
+        productDescription.text = Populars.category
+        productRating.text = String(Populars.rating.rate)
+        productPrice.text = String(Populars.price)
+        
     }
 }

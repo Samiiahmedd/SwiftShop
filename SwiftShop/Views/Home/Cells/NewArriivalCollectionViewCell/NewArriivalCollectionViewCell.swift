@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class NewArriivalCollectionViewCell: UICollectionViewCell {
     
@@ -39,9 +40,13 @@ class NewArriivalCollectionViewCell: UICollectionViewCell {
 // MARK: - SETUP CELL
 
 extension NewArriivalCollectionViewCell {
-    func Setup(newArrival: NewArrivals) {
+    func Setup(newArrival: NewArrival) {
+        let imageUrl = newArrival.image.asUrl 
+            imageView.kf.setImage(with: imageUrl)
+
         productTitleLabel.text = newArrival.title
-        productType.text = newArrival.description
-        productPrice.text = String(newArrival.price)
+        productType.text = newArrival.category
+        productPrice.text = "$\(newArrival.price)"
+
     }
 }

@@ -20,27 +20,21 @@ class HomeVC: BaseViewController{
     
     // MARK: - Variables
     
+    
     private let viewModel = HomeViewModel()
     var path: String = ""
-    var lastNewArrivals : [NewArrivals] = []
-    
+    var lastNewArrivals: [NewArrival] = []
+    var popularProduct: [PopularModel] = []
+    var product : [ProductDetailsModel] = []
+
     //MARK: - viewLifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        //getNewArrivals
-        HomeViewModel().getNewArrivals { [weak self] result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let data):
-                    self?.lastNewArrivals = data.data
-                    self?.newArriivalCollectionView.reloadData()
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            }
-        }
+        fetchNewArrivals()
+        fetchPopulars()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,6 +42,36 @@ class HomeVC: BaseViewController{
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         self.navigationItem.hidesBackButton = true
      }
+    
+    /// New Arrivals
+    private func fetchNewArrivals() {
+            viewModel.getNewArrivals { [weak self] result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let data):
+                        self?.lastNewArrivals = data
+                        self?.newArriivalCollectionView.reloadData()
+                    case .failure(let error):
+                        print("Failed to fetch new arrivals: \(error.localizedDescription)")
+                    }
+                }
+            }
+        } 
+    
+    /// Populars
+    private func fetchPopulars() {
+            viewModel.getPopulars { [weak self] result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let data):
+                        self?.popularProduct  = data
+                        self?.popularTableView.reloadData()
+                    case .failure(let error):
+                        print("Failed to fetch populars: \(error.localizedDescription)")
+                    }
+                }
+            }
+        }
 }
 
 // MARK: - SETUP VIEW
@@ -147,18 +171,28 @@ extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let detailedScreen = ProductDetailsViewController()
-        self.navigationController?.pushViewController(detailedScreen, animated: true)
+        switch collectionView {
+        case newArriivalCollectionView:
+            let selectedProduct = lastNewArrivals[indexPath.item]
+            let productDetailsVC = ProductDetailsViewController(id: selectedProduct.id)
+            self.navigationController?.pushViewController(productDetailsVC, animated: true)
+
+        case popularTableView:
+            let selectedPopularProduct = popularProduct[indexPath.row]
+            let productDetailsVC = ProductDetailsViewController(id: selectedPopularProduct.id)
+            self.navigationController?.pushViewController(productDetailsVC, animated: true)
+        default:
+            break
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.popular.count
+        return lastNewArrivals.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = popularTableView.dequeueReusableCell(withIdentifier: PopularsTableViewCell.identifier, for: indexPath) as! PopularsTableViewCell
-        let PopularsSection = viewModel.popular[indexPath.row]
-        cell.Setup(Populars: PopularsSection)
+        cell.Setup(Populars: popularProduct[indexPath.row])
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
