@@ -20,7 +20,6 @@ class HomeVC: BaseViewController{
     
     // MARK: - Variables
     
-    
     private let viewModel = HomeViewModel()
     var path: String = ""
     var lastNewArrivals: [NewArrival] = []
@@ -34,7 +33,6 @@ class HomeVC: BaseViewController{
         setupView()
         fetchNewArrivals()
         fetchPopulars()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,6 +40,22 @@ class HomeVC: BaseViewController{
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         self.navigationItem.hidesBackButton = true
      }
+    
+    //MARK: - @IBACTIONS
+    
+    @IBAction func viewAllNewArrivalsButtonAvtion(_ sender: Any) {
+        let allNewArrivalsVC = ProductCollectionViewController(nibName: "ProductCollectionViewController", bundle: nil)
+        allNewArrivalsVC.labelTitle = "New Arrivals"
+        self.navigationController?.pushViewController(allNewArrivalsVC, animated: true)
+        self.navigationItem.hidesBackButton = true
+    }
+    
+    @IBAction func viewAllPopularsButtonAction(_ sender: Any) {
+        let allPopularsVC = ProductCollectionViewController(nibName: "ProductCollectionViewController", bundle: nil)
+        allPopularsVC.labelTitle = "Populars"
+        self.navigationController?.pushViewController(allPopularsVC, animated: true)
+        self.navigationItem.hidesBackButton = true
+    }
     
     /// New Arrivals
     private func fetchNewArrivals() {
@@ -171,23 +185,19 @@ extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        switch collectionView {
-        case newArriivalCollectionView:
             let selectedProduct = lastNewArrivals[indexPath.item]
             let productDetailsVC = ProductDetailsViewController(id: selectedProduct.id)
             self.navigationController?.pushViewController(productDetailsVC, animated: true)
-
-        case popularTableView:
-            let selectedPopularProduct = popularProduct[indexPath.row]
-            let productDetailsVC = ProductDetailsViewController(id: selectedPopularProduct.id)
-            self.navigationController?.pushViewController(productDetailsVC, animated: true)
-        default:
-            break
-        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return lastNewArrivals.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedPopularProduct = popularProduct[indexPath.row]
+        let productDetailsVC = ProductDetailsViewController(id: selectedPopularProduct.id)
+        self.navigationController?.pushViewController(productDetailsVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -7,9 +7,6 @@
 
 import UIKit
 
-// MARK: - NewArrival
-
-
 struct ProductDetailsModel: Codable {
     let id: Int
     let title: String
@@ -19,7 +16,6 @@ struct ProductDetailsModel: Codable {
     let image: String
     let rating: Rating
     
-    // MARK: - Rating
     struct Rating: Codable {
         let rate: Double
         let count: Int

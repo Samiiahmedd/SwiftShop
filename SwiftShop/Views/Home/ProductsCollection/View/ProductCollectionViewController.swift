@@ -1,5 +1,5 @@
 //
-//  ClothesCategoryViewController.swift
+//  ProductCollectionViewController.swift
 //  E-Commerce
 //
 //  Created by Sami Ahmed on 06/09/2024.
@@ -7,31 +7,48 @@
 
 import UIKit
 
-class ClothesCategoryViewController: UIViewController {
-    
+class ProductCollectionViewController: UIViewController {
 
     //MARK: - IBOUTLETS
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var nanBar: CustomNavBar!
-    
-    @IBOutlet var clothesCollectionView: UICollectionView!
+    @IBOutlet var productsCollectionView: UICollectionView!
 
     //MARK: - VARIABLES
-    
-    var viewModel = ClothesCategoryViewModel()
-    
+    var labelTitle: String?
+    var viewModel = ProductCollectionViewModel()
+    var product: [NewArrival] = []
+
     
     //MARK: - VIEW LIFE CYCLE
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        titleLabel.text = labelTitle
         setupView()
+        fetchAllProducts()
     }
+    /// ViewAll
+    private func fetchAllProducts() {
+            viewModel.getAllProducts { [weak self] result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let data):
+                        self?.product = data
+                        self?.productsCollectionView.reloadData()
+                    case .failure(let error):
+                        print("Failed to fetch products: \(error.localizedDescription)")
+                    }
+                }
+            }
+        }
 }
+
 
 // MARK: - SETUP VIEW
 
-private extension ClothesCategoryViewController {
+private extension ProductCollectionViewController {
     func setupView() {
         configureNavBar()
         configerCollectionViews()
@@ -44,36 +61,34 @@ private extension ClothesCategoryViewController {
             with: "",
             and: UIImage(named: "back")!) {
                 print("Button tapped")
-                let search = SearchCategoriesViewController(nibName: "SearchCategoriesViewController", bundle: nil)
-                self.navigationController?.pushViewController(search, animated: true)
-                self.navigationItem.hidesBackButton = true
+                self.navigationController?.popViewController(animated: true)
             }
         nanBar.firstTralingButton.isHidden = true
     }
     
     func configerCollectionViews() {
-        clothesCollectionView.delegate = self
-        clothesCollectionView.dataSource = self
+        productsCollectionView.delegate = self
+        productsCollectionView.dataSource = self
         
     }
     
     func registerCells() {
-        clothesCollectionView.register(UINib(nibName: NewArriivalCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: NewArriivalCollectionViewCell.identifier)
+        productsCollectionView.register(UINib(nibName: NewArriivalCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: NewArriivalCollectionViewCell.identifier)
 
     }
 }
 
 // MARK: - EXtentions
 
-extension ClothesCategoryViewController:UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+extension ProductCollectionViewController:UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.newArrivals.count
+        return product.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewArriivalCollectionViewCell.identifier, for: indexPath) as! NewArriivalCollectionViewCell
-        let _ = viewModel.newArrivals[indexPath.row]
+        cell.Setup(newArrival: product[indexPath.row])
         return cell
     }
     

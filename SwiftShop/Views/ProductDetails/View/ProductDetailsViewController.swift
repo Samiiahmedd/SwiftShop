@@ -48,7 +48,6 @@ class ProductDetailsViewController: BaseViewController {
     var selectedSizeIndex: IndexPath?
     var id: Int
     private let viewModel = ProductDetailsViewModel()
-    
     func  setup(productDetails: ProductDetailsModel) {
         productImage.kf.setImage(with: productDetails.image.asUrl)
         productName.text = productDetails.title
@@ -65,8 +64,20 @@ class ProductDetailsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        
-        // API
+        getNewArrivalsProductById()
+    
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
+    
+    private func getNewArrivalsProductById(){
         viewModel.getNewArrivalsProducts(id: id) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
@@ -77,15 +88,6 @@ class ProductDetailsViewController: BaseViewController {
                 }
             }
         }
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tabBarController?.tabBar.isHidden = true
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        tabBarController?.tabBar.isHidden = false
     }
     
     // MARK: - Initilizer

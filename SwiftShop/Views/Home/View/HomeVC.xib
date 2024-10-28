@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeVC" customModule="E_Commerce" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeVC" customModule="SwiftShop" customModuleProvider="target">
             <connections>
                 <outlet property="bannerCollectionView" destination="yGK-Ny-d34" id="3Wi-ch-hiX"/>
                 <outlet property="navBar" destination="ArT-kB-fTQ" id="4dg-ld-Yh7"/>
@@ -25,7 +25,7 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ArT-kB-fTQ" customClass="CustomNavBar" customModule="E_Commerce" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ArT-kB-fTQ" customClass="CustomNavBar" customModule="SwiftShop" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
@@ -76,6 +76,9 @@
                                                                     <buttonConfiguration key="configuration" style="plain" title="View All">
                                                                         <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
                                                                     </buttonConfiguration>
+                                                                    <connections>
+                                                                        <action selector="viewAllNewArrivalsButtonAvtion:" destination="-1" eventType="touchUpInside" id="NOo-p6-3sK"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
@@ -125,6 +128,9 @@
                                                                     <buttonConfiguration key="configuration" style="plain" title="Veiw All">
                                                                         <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
                                                                     </buttonConfiguration>
+                                                                    <connections>
+                                                                        <action selector="viewAllPopularsButtonAction:" destination="-1" eventType="touchUpInside" id="wZy-uP-f1A"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
@@ -137,7 +143,7 @@
                                                         <constraint firstItem="OzD-8k-tWz" firstAttribute="leading" secondItem="wbg-fD-siH" secondAttribute="leading" constant="24" id="zHb-b3-qhs"/>
                                                     </constraints>
                                                 </view>
-                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pQc-Qn-40y" customClass="SelfSizedTableView" customModule="E_Commerce" customModuleProvider="target">
+                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pQc-Qn-40y" customClass="SelfSizedTableView" customModule="SwiftShop" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="128" width="393" height="100"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="100" placeholder="YES" id="3aw-kT-r69"/>

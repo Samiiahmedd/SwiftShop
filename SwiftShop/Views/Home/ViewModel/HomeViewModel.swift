@@ -80,8 +80,6 @@ class HomeViewModel {
         task.resume()
     }
     
-    
-    
     //Populars
     @MainActor
     func getPopulars(completion:@escaping (Result <[PopularModel], Error>) -> Void) {
