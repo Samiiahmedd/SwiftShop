@@ -30,7 +30,7 @@
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ANb-cH-lFs">
-                    <rect key="frame" x="0.0" y="142" width="393" height="676"/>
+                    <rect key="frame" x="0.0" y="146" width="393" height="672"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="85S-j9-6Rf">
                         <size key="itemSize" width="155" height="240"/>
@@ -53,7 +53,7 @@
                 <constraint firstItem="ANb-cH-lFs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Cif-ys-Hvd"/>
                 <constraint firstItem="Ec2-KO-9hZ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="LfL-1v-Q9I"/>
                 <constraint firstItem="Ec2-KO-9hZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="YKd-rB-XIe"/>
-                <constraint firstItem="ANb-cH-lFs" firstAttribute="top" secondItem="53T-fO-rDO" secondAttribute="bottom" constant="8" id="gdL-Sa-qux"/>
+                <constraint firstItem="ANb-cH-lFs" firstAttribute="top" secondItem="53T-fO-rDO" secondAttribute="bottom" constant="12" id="gdL-Sa-qux"/>
                 <constraint firstItem="53T-fO-rDO" firstAttribute="top" secondItem="Ec2-KO-9hZ" secondAttribute="bottom" constant="8" id="iXV-GC-0mR"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ANb-cH-lFs" secondAttribute="bottom" id="kFo-43-LsK"/>
                 <constraint firstItem="ANb-cH-lFs" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="rT9-fR-P23"/>

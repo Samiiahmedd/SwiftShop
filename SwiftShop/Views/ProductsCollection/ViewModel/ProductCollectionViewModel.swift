@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 class ProductCollectionViewModel{
+    
+    //get all Products
     @MainActor
     func getAllProducts(completion:@escaping (Result <[NewArrival], Error>) -> Void) {
         guard let url = URL(string: "https://fakestoreapi.com/products") else {return}
@@ -27,4 +29,6 @@ class ProductCollectionViewModel{
         }
         task.resume()
     }
+    
+    
 }

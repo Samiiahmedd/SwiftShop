@@ -82,6 +82,12 @@ private extension ProductCollectionViewController {
 
 extension ProductCollectionViewController:UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedProduct = product[indexPath.item]
+        let productDetailsVC = ProductDetailsViewController(id: selectedProduct.id)
+        self.navigationController?.pushViewController(productDetailsVC, animated: true)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return product.count
     }

@@ -64,7 +64,7 @@ class ProductDetailsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        getNewArrivalsProductById()
+        getProductById()
     
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -77,7 +77,7 @@ class ProductDetailsViewController: BaseViewController {
         tabBarController?.tabBar.isHidden = false
     }
     
-    private func getNewArrivalsProductById(){
+    private func getProductById(){
         viewModel.getNewArrivalsProducts(id: id) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
