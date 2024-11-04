@@ -16,6 +16,7 @@ class ProductCollectionViewController: UIViewController {
     @IBOutlet var productsCollectionView: UICollectionView!
 
     //MARK: - VARIABLES
+    
     var labelTitle: String?
     var viewModel = ProductCollectionViewModel()
     var product: [NewArrival] = []
@@ -60,7 +61,6 @@ private extension ProductCollectionViewController {
         nanBar.setupFirstLeadingButton(
             with: "",
             and: UIImage(named: "back")!) {
-                print("Button tapped")
                 self.navigationController?.popViewController(animated: true)
             }
         nanBar.firstTralingButton.isHidden = true

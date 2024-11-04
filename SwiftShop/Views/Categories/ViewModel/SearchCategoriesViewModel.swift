@@ -25,4 +25,5 @@ class SearchCategoriesViewModel {
         let categories = try JSONDecoder().decode([String].self, from: data)
         return categories
     }
+    
 }

@@ -8,6 +8,10 @@
 import UIKit
 import Kingfisher
 
+protocol NewArrivalCollectionViewCellDelegate: AnyObject {
+    func didTapFavoriteButton(on cell: NewArriivalCollectionViewCell)
+}
+
 class NewArriivalCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Variables
@@ -23,6 +27,10 @@ class NewArriivalCollectionViewCell: UICollectionViewCell {
     @IBOutlet var productType: UILabel!
     @IBOutlet var productPrice: UILabel!
     
+    // MARK: - Delegate
+    
+    weak var delegate: NewArrivalCollectionViewCellDelegate?
+    
     //MARK: - ViewLifeCycle
     
     override func awakeFromNib() {
@@ -33,7 +41,7 @@ class NewArriivalCollectionViewCell: UICollectionViewCell {
     //MARK: - IBActions
     
     @IBAction func favouriteButton(_ sender: Any) {
-        // Add product to favourites
+        delegate?.didTapFavoriteButton(on: self)
     }
 }
 

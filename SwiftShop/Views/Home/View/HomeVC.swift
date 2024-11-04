@@ -166,6 +166,7 @@ extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UIColle
         case newArriivalCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewArriivalCollectionViewCell.identifier, for: indexPath) as! NewArriivalCollectionViewCell
             cell.Setup(newArrival: lastNewArrivals[indexPath.row])
+            cell.delegate = self
             return cell
         default:
             return UICollectionViewCell()
@@ -206,7 +207,17 @@ extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UIColle
         cell.Setup(Populars: popularProduct[indexPath.row])
         return cell
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+}
+
+// MARK: - NewArrivalCollectionViewCellDelegate
+
+extension HomeVC: NewArrivalCollectionViewCellDelegate {
+    func didTapFavoriteButton(on cell: NewArriivalCollectionViewCell) {
+        AlertViewController.showAlert(on: self, image: UIImage(systemName: "heart.fill")!, title: "Added To Wishlist", message: "Product added to wishlist", buttonTitle: "OK") {
+        }
     }
 }

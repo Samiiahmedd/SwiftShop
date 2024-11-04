@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -384,6 +384,12 @@
 		7FBAD9CB2C96551B00CBA3D2 /* UIViewControllerExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtention.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		08063BEF2CD90C7E007C43D0 /* ViewModel */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ViewModel; sourceTree = "<group>"; };
+		08063BF12CD90C87007C43D0 /* View */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = View; sourceTree = "<group>"; };
+		08063BF32CD90CA7007C43D0 /* Model */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Model; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		266859312C482A0200EC2718 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -396,6 +402,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08063BEC2CD90C53007C43D0 /* SelectedCategory */ = {
+			isa = PBXGroup;
+			children = (
+				08063BEF2CD90C7E007C43D0 /* ViewModel */,
+				08063BF32CD90CA7007C43D0 /* Model */,
+				08063BF12CD90C87007C43D0 /* View */,
+			);
+			path = SelectedCategory;
+			sourceTree = "<group>";
+		};
 		26055E7A2CA064320073D79E /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -1124,7 +1140,8 @@
 				26A38A3D2CB5954C000C826A /* Profile */,
 				26B5B7D92CADBDF800082441 /* ReviewsClient */,
 				2610DCFF2C8CBD4D005739A3 /* ProductDetails */,
-				26AE38A52C89D86D0086E8FB /* SearchCategories */,
+				26AE38A52C89D86D0086E8FB /* Categories */,
+				08063BEC2CD90C53007C43D0 /* SelectedCategory */,
 				263D6E812C9F96BF00994E64 /* Filter */,
 			);
 			path = Views;
@@ -1569,14 +1586,15 @@
 			path = NavigationController;
 			sourceTree = "<group>";
 		};
-		26AE38A52C89D86D0086E8FB /* SearchCategories */ = {
+		26AE38A52C89D86D0086E8FB /* Categories */ = {
 			isa = PBXGroup;
 			children = (
 				26AE38B52C89DAD90086E8FB /* CollectionViewCell */,
-				26AE38A82C89D8820086E8FB /* ViewModel */,
+				26AE38BB2C89DB2C0086E8FB /* Model */,
 				26AE38A72C89D87E0086E8FB /* View */,
+				26AE38A82C89D8820086E8FB /* ViewModel */,
 			);
-			path = SearchCategories;
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		26AE38A72C89D87E0086E8FB /* View */ = {
@@ -1607,7 +1625,6 @@
 		26AE38B62C89DAF20086E8FB /* SearchCategoriesCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				26AE38BB2C89DB2C0086E8FB /* Model */,
 				26A893E32CB75ED700593DDD /* View */,
 			);
 			path = SearchCategoriesCollectionViewCell;
@@ -2013,6 +2030,11 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				08063BEF2CD90C7E007C43D0 /* ViewModel */,
+				08063BF12CD90C87007C43D0 /* View */,
+				08063BF32CD90CA7007C43D0 /* Model */,
 			);
 			name = SwiftShop;
 			packageProductDependencies = (
