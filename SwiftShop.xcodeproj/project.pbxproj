@@ -412,6 +412,24 @@
 			path = SelectedCategory;
 			sourceTree = "<group>";
 		};
+		084D94622CD922CD0003DAFC /* TabButton */ = {
+			isa = PBXGroup;
+			children = (
+				26A7225C2CBF14DC004AB9DA /* CustomTabButtonView.xib */,
+				2663FBEA2CBF049B005A6C05 /* CustomTabButtonView.swift */,
+			);
+			path = TabButton;
+			sourceTree = "<group>";
+		};
+		084D94632CD922DB0003DAFC /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				26A722582CBF0EB7004AB9DA /* CustomTabBarViewController.swift */,
+				26A722592CBF0EB7004AB9DA /* CustomTabBarViewController.xib */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		26055E7A2CA064320073D79E /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -598,13 +616,13 @@
 			path = CardView;
 			sourceTree = "<group>";
 		};
-		26347A622C5D983F00F500CB /* SignUP */ = {
+		26347A622C5D983F00F500CB /* Signup */ = {
 			isa = PBXGroup;
 			children = (
 				7FBAD9C52C964C8800CBA3D2 /* ViewModel */,
 				26347A642C5D985700F500CB /* View */,
 			);
-			path = SignUP;
+			path = Signup;
 			sourceTree = "<group>";
 		};
 		26347A642C5D985700F500CB /* View */ = {
@@ -1040,10 +1058,8 @@
 		2663FBE32CBF01F6005A6C05 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				26A7225C2CBF14DC004AB9DA /* CustomTabButtonView.xib */,
-				2663FBEA2CBF049B005A6C05 /* CustomTabButtonView.swift */,
-				26A722582CBF0EB7004AB9DA /* CustomTabBarViewController.swift */,
-				26A722592CBF0EB7004AB9DA /* CustomTabBarViewController.xib */,
+				084D94622CD922CD0003DAFC /* TabButton */,
+				084D94632CD922DB0003DAFC /* TabBar */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2006,7 +2022,7 @@
 				266859602C48348600EC2718 /* OnBoarding */,
 				260781312C48914200B778A2 /* StartScreen */,
 				2689C98B2C4A475B00033590 /* Login */,
-				26347A622C5D983F00F500CB /* SignUP */,
+				26347A622C5D983F00F500CB /* Signup */,
 				265701962CAB38F200B0240C /* ForgetPassword */,
 				26AD3FED2CAB7D7600C23CC7 /* OTP */,
 				26AD3FF52CAB85BE00C23CC7 /* UpdatePassword */,
