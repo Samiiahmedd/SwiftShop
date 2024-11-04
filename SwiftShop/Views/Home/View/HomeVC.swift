@@ -25,7 +25,7 @@ class HomeVC: BaseViewController{
     var lastNewArrivals: [NewArrival] = []
     var popularProduct: [PopularModel] = []
     var product : [ProductDetailsModel] = []
-
+    
     //MARK: - viewLifeCycle
     
     override func viewDidLoad() {
@@ -36,10 +36,10 @@ class HomeVC: BaseViewController{
     }
     
     override func viewWillAppear(_ animated: Bool) {
-         super.viewWillAppear(animated)
+        super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         self.navigationItem.hidesBackButton = true
-     }
+    }
     
     //MARK: - @IBACTIONS
     
@@ -59,34 +59,34 @@ class HomeVC: BaseViewController{
     
     /// New Arrivals
     private func fetchNewArrivals() {
-            viewModel.getNewArrivals { [weak self] result in
-                DispatchQueue.main.async {
-                    switch result {
-                    case .success(let data):
-                        self?.lastNewArrivals = data
-                        self?.newArriivalCollectionView.reloadData()
-                    case .failure(let error):
-                        print("Failed to fetch new arrivals: \(error.localizedDescription)")
-                    }
+        viewModel.getNewArrivals { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let data):
+                    self?.lastNewArrivals = data
+                    self?.newArriivalCollectionView.reloadData()
+                case .failure(let error):
+                    print("Failed to fetch new arrivals: \(error.localizedDescription)")
                 }
             }
-        } 
+        }
+    } 
     
     // Populars
     @MainActor
     private func fetchPopulars() {
-            viewModel.getPopulars { [weak self] result in
-                DispatchQueue.main.async {
-                    switch result {
-                    case .success(let data):
-                        self?.popularProduct  = data
-                        self?.popularTableView.reloadData()
-                    case .failure(let error):
-                        print("Failed to fetch populars: \(error.localizedDescription)")
-                    }
+        viewModel.getPopulars { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let data):
+                    self?.popularProduct  = data
+                    self?.popularTableView.reloadData()
+                case .failure(let error):
+                    print("Failed to fetch populars: \(error.localizedDescription)")
                 }
             }
         }
+    }
 }
 
 // MARK: - SETUP VIEW
@@ -187,9 +187,9 @@ extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            let selectedProduct = lastNewArrivals[indexPath.item]
-            let productDetailsVC = ProductDetailsViewController(id: selectedProduct.id)
-            self.navigationController?.pushViewController(productDetailsVC, animated: true)
+        let selectedProduct = lastNewArrivals[indexPath.item]
+        let productDetailsVC = ProductDetailsViewController(id: selectedProduct.id)
+        self.navigationController?.pushViewController(productDetailsVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
