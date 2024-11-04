@@ -8,7 +8,7 @@
 import Foundation
 
 struct Constants {
-    static let baseURL = "https://full-e-commerce-restful-apis-production.up.railway.app"
+    static let baseURL = "https://full-e-commerce-rest-ful-api-s.vercel.app"
 }
 
 enum APIError : Error {

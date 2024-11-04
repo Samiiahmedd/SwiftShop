@@ -10,7 +10,7 @@ import UIKit
 @MainActor
 protocol TabBarCoordinatorProtocol: Coordinator {
     func goToHomeTab()
-    func gotToCartTab()
+    func gotToOrdersTab()
     func goToNotificationsTab()
     func goToProfileTab()
 }
@@ -27,7 +27,7 @@ final class TabBarCoordinator {
         
         let tabBarControllers: [UIViewController] = [
             homeNC(),
-            cartNC(),
+            ordersNC(),
             notificationsNC(),
             profileNC()
         ]
@@ -35,13 +35,7 @@ final class TabBarCoordinator {
         router.push(tabBar)
     }
     
-//    func homeViewController() -> UIViewController {
-//        let navigationController = UINavigationController()
-//        let router = AppRouter(navigationController: navigationController)
-//        let coordinator = HomeCoordinator(router: router)
-//        coordinator.start()
-//        return navigationController
-//    }
+    
     func homeNC() -> UINavigationController {
         let mainVC = HomeVC()
         mainVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house.fill"), tag: 0)
@@ -49,11 +43,10 @@ final class TabBarCoordinator {
         return UINavigationController(rootViewController: mainVC)
     }
     
-    func cartNC() -> UINavigationController {
-        let cartVC        = CartViewController()
-        cartVC.tabBarItem = UITabBarItem(title: "Cart", image: UIImage(systemName: "cart"), tag: 1)
-        
-        return UINavigationController(rootViewController: cartVC)
+    func ordersNC() -> UINavigationController {
+        let ordersVC        = MyOrdersViewController()
+        ordersVC.tabBarItem = UITabBarItem(title: "Orders", image: UIImage(systemName: "cart.badge.clock"), tag: 1)
+        return UINavigationController(rootViewController: ordersVC)
     }
     
     func notificationsNC() -> UINavigationController {
@@ -70,38 +63,17 @@ final class TabBarCoordinator {
         
         return UINavigationController(rootViewController: profileVC)
     }
-
-    
-//    func conversationsViewController() -> UIViewController {
-//        let navigationController = UINavigationController()
-//        let router = AppRouter(navigationController: navigationController)
-//        let coordinator = ConversationsCoordinator(router: router)
-//        coordinator.start()
-//        return navigationController
-//    }
-//    
-//    func myBookingViewController() -> UIViewController {
-//        let navigationController = UINavigationController()
-//        return navigationController
-//    }
-//    
-//    func profileViewController() -> UIViewController {
-//        let navigationController = UINavigationController()
-//        let router = AppRouter(navigationController: navigationController)
-//        let coordinator = ProfileCoordinator(router: router)
-//        coordinator.start()
-//        return navigationController
-//    }
 }
 
 extension TabBarCoordinator: TabBarCoordinatorProtocol {
+    func gotToOrdersTab() {
+        
+    }
+    
     func goToHomeTab() {
 //        tabBar?.selectedIndex = 0
     }
     
-    func gotToCartTab() {
-//        tabBar?.selectedIndex = 1
-    }
     
     func goToNotificationsTab() {
 //        tabBar?.selectedIndex = 2

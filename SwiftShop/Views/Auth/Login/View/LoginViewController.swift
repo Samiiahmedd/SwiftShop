@@ -64,8 +64,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func fbLogin(_ sender: Any) {
-        let wishlistVC = HomeVC(nibName: "HomeVC", bundle: nil)
-        navigationController?.pushViewController(wishlistVC, animated: true)
+
     }
     
     @IBAction func appleLogin(_ sender: Any) {

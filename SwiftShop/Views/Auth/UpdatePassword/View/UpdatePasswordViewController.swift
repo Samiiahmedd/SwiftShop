@@ -52,6 +52,8 @@ class UpdatePasswordViewController: UIViewController {
         Task {
             await viewModel.updatePassword(with: email, newPassword: newPassword)
         }
+        let success = ResetPasswordSuccessViewController(nibName: "ResetPasswordSuccessViewController", bundle: nil)
+        self.navigationController?.pushViewController(success, animated: true)
     }
 }
 

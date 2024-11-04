@@ -66,12 +66,15 @@ class NetworkManager<T: Codable> {
         switch httpResponse.statusCode {
         case 200:
             do {
+                let jsonString = String(data: data, encoding: .utf8) ?? "No data"
+                print("Received JSON data: \(jsonString)")
+                
                 let decodedData = try JSONDecoder().decode(T.self, from: data)
                 return decodedData
             } catch {
+                print("Decoding error: \(error)")
                 throw RequestError.decode
-            }
-        case 400:
+            }        case 400:
             throw RequestError.notAllowed
         case 401:
             throw RequestError.notAllowed
