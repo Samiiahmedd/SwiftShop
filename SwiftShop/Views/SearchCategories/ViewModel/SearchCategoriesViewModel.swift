@@ -8,25 +8,21 @@
 import Foundation
 import UIKit
 
-class SearchCategoriesViewModel{
+class SearchCategoriesViewModel {
     
-    @MainActor
-    func getCategoriesList(completion:@escaping (Result <CategoriesResponse, Error>) -> Void) {
-        guard let url = URL(string: "\(Constants.baseURL)/cats") else {return}
-        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
-            guard let data = data, error == nil else{
-                return
-            }
-            do{
-                let results = try JSONDecoder().decode(CategoriesResponse.self, from: data)
-                print(data)
-                completion(.success(results))
-            }catch{
-                print("Error")
-                completion(.failure(APIError.failedTogetData))
-            }
+    func getCategoriesList() async throws -> [String] {
+        guard let url = URL(string: "https://fakestoreapi.com/products/categories") else {
+            throw RequestError.invalidURL
         }
-        task.resume()
+        
+        let (data, response) = try await URLSession.shared.data(from: url)
+        
+        guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+            throw RequestError.noData
+        }
+        
+        // Decode the response directly into an array of strings
+        let categories = try JSONDecoder().decode([String].self, from: data)
+        return categories
     }
 }
-

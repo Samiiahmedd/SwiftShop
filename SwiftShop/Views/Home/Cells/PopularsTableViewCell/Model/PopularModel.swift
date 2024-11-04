@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+
 struct PopularModel: Codable {
     let id: Int
     let title: String

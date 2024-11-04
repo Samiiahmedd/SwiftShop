@@ -72,7 +72,8 @@ class HomeVC: BaseViewController{
             }
         } 
     
-    /// Populars
+    // Populars
+    @MainActor
     private func fetchPopulars() {
             viewModel.getPopulars { [weak self] result in
                 DispatchQueue.main.async {

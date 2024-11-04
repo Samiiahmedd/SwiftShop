@@ -8,11 +8,5 @@
 import Foundation
 
 struct CategoriesResponse: Codable {
-    let data : [Category]
-}
-
-struct Category : Codable {
-    let _id: String?
-    let name: String
-    let image: String
+    let Categories : [String]
 }

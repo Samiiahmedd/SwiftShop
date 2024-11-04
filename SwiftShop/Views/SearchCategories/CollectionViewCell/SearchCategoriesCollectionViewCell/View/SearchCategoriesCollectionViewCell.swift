@@ -29,31 +29,31 @@ class SearchCategoriesCollectionViewCell: UICollectionViewCell {
 //MARK: -SETUP CELL
 
 extension SearchCategoriesCollectionViewCell {
-    func setup(categories: Category) {
-        let imageName = modifyImageName(categories.name)
-                categoryImage.image = UIImage(named: imageName)
-        categoryTitle.text = categories.name
-        categoryCount.text = modifyCount(categories.name)
-        
+    func setup(category: String) { // Change the parameter type to String
+        let imageName = modifyImageName(category)
+        categoryImage.image = UIImage(named: imageName)
+        categoryTitle.text = category
+        categoryCount.text = modifyCount(category)
     }
 }
 
 //MARK: - FUNCTIONS
+
 ///HANDLE UNPUTTED DATA IN API ..
 
 private func modifyImageName(_ name: String) -> String {
         switch name {
-        case "Clothing":
+        case "men's clothing":
             return "first"
-        case "Clothes":
-            return "first"
+        case "women's clothing":
+            return "Womens"
         case "Bags":
             return "third"
         case "Shoses":
             return "shoes"
-        case "Electronics":
+        case "electronics":
             return "fifth"
-        case "Jewelry":
+        case "jewelery":
             return "jewelry"
         default:
             return "default_image"
@@ -62,17 +62,17 @@ private func modifyImageName(_ name: String) -> String {
 
 private func modifyCount(_ count: String) -> String {
         switch count {
-        case "Clothing":
+        case "men's clothing":
             return "7 products"
-        case "Clothes":
-            return "5 products"
+        case "women's clothing":
+            return "10 products"
         case "Bags":
             return "4 products"
         case "Shoses":
             return "5 products"
-        case "Electronics":
-            return "58 products"
-        case "Jewelry":
+        case "electronics":
+            return "8 products"
+        case "jewelery":
             return "6 products"
         default:
             return "0 products"

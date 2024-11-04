@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 import Combine
 
-//@MainActor
-//protocol HomeViewModelProtocol {
-//    /// output
+@MainActor
+protocol HomeViewModelProtocol {
+    /// output
 //    var isLoading: PassthroughSubject<Bool, Never> { get }
 //    var errorMessage: PassthroughSubject<String, Never> { get }
 //    var showBanners : PassthroughSubject<String,Never> { get }
@@ -25,34 +25,34 @@ import Combine
 //    var searchButtonActionTriggered: PassthroughSubject<Void, Never> { get }
 //    var categoriesButtonActionTriggered: PassthroughSubject<Void, Never> { get }
 //    var backActionTriggerd: PassthroughSubject<Void, Never> { get }
-//
-//
-//}
+
+
+}
 
 class HomeViewModel {
-    //
-    //    var coordinator: HomeCoordinatorProtocol
-    //    private var cancellable = Set<AnyCancellable>()
-    //
-    //    var isLoading: PassthroughSubject<Bool, Never> = .init()
-    //    var errorMessage: PassthroughSubject<String, Never> = .init()
-    //    var showBanners : PassthroughSubject<String,Never> = .init()
-    //    var showNewArrivals : PassthroughSubject<String,Never> = .init()
-    //    var showPopulars : PassthroughSubject<String,Never> = .init()
-    //
-    //    var newArrivalCellTriggered: PassthroughSubject<Void, Never> = .init()
-    //    var popularsCellTriggered: PassthroughSubject<Void, Never> = .init()
-    //    var viewAllButtonActionTriggered: PassthroughSubject<Void, Never> = .init()
-    //    var searchButtonActionTriggered: PassthroughSubject<Void, Never> = .init()
-    //    var categoriesButtonActionTriggered: PassthroughSubject<Void, Never> = .init()
-    //    var backActionTriggerd: PassthroughSubject<Void, Never> = .init()
-    //
-    //
-    //
-    //    init(coordinator: HomeCoordinatorProtocol) {
-    //        self.coordinator = coordinator
-    ////        bindIsHome()
-    //    }
+    
+//        var coordinator: HomeCoordinatorProtocol
+//        private var cancellable = Set<AnyCancellable>()
+//    
+//        var isLoading: PassthroughSubject<Bool, Never> = .init()
+//        var errorMessage: PassthroughSubject<String, Never> = .init()
+//        var showBanners : PassthroughSubject<String,Never> = .init()
+//        var showNewArrivals : PassthroughSubject<String,Never> = .init()
+//        var showPopulars : PassthroughSubject<String,Never> = .init()
+//    
+//        var newArrivalCellTriggered: PassthroughSubject<Void, Never> = .init()
+//        var popularsCellTriggered: PassthroughSubject<Void, Never> = .init()
+//        var viewAllButtonActionTriggered: PassthroughSubject<Void, Never> = .init()
+//        var searchButtonActionTriggered: PassthroughSubject<Void, Never> = .init()
+//        var categoriesButtonActionTriggered: PassthroughSubject<Void, Never> = .init()
+//        var backActionTriggerd: PassthroughSubject<Void, Never> = .init()
+//    
+    
+    
+//        init(coordinator: HomeCoordinatorProtocol) {
+//            self.coordinator = coordinator
+//    //        bindIsHome()
+//        }
     var banners : [BannerModel] = [
         .init(image: UIImage(named: "Banner")!),
         .init(image: UIImage(named: "Banner")!),
@@ -104,10 +104,4 @@ class HomeViewModel {
     
 }
 
-//extension HomeViewModel : HomeViewModelProtocol {
-//    func bindIsHome() {
-//        newArrivalCellTriggered
-//            .sink { [weak self] _ in self?.login() }
-//            .store(in: &cancellable)
-//    }
-//}
+
