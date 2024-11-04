@@ -52,9 +52,14 @@ private extension ProfileViewController {
     
     func setupNavBar(){
         navBar.setupFirstLeadingButton(with: "", and: UIImage(named: "back")!) {
-            print("back")
+            self.navigationController?.popViewController(animated: true)
         }
         navBar.firstTralingButton.isHidden = true
+        navBar.setupLastFirstTralingButton(with: "", and: UIImage(named: "cart")!) {
+            let cartVC = CartViewController(nibName: "CartViewController", bundle: nil)
+            self.navigationController?.pushViewController(cartVC, animated: true)
+            self.navigationItem.hidesBackButton = true
+        }
     }
     
     func setupTableViews() {

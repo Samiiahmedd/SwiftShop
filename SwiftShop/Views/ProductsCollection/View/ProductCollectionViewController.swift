@@ -64,6 +64,7 @@ private extension ProductCollectionViewController {
                 self.navigationController?.popViewController(animated: true)
             }
         nanBar.firstTralingButton.isHidden = true
+        nanBar.lastFirstTralingButton.isHidden = true
     }
     
     func configerCollectionViews() {

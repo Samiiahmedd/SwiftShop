@@ -52,6 +52,7 @@ private extension ForgetPasswordViewController {
             coordinator?.pop()
         }
         navBar.firstTralingButton.isHidden = true
+        navBar.lastFirstTralingButton.isHidden = true
     }
     func configureTextFields() {
         addPaddingToTextField(emailTextField, padding: 10)

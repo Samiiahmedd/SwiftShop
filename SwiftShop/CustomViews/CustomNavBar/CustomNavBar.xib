@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomNavBar" customModule="E_Commerce" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomNavBar" customModule="SwiftShop" customModuleProvider="target">
             <connections>
+                <outlet property="LastFirstTralingButton" destination="ltD-C4-3yN" id="HkU-hS-Wyb"/>
                 <outlet property="containerView" destination="xzv-ju-ras" id="zC7-wk-BOg"/>
                 <outlet property="firstLeadingButton" destination="JGG-Eh-kih" id="1J8-RR-bMf"/>
                 <outlet property="firstTralingButton" destination="zBe-ek-Lgi" id="ABc-CE-Kjc"/>
@@ -48,15 +49,18 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kFB-ZQ-wLb">
-                            <rect key="frame" x="581" y="0.0" width="60" height="43"/>
+                            <rect key="frame" x="513" y="0.0" width="128" height="43"/>
                             <subviews>
-                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltD-C4-3yN">
-                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="43"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltD-C4-3yN">
+                                    <rect key="frame" x="0.0" y="0.0" width="60" height="43"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                    <connections>
+                                        <action selector="lastFirstTrailingButtonAction:" destination="-1" eventType="touchUpInside" id="zwj-ZM-7Ph"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zBe-ek-Lgi" userLabel="firstTraling">
-                                    <rect key="frame" x="0.0" y="0.0" width="60" height="43"/>
+                                    <rect key="frame" x="68" y="0.0" width="60" height="43"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="60" id="8cq-Lt-k8L"/>
                                     </constraints>

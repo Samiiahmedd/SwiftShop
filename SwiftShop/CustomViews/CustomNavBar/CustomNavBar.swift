@@ -14,11 +14,13 @@ class CustomNavBar: UIView {
     @IBOutlet var containerView: UIView!
     @IBOutlet weak var firstTralingButton: UIButton!
     @IBOutlet weak var firstLeadingButton: UIButton!
+    @IBOutlet weak var lastFirstTralingButton: UIButton!
     
     // MARK: - PROPERTYS
     
     private var firstTralingButtonAction: (() -> Void)?
     private var firstLeadingButtonAction: (() -> Void)?
+    private var lastFirstTralingButtonAction: (() -> Void)?
     
     // MARK: - INITLIZER
     
@@ -40,6 +42,11 @@ class CustomNavBar: UIView {
     @IBAction func firstLeadingButtonAction(_ sender: Any) {
         firstLeadingButtonAction?()
     }
+    
+    @IBAction func lastFirstTrailingButtonAction(_ sender: Any) {
+        lastFirstTralingButtonAction?()
+    }
+    
 }
 
 // MARK: - CUSTOM NAV BAR CALL FUNCTIONS
@@ -50,6 +57,9 @@ extension CustomNavBar {
     }    
     func setupFirstLeadingButton(with title: String, and image: UIImage, with action: @escaping () -> Void) {
         configureLeadingButton(with: title, and: image, with: action)
+    }
+    func setupLastFirstTralingButton(with title: String, and image: UIImage, with action: @escaping () -> Void) {
+        configureLastTralingButton(with: title, and: image, with: action)
     }
 }
 
@@ -83,5 +93,12 @@ private extension CustomNavBar {
         firstLeadingButtonAction = action
         firstLeadingButton.setTitle(title, for: .normal)
         firstLeadingButton.setImage(image, for: .normal)
+    }
+    
+    func configureLastTralingButton(with title: String, and image: UIImage, with action: @escaping () -> Void) {
+        lastFirstTralingButton.isHidden = false
+        lastFirstTralingButtonAction = action
+        lastFirstTralingButton.setTitle(title, for: .normal)
+        lastFirstTralingButton.setImage(image, for: .normal)
     }
 }

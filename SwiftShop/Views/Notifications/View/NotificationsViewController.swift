@@ -47,9 +47,12 @@ private extension NotificationsViewController {
             with: "",
             and:UIImage(named: "cart")!)
         {
-            print("Button tapped")
-            
+            let cartVC = CartViewController(nibName: "CartViewController", bundle: nil)
+            self.navigationController?.pushViewController(cartVC, animated: true)
+            self.navigationItem.hidesBackButton = true
         }
+        
+        navBar.lastFirstTralingButton.isHidden = true
         
         navBar.setupFirstLeadingButton(
             with: "",

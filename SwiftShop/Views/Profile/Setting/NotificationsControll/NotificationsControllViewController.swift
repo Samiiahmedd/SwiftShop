@@ -39,5 +39,6 @@ extension NotificationsControllViewController {
             self.navigationController?.popViewController(animated: true)
         }
         navBar.firstTralingButton.isHidden = true
+        navBar.lastFirstTralingButton.isHidden = true
     }
 }

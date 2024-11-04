@@ -172,6 +172,7 @@ private extension OTPViewController {
             coordinator?.pop()
         }
         navBar.firstTralingButton.isHidden = true
+        navBar.lastFirstTralingButton.isHidden = true
     }
     
     func configureOTP(){

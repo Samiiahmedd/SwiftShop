@@ -63,13 +63,13 @@ private extension CartViewController {
     func configureNavBar() {
         navBar.setupFirstTralingButton(
             with: "",
-            and:UIImage(named: "cart")!)
-        {
-            print("Button tapped")
+            and:UIImage(systemName: "magnifyingglass")!)         {
             let filter = FilterViewController(nibName: "FilterViewController", bundle: nil)
             self.navigationController?.pushViewController(filter, animated: true)
             self.navigationItem.hidesBackButton = true
         }
+        
+        navBar.lastFirstTralingButton.isHidden = true
         
         navBar.setupFirstLeadingButton(
             with: "",

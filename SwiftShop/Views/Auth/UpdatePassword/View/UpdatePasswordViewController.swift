@@ -73,6 +73,7 @@ private extension UpdatePasswordViewController {
             coordinator?.pop()
         }
         navBar.firstTralingButton.isHidden = true
+        navBar.lastFirstTralingButton.isHidden = true
     }
     
     func configureTextFields() {

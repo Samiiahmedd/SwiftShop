@@ -54,6 +54,7 @@ private extension SearchCategoriesViewController {
             and: UIImage(named: "back")!) {
                 self.navigationController?.popViewController(animated: true)
             }
+        navBar.lastFirstTralingButton.isHidden = true
         navBar.firstTralingButton.isHidden = true
     }
     

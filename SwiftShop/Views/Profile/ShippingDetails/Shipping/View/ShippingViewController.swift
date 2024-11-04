@@ -69,8 +69,11 @@ extension ShippingViewController {
     
     func setupNavBar() {
         nanBar.setupFirstLeadingButton(with: "", and: UIImage(named: "back")!) {
-            self.navigationController?.popViewController(animated: true)        }
+            self.navigationController?.popViewController(animated: true)
+        }
         nanBar.firstTralingButton.isHidden = true
+        nanBar.lastFirstTralingButton.isHidden = true
+
     }
     
     func configureCollectionView() {

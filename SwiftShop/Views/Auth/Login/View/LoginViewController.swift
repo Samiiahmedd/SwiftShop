@@ -92,6 +92,7 @@ private extension LoginViewController {
             viewModel.backActionTriggerd.send()
         }
         navBar.firstTralingButton.isHidden = true
+        navBar.lastFirstTralingButton.isHidden = true
     }
     
     func configureTextFields() {

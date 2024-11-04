@@ -45,12 +45,12 @@ private extension ReviewsClientViewController {
             print("Button tapped")
             
         }
+        navBar.lastFirstTralingButton.isHidden = true
         
         navBar.setupFirstLeadingButton(
             with: "",
             and: UIImage(named: "back")!) {
-                print("Button tapped")
-            }
+     self.navigationController?.popViewController(animated: true)            }
         navBar.tintColor = .black
         
     }

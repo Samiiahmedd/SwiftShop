@@ -137,10 +137,10 @@ private extension ProductDetailsViewController {
         
         navBar.setupFirstTralingButton(
             with: "",
-            and: UIImage(systemName: "magnifyingglass")!) { [weak self] in
+            and: UIImage(named: "back")!) { [weak self] in
                 guard let self else { return }
-                let filter = FilterViewController(nibName: "FilterViewController", bundle: nil)
-                self.navigationController?.pushViewController(filter, animated: true)
+                let cartVC = CartViewController(nibName: "CartViewController", bundle: nil)
+                self.navigationController?.pushViewController(cartVC, animated: true)
                 self.navigationItem.hidesBackButton = true
             }
         
@@ -151,6 +151,8 @@ private extension ProductDetailsViewController {
                 self.navigationController?.popViewController(animated: true)
                 self.navigationItem.hidesBackButton = true
             }
+        navBar.lastFirstTralingButton.isHidden = true
+
         navBar.tintColor = .black
         navBar.backgroundColor = .blue
         

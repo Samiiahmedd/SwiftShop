@@ -44,6 +44,7 @@ extension PaymentMethodViewController {
             print("")
         }
         navBar.firstTralingButton.isHidden = true
+        navBar.lastFirstTralingButton.isHidden = true
     }
     
     func configureTableView() {

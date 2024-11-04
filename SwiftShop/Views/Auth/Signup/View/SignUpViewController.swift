@@ -63,6 +63,7 @@ private extension SignUpViewController {
             coordinator?.pop()
         }
         navBar.firstTralingButton.isHidden = true
+        navBar.lastFirstTralingButton.isHidden = true
     }
     
     func addPasswordToggleButtons() {

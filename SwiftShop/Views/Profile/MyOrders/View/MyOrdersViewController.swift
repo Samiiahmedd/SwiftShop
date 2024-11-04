@@ -30,11 +30,11 @@ class MyOrdersViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-         super.viewWillAppear(animated)
+        super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         self.navigationItem.hidesBackButton = true
-     }
-
+    }
+    
     
     //MARK: - @IBACTIONS
     
@@ -64,8 +64,14 @@ extension MyOrdersViewController {
         navBar.setupFirstLeadingButton(with: "", and: UIImage(named: "back")!) {
             self.navigationController?.popViewController(animated: true)
         }
-        navBar.firstTralingButton.isHidden = true
-    }
+        
+        navBar.lastFirstTralingButton.isHidden = true
+        
+        navBar.setupFirstTralingButton(with: "", and: UIImage(named: "cart")!) {
+            let cartVC = CartViewController(nibName: "CartViewController", bundle: nil)
+            self.navigationController?.pushViewController(cartVC, animated: true)
+            self.navigationItem.hidesBackButton = true
+        }    }
     
     func configureButtons() {
         if is_Selected {

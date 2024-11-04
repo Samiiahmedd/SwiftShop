@@ -104,16 +104,20 @@ private extension HomeVC {
         navBar.setupFirstTralingButton(
             with: "",
             and: UIImage(systemName: "magnifyingglass")!) {
-                print("Button tapped")
                 let filter = FilterViewController(nibName: "FilterViewController", bundle: nil)
                 self.navigationController?.pushViewController(filter, animated: true)
                 self.navigationItem.hidesBackButton = true
             }
         
+        navBar.setupLastFirstTralingButton(with: "", and: UIImage(named: "cart")!) {
+            let cartVC = CartViewController(nibName: "CartViewController", bundle: nil)
+            self.navigationController?.pushViewController(cartVC, animated: true)
+            self.navigationItem.hidesBackButton = true
+        }
+        
         navBar.setupFirstLeadingButton(
             with: "",
             and: UIImage(named: "menu")!) {
-                print("Button tapped")
                 let search = SearchCategoriesViewController(nibName: "SearchCategoriesViewController", bundle: nil)
                 self.navigationController?.pushViewController(search, animated: true)
                 self.navigationItem.hidesBackButton = true

@@ -33,5 +33,6 @@ extension Privacy_PolicyViewController {
             self.navigationController?.popViewController(animated: true)
         }
         navBar.firstTralingButton.isHidden = true
+        navBar.lastFirstTralingButton.isHidden = true
     }
 }
