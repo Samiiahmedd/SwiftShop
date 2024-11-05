@@ -23,7 +23,7 @@ class UpdatePasswordViewController: UIViewController {
     var email : String
     private var viewModel: UpdatePasswordViewModelProtocol = UpdatePasswordViewModel()
     private var cancellable = Set<AnyCancellable>()
-    
+
     //MARK: - VIEW LIFE CYCLE
     
     init(email: String) {
@@ -38,7 +38,6 @@ class UpdatePasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        bindViewModel()
     }
     
     //MARK: - @IBACTIONS
@@ -52,8 +51,6 @@ class UpdatePasswordViewController: UIViewController {
         Task {
             await viewModel.updatePassword(with: email, newPassword: newPassword)
         }
-        let success = ResetPasswordSuccessViewController(nibName: "ResetPasswordSuccessViewController", bundle: nil)
-        self.navigationController?.pushViewController(success, animated: true)
     }
 }
 
@@ -64,6 +61,7 @@ private extension UpdatePasswordViewController {
     func setupView() {
         configureNavBar()
         configureTextFields()
+        bindViewModel()
     }
     
     func configureNavBar() {
@@ -109,10 +107,10 @@ extension UpdatePasswordViewController {
            }.store(in: &cancellable)
        }
        
-       func bindIsUpdated() {
-           viewModel.isUpdated.sink { [weak self] isUpdated in
-               guard let self = self else { return }
-               coordinator?.displaySuccessScreen()
-           }.store(in: &cancellable)
-       }
+    func bindIsUpdated() {
+        viewModel.isUpdated.sink { [weak self] isUpdated in
+            guard let self = self else { return }
+            self.coordinator?.displaySuccessScreen()
+        }.store(in: &cancellable)
+    }
    }

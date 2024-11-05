@@ -8,35 +8,33 @@
 import Foundation
 
 class CartViewModel {
-    
-    private(set) var CartItems: [CartProductModel] = []
-    
-    init() {
-        loadCartItems()
-    }
-    
-    func addToCart(_ product: CartProductModel) {
-        CartItems.append(product)
-        saveCartItems()
-    }
-    
-    func removeFromCart(at index: Int) {
-        guard index < CartItems.count else { return }
-        CartItems.remove(at: index)
-        saveCartItems()
-    }
-    
-    private func saveCartItems() {
-        if let encodedData = try? JSONEncoder().encode(CartItems) {
-            UserDefaults.standard.set(encodedData, forKey: "cartItems")
+    func fetchCartFromAPI(completion: @escaping (Result<[CartResponse], Error>) -> Void) {
+        guard let url = URL(string: "https://fakestoreapi.com/carts") else {
+            completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
+            return
         }
-    }
-    
-    private func loadCartItems() {
-        if let savedData = UserDefaults.standard.data(forKey: "cartItems"),
-           let decodedItems = try? JSONDecoder().decode([CartProductModel].self, from: savedData) {
-            CartItems = decodedItems
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let data = data else {
+                // Handle no data case
+                completion(.failure(NSError(domain: "No Data", code: 0, userInfo: nil)))
+                return
+            }
+            
+            do {
+                let cartData = try JSONDecoder().decode([CartResponse].self, from: data)
+                completion(.success(cartData))
+            } catch {
+                completion(.failure(error))
+            }
         }
+        task.resume()
     }
+
 }
 

@@ -6,16 +6,24 @@
 //
 
 import Foundation
-import UIKit
 
-struct CartProductModel: Codable {
-    let productTitle : String
-    let productDescription : String
-    let productPrice : String
-    let productImageName : String
-    var productImage: UIImage? {
-           return UIImage(named: productImageName)
-       }
+// MARK: - CartResponse
+struct CartResponse: Decodable {
+    let id: Int
+    let userId: Int
+    let date: String // Use String to keep the original format; consider parsing to Date later
+    let products: [CartProduct]
+}
+
+// MARK: - CartProduct
+struct CartProduct: Decodable {
+    let productId: Int
+    let quantity: Int
+}
+
+struct CartProductItem {
+    let cartProduct: CartProduct
+    let productDetails: PopularModel // Use the Product struct you already have
 }
 
 

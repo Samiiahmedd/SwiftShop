@@ -34,6 +34,7 @@ extension UpdatePasswordViewModel: UpdatePasswordViewModelProtocol {
             errorMessage.send("Invalid URL")
             return
         }
+        
         var request = URLRequest(url: url)
         request.httpMethod = "PUT"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -46,18 +47,17 @@ extension UpdatePasswordViewModel: UpdatePasswordViewModelProtocol {
             errorMessage.send("Failed to encode password data.")
             return
         }
+
         do {
             let (data, response) = try await URLSession.shared.data(for: request)
-            
+
             if let httpResponse = response as? HTTPURLResponse {
                 switch httpResponse.statusCode {
                 case 200:
                     let decoder = JSONDecoder()
                     do {
-                        let result = try decoder.decode(UpdatePasswordResponse.self, from: data)
-                        isUpdated.send(true) 
-                        print("Password reset successfully: \(result)")
-                        errorMessage.send(result.message)
+                        let result = try decoder.decode(User.self, from: data)
+                        isUpdated.send(true)
                     } catch {
                         errorMessage.send("Failed to parse response.")
                     }
@@ -73,7 +73,6 @@ extension UpdatePasswordViewModel: UpdatePasswordViewModelProtocol {
             errorMessage.send("Request failed: \(error.localizedDescription)")
         }
         isLoading.send(false)
-    }
-}
+    }}
 
 

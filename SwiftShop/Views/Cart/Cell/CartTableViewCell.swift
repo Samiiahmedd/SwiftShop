@@ -38,10 +38,9 @@ class CartTableViewCell: UITableViewCell {
 // MARK: - SETUP CELL
 
 extension CartTableViewCell {
-    func Setup(cartItem: CartProductModel) {
-        productImage.image = cartItem.productImage
-        productName.text = cartItem.productTitle
-        productDescription.text = cartItem.productDescription
-        productPrice.text = cartItem.productPrice
+    func Setup(cartItem: CartResponse) {
+//        productImage.image = cartItem.
+        productName.text = String(cartItem.userId)
+        productDescription.text = cartItem.date
     }
 }

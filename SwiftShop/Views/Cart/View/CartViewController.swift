@@ -12,7 +12,8 @@ class CartViewController: UIViewController {
     //MARK: - VARIABLES
     
     var viewModel = CartViewModel()
-    private var cartItems: [CartProductModel] = []
+    var carts: [CartResponse] = []
+    var allProductDetails: [PopularModel] = []
     
     //MARK: - IBOUTLETS
     
@@ -30,8 +31,23 @@ class CartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        
+        loadCartData()
     }
+    
+    func loadCartData() {
+        viewModel.fetchCartFromAPI { result in
+             switch result {
+             case .success(let cartResponses):
+                 self.carts = cartResponses
+                 DispatchQueue.main.async {
+                     self.cartProductsTableView.reloadData()
+                 }
+             case .failure(let error):
+                 print("Error fetching cart data: \(error.localizedDescription)")
+             }
+         }
+     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -56,8 +72,6 @@ private extension CartViewController {
         configureNavBar()
         configureTableViews()
         registerCells()
-        updateNoDataImage()
-        updateBagItems()
     }
     
     func configureNavBar() {
@@ -90,14 +104,6 @@ private extension CartViewController {
         
     }
     
-    func updateNoDataImage() {
-        noDataImage.isHidden = true
-        noDataImage.isHidden = viewModel.CartItems.count > 0
-    }
-    
-    func updateBagItems() {
-        bagTotalItems.text = String(viewModel.CartItems.count)
-    }
     
 }
 
@@ -106,29 +112,27 @@ private extension CartViewController {
 extension CartViewController :  UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = cartProductsTableView.dequeueReusableCell(withIdentifier: CartTableViewCell.identifier, for: indexPath) as! CartTableViewCell
-        let Cartitems = viewModel.CartItems[indexPath.row]
-        cell.Setup(cartItem: Cartitems)
+        let cart = carts[indexPath.row]
+        cell.Setup(cartItem: cart)
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let count = viewModel.CartItems.count
-        noDataImage.isHidden = count > 0
-        return count
+        return carts.count
     }
     
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(style: .destructive, title: nil) { _, _, complete in
-            self.viewModel.removeFromCart(at: indexPath.row) // Updated to use ViewModel's remove method
-            self.cartProductsTableView.deleteRows(at: [indexPath], with: .automatic)
-            self.updateBagItems() // Update bag total items count
-            complete(true)
-        }
-        deleteAction.image = UIImage(systemName: "trash.fill")
-        deleteAction.backgroundColor = .black
-        
-        return UISwipeActionsConfiguration(actions: [deleteAction])
-    }
+//    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//        let deleteAction = UIContextualAction(style: .destructive, title: nil) { _, _, complete in
+//            self.viewModel.removeFromCart(at: indexPath.row) // Updated to use ViewModel's remove method
+//            self.cartProductsTableView.deleteRows(at: [indexPath], with: .automatic)
+//            self.updateBagItems() // Update bag total items count
+//            complete(true)
+//        }
+//        deleteAction.image = UIImage(systemName: "trash.fill")
+//        deleteAction.backgroundColor = .black
+//        
+//        return UISwipeActionsConfiguration(actions: [deleteAction])
+//    }
     
     
 }
