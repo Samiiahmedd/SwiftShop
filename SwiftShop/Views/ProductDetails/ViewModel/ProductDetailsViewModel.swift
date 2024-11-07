@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import UIKit
 class ProductDetailsViewModel {
     
+    var product: ProductDetailsModel?
+
     // NewArrival Product Details
     @MainActor
     func getNewArrivalsProducts(id: Int, completion: @escaping (Result<ProductDetailsModel, Error>) -> Void) {
@@ -27,4 +30,8 @@ class ProductDetailsViewModel {
         }
         task.resume()
     }
+    
+    
+
+    
 }

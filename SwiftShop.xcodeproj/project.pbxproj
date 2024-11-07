@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08FD1BF02CDC32A600944D95 /* SwiftShop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 08FD1BEE2CDC32A600944D95 /* SwiftShop.xcdatamodeld */; };
+		08FD1C4C2CDC39F400944D95 /* WishlistProduct+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FD1C4A2CDC39F400944D95 /* WishlistProduct+CoreDataClass.swift */; };
+		08FD1C4D2CDC39F400944D95 /* WishlistProduct+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FD1C4B2CDC39F400944D95 /* WishlistProduct+CoreDataProperties.swift */; };
 		26055E812CA065210073D79E /* CategoriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26055E802CA065210073D79E /* CategoriesModel.swift */; };
 		26055E842CA065A00073D79E /* CategoriesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26055E832CA065A00073D79E /* CategoriesCollectionViewCell.xib */; };
 		26055E852CA065A00073D79E /* CategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26055E822CA065A00073D79E /* CategoriesCollectionViewCell.swift */; };
@@ -189,6 +192,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08FD1BEF2CDC32A600944D95 /* SwiftShop.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SwiftShop.xcdatamodel; sourceTree = "<group>"; };
+		08FD1C4A2CDC39F400944D95 /* WishlistProduct+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WishlistProduct+CoreDataClass.swift"; sourceTree = "<group>"; };
+		08FD1C4B2CDC39F400944D95 /* WishlistProduct+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WishlistProduct+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		26055E802CA065210073D79E /* CategoriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesModel.swift; sourceTree = "<group>"; };
 		26055E822CA065A00073D79E /* CategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
 		26055E832CA065A00073D79E /* CategoriesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -1041,6 +1047,8 @@
 		2668592B2C482A0200EC2718 = {
 			isa = PBXGroup;
 			children = (
+				08FD1C4A2CDC39F400944D95 /* WishlistProduct+CoreDataClass.swift */,
+				08FD1C4B2CDC39F400944D95 /* WishlistProduct+CoreDataProperties.swift */,
 				266859362C482A0200EC2718 /* SwiftShop */,
 				266859352C482A0200EC2718 /* Products */,
 			);
@@ -1070,6 +1078,7 @@
 				266859402C482A0500EC2718 /* Assets.xcassets */,
 				266859422C482A0500EC2718 /* LaunchScreen.storyboard */,
 				266859452C482A0500EC2718 /* Info.plist */,
+				08FD1BEE2CDC32A600944D95 /* SwiftShop.xcdatamodeld */,
 			);
 			path = SwiftShop;
 			sourceTree = "<group>";
@@ -2157,6 +2166,7 @@
 				7F8256922CB1D822009294E8 /* UserDefultsWrapper.swift in Sources */,
 				265AC8432CCC1E0E00658142 /* CartManager.swift in Sources */,
 				261C37E92CAF012D00C97E1C /* NotificationsModel.swift in Sources */,
+				08FD1BF02CDC32A600944D95 /* SwiftShop.xcdatamodeld in Sources */,
 				2689C9942C4A47A200033590 /* LoginViewController.swift in Sources */,
 				26BB081B2CC021BB00D1F0A6 /* DarkModeViewController.swift in Sources */,
 				265E2F0D2CAC80D900DEB18D /* TextFieldPadding.swift in Sources */,
@@ -2249,6 +2259,8 @@
 				261018D22CB6214700724863 /* SettingViewModel.swift in Sources */,
 				266859662C4836C400EC2718 /* OnBoardingViewController.swift in Sources */,
 				26F28D7C2CB1741B00EACB92 /* HomeModel.swift in Sources */,
+				08FD1C4C2CDC39F400944D95 /* WishlistProduct+CoreDataClass.swift in Sources */,
+				08FD1C4D2CDC39F400944D95 /* WishlistProduct+CoreDataProperties.swift in Sources */,
 				7F8256962CB1DF2F009294E8 /* NetworkManager.swift in Sources */,
 				266A7DA82CB72DBA009F3445 /* MyOrdersModel.swift in Sources */,
 				7FB312212CCC438300EF47C3 /* Coordinator.swift in Sources */,
@@ -2490,6 +2502,19 @@
 			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		08FD1BEE2CDC32A600944D95 /* SwiftShop.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				08FD1BEF2CDC32A600944D95 /* SwiftShop.xcdatamodel */,
+			);
+			currentVersion = 08FD1BEF2CDC32A600944D95 /* SwiftShop.xcdatamodel */;
+			path = SwiftShop.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2668592C2C482A0200EC2718 /* Project object */;
 }

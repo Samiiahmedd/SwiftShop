@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import CoreData
+
 
 struct ProductDetailsModel: Codable {
-    let id: Int
+    let id: Int32
     let title: String
     let price: Double
     let description: String
@@ -20,4 +22,16 @@ struct ProductDetailsModel: Codable {
         let rate: Double
         let count: Int
     }
+    
+    init(from favouritProduct: WishlistProduct) {
+        
+        self.title = favouritProduct.title!
+        self.id = favouritProduct.id
+        self.price = favouritProduct.price
+        self.description = favouritProduct.desc!
+        self.image = favouritProduct.image!
+        self.rating = Rating(rate: 3, count: 1)
+        self.category = favouritProduct.category!
+        }
+
 }

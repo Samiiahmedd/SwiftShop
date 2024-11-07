@@ -31,11 +31,14 @@ class ProductDetailsViewController: BaseViewController {
     
     //MARK: VARIABLES
     var Product: [PopularModel] = []
+    var product: ProductDetailsModel!
+
     var currentPage = 0 {
         didSet{
             pageControl.currentPage = currentPage
         }
     }
+    
     var Size : [SizeModel] = [
         .init(size: "S"),
         .init(size: "M"),
@@ -113,12 +116,38 @@ class ProductDetailsViewController: BaseViewController {
     }
     
     @IBAction func favouriteButton(_ sender: Any) {
-        AlertViewController.showAlert(on: self, image:UIImage(systemName: "heart.fill")! , title: "Added To Wishlist", message: "product added to wishlist", buttonTitle: "OK") {
-        }
+//        AlertViewController.showAlert(on: self, image:UIImage(systemName: "heart.fill")! , title: "Added To Wishlist", message: "product added to wishlist", buttonTitle: "OK") {
+//        }
     }
     
     @IBAction func addToCartFooterButton(_ sender: Any) {
-        AlertViewController.showAlert(on: self, image:UIImage(systemName: "cart.fill")! , title: "Added To Cart", message: "product added to cart", buttonTitle: "OK") {
+            // Check if the product is not nil
+            guard let product = product else {
+                print("Product is nil")
+                return
+            }
+            saveArticleToCoreData(product: product)
+            AlertViewController.showAlert(
+                on: self,
+                image: UIImage(systemName: "cart.fill")!,
+                title: "Added To Cart",
+                message: "Product added to cart",
+                buttonTitle: "OK") {
+            }
+        }
+
+    func saveArticleToCoreData(product: ProductDetailsModel) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        let savedProduct = WishlistProduct(context: context)
+        savedProduct.title = product.title
+        savedProduct.category = product.category
+        savedProduct.price = product.price
+        do {
+            try context.save()
+            print("Article saved to Core Data")
+        } catch {
+            print("Failed to save article: \(error.localizedDescription)")
         }
     }
 }

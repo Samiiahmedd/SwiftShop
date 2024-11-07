@@ -7,28 +7,22 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class WishlistViewModel {
+    @Published var favouriteProduct: [WishlistProduct] = []
     
-    var wishlist : [WishlistModel]  = [
-        .init(productImage: UIImage(named: "popular")!,
-              productTitle: "new shoes",
-              productDescription: "Nike",
-              productPrice: "120$"),
+    // MARK: - FUNCTIONS
+    
+    func fetchFavouriteArticles() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
         
-            .init(productImage: UIImage(named: "popular")!,
-                  productTitle: "new shoes",
-                  productDescription: "Nike",
-                  productPrice: "120$"),
+        let fetchRequest: NSFetchRequest<WishlistProduct> = WishlistProduct.fetchRequest()
         
-            .init(productImage: UIImage(named: "popular")!,
-                  productTitle: "new shoes",
-                  productDescription: "Nike",
-                  productPrice: "120$"),
-        
-            .init(productImage: UIImage(named: "popular")!,
-                  productTitle: "new shoes",
-                  productDescription: "Nike",
-                  productPrice: "120$"),
-    ]
-}
+        do {
+            favouriteProduct = try context.fetch(fetchRequest)
+        } catch {
+            print("Failed to fetch articles: \(error.localizedDescription)")
+        }
+    }}

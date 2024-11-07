@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class WishlistTableViewCell: UITableViewCell {
     
@@ -34,10 +35,13 @@ class WishlistTableViewCell: UITableViewCell {
 // MARK: - SETUP CELL
 
 extension WishlistTableViewCell {
-    func Setup(Wishlist: WishlistModel) {
-        productImage.image = Wishlist.productImage
-        productTitle.text = Wishlist.productTitle
-        productDescription.text = Wishlist.productDescription
-        productPrice.text = Wishlist.productPrice
+    func Setup(Wishlist: ProductDetailsModel) {
+        
+        let imageUrl = Wishlist.image.asUrl
+        productImage.kf.setImage(with: imageUrl, placeholder:UIImage(systemName: "photo.artframe"))
+
+        productTitle.text = Wishlist.title
+        productDescription.text = Wishlist.category
+        productPrice.text = String(Wishlist.price)
     }
 }

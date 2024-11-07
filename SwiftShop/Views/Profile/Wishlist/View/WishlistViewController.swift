@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class WishlistViewController: UIViewController {
     
@@ -17,15 +18,26 @@ class WishlistViewController: UIViewController {
     
     //MARK: - VARIABLES
     
-    private let viewModel = WishlistViewModel()
-    
+    var viewModel = WishlistViewModel()
+    private var cancellables = Set<AnyCancellable>()
+
     
     //MARK: - VIEW LIFE CYCLE
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        bindViewModel()
     }
+    @MainActor
+    private func bindViewModel() {
+        viewModel.$favouriteProduct
+            .sink { [weak self] _ in
+                self?.wishlistTableView.reloadData()
+            }
+            .store(in: &cancellables)
+    }
+
 }
 
 // MARK: - SETUP VIEW
@@ -69,13 +81,14 @@ private extension WishlistViewController {
 
 extension WishlistViewController : UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.wishlist.count
+        return viewModel.favouriteProduct.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = wishlistTableView.dequeueReusableCell(withIdentifier: WishlistTableViewCell.identifier, for: indexPath) as! WishlistTableViewCell
-        let wishlistItem = viewModel.wishlist[indexPath.row]
-        cell.Setup(Wishlist: wishlistItem)
+        let wishlistItem = viewModel.favouriteProduct[indexPath.row]
+        let productModel = ProductDetailsModel(from: wishlistItem )
+        cell.Setup(Wishlist: productModel)
         return cell
     }
     
