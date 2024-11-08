@@ -64,7 +64,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func fbLogin(_ sender: Any) {
-
+        
     }
     
     @IBAction func appleLogin(_ sender: Any) {
@@ -110,7 +110,7 @@ private extension LoginViewController {
         passwordTxtField.rightView = passwordToggleBtn
         passwordTxtField.rightViewMode = .always
     }
-        
+    
     @objc func togglePasswordVisibility(_ sender: UIButton) {
         sender.isSelected.toggle()
         
@@ -146,7 +146,8 @@ private extension LoginViewController {
     func bindErrorState() {
         viewModel.errorMessage.sink { [weak self] error in
             guard let self else { return }
-            showErrorAlert(message: error)
+            AlertViewController.showAlert(on: self, image:UIImage(systemName: "xmark.circle.fill")!, title: "Login Error", message: error, buttonTitle: "OK") {
+            }
         }.store(in: &cancellable)
     }
     

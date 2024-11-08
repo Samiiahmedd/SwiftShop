@@ -23,7 +23,7 @@ extension UIViewController {
     }
     
     func showLoader() {
-        let alert = UIAlertController(title: nil, message: "Please wait", preferredStyle: .alert)
+        let alert = UIAlertController(title: nil, message: "Processing..", preferredStyle: .alert)
         let indicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
         indicator.hidesWhenStopped = true
         indicator.startAnimating()

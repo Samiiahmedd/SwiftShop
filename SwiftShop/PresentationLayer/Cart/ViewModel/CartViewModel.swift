@@ -8,7 +8,7 @@
 import Foundation
 
 class CartViewModel {
-    func fetchCartFromAPI(completion: @escaping (Result<[CartResponse], Error>) -> Void) {
+    func fetchCartFromAPI(completion: @escaping (Result<[CartItem], Error>) -> Void) {
         guard let url = URL(string: "https://fakestoreapi.com/carts") else {
             completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
             return
@@ -27,7 +27,7 @@ class CartViewModel {
             }
             
             do {
-                let cartData = try JSONDecoder().decode([CartResponse].self, from: data)
+                let cartData = try JSONDecoder().decode([CartItem].self, from: data)
                 completion(.success(cartData))
             } catch {
                 completion(.failure(error))

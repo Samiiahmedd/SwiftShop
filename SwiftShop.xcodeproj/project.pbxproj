@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08EC16D12CDD5A1B0055DB0B /* NetworkLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 08EC16D02CDD5A1B0055DB0B /* NetworkLayer */; };
+		08EC16D72CDD5C0A0055DB0B /* ProductServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC16D62CDD5C0A0055DB0B /* ProductServices.swift */; };
+		08EC16DA2CDD62130055DB0B /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC16D92CDD62130055DB0B /* ProductModel.swift */; };
+		08EC16DC2CDD64B80055DB0B /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC16DB2CDD64B80055DB0B /* EndPoint.swift */; };
 		08FD1BF02CDC32A600944D95 /* SwiftShop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 08FD1BEE2CDC32A600944D95 /* SwiftShop.xcdatamodeld */; };
 		08FD1C4C2CDC39F400944D95 /* WishlistProduct+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FD1C4A2CDC39F400944D95 /* WishlistProduct+CoreDataClass.swift */; };
 		08FD1C4D2CDC39F400944D95 /* WishlistProduct+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FD1C4B2CDC39F400944D95 /* WishlistProduct+CoreDataProperties.swift */; };
@@ -192,6 +196,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08EC16D62CDD5C0A0055DB0B /* ProductServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductServices.swift; sourceTree = "<group>"; };
+		08EC16D92CDD62130055DB0B /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
+		08EC16DB2CDD64B80055DB0B /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		08FD1BEF2CDC32A600944D95 /* SwiftShop.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SwiftShop.xcdatamodel; sourceTree = "<group>"; };
 		08FD1C4A2CDC39F400944D95 /* WishlistProduct+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WishlistProduct+CoreDataClass.swift"; sourceTree = "<group>"; };
 		08FD1C4B2CDC39F400944D95 /* WishlistProduct+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WishlistProduct+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -394,6 +401,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2676D1B92CCED94F006F13DD /* Kingfisher in Frameworks */,
+				08EC16D12CDD5A1B0055DB0B /* NetworkLayer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +416,33 @@
 				08063BF12CD90C87007C43D0 /* View */,
 			);
 			path = SelectedCategory;
+			sourceTree = "<group>";
+		};
+		08552AFD2CDEA21E00C9A573 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				08FD1C4A2CDC39F400944D95 /* WishlistProduct+CoreDataClass.swift */,
+				08FD1C4B2CDC39F400944D95 /* WishlistProduct+CoreDataProperties.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		08EC16D42CDD5BD60055DB0B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				08EC16D82CDD61FC0055DB0B /* Product */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		08EC16D82CDD61FC0055DB0B /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				08EC16D92CDD62130055DB0B /* ProductModel.swift */,
+				08EC16D62CDD5C0A0055DB0B /* ProductServices.swift */,
+				08EC16DB2CDD64B80055DB0B /* EndPoint.swift */,
+			);
+			path = Product;
 			sourceTree = "<group>";
 		};
 		26055E7A2CA064320073D79E /* CollectionViewCells */ = {
@@ -1047,8 +1082,6 @@
 		2668592B2C482A0200EC2718 = {
 			isa = PBXGroup;
 			children = (
-				08FD1C4A2CDC39F400944D95 /* WishlistProduct+CoreDataClass.swift */,
-				08FD1C4B2CDC39F400944D95 /* WishlistProduct+CoreDataProperties.swift */,
 				266859362C482A0200EC2718 /* SwiftShop */,
 				266859352C482A0200EC2718 /* Products */,
 			);
@@ -1065,6 +1098,8 @@
 		266859362C482A0200EC2718 /* SwiftShop */ = {
 			isa = PBXGroup;
 			children = (
+				08552AFD2CDEA21E00C9A573 /* CoreData */,
+				08EC16D42CDD5BD60055DB0B /* Services */,
 				26C301012C88F86D00CFE4AD /* GoogleService-Info.plist */,
 				265701832CAB146E00B0240C /* Network  */,
 				2668594E2C482FDD00EC2718 /* Fonts */,
@@ -1073,7 +1108,7 @@
 				7FB312222CCC438D00EF47C3 /* Router */,
 				26EBD38F2CC9669800E7C45D /* Coordinator */,
 				260781362C4897FA00B778A2 /* CustomViews */,
-				2668595F2C48343C00EC2718 /* Views */,
+				2668595F2C48343C00EC2718 /* PresentationLayer */,
 				2668595E2C48335100EC2718 /* Common */,
 				266859402C482A0500EC2718 /* Assets.xcassets */,
 				266859422C482A0500EC2718 /* LaunchScreen.storyboard */,
@@ -1118,7 +1153,7 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		2668595F2C48343C00EC2718 /* Views */ = {
+		2668595F2C48343C00EC2718 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
 				7FBAD9CD2C965C2100CBA3D2 /* Auth */,
@@ -1134,7 +1169,7 @@
 				08063BEC2CD90C53007C43D0 /* SelectedCategory */,
 				263D6E812C9F96BF00994E64 /* Filter */,
 			);
-			path = Views;
+			path = PresentationLayer;
 			sourceTree = "<group>";
 		};
 		266859602C48348600EC2718 /* OnBoarding */ = {
@@ -2028,6 +2063,7 @@
 			name = SwiftShop;
 			packageProductDependencies = (
 				2676D1B82CCED94F006F13DD /* Kingfisher */,
+				08EC16D02CDD5A1B0055DB0B /* NetworkLayer */,
 			);
 			productName = "E-Commerce";
 			productReference = 266859342C482A0200EC2718 /* SwiftShop.app */;
@@ -2059,6 +2095,7 @@
 			mainGroup = 2668592B2C482A0200EC2718;
 			packageReferences = (
 				2676D1B72CCED94F006F13DD /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				08EC16CF2CDD5A1B0055DB0B /* XCRemoteSwiftPackageReference "CombineNetworkLayerPackage" */,
 			);
 			productRefGroup = 266859352C482A0200EC2718 /* Products */;
 			projectDirPath = "";
@@ -2148,8 +2185,10 @@
 				26A38A432CB5974D000C826A /* ProfileViewController.swift in Sources */,
 				26A38A4F2CB5A3B1000C826A /* ProfileTableViewCellModel.swift in Sources */,
 				2621D81C2CC9A966002EB8D3 /* AlertViewController.swift in Sources */,
+				08EC16DA2CDD62130055DB0B /* ProductModel.swift in Sources */,
 				262A21A82CBD968B000D6171 /* CardView.swift in Sources */,
 				263D6E8C2C9F971600994E64 /* FilterModel.swift in Sources */,
+				08EC16D72CDD5C0A0055DB0B /* ProductServices.swift in Sources */,
 				26BB08162CC01F5400D1F0A6 /* NotificationsControllViewController.swift in Sources */,
 				26055E852CA065A00073D79E /* CategoriesCollectionViewCell.swift in Sources */,
 				2676D1BB2CCEE648006F13DD /* Strings+Extentions.swift in Sources */,
@@ -2177,6 +2216,7 @@
 				265E1CB92CAEFB0600C588AD /* NotificationsViewController.swift in Sources */,
 				26F8A26C2CACD89D00699D1E /* WishlistModel.swift in Sources */,
 				2658C9AA2C8B220D0044CC37 /* ProductCollectionViewModel.swift in Sources */,
+				08EC16DC2CDD64B80055DB0B /* EndPoint.swift in Sources */,
 				2657018B2CAB15EA00B0240C /* Codable.swift in Sources */,
 				261018C52CB6150F00724863 /* GenderViewController.swift in Sources */,
 				26B043192C871880005DFF6A /* NewArriivalCollectionViewCell.swift in Sources */,
@@ -2485,6 +2525,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		08EC16CF2CDD5A1B0055DB0B /* XCRemoteSwiftPackageReference "CombineNetworkLayerPackage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/abdalazemSaleh/CombineNetworkLayerPackage";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		2676D1B72CCED94F006F13DD /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -2496,6 +2544,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		08EC16D02CDD5A1B0055DB0B /* NetworkLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 08EC16CF2CDD5A1B0055DB0B /* XCRemoteSwiftPackageReference "CombineNetworkLayerPackage" */;
+			productName = NetworkLayer;
+		};
 		2676D1B82CCED94F006F13DD /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2676D1B72CCED94F006F13DD /* XCRemoteSwiftPackageReference "Kingfisher" */;

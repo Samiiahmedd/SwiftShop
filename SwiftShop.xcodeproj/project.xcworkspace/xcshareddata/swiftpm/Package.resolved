@@ -1,6 +1,15 @@
 {
-  "originHash" : "917a2b512148612347b307b5f8d624e74df48af36fa322c80901a86fc0e1317f",
+  "originHash" : "8ee453ac184f1a049dc0fbd6cd7c46a261856db556c8daa563c132f11caa3fa7",
   "pins" : [
+    {
+      "identity" : "combinenetworklayerpackage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/abdalazemSaleh/CombineNetworkLayerPackage",
+      "state" : {
+        "branch" : "main",
+        "revision" : "7a0692fd7870433e8304316bbc3caf3df3c82b14"
+      }
+    },
     {
       "identity" : "kingfisher",
       "kind" : "remoteSourceControl",

@@ -12,7 +12,7 @@ class CartViewController: UIViewController {
     //MARK: - VARIABLES
     
     var viewModel = CartViewModel()
-    var carts: [CartResponse] = []
+    var carts: [CartItem] = []
     var allProductDetails: [PopularModel] = []
     
     //MARK: - IBOUTLETS

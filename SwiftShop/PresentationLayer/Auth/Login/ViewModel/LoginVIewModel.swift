@@ -29,14 +29,14 @@ class LoginViewModel {
     
     var coordinator: AuthCoordinatorProtocol
     private var cancellable = Set<AnyCancellable>()
-
+    
     var loginTriggered: PassthroughSubject<Void, Never> = .init()
     var forgetPasswordActionTriggered: PassthroughSubject<Void, Never> = .init()
     var backActionTriggerd: PassthroughSubject<Void, Never> = .init()
     
     var isLoading: PassthroughSubject<Bool, Never> = .init()
     var errorMessage: PassthroughSubject<String, Never> = .init()
-
+    
     var email: String = ""
     var password: String = ""
     
@@ -65,7 +65,7 @@ extension LoginViewModel: LoginViewModelProtocol {
 private extension LoginViewModel {
     func login() {
         guard !email.isEmpty, !password.isEmpty else {
-            errorMessage.send("Please enter valid email and password")
+            errorMessage.send("Please provide both email and password.")
             return
         }
         isLoading.send(true)
@@ -74,7 +74,6 @@ private extension LoginViewModel {
             do {
                 let body: [String: Any] = ["email": email, "password": password]
                 let user = try await netowkManager.postData(to: "/auth/login", body: body)
-                print("User data: \(user)")
                 isLoading.send(false)
                 AppCoordinator.shared.showTabBar()
             } catch {

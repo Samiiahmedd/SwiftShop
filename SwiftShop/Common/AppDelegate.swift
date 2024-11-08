@@ -7,6 +7,8 @@
 
 import UIKit
 import CoreData
+import NetworkLayer
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -14,7 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var appCoordinator: AppCoordinator?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        configureNetworkLayer()
         return true
+    }
+    
+    private func configureNetworkLayer() {
+        let netowrkManager = NetworkConfigurationManager.shared
+        let baseURL = "fakestoreapi.com"
+        netowrkManager.setBaseURL(baseURL)
+        netowrkManager.setEnvironment(.production)
     }
     
     // MARK: - Core Data stack

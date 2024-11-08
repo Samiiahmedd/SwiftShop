@@ -49,6 +49,7 @@ extension AlertViewController {
     func setupView() {
         setupAlert()
         addBlurEffect()
+        dismissAlertWithTimer()
     }
     func setupAlert() {
         imageView.image = alertImage
@@ -75,5 +76,22 @@ extension AlertViewController {
         alertVC.modalPresentationStyle = .overFullScreen
         alertVC.modalTransitionStyle = .crossDissolve 
         viewController.present(alertVC, animated: true, completion: nil)
+    }
+    
+    private func dismissAlertShape() {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.mainView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+                self.mainView.alpha = 0
+            }) { _ in
+                self.dismiss(animated: false) {
+                    self.buttonAction?()
+                }
+            }
+        }
+    
+    func dismissAlertWithTimer() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                  self.dismissAlertShape()
+              }
     }
 }
