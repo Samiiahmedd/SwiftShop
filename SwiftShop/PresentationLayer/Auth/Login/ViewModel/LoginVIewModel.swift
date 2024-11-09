@@ -63,17 +63,18 @@ extension LoginViewModel: LoginViewModelProtocol {
 }
 
 private extension LoginViewModel {
+    
     func login() {
         guard !email.isEmpty, !password.isEmpty else {
             errorMessage.send("Please provide both email and password.")
             return
         }
         isLoading.send(true)
-        let netowkManager = NetworkManager<User>()
+        let networkManager = NetworkManager<User>()
         Task {
             do {
                 let body: [String: Any] = ["email": email, "password": password]
-                let user = try await netowkManager.postData(to: "/auth/login", body: body)
+                let user = try await networkManager.postData(to: "/auth/login", body: body)
                 isLoading.send(false)
                 AppCoordinator.shared.showTabBar()
             } catch {

@@ -9,51 +9,37 @@ import UIKit
 
 class OnBoardingViewController: UIViewController {
     
-    // MARK: - Variables
+    // MARK: - VARIABLES
     
-    var slides: [OnboardingSlide] = []
+    var viewModel = OnBoardingViewModel()
+    var coordinator: AuthCoordinatorProtocol?
     var currentPage = 0 {
         didSet{
             pageControl.currentPage = currentPage
         }
     }
-    var coordinator: AuthCoordinatorProtocol?
-
     
-    //MARK: -IBOUtlet
+    //MARK: - @IBOUTLETS
     
     @IBOutlet var onBoardingImageView: UIImageView!
     @IBOutlet var onboardingTitle: UILabel!
     @IBOutlet var onBoardingDescription: UILabel!
     @IBOutlet var nextButton: UIButton!
     @IBOutlet var pageControl: UIPageControl!
+    
+    //MARK: - VIEW LIFE CYCLE
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         navigationController?.setNavigationBarHidden(true, animated: true)
-        slides = [ .init(image: UIImage(named: "OnBoarding1")!,
-                         title: "20% Discount New Arrival Product",
-                         descrption: "Publish up your selfies to make yourself more beautiful with this app."
-                        ),
-                   .init(
-                    image: UIImage(named: "OnBoarding2")!,
-                    title: "Take Advantage Of The Offer Shopping ",
-                    descrption: "Publish up your selfies to make yourself more beautiful with this app."
-                   ),
-                   .init(
-                    image: UIImage(named: "OnBoarding3")!,
-                    title: "All Types Offers Within Your Reach",
-                    descrption: "Publish up your selfies to make yourself more beautiful with this app."
-                   )
-        ]
-        pageControl.numberOfPages = slides.count
+        pageControl.numberOfPages = viewModel.slides.count
         updateSlideContent()
     }
     
-    //MARK: -IBAction
+    //MARK: -IBACTIONS
     
     @IBAction func nextButton(_ sender: Any) {
-        if currentPage < slides.count - 1 {
+        if currentPage < viewModel.slides.count - 1 {
             currentPage += 1
             updateSlideContent()
         } else {
@@ -61,10 +47,10 @@ class OnBoardingViewController: UIViewController {
         }
     }
     
-    //MARK: -Functions
+    //MARK: -FUNCTIONS
     
     private func updateSlideContent() {
-           let slide = slides[currentPage]
+        let slide = viewModel.slides[currentPage]
            UIView.transition(with: onBoardingImageView, duration: 0.3, options: .transitionCrossDissolve, animations: {
                self.onBoardingImageView.image = slide.image
            }, completion: nil)

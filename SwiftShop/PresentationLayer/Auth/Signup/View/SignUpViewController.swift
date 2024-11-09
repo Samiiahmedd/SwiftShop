@@ -10,7 +10,7 @@ import Combine
 
 class SignUpViewController: UIViewController {
     
-    //MARK: -IBOUtlet
+    //MARK: - IBOUTLETS
     
     @IBOutlet weak var navBar: CustomNavBar!
     @IBOutlet weak var loaderView: UIActivityIndicatorView!
@@ -19,25 +19,45 @@ class SignUpViewController: UIViewController {
     @IBOutlet var emailTxtField: UITextField!
     @IBOutlet var confirmPasswordTxtField: UITextField!
     @IBOutlet var passwordTxtField: UITextField!
-    
     @IBOutlet weak var signupButton: UIButton!
+    @IBOutlet weak var checkMarkButton: UIButton!
     
     //MARK: - VARIBALES
     var coordinator: AuthCoordinatorProtocol?
-    private var viewModel: SignUpViewModelProtocol = SignUpViewModel()
+    private var viewModel: SignUpViewModelProtocol
     private var cancellable = Set<AnyCancellable>()
     
-    //MARK: -ViewLifeCycle
+    //MARK: - VIEW LIFE CYCLE
+    init(viewModel: SignUpViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         bindViewModel()
+        configureKeyboardHandling()
+    }
+    deinit {
+        removeKeyboardHandling()
     }
     
-    //MARK: -IBActions
+    //MARK: -IBACTIONS
     
     @IBAction func signupButton(_ sender: Any) {
         makeSignupRequest()
+    }
+    
+    @IBAction func checkMarkButtonTapped(_ sender: UIButton) {
+        sender.isSelected.toggle()
+        let imageName = sender.isSelected ? "checkmark.circle.fill" : "checkmark.circle"
+            checkMarkButton.setImage(UIImage(systemName: imageName), for: .normal)
     }
 }
 
@@ -48,6 +68,7 @@ private extension SignUpViewController {
         handelEndEditing()
         configureTextFields()
         configureNavBar()
+        configureCheckMark()
     }
             
     func configureTextFields() {
@@ -103,6 +124,10 @@ private extension SignUpViewController {
             confirmPasswordTxtField.insertText(existingText)
         }
     }
+    
+    func configureCheckMark() {
+        checkMarkButton.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
+    }
 }
 
 // MARK: - VIEW MODEL
@@ -111,7 +136,6 @@ private extension SignUpViewController {
     func bindViewModel() {
         bindIsLoading()
         bindErrorState()
-        bindIsUserCreated()
     }
     
     func bindIsLoading() {
@@ -128,30 +152,19 @@ private extension SignUpViewController {
     func bindErrorState() {
         viewModel.errorMessage.sink { [weak self] error in
             guard let self else { return }
-            showErrorAlert(message: error)
-        }.store(in: &cancellable)
-    }
-    
-    func bindIsUserCreated() {
-        viewModel.isUserCreated.sink { [weak self] isLogin in
-            guard let self else { return }
-            navigateToHomeVC()
+            AlertViewController.showAlert(on: self, image:UIImage(systemName: "xmark.circle.fill")!, title: "Signup Failed", message: error, buttonTitle: "OK") {
+            }
         }.store(in: &cancellable)
     }
     
     func makeSignupRequest() {
-        Task {
-            guard let name = nameTxtField.text, !name.isEmpty,
-                  let email = emailTxtField.text, !email.isEmpty,
-                  let password = passwordTxtField.text, !password.isEmpty,
-                  let confirmPassword = confirmPasswordTxtField.text, !confirmPassword.isEmpty,
-                  password == confirmPassword else { return }
-            
-            await viewModel.signup(with: name, email: email, password: password, confirmPassword: confirmPassword)
+        viewModel.name = nameTxtField.text ?? ""
+        viewModel.email = emailTxtField.text ?? ""
+        viewModel.password = passwordTxtField.text ?? ""
+        viewModel.confirmPassword = confirmPasswordTxtField.text ?? ""
+        viewModel.isUserCreated.send()
         }
     }
-}
-
 
 // MARK: - TEXT FIELD DELEGATE
 

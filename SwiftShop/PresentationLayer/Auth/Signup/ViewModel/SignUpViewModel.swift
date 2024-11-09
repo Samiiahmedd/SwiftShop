@@ -10,77 +10,82 @@ import Combine
 
 @MainActor
 protocol SignUpViewModelProtocol {
-    var isUserCreated: PassthroughSubject<Bool, Never> { get }
+    
+    /// output
     var isLoading: PassthroughSubject<Bool, Never> { get }
     var errorMessage: PassthroughSubject<String, Never> { get }
     
-    func signup(with name: String, email: String, password:String, confirmPassword: String ) async
+    /// input
+    var isUserCreated: PassthroughSubject<Void, Never> { get }
+    var backActionTriggerd: PassthroughSubject<Void, Never>  { get }
+    
+    ///variables
+    var name: String { get set }
+    var  email: String { get set }
+    var  password: String { get set }
+    var  confirmPassword: String { get set }
 }
 
-class SignUpViewModel{
-    var isUserCreated: PassthroughSubject<Bool, Never> = .init()
+class SignUpViewModel  {
+    
+    var coordinator: AuthCoordinatorProtocol
+    private var cancellable = Set<AnyCancellable>()
+    
+    var isUserCreated: PassthroughSubject<Void, Never> = .init()
+    var backActionTriggerd: PassthroughSubject<Void, Never> = .init()
     var isLoading: PassthroughSubject<Bool, Never> = .init()
     var errorMessage: PassthroughSubject<String, Never> = .init()
     
-    init() { }
-}
+    var name: String = ""
+    var email: String = ""
+    var password: String = ""
+    var confirmPassword: String = ""
+    
+    init(coordinator: AuthCoordinatorProtocol) {
+        self.coordinator = coordinator
+        bindIsSignupTriggered()
+    }}
 
 extension SignUpViewModel: SignUpViewModelProtocol {
-    func signup(with name: String, email: String, password: String, confirmPassword: String) async {
+    func bindIsSignupTriggered() {
+        isUserCreated
+            .sink { [weak self] _ in self?.signup() }
+            .store(in: &cancellable)
         
-        isLoading.send(true)
-        guard let url = URL(string: "\(Constants.baseURL)/auth/signup") else {
-            isLoading.send(false)
-            errorMessage.send("Invalid URL")
-            return
-        }
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        let body: [String: Any] = ["name" : name,"email": email, "password": password, "confirmPassword" : confirmPassword]
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: body, options: [])
-        } catch {
-            isLoading.send(false)
-            errorMessage.send("Failed to encode signUp data.")
-            return
-        }
-        do {
-            let (data, response) = try await URLSession.shared.data(for: request)
-            if let httpResponse = response as? HTTPURLResponse {
-                isLoading.send(false)
-                
-                switch httpResponse.statusCode {
-                case 201:
-                    // Successful SignUp
-                    let user = try JSONDecoder().decode(User.self, from: data)
-                    isUserCreated.send(true)
-                    print("User signed up successfully: \(user)")
-                    
-                case 400:
-                    // Bad Request
-                    errorMessage.send("Invalid email or password.")
-                    
-                case 409:
-                    // Conflict: User already exists
-                    errorMessage.send("A user with this email already exists.")
-                    
-                case 500:
-                    // Internal Server Error
-                    errorMessage.send("Server is currently unavailable. Please try again later.")
-                    
-                default:
-                    // Handle other status codes as necessary
-                    errorMessage.send("An unexpected error occurred. Status code: \(httpResponse.statusCode)")
-                }
-            } else {
-                isLoading.send(false)
-                errorMessage.send("Failed to receive a valid response from the server.")
-            }
-        } catch {
-            isLoading.send(false)
-            errorMessage.send(error.localizedDescription)
-        }
+        backActionTriggerd
+            .sink { [weak self] _ in self?.coordinator.pop() }
+            .store(in: &cancellable)
     }
 }
 
+private extension SignUpViewModel {
+    func signup() {
+        guard
+            !email.isEmpty, !password.isEmpty, !name.isEmpty, !confirmPassword.isEmpty else {
+            errorMessage.send("Please Fill All Fields.")
+            return
+        }
+        guard password == confirmPassword else {
+            errorMessage.send("Passwords do not match.")
+            return
+        }
+        isLoading.send(true)
+        let networkManager = NetworkManager<User>()
+        Task {
+            do {
+                let body: [String: Any] = [
+                    "name": name,
+                    "email": email,
+                    "password": password,
+                    "confirmPassword": confirmPassword
+                ]
+                _ = try await networkManager.postData(to: "/auth/signup", body: body)
+                isLoading.send(false)
+                coordinator.popToLogin()
+            } catch {
+                isLoading.send(false)
+                errorMessage.send(error.localizedDescription)
+            }
+        }
+    }
+}

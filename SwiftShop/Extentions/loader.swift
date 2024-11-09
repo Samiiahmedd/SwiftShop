@@ -7,7 +7,7 @@
 
 
 import UIKit
-
+@MainActor
 extension UIViewController {
     private struct AssociatedKeys {
         static var loaderKey = "loaderKey"
@@ -35,8 +35,11 @@ extension UIViewController {
     }
     
     func hideLoader() {
-        loaderAlert?.dismiss(animated: true, completion: nil)
-        loaderAlert = nil
+        DispatchQueue.main.async {
+            self.loaderAlert?.dismiss(animated: true, completion: nil)
+            self.loaderAlert = nil
+        }
     }
+
 }
 

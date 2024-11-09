@@ -27,6 +27,8 @@ class LoginViewController: UIViewController {
     
     private var viewModel: LoginViewModelProtocol
     private var cancellable = Set<AnyCancellable>()
+    var coordinator: AuthCoordinatorProtocol?
+
     
     //MARK: -ViewLifeCycle
     
@@ -49,9 +51,7 @@ class LoginViewController: UIViewController {
         removeKeyboardHandling()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
+
     
     //MARK: - @IBACTIONS
     
@@ -64,7 +64,8 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func fbLogin(_ sender: Any) {
-        
+        coordinator?.displaySignup()
+
     }
     
     @IBAction func appleLogin(_ sender: Any) {

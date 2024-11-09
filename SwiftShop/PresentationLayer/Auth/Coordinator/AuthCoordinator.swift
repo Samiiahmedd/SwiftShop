@@ -8,6 +8,8 @@
 import UIKit
 
 protocol AuthCoordinatorProtocol: Coordinator {
+    func displayOnBoarding()
+    func displayStartScreen()
     func displayLogin()
     func displaySignup()
     func displayForgetPassword()
@@ -27,11 +29,24 @@ final class AuthCoordinator {
     }
     
     func start() {
-        displayLogin()
+        displayStartScreen()
     }
 }
 
 extension AuthCoordinator: AuthCoordinatorProtocol {
+    
+    func displayStartScreen() {
+        DispatchQueue.main.async {
+            let vc = StartScreenViewController()
+            vc.coordinator = self
+            self.router.push(vc)
+        }
+    }
+    
+    func displayOnBoarding() {
+        
+    }
+    
     func displayLogin() {
         DispatchQueue.main.async {
             let viewModel = LoginViewModel(coordinator: self)
@@ -42,7 +57,8 @@ extension AuthCoordinator: AuthCoordinatorProtocol {
     
     func displaySignup() {
         DispatchQueue.main.async {
-            let vc = SignUpViewController()
+            let viewModel = SignUpViewModel(coordinator: self)
+            let vc = SignUpViewController(viewModel: viewModel)
             vc.coordinator = self
             self.router.push(vc)
         }

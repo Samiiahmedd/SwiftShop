@@ -7,6 +7,7 @@
 
 import UIKit
 
+@MainActor
 class AlertViewController: UIViewController {
     
     //MARK: - @IBOUTLETS
@@ -67,16 +68,20 @@ extension AlertViewController {
         }
     
     static func showAlert(on viewController: UIViewController, image: UIImage, title: String, message: String, buttonTitle: String, action: @escaping () -> Void) {
-        let alertVC = AlertViewController.instantiateFromXIB()!
-        alertVC.alertImage = image
-        alertVC.alertTitle = title
-        alertVC.alertMessage = message
-        alertVC.buttonTitle = buttonTitle
-        alertVC.buttonAction = action
-        alertVC.modalPresentationStyle = .overFullScreen
-        alertVC.modalTransitionStyle = .crossDissolve 
-        viewController.present(alertVC, animated: true, completion: nil)
+        // Ensure UI-related tasks are on the main thread
+        DispatchQueue.main.async {
+            let alertVC = AlertViewController.instantiateFromXIB()!
+            alertVC.alertImage = image
+            alertVC.alertTitle = title
+            alertVC.alertMessage = message
+            alertVC.buttonTitle = buttonTitle
+            alertVC.buttonAction = action
+            alertVC.modalPresentationStyle = .overFullScreen
+            alertVC.modalTransitionStyle = .crossDissolve
+            viewController.present(alertVC, animated: true, completion: nil)
+        }
     }
+
     
     private func dismissAlertShape() {
             UIView.animate(withDuration: 0.5, animations: {

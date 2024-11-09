@@ -45,7 +45,6 @@ class ShippingAddressViewController: UIViewController {
               let city = cityTextField.text, !city.isEmpty,
               let address = addressTextField.text, !address.isEmpty,
               let zip = zipcodeTextField.text, !zip.isEmpty else {
-            showErrorAlert(message: "Please Fill All Fields!")
             return
         }
         let newAddress = Address(name: name, phone: phone,city: city, address: address,zipCode: zip)

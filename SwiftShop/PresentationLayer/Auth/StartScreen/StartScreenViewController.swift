@@ -8,19 +8,25 @@
 import UIKit
 
 class StartScreenViewController: UIViewController {
+    
+    //MARK: - VARIABLES
+    
+    var coordinator: AuthCoordinatorProtocol?
 
-    //MARK: -IBOUtlet
+    //MARK: - IBOUTLETS
+    
     @IBOutlet var loginBtn: UIButton!
     @IBOutlet var signUpBtn: UIButton!
     
-    var coordinator: AuthCoordinatorProtocol?
     
-    //MARK: -ViewLifeCycle
+    //MARK: - VIEW LIFE CYCLE
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    //MARK: -IBAction
+    //MARK: - @IBACTIONS
+    
     @IBAction func loginBtn(_ sender: Any) {
         coordinator?.displayLogin()
     }
