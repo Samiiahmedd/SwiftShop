@@ -193,6 +193,10 @@
 		7FB312242CCC43A200EF47C3 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB312232CCC43A200EF47C3 /* Router.swift */; };
 		7FB312262CCC43A700EF47C3 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB312252CCC43A700EF47C3 /* AppRouter.swift */; };
 		7FB312282CCC4D8300EF47C3 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB312272CCC4D8300EF47C3 /* HomeCoordinator.swift */; };
+		7FB469472CDFF6A600A5C586 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB469462CDFF6A600A5C586 /* AuthServices.swift */; };
+		7FB469492CDFF6B100A5C586 /* AuthEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB469482CDFF6B100A5C586 /* AuthEndPoint.swift */; };
+		7FB4694E2CDFF6D400A5C586 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB4694D2CDFF6D400A5C586 /* UserModel.swift */; };
+		7FB4697C2CE0019100A5C586 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB4697B2CE0019100A5C586 /* BaseModel.swift */; };
 		7FBAD9C12C961D0400CBA3D2 /* LoginVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBAD9C02C961D0400CBA3D2 /* LoginVIewModel.swift */; };
 		7FBAD9C72C964CB600CBA3D2 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBAD9C62C964CB600CBA3D2 /* SignUpViewModel.swift */; };
 		7FBAD9CC2C96551B00CBA3D2 /* UIViewControllerExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBAD9CB2C96551B00CBA3D2 /* UIViewControllerExtention.swift */; };
@@ -390,6 +394,10 @@
 		7FB312232CCC43A200EF47C3 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		7FB312252CCC43A700EF47C3 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		7FB312272CCC4D8300EF47C3 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		7FB469462CDFF6A600A5C586 /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
+		7FB469482CDFF6B100A5C586 /* AuthEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthEndPoint.swift; sourceTree = "<group>"; };
+		7FB4694D2CDFF6D400A5C586 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		7FB4697B2CE0019100A5C586 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		7FBAD9C02C961D0400CBA3D2 /* LoginVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVIewModel.swift; sourceTree = "<group>"; };
 		7FBAD9C62C964CB600CBA3D2 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		7FBAD9CB2C96551B00CBA3D2 /* UIViewControllerExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtention.swift; sourceTree = "<group>"; };
@@ -453,6 +461,7 @@
 		08EC16D42CDD5BD60055DB0B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				7FB469452CDFF69800A5C586 /* Auth */,
 				08EC16D82CDD61FC0055DB0B /* Product */,
 			);
 			path = Services;
@@ -1124,19 +1133,17 @@
 			children = (
 				08552AFD2CDEA21E00C9A573 /* CoreData */,
 				08EC16D42CDD5BD60055DB0B /* Services */,
-				26C301012C88F86D00CFE4AD /* GoogleService-Info.plist */,
 				265701832CAB146E00B0240C /* Network  */,
 				2668594E2C482FDD00EC2718 /* Fonts */,
 				2668594D2C482F8900EC2718 /* Extentions */,
 				7F8256902CB1D7FB009294E8 /* Wrappers */,
-				7FB312222CCC438D00EF47C3 /* Router */,
-				26EBD38F2CC9669800E7C45D /* Coordinator */,
 				260781362C4897FA00B778A2 /* CustomViews */,
 				2668595F2C48343C00EC2718 /* PresentationLayer */,
 				2668595E2C48335100EC2718 /* Common */,
 				266859402C482A0500EC2718 /* Assets.xcassets */,
 				266859422C482A0500EC2718 /* LaunchScreen.storyboard */,
 				266859452C482A0500EC2718 /* Info.plist */,
+				26C301012C88F86D00CFE4AD /* GoogleService-Info.plist */,
 				08FD1BEE2CDC32A600944D95 /* SwiftShop.xcdatamodeld */,
 			);
 			path = SwiftShop;
@@ -1180,6 +1187,7 @@
 		2668595F2C48343C00EC2718 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				7FB469442CDFF5DC00A5C586 /* Routing */,
 				7FBAD9CD2C965C2100CBA3D2 /* Auth */,
 				269363B62C821AAE00662442 /* MainTabBar */,
 				269363B92C821C2C00662442 /* Home */,
@@ -1993,6 +2001,7 @@
 			isa = PBXGroup;
 			children = (
 				7F8256912CB1D822009294E8 /* UserDefultsWrapper.swift */,
+				7FB4697B2CE0019100A5C586 /* BaseModel.swift */,
 			);
 			path = Wrappers;
 			sourceTree = "<group>";
@@ -2020,6 +2029,49 @@
 				7FB312252CCC43A700EF47C3 /* AppRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		7FB469442CDFF5DC00A5C586 /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				7FB312222CCC438D00EF47C3 /* Router */,
+				26EBD38F2CC9669800E7C45D /* Coordinator */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		7FB469452CDFF69800A5C586 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				7FB4694A2CDFF6B400A5C586 /* EndPoint */,
+				7FB4694C2CDFF6B900A5C586 /* Model */,
+				7FB4694B2CDFF6B600A5C586 /* Service */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		7FB4694A2CDFF6B400A5C586 /* EndPoint */ = {
+			isa = PBXGroup;
+			children = (
+				7FB469482CDFF6B100A5C586 /* AuthEndPoint.swift */,
+			);
+			path = EndPoint;
+			sourceTree = "<group>";
+		};
+		7FB4694B2CDFF6B600A5C586 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				7FB469462CDFF6A600A5C586 /* AuthServices.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		7FB4694C2CDFF6B900A5C586 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7FB4694D2CDFF6D400A5C586 /* UserModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		7FBAD9BF2C961CF800CBA3D2 /* ViewModel */ = {
@@ -2249,6 +2301,7 @@
 				26F8A2692CACCF2F00699D1E /* WishlistViewController.swift in Sources */,
 				26AE38B02C89D8E20086E8FB /* SearchCategoriesViewController.swift in Sources */,
 				264F5F842CB6E258003E18E5 /* SelectLanguageViewModel.swift in Sources */,
+				7FB469492CDFF6B100A5C586 /* AuthEndPoint.swift in Sources */,
 				7FB3121E2CCC428B00EF47C3 /* TabBarCoordinator.swift in Sources */,
 				2669F0372C88CEEE00A386B2 /* PopularModel.swift in Sources */,
 				2610DD0C2C8CBDC5005739A3 /* ProductDetailsModel.swift in Sources */,
@@ -2260,6 +2313,7 @@
 				267C17EE2CB734EF00829D54 /* MyOrdersViewModel.swift in Sources */,
 				26D66DAC2C603D6A00EC03A9 /* SucessViewController.swift in Sources */,
 				260781382C48982800B778A2 /* NavigationController.swift in Sources */,
+				7FB469472CDFF6A600A5C586 /* AuthServices.swift in Sources */,
 				265701902CAB165400B0240C /* LoginModel.swift in Sources */,
 				265AE97D2CA091BE00216175 /* RangeSlider.swift in Sources */,
 				26AE38B22C89D9300086E8FB /* SearchCategoriesViewModel.swift in Sources */,
@@ -2288,6 +2342,7 @@
 				7FB312282CCC4D8300EF47C3 /* HomeCoordinator.swift in Sources */,
 				26FCD84E2C8D265700D7C3A8 /* CartViewModel.swift in Sources */,
 				7FB312242CCC43A200EF47C3 /* Router.swift in Sources */,
+				7FB4697C2CE0019100A5C586 /* BaseModel.swift in Sources */,
 				266A7DA52CB72DB0009F3445 /* MyOrdersTableViewCell.swift in Sources */,
 				261D541E2C9F8C3F001620BF /* CustomSearchBar.swift in Sources */,
 				2668593A2C482A0200EC2718 /* SceneDelegate.swift in Sources */,
@@ -2320,6 +2375,7 @@
 				26CB3D8B2C861E960029087C /* BannerCollectionViewCell.swift in Sources */,
 				7F5B02032C89034900573B53 /* CollectionView+.swift in Sources */,
 				26D902D42CACC68F00B1BF1E /* WishlistTableViewCell.swift in Sources */,
+				7FB4694E2CDFF6D400A5C586 /* UserModel.swift in Sources */,
 				083012DD2CDF032400370F09 /* OnBoardingViewModel.swift in Sources */,
 				269363B82C821AFF00662442 /* MainTabBarViewController.swift in Sources */,
 				26AAA3BE2CB5F11C00C4F92D /* SettingViewController.swift in Sources */,

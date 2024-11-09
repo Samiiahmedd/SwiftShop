@@ -21,6 +21,8 @@ final class AppCoordinator {
     private init() {
         router = AppRouter(navigationController: .init())
         router.navigationController.navigationBar.isHidden = true
+        let userData = UserDefaults.standard.data(forKey: "User")
+        isLogin = userData == nil ? false : true
     }
 }
 

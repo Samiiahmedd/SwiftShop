@@ -27,6 +27,8 @@ protocol LoginViewModelProtocol {
 @MainActor
 class LoginViewModel {
     
+    private let services: AuthServicesProtocol
+    
     var coordinator: AuthCoordinatorProtocol
     private var cancellable = Set<AnyCancellable>()
     
@@ -40,7 +42,9 @@ class LoginViewModel {
     var email: String = ""
     var password: String = ""
     
-    init(coordinator: AuthCoordinatorProtocol) {
+    init(services: AuthServicesProtocol = AuthServices(),
+         coordinator: AuthCoordinatorProtocol) {
+        self.services = services
         self.coordinator = coordinator
         bindIsLoginTriggered()
     }
@@ -65,22 +69,29 @@ extension LoginViewModel: LoginViewModelProtocol {
 private extension LoginViewModel {
     
     func login() {
-        guard !email.isEmpty, !password.isEmpty else {
+        isLoading.send(true)
+        
+        let body = LoginBody(email: email, password: password)
+        guard body.isValid() else {
+            isLoading.send(false)
             errorMessage.send("Please provide both email and password.")
             return
         }
-        isLoading.send(true)
-        let networkManager = NetworkManager<User>()
-        Task {
-            do {
-                let body: [String: Any] = ["email": email, "password": password]
-                let user = try await networkManager.postData(to: "/auth/login", body: body)
+        
+        services.login(with: body)
+            .sink { [weak self] completion in
+                guard let self else { return }
                 isLoading.send(false)
+                switch completion {
+                case .finished:
+                    print("Go to reviced value")
+                case .failure(let error):
+                    errorMessage.send(error.localizedDescription)
+                }
+            } receiveValue: { user in
+                UserDefaults.standard.set(user.data, forKey: "User")
                 AppCoordinator.shared.showTabBar()
-            } catch {
-                isLoading.send(false)
-                errorMessage.send(error.localizedDescription)
             }
-        }
+            .store(in: &cancellable)
     }
 }

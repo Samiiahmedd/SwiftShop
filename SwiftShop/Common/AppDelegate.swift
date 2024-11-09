@@ -22,9 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func configureNetworkLayer() {
         let netowrkManager = NetworkConfigurationManager.shared
-        let baseURL = "fakestoreapi.com"
+        let baseURL = "student.valuxapps.com"
         netowrkManager.setBaseURL(baseURL)
         netowrkManager.setEnvironment(.production)
+        #if DEBUG
+        netowrkManager.setLoggerEnabled(true)
+        #endif
     }
     
     // MARK: - Core Data stack
