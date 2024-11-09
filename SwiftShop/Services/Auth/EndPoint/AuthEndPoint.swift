@@ -17,10 +17,9 @@ enum AuthEndPoint: EndPoint {
     var path: String {
         switch self {
         case .login:
-//            "/api/login"
-            "/auth/login"
+            "/api/login"
         case .signup:
-            ""
+            "/api/register"
         case .verfiyEmail:
             ""
         case .resetPassword:

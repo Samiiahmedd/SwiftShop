@@ -17,7 +17,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet var nameTxtField: UITextField!
     @IBOutlet var emailTxtField: UITextField!
-    @IBOutlet var confirmPasswordTxtField: UITextField!
+    @IBOutlet var phoneNumberTextField: UITextField!
     @IBOutlet var passwordTxtField: UITextField!
     @IBOutlet weak var signupButton: UIButton!
     @IBOutlet weak var checkMarkButton: UIButton!
@@ -72,7 +72,7 @@ private extension SignUpViewController {
     }
             
     func configureTextFields() {
-        let textFields: [UITextField] = [nameTxtField, emailTxtField,passwordTxtField,confirmPasswordTxtField ]
+        let textFields: [UITextField] = [nameTxtField,phoneNumberTextField, emailTxtField,passwordTxtField ]
         textFields.forEach { $0.delegate = self }
         addPasswordToggleButtons()
     }
@@ -95,14 +95,6 @@ private extension SignUpViewController {
         passwordToggleBtn.tintColor = .black
         passwordTxtField.rightView = passwordToggleBtn
         passwordTxtField.rightViewMode = .always
-
-        let confirmPasswordToggleBtn = UIButton(type: .custom)
-        confirmPasswordToggleBtn.setImage(UIImage(systemName: "eye"), for: .normal)
-        confirmPasswordToggleBtn.setImage(UIImage(systemName: "eye.slash"), for: .selected)
-        confirmPasswordToggleBtn.addTarget(self, action: #selector(toggleConfirmPasswordVisibility(_:)), for: .touchUpInside)
-        confirmPasswordToggleBtn.tintColor = .black
-        confirmPasswordTxtField.rightView = confirmPasswordToggleBtn
-        confirmPasswordTxtField.rightViewMode = .always
     }
 
     @objc func togglePasswordVisibility(_ sender: UIButton) {
@@ -115,15 +107,6 @@ private extension SignUpViewController {
         }
     }
 
-    @objc func toggleConfirmPasswordVisibility(_ sender: UIButton) {
-        sender.isSelected.toggle()
-        confirmPasswordTxtField.isSecureTextEntry.toggle()
-        
-        if let existingText = confirmPasswordTxtField.text, confirmPasswordTxtField.isSecureTextEntry {
-            confirmPasswordTxtField.deleteBackward()
-            confirmPasswordTxtField.insertText(existingText)
-        }
-    }
     
     func configureCheckMark() {
         checkMarkButton.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
@@ -159,9 +142,10 @@ private extension SignUpViewController {
     
     func makeSignupRequest() {
         viewModel.name = nameTxtField.text ?? ""
+        
         viewModel.email = emailTxtField.text ?? ""
         viewModel.password = passwordTxtField.text ?? ""
-        viewModel.confirmPassword = confirmPasswordTxtField.text ?? ""
+        
         viewModel.isUserCreated.send()
         }
     }
@@ -172,11 +156,11 @@ extension SignUpViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case nameTxtField:
+            phoneNumberTextField.becomeFirstResponder()
+        case phoneNumberTextField:
             emailTxtField.becomeFirstResponder()
         case emailTxtField:
             passwordTxtField.becomeFirstResponder()
-        case passwordTxtField:
-            confirmPasswordTxtField.becomeFirstResponder()
         default:
             makeSignupRequest()
             view.endEditing(true)

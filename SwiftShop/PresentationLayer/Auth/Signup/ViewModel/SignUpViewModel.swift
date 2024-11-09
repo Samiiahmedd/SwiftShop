@@ -21,13 +21,15 @@ protocol SignUpViewModelProtocol {
     
     ///variables
     var name: String { get set }
+    var phone: String { get set }
     var  email: String { get set }
     var  password: String { get set }
-    var  confirmPassword: String { get set }
 }
 
+@MainActor
 class SignUpViewModel  {
     
+    private let services: AuthServicesProtocol
     var coordinator: AuthCoordinatorProtocol
     private var cancellable = Set<AnyCancellable>()
     
@@ -37,14 +39,17 @@ class SignUpViewModel  {
     var errorMessage: PassthroughSubject<String, Never> = .init()
     
     var name: String = ""
+    var phone: String = ""
     var email: String = ""
     var password: String = ""
-    var confirmPassword: String = ""
     
-    init(coordinator: AuthCoordinatorProtocol) {
+    init(services: AuthServicesProtocol = AuthServices(),
+         coordinator: AuthCoordinatorProtocol) {
+        self.services = services
         self.coordinator = coordinator
         bindIsSignupTriggered()
-    }}
+    }
+}
 
 extension SignUpViewModel: SignUpViewModelProtocol {
     func bindIsSignupTriggered() {
@@ -59,33 +64,31 @@ extension SignUpViewModel: SignUpViewModelProtocol {
 }
 
 private extension SignUpViewModel {
+    
     func signup() {
-        guard
-            !email.isEmpty, !password.isEmpty, !name.isEmpty, !confirmPassword.isEmpty else {
-            errorMessage.send("Please Fill All Fields.")
-            return
-        }
-        guard password == confirmPassword else {
-            errorMessage.send("Passwords do not match.")
-            return
-        }
         isLoading.send(true)
-        let networkManager = NetworkManager<User>()
-        Task {
-            do {
-                let body: [String: Any] = [
-                    "name": name,
-                    "email": email,
-                    "password": password,
-                    "confirmPassword": confirmPassword
-                ]
-                _ = try await networkManager.postData(to: "/auth/signup", body: body)
-                isLoading.send(false)
-                coordinator.popToLogin()
-            } catch {
-                isLoading.send(false)
-                errorMessage.send(error.localizedDescription)
-            }
+        
+        let body = SignupBody(name: name, phone: phone, email: email, password: password)
+        guard body.isValid() else {
+            isLoading.send(false)
+            errorMessage.send("All fields are required!")
+            return
         }
+        
+        services.signup(with: body)
+            .sink { [weak self] completion in
+                guard let self else { return }
+                isLoading.send(false)
+                switch completion {
+                case .finished:
+                    print("Go to reviced value")
+                case .failure(let error):
+                    errorMessage.send(error.localizedDescription)
+                }
+            } receiveValue: { user in
+                UserDefaults.standard.set(user.data, forKey: "User")
+                self.coordinator.popToLogin()
+            }
+            .store(in: &cancellable)
     }
 }

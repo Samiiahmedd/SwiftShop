@@ -28,7 +28,6 @@ protocol LoginViewModelProtocol {
 class LoginViewModel {
     
     private let services: AuthServicesProtocol
-    
     var coordinator: AuthCoordinatorProtocol
     private var cancellable = Set<AnyCancellable>()
     
