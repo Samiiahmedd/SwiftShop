@@ -1,5 +1,5 @@
 //
-//  EndPoint.swift
+//  ProductEndPoint.swift
 //  SwiftShop
 //
 //  Created by Sami Ahmed on 07/11/2024.

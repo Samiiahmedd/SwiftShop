@@ -69,15 +69,18 @@ extension LoginViewModel: LoginViewModelProtocol {
 private extension LoginViewModel {
     
     func login() {
-        isLoading.send(true)
         
-        let body = LoginBody(email: email, password: password)
-        guard body.isValid() else {
+        let validator = LoginBody(email: email, password: password)
+        let validationResult = validator.validate()
+        
+        guard validationResult.isValid else {
             isLoading.send(false)
-            errorMessage.send("Please provide both email and password.")
+            errorMessage.send(validationResult.errorMessage ?? "Unknown validation error")
             return
         }
         
+        isLoading.send(true)
+        let body = LoginBody(email: email, password: password)
         services.login(with: body)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in

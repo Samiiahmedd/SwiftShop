@@ -14,7 +14,7 @@
 		08EC16D12CDD5A1B0055DB0B /* NetworkLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 08EC16D02CDD5A1B0055DB0B /* NetworkLayer */; };
 		08EC16D72CDD5C0A0055DB0B /* ProductServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC16D62CDD5C0A0055DB0B /* ProductServices.swift */; };
 		08EC16DA2CDD62130055DB0B /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC16D92CDD62130055DB0B /* ProductModel.swift */; };
-		08EC16DC2CDD64B80055DB0B /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC16DB2CDD64B80055DB0B /* EndPoint.swift */; };
+		08EC16DC2CDD64B80055DB0B /* ProductEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EC16DB2CDD64B80055DB0B /* ProductEndPoint.swift */; };
 		08FD1BF02CDC32A600944D95 /* SwiftShop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 08FD1BEE2CDC32A600944D95 /* SwiftShop.xcdatamodeld */; };
 		08FD1C4C2CDC39F400944D95 /* WishlistProduct+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FD1C4A2CDC39F400944D95 /* WishlistProduct+CoreDataClass.swift */; };
 		08FD1C4D2CDC39F400944D95 /* WishlistProduct+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FD1C4B2CDC39F400944D95 /* WishlistProduct+CoreDataProperties.swift */; };
@@ -208,7 +208,7 @@
 		08777C222CDF2DAD00F69092 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		08EC16D62CDD5C0A0055DB0B /* ProductServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductServices.swift; sourceTree = "<group>"; };
 		08EC16D92CDD62130055DB0B /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
-		08EC16DB2CDD64B80055DB0B /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		08EC16DB2CDD64B80055DB0B /* ProductEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductEndPoint.swift; sourceTree = "<group>"; };
 		08FD1BEF2CDC32A600944D95 /* SwiftShop.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SwiftShop.xcdatamodel; sourceTree = "<group>"; };
 		08FD1C4A2CDC39F400944D95 /* WishlistProduct+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WishlistProduct+CoreDataClass.swift"; sourceTree = "<group>"; };
 		08FD1C4B2CDC39F400944D95 /* WishlistProduct+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WishlistProduct+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -456,6 +456,30 @@
 			path = AuthErrorHandler;
 			sourceTree = "<group>";
 		};
+		0891A0E02CE11732004469E3 /* EndPoint */ = {
+			isa = PBXGroup;
+			children = (
+				08EC16DB2CDD64B80055DB0B /* ProductEndPoint.swift */,
+			);
+			path = EndPoint;
+			sourceTree = "<group>";
+		};
+		0891A0E12CE11764004469E3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				08EC16D92CDD62130055DB0B /* ProductModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0891A0E22CE1176D004469E3 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				08EC16D62CDD5C0A0055DB0B /* ProductServices.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		08EC16D42CDD5BD60055DB0B /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -468,9 +492,9 @@
 		08EC16D82CDD61FC0055DB0B /* Product */ = {
 			isa = PBXGroup;
 			children = (
-				08EC16D92CDD62130055DB0B /* ProductModel.swift */,
-				08EC16D62CDD5C0A0055DB0B /* ProductServices.swift */,
-				08EC16DB2CDD64B80055DB0B /* EndPoint.swift */,
+				0891A0E02CE11732004469E3 /* EndPoint */,
+				0891A0E12CE11764004469E3 /* Model */,
+				0891A0E22CE1176D004469E3 /* Service */,
 			);
 			path = Product;
 			sourceTree = "<group>";
@@ -2290,7 +2314,7 @@
 				265E1CB92CAEFB0600C588AD /* NotificationsViewController.swift in Sources */,
 				26F8A26C2CACD89D00699D1E /* WishlistModel.swift in Sources */,
 				2658C9AA2C8B220D0044CC37 /* ProductCollectionViewModel.swift in Sources */,
-				08EC16DC2CDD64B80055DB0B /* EndPoint.swift in Sources */,
+				08EC16DC2CDD64B80055DB0B /* ProductEndPoint.swift in Sources */,
 				2657018B2CAB15EA00B0240C /* Codable.swift in Sources */,
 				261018C52CB6150F00724863 /* GenderViewController.swift in Sources */,
 				26B043192C871880005DFF6A /* NewArriivalCollectionViewCell.swift in Sources */,

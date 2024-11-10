@@ -15,8 +15,8 @@ struct UserModel: Codable {
     let email: String
     let phone: String
     let image: String
-    let points: Float
-    let credit: Float
+    let points: Float?
+    let credit: Float?
     let token: String
 }
 
@@ -26,13 +26,21 @@ struct LoginBody: Codable {
     let email: String
     let password: String
     
-    func isValid() -> Bool {
-        guard !email.isEmpty, !password.isEmpty else {
-            return false
+    func validate() -> (isValid: Bool, errorMessage: String?) {
+        if [email, password].contains(where: { $0.isEmpty }) {
+            return (false, "Please fill in all required fields.")
         }
-        return true
+        
+        let emailRegex = "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
+        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+        if !emailPredicate.evaluate(with: email) {
+            return (false, "Please enter a valid email address.")
+        }
+        return (true, nil)
     }
 }
+    
+
 
 // MARK: - SIGNUP BODY
 
@@ -42,13 +50,20 @@ struct SignupBody: Codable {
     let email: String
     let password: String
     
-    func isValid() -> Bool {
-        guard !name.isEmpty, !phone.isEmpty, !email.isEmpty, !password.isEmpty else {
-            return false
+    func validate() -> (isValid: Bool, errorMessage: String?) {
+        if [name, phone, email, password].contains(where: { $0.isEmpty }) {
+            return (false, "Please fill in all required fields.")
         }
-        return true
+        
+        let emailRegex = "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
+        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+        if !emailPredicate.evaluate(with: email) {
+            return (false, "Please enter a valid email address.")
+        }
+        return (true, nil)
     }
 }
+
 
 // MARK: - VERIFY EMAIL BODY
 

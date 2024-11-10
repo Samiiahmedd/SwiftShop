@@ -66,15 +66,18 @@ extension SignUpViewModel: SignUpViewModelProtocol {
 private extension SignUpViewModel {
     
     func signup() {
-        isLoading.send(true)
         
-        let body = SignupBody(name: name, phone: phone, email: email, password: password)
-        guard body.isValid() else {
+        let validator = SignupBody(name: name, phone: phone, email: email, password: password)
+        let validationResult = validator.validate()
+        
+        guard validationResult.isValid else {
             isLoading.send(false)
-            errorMessage.send("All fields are required!")
+            errorMessage.send(validationResult.errorMessage ?? "Unknown validation error")
             return
         }
         
+        isLoading.send(true)
+        let body = SignupBody(name: name, phone: phone, email: email, password: password)
         services.signup(with: body)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
@@ -87,7 +90,7 @@ private extension SignUpViewModel {
                     errorMessage.send(error.localizedDescription)
                 }
             } receiveValue: { user in
-                self.coordinator.popToLogin()
+                self.coordinator.pop()
             }
             .store(in: &cancellable)
     }
