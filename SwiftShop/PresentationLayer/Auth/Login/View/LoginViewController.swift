@@ -10,7 +10,7 @@ import Combine
 
 class LoginViewController: UIViewController {
     
-    //MARK: -IBOUtlet
+    //MARK: -IBOUTLETS
     
     @IBOutlet weak var navBar: CustomNavBar!
     @IBOutlet weak var loaderView: UIActivityIndicatorView!
@@ -23,14 +23,13 @@ class LoginViewController: UIViewController {
     @IBOutlet var appleLogin: UIButton!
     @IBOutlet var googleLogin: UIButton!
     
-    //MARK: -Variables
+    //MARK: - VARIABLES
     
     private var viewModel: LoginViewModelProtocol
     private var cancellable = Set<AnyCancellable>()
     var coordinator: AuthCoordinatorProtocol?
-
     
-    //MARK: -ViewLifeCycle
+    //MARK: - INITIALIZER
     
     init(viewModel: LoginViewModel) {
         self.viewModel = viewModel
@@ -41,6 +40,8 @@ class LoginViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - VIEW LIFE CYCLE
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -50,8 +51,6 @@ class LoginViewController: UIViewController {
     deinit {
         removeKeyboardHandling()
     }
-    
-
     
     //MARK: - @IBACTIONS
     
@@ -64,8 +63,8 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func fbLogin(_ sender: Any) {
-        coordinator?.displaySignup()
-
+        // fb login
+        
     }
     
     @IBAction func appleLogin(_ sender: Any) {

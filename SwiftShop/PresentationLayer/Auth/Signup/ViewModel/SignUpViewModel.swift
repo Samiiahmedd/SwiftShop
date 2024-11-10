@@ -76,6 +76,7 @@ private extension SignUpViewModel {
         }
         
         services.signup(with: body)
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 guard let self else { return }
                 isLoading.send(false)
@@ -86,7 +87,6 @@ private extension SignUpViewModel {
                     errorMessage.send(error.localizedDescription)
                 }
             } receiveValue: { user in
-                UserDefaults.standard.set(user.data, forKey: "User")
                 self.coordinator.popToLogin()
             }
             .store(in: &cancellable)

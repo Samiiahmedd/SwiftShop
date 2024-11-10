@@ -10,6 +10,7 @@ import Combine
 
 @MainActor
 protocol LoginViewModelProtocol {
+    
     /// output
     var isLoading: PassthroughSubject<Bool, Never> { get }
     var errorMessage: PassthroughSubject<String, Never> { get }
@@ -78,6 +79,7 @@ private extension LoginViewModel {
         }
         
         services.login(with: body)
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 guard let self else { return }
                 isLoading.send(false)
@@ -88,7 +90,6 @@ private extension LoginViewModel {
                     errorMessage.send(error.localizedDescription)
                 }
             } receiveValue: { user in
-                UserDefaults.standard.set(user.data, forKey: "User")
                 AppCoordinator.shared.showTabBar()
             }
             .store(in: &cancellable)

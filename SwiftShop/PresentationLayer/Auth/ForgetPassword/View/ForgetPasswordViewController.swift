@@ -17,9 +17,21 @@ class ForgetPasswordViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     
     //MARK: - VARIABLES
-    var coordinator: AuthCoordinatorProtocol?
-    private var viewModel: ForgetPasswordViewModelProtocol = ForgetPasswordViewModel()
+    
+    private var viewModel: ForgetPasswordViewModel
     private var cancellable = Set<AnyCancellable>()
+    var coordinator: AuthCoordinatorProtocol?
+    
+    //MARK: - INITIALIZER
+    
+    init(viewModel: ForgetPasswordViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     //MARK: - VIEW LIFE CYCLE
     
@@ -35,7 +47,6 @@ class ForgetPasswordViewController: UIViewController {
     }
 }
 
-
 // MARK: - SETUP VIEW
 
 private extension ForgetPasswordViewController {
@@ -49,7 +60,7 @@ private extension ForgetPasswordViewController {
         navBar.setupFirstLeadingButton(with: "",
                                        and: UIImage(named: "back")!) { [weak self] in
             guard let self else { return }
-            coordinator?.pop()
+            viewModel.backActionTriggerd.send()
         }
         navBar.firstTralingButton.isHidden = true
         navBar.lastFirstTralingButton.isHidden = true
@@ -65,7 +76,6 @@ private extension ForgetPasswordViewController {
     func bindViewModel() {
         bindIsLoading()
         bindErrorState()
-        bindIsReset()
     }
     
     func bindIsLoading() {
@@ -82,24 +92,15 @@ private extension ForgetPasswordViewController {
     func bindErrorState() {
         viewModel.errorMessage.sink { [weak self] error in
             guard let self else { return }
-            showErrorAlert(message: error)
+            AlertViewController.showAlert(on: self, image:UIImage(systemName: "xmark.circle.fill")!, title: "Error", message: error, buttonTitle: "OK") {
+            }
         }.store(in: &cancellable)
     }
     
-    func bindIsReset() {
-        viewModel.isReset
-            .sink { [weak self] isReset in
-                guard let self = self else { return }
-                coordinator?.displayVerifyOtp(with: self.emailTextField.text ?? "")
-            }
-            .store(in: &cancellable)
-    }
     
     func makeResetRequest() {
-        Task {
-            guard let email = emailTextField.text, !email.isEmpty else {return}
-            await viewModel.forgetPassword(with: email)
-        }
+        viewModel.email =  emailTextField.text ?? ""
+        viewModel.nextButtonTriggerd.send()
     }
     
 }

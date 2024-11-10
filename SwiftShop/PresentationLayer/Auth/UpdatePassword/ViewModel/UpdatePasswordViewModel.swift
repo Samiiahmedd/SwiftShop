@@ -10,69 +10,80 @@ import Combine
 
 @MainActor
 protocol UpdatePasswordViewModelProtocol {
-    var isUpdated: PassthroughSubject<Bool, Never> { get }
+    
+    /// output
     var isLoading: PassthroughSubject<Bool, Never> { get }
     var errorMessage: PassthroughSubject<String, Never> { get }
     
-    func updatePassword(with email: String, newPassword:String) async
+    /// input
+    var updateButtonTriggered: PassthroughSubject<Void, Never> { get }
+    var backActionTriggerd: PassthroughSubject<Void, Never> { get }
+    
+    ///  variables
+    var email: String { get set }
+    var code: String { get set }
+    var password: String { get set }
+    
 }
 
+@MainActor
 class UpdatePasswordViewModel {
-    var responseHandler: ((_ result: Result<UpdatePasswordResponse, Error>) -> Void)?
-    var isUpdated: PassthroughSubject<Bool, Never> = .init()
+    
+    private let services: AuthServicesProtocol
+    var coordinator: AuthCoordinatorProtocol
+    private var cancellable = Set<AnyCancellable>()
+    
+    var updateButtonTriggered: PassthroughSubject<Void, Never> = .init()
+    var backActionTriggerd: PassthroughSubject<Void, Never> = .init()
+    
     var isLoading: PassthroughSubject<Bool, Never> = .init()
     var errorMessage: PassthroughSubject<String, Never> = .init()
     
-    init() { }
+    var email: String = ""
+    var code: String = ""
+    var password: String = ""
+    
+    init(services: AuthServicesProtocol = AuthServices(),
+         coordinator: AuthCoordinatorProtocol) {
+        self.services = services
+        self.coordinator = coordinator
+        //        bindIsLoginTriggered()
+    }
 }
 
 extension UpdatePasswordViewModel: UpdatePasswordViewModelProtocol {
-    func updatePassword(with email: String, newPassword: String) async {
+    func bindIsUpdatedTriggered() {
+        
+        updateButtonTriggered
+            .sink { [weak self] _ in self?.updatePassword() }
+            .store(in: &cancellable)
+        
+        backActionTriggerd
+            .sink { [weak self] _ in self?.coordinator.pop() }
+            .store(in: &cancellable)
+        
+    }
+}
+
+private extension UpdatePasswordViewModel {
+    
+    func updatePassword() {
         isLoading.send(true)
-        guard let url = URL(string: "\(Constants.baseURL)/auth/resetPassword") else {
-            isLoading.send(false)
-            errorMessage.send("Invalid URL")
-            return
-        }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "PUT"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        let body: [String: Any] = ["email": email, "newPassword": newPassword]
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: body, options: [])
-        } catch {
-            isLoading.send(false)
-            errorMessage.send("Failed to encode password data.")
-            return
-        }
-
-        do {
-            let (data, response) = try await URLSession.shared.data(for: request)
-
-            if let httpResponse = response as? HTTPURLResponse {
-                switch httpResponse.statusCode {
-                case 200:
-                    let decoder = JSONDecoder()
-                    do {
-                        let result = try decoder.decode(User.self, from: data)
-                        isUpdated.send(true)
-                    } catch {
-                        errorMessage.send("Failed to parse response.")
-                    }
-                case 400:
-                    errorMessage.send("Bad Request: Invalid email or password.")
-                case 500...599:
-                    errorMessage.send("Server error. Please try again later.")
-                default:
-                    errorMessage.send("Unexpected error. Status code: \(httpResponse.statusCode)")
+        let body = ResetPasswordBody(email: email, code: code, password: password)
+        services.resetPassword(with: body)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                guard let self else { return }
+                isLoading.send(false)
+                switch completion {
+                case .finished:
+                    print("Go to reviced value")
+                case .failure(let error):
+                    errorMessage.send(error.localizedDescription)
                 }
+            } receiveValue: { user in
+                self.coordinator.displaySuccessScreen()
             }
-        } catch {
-            errorMessage.send("Request failed: \(error.localizedDescription)")
-        }
-        isLoading.send(false)
-    }}
-
-
+            .store(in: &cancellable)
+    }
+}

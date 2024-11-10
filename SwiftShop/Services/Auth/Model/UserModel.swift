@@ -25,7 +25,7 @@ struct UserModel: Codable {
 struct LoginBody: Codable {
     let email: String
     let password: String
-
+    
     func isValid() -> Bool {
         guard !email.isEmpty, !password.isEmpty else {
             return false
@@ -49,3 +49,39 @@ struct SignupBody: Codable {
         return true
     }
 }
+
+// MARK: - VERIFY EMAIL BODY
+
+struct VerifyEmailBody: Codable {
+    let email: String
+    
+    func isValid() -> Bool {
+        guard !email.isEmpty else {
+            return false
+        }
+        let emailRegex = "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
+        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+        return emailPredicate.evaluate(with: email)
+    }
+}
+
+// MARK: - VERIFY CODE
+
+struct VerifyCodeBody: Codable {
+    let email: String
+    let code: String
+}
+
+// MARK: - VERIFY CODE
+
+struct ResetPasswordBody: Codable {
+    let email: String
+    let code: String
+    let password: String
+}
+
+
+
+
+
+

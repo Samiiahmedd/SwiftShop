@@ -196,7 +196,6 @@
 		7FB469472CDFF6A600A5C586 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB469462CDFF6A600A5C586 /* AuthServices.swift */; };
 		7FB469492CDFF6B100A5C586 /* AuthEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB469482CDFF6B100A5C586 /* AuthEndPoint.swift */; };
 		7FB4694E2CDFF6D400A5C586 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB4694D2CDFF6D400A5C586 /* UserModel.swift */; };
-		7FB4697C2CE0019100A5C586 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB4697B2CE0019100A5C586 /* BaseModel.swift */; };
 		7FBAD9C12C961D0400CBA3D2 /* LoginVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBAD9C02C961D0400CBA3D2 /* LoginVIewModel.swift */; };
 		7FBAD9C72C964CB600CBA3D2 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBAD9C62C964CB600CBA3D2 /* SignUpViewModel.swift */; };
 		7FBAD9CC2C96551B00CBA3D2 /* UIViewControllerExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBAD9CB2C96551B00CBA3D2 /* UIViewControllerExtention.swift */; };
@@ -397,7 +396,6 @@
 		7FB469462CDFF6A600A5C586 /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
 		7FB469482CDFF6B100A5C586 /* AuthEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthEndPoint.swift; sourceTree = "<group>"; };
 		7FB4694D2CDFF6D400A5C586 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
-		7FB4697B2CE0019100A5C586 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		7FBAD9C02C961D0400CBA3D2 /* LoginVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVIewModel.swift; sourceTree = "<group>"; };
 		7FBAD9C62C964CB600CBA3D2 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		7FBAD9CB2C96551B00CBA3D2 /* UIViewControllerExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtention.swift; sourceTree = "<group>"; };
@@ -2001,7 +1999,6 @@
 			isa = PBXGroup;
 			children = (
 				7F8256912CB1D822009294E8 /* UserDefultsWrapper.swift */,
-				7FB4697B2CE0019100A5C586 /* BaseModel.swift */,
 			);
 			path = Wrappers;
 			sourceTree = "<group>";
@@ -2342,7 +2339,6 @@
 				7FB312282CCC4D8300EF47C3 /* HomeCoordinator.swift in Sources */,
 				26FCD84E2C8D265700D7C3A8 /* CartViewModel.swift in Sources */,
 				7FB312242CCC43A200EF47C3 /* Router.swift in Sources */,
-				7FB4697C2CE0019100A5C586 /* BaseModel.swift in Sources */,
 				266A7DA52CB72DB0009F3445 /* MyOrdersTableViewCell.swift in Sources */,
 				261D541E2C9F8C3F001620BF /* CustomSearchBar.swift in Sources */,
 				2668593A2C482A0200EC2718 /* SceneDelegate.swift in Sources */,

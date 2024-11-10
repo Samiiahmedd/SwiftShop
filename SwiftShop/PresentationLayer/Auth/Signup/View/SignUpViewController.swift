@@ -142,10 +142,9 @@ private extension SignUpViewController {
     
     func makeSignupRequest() {
         viewModel.name = nameTxtField.text ?? ""
-        
         viewModel.email = emailTxtField.text ?? ""
         viewModel.password = passwordTxtField.text ?? ""
-        
+        viewModel.phone = phoneNumberTextField.text ?? ""
         viewModel.isUserCreated.send()
         }
     }

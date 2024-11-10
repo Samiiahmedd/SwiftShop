@@ -14,7 +14,7 @@ protocol AuthCoordinatorProtocol: Coordinator {
     func displaySignup()
     func displayForgetPassword()
     func displayVerifyOtp(with email: String)
-    func displayNewPassword(with email: String)
+    func displayNewPassword(with email: String, Code:String)
     func displaySuccessScreen()
     func displayTabBar()
     func popToLogin()
@@ -66,7 +66,8 @@ extension AuthCoordinator: AuthCoordinatorProtocol {
     
     func displayForgetPassword() {
         DispatchQueue.main.async {
-            let vc = ForgetPasswordViewController()
+            let viewModel = ForgetPasswordViewModel(coordinator: self)
+            let vc = ForgetPasswordViewController(viewModel: viewModel)
             vc.coordinator = self
             self.router.push(vc)
         }
@@ -74,17 +75,20 @@ extension AuthCoordinator: AuthCoordinatorProtocol {
     
     func displayVerifyOtp(with email: String) {
         DispatchQueue.main.async {
-            let vc = OTPViewController(email: email)
+            let viewModel = OTPViewModel(coordinator: self)
+            let vc = OTPViewController(viewModel: viewModel)
             vc.coordinator = self
             self.router.push(vc)
         }
     }
     
-    func displayNewPassword(with email: String) {
+    func displayNewPassword(with email: String, Code:String) {
         DispatchQueue.main.async {
-            let vc = UpdatePasswordViewController(email: email)
+            let viewModel = UpdatePasswordViewModel(coordinator: self)
+            let vc = UpdatePasswordViewController(viewModel: viewModel)
             vc.coordinator = self
-            vc.email = email
+        ///*here!!!! and all inject !!!!!
+//            vc.viewModel.email = email
             self.router.push(vc)
         }
     }

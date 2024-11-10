@@ -15,19 +15,18 @@ class UpdatePasswordViewController: UIViewController {
     
     @IBOutlet weak var navBar: CustomNavBar!
     @IBOutlet weak var newPasswordTextField: UITextField!
-    @IBOutlet weak var confirmPasswordTextField: UITextField!
     @IBOutlet weak var updatePasswordButton: UIButton!
     
-    //MARK: Variables
+    //MARK: - Variables
+    
     var coordinator: AuthCoordinatorProtocol?
-    var email : String
-    private var viewModel: UpdatePasswordViewModelProtocol = UpdatePasswordViewModel()
+    private var viewModel : UpdatePasswordViewModel
     private var cancellable = Set<AnyCancellable>()
 
-    //MARK: - VIEW LIFE CYCLE
+    //MARK: - INITIALIZER
     
-    init(email: String) {
-        self.email = email
+    init(viewModel: UpdatePasswordViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -35,22 +34,19 @@ class UpdatePasswordViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - VIEW LIFE CYCLE
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        bindViewModel()
+
     }
     
     //MARK: - @IBACTIONS
     
     @IBAction func updatePasswordButtonActiion(_ sender: Any) {
-        guard let newPassword = newPasswordTextField.text, !newPassword.isEmpty
-        else {
-            showErrorAlert(message: "Please enter a new password.")
-            return
-        }
-        Task {
-            await viewModel.updatePassword(with: email, newPassword: newPassword)
-        }
+        bindIsUpdated()
     }
 }
 
@@ -61,7 +57,6 @@ private extension UpdatePasswordViewController {
     func setupView() {
         configureNavBar()
         configureTextFields()
-        bindViewModel()
     }
     
     func configureNavBar() {
@@ -76,7 +71,6 @@ private extension UpdatePasswordViewController {
     
     func configureTextFields() {
      addPaddingToTextField(newPasswordTextField, padding: 10)
-     addPaddingToTextField(confirmPasswordTextField, padding: 10)
     }
         
 }
@@ -86,16 +80,15 @@ extension UpdatePasswordViewController {
    func bindViewModel() {
            bindIsLoading()
            bindErrorState()
-           bindIsUpdated()
        }
        
        func bindIsLoading() {
            viewModel.isLoading.sink { [weak self] isLoading in
                guard let self = self else { return }
                if isLoading {
-                   self.showLoader()  // Show loader
+                   self.showLoader()
                } else {
-                   self.hideLoader()  // Hide loader
+                   self.hideLoader()
                }
            }.store(in: &cancellable)
        }
@@ -103,14 +96,12 @@ extension UpdatePasswordViewController {
        func bindErrorState() {
            viewModel.errorMessage.sink { [weak self] error in
                guard let self = self else { return }
-               showErrorAlert(message: error)  // Show error message
+               showErrorAlert(message: error)
            }.store(in: &cancellable)
        }
        
     func bindIsUpdated() {
-        viewModel.isUpdated.sink { [weak self] isUpdated in
-            guard let self = self else { return }
-            self.coordinator?.displaySuccessScreen()
-        }.store(in: &cancellable)
+        viewModel.updateButtonTriggered.send()
+
     }
    }

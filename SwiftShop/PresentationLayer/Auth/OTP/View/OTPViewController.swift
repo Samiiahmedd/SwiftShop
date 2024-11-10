@@ -23,22 +23,25 @@ class OTPViewController: UIViewController, UITextFieldDelegate, OTPFieldDelegate
     @IBOutlet weak var veifyButton: UIButton!
     
     
-    // MARK: - VARIABLES
+    //MARK: - VARIABLES
+    
     var coordinator: AuthCoordinatorProtocol?
-    var email: String
-    private var viewModel: OTPViewModelProtocol = OTPViewModel()
+    private var viewModel : OTPViewModel
     private var cancellable = Set<AnyCancellable>()
     
-    //MARK: - VIEW LIFE CYCLE
     
-    init(email: String) {
-        self.email = email
+    //MARK: - INITIALZIER
+    
+    init(viewModel: OTPViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //MARK: - VIEW LIFE CYCLE
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,10 +58,7 @@ class OTPViewController: UIViewController, UITextFieldDelegate, OTPFieldDelegate
             showErrorAlert(message: "Please enter a complete OTP.")
             return
         }
-        
-        Task {
-            await viewModel.verifyOTP(with: otp, email: email)
-        }
+        bindIsVerified()
      }
     
     //Text Fields Set
@@ -106,9 +106,9 @@ class OTPViewController: UIViewController, UITextFieldDelegate, OTPFieldDelegate
                 if let _ = Int(string) {
                     txtOtp4.text = string
                     txtOtp5.becomeFirstResponder()
-
+                    
                 }
-            }        
+            }
         case txtOtp5:
             if string.isEmpty {
                 txtOtp5.text = string
@@ -119,7 +119,7 @@ class OTPViewController: UIViewController, UITextFieldDelegate, OTPFieldDelegate
                     txtOtp5.text = string
                     txtOtp6.becomeFirstResponder()
                 }
-            }       
+            }
         case txtOtp6:
             if string.isEmpty {
                 txtOtp6.text = string
@@ -128,7 +128,7 @@ class OTPViewController: UIViewController, UITextFieldDelegate, OTPFieldDelegate
                 //restrict to only numbers
                 if let _ = Int(string) {
                     txtOtp6.text = string
-
+                    
                 }
             }
         default:
@@ -148,7 +148,7 @@ class OTPViewController: UIViewController, UITextFieldDelegate, OTPFieldDelegate
         case txtOtp4:
             txtOtp3.becomeFirstResponder()
         case txtOtp5:
-            txtOtp4.becomeFirstResponder() 
+            txtOtp4.becomeFirstResponder()
         case txtOtp6:
             txtOtp5.becomeFirstResponder()
         default:
@@ -192,52 +192,50 @@ private extension OTPViewController {
     }
 }
 
- extension OTPViewController {
+extension OTPViewController {
     
     func bindViewModel() {
-            bindIsLoading()
-            bindErrorState()
-            bindIsVerified()
-        }
-        
-        func bindIsLoading() {
-            viewModel.isLoading.sink { [weak self] isLoading in
-                guard let self = self else { return }
-                if isLoading {
-                    self.showLoader()  // Show loader
-                } else {
-                    self.hideLoader()  // Hide loader
-                }
-            }.store(in: &cancellable)
-        }
-        
-        func bindErrorState() {
-            viewModel.errorMessage.sink { [weak self] error in
-                guard let self = self else { return }
-                showErrorAlert(message: error)  // Show error message
-            }.store(in: &cancellable)
-        }
-        
-        func bindIsVerified() {
-            viewModel.isVerified.sink { [weak self] isVerified in
-                guard let self = self else { return }
-                coordinator?.displayNewPassword(with: self.email ?? "")
-            }.store(in: &cancellable)
+        bindIsLoading()
+        bindErrorState()
+    }
+    
+    func bindIsLoading() {
+        viewModel.isLoading.sink { [weak self] isLoading in
+            guard let self = self else { return }
+            if isLoading {
+                self.showLoader()  // Show loader
+            } else {
+                self.hideLoader()  // Hide loader
+            }
+        }.store(in: &cancellable)
+    }
+    
+    func bindErrorState() {
+        viewModel.errorMessage.sink { [weak self] error in
+            guard let self = self else { return }
+            showErrorAlert(message: error)  // Show error message
+        }.store(in: &cancellable)
+    }
+    
+    func bindIsVerified() {
+        viewModel.verifyCodeButtonTriggerd.send()
         }
     }
+    
+
 
 //MARK: - to detect backspace in empty textfield
 
 protocol OTPFieldDelegate: AnyObject {
-   func backwardDetected(textField: OTPTextField)
+    func backwardDetected(textField: OTPTextField)
 }
 
 class OTPTextField: UITextField {
-   weak var backDelegate: OTPFieldDelegate?
-
-   override func deleteBackward() {
-     super.deleteBackward()
-
-     self.backDelegate?.backwardDetected(textField: self)
-   }
+    weak var backDelegate: OTPFieldDelegate?
+    
+    override func deleteBackward() {
+        super.deleteBackward()
+        
+        self.backDelegate?.backwardDetected(textField: self)
+    }
 }
