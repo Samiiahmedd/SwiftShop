@@ -9,29 +9,31 @@ import Foundation
 import NetworkLayer
 
 enum ProductEndPoint: EndPoint {
-    // CASES
     
-    case products([URLQueryItem])
+    // MARK: - CASES
+    
+    case homeProducts
     case productDetails
     
-    // PROPRITIES
+    // MARK: - PROPRITIES
     
     var path: String {
         switch self {
-        case .products:
-            "products"
+        case .homeProducts:
+            "/api/home"
         case .productDetails:
             ""
         }
     }
     
-    var parameters: [URLQueryItem] {
-        switch self {
-        case .products(let parms):
-            return parms
-        case .productDetails:
-            return []
-        }
+    var headers: Headers {
+        ["lang": "en"]
     }
+    
+    var method: HTTPMethod {
+        .get
+    }
+    
+  
 }
 

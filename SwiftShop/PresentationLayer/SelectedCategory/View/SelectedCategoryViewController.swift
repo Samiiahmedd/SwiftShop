@@ -76,7 +76,7 @@ extension SelectedCategoryViewController: UICollectionViewDelegate, UICollection
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewArriivalCollectionViewCell.identifier, for: indexPath) as! NewArriivalCollectionViewCell
-        cell.Setup(newArrival: product[indexPath.row])
+//        cell.Setup(newArrival: product[indexPath.row])
         return cell
     }
     

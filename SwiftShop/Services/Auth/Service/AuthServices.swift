@@ -22,6 +22,7 @@ struct AuthServices: AuthServicesProtocol {
     private let network = NetworkRequestable()
     
     func login(with credentials: LoginBody) -> AnyPublisher<UserModel, NetworkError> {
+        
         let endPoint = AuthEndPoint.login
         let requestModel = RequestModel(endPoint: endPoint, reqBody: credentials)
         

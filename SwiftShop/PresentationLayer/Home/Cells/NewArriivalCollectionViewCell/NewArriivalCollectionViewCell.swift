@@ -48,12 +48,11 @@ class NewArriivalCollectionViewCell: UICollectionViewCell {
 // MARK: - SETUP CELL
 
 extension NewArriivalCollectionViewCell {
-    func Setup(newArrival: NewArrival) {
-        let imageUrl = newArrival.image.asUrl 
+    func Setup(newArrival: Product) {
+        let imageUrl = newArrival.image.asUrl
             imageView.kf.setImage(with: imageUrl)
-
-        productTitleLabel.text = newArrival.title
-        productType.text = newArrival.category
+        productTitleLabel.text = newArrival.name
+        productType.text = newArrival.name
         productPrice.text = "$\(newArrival.price)"
 
     }

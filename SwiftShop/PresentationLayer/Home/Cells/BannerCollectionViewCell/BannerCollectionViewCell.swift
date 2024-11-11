@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class BannerCollectionViewCell: UICollectionViewCell {
     
@@ -29,7 +30,8 @@ class BannerCollectionViewCell: UICollectionViewCell {
 //MARK: - Extention
 
 extension BannerCollectionViewCell {
-    func Setup(banner: BannerModel) {
-        bannerImageView.image = banner.image
+    func Setup(banner: Banner) {
+        let imageUrl = banner.image.asUrl
+        bannerImageView.kf.setImage(with: imageUrl)
     }
 }

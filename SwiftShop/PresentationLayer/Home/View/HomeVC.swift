@@ -6,33 +6,44 @@
 //
 
 import UIKit
+import Combine
 
 class HomeVC: BaseViewController{
     
-    //MARK: - IBOutlet
+    //MARK: - IBOUTLETS
     
     @IBOutlet weak var navBar: CustomNavBar!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var bannerCollectionView: UICollectionView!
-    @IBOutlet weak var newArriivalCollectionView: UICollectionView!
+    @IBOutlet weak var productsCollectionView: UICollectionView!
     @IBOutlet weak var popularTableView: SelfSizedTableView!
+    @IBOutlet weak var homeAdsImageView: UIImageView!
     
-    // MARK: - Variables
+    // MARK: - VARIABLES
+
+    private var viewModel: HomeViewModel
+    private var cancellable = Set<AnyCancellable>()
+    var coordinator: HomeCoordinatorProtocol?
     
-    private let viewModel = HomeViewModel()
-    var path: String = ""
-    var lastNewArrivals: [NewArrival] = []
-    var popularProduct: [PopularModel] = []
-    var product : [ProductDetailsModel] = []
+    //MARK: - INITIALIZER
     
-    //MARK: - viewLifeCycle
+    init(viewModel: HomeViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: - VIEW LIFE CYCLE
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        fetchNewArrivals()
-        fetchPopulars()
+        bindViewModel()
+        fetchAllProducts()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,35 +68,9 @@ class HomeVC: BaseViewController{
         self.navigationItem.hidesBackButton = true
     }
     
-    /// New Arrivals
-    private func fetchNewArrivals() {
-        viewModel.getNewArrivals { [weak self] result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let data):
-                    self?.lastNewArrivals = data
-                    self?.newArriivalCollectionView.reloadData()
-                case .failure(let error):
-                    print("Failed to fetch new arrivals: \(error.localizedDescription)")
-                }
-            }
-        }
-    } 
-    
-    // Populars
-    @MainActor
-    private func fetchPopulars() {
-        viewModel.getPopulars { [weak self] result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let data):
-                    self?.popularProduct  = data
-                    self?.popularTableView.reloadData()
-                case .failure(let error):
-                    print("Failed to fetch populars: \(error.localizedDescription)")
-                }
-            }
-        }
+    //MARK: - FUNCTIONS
+    private func fetchAllProducts() {
+        viewModel.getHomeProducts()
     }
 }
 
@@ -95,7 +80,7 @@ private extension HomeVC {
     
     func setupView() {
         configerCollectionViews()
-        configureTableViews()
+//        configureTableViews()
         registerCells()
         configureNavBar()
     }
@@ -126,34 +111,35 @@ private extension HomeVC {
         
     }
     
-    func configureTableViews() {
-        popularTableView.delegate = self
-        popularTableView.dataSource = self
-    }
+//    func configureTableViews() {
+//        popularTableView.delegate = self
+//        popularTableView.dataSource = self
+//    }
     
     func configerCollectionViews() {
         bannerCollectionView.delegate = self
         bannerCollectionView.dataSource = self
-        newArriivalCollectionView.delegate = self
-        newArriivalCollectionView.dataSource = self
+        productsCollectionView.delegate = self
+        productsCollectionView.dataSource = self
     }
     
     func registerCells() {
         bannerCollectionView.register(UINib(nibName: BannerCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: BannerCollectionViewCell.identifier)
-        newArriivalCollectionView.register(UINib(nibName: NewArriivalCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: NewArriivalCollectionViewCell.identifier)
+        productsCollectionView.register(UINib(nibName: NewArriivalCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: NewArriivalCollectionViewCell.identifier)
+        
         popularTableView.register(UINib(nibName: "PopularsTableViewCell", bundle: nil), forCellReuseIdentifier: "PopularsTableViewCell")
     }
 }
 
 //MARK: - Extentions
 
-extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UITableViewDelegate,UITableViewDataSource {
+extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case bannerCollectionView:
-            return viewModel.banners.count
-        case newArriivalCollectionView :
-            return lastNewArrivals.count
+            return viewModel.bannersDataSource.count
+        case productsCollectionView :
+            return viewModel.productsDataSource.count
         default:
             return 0
         }
@@ -163,14 +149,14 @@ extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UIColle
         switch collectionView {
         case bannerCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCollectionViewCell.identifier, for: indexPath) as! BannerCollectionViewCell
-            let banner = viewModel.banners[indexPath.row]
+            let banner = viewModel.bannersDataSource[indexPath.row]
             cell.Setup(banner: banner)
             return cell
             
-        case newArriivalCollectionView:
+        case productsCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewArriivalCollectionViewCell.identifier, for: indexPath) as! NewArriivalCollectionViewCell
-            cell.Setup(newArrival: lastNewArrivals[indexPath.row])
-            cell.delegate = self
+            let product = viewModel.productsDataSource[indexPath.row]
+            cell.Setup(newArrival: product)
             return cell
         default:
             return UICollectionViewCell()
@@ -182,7 +168,7 @@ extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UIColle
         case bannerCollectionView:
             return CGSize(width: fullScreenWidth-100, height: collectionView.collectionViewHeight)
             
-        case newArriivalCollectionView:
+        case productsCollectionView:
             return CGSize(width: halfScreenWidth-30, height: collectionView.collectionViewHeight)
             
         default:
@@ -190,30 +176,71 @@ extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UIColle
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedProduct = lastNewArrivals[indexPath.item]
-        let productDetailsVC = ProductDetailsViewController(id: selectedProduct.id)
-        self.navigationController?.pushViewController(productDetailsVC, animated: true)
+    
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let selectedProduct = lastNewArrivals[indexPath.item]
+//        let productDetailsVC = ProductDetailsViewController(id: selectedProduct.id)
+//        self.navigationController?.pushViewController(productDetailsVC, animated: true)
+//    }
+//    
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return lastNewArrivals.count
+//    }
+//    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let selectedPopularProduct = popularProduct[indexPath.row]
+//        let productDetailsVC = ProductDetailsViewController(id: selectedPopularProduct.id)
+//        self.navigationController?.pushViewController(productDetailsVC, animated: true)
+//    }
+//    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = popularTableView.dequeueReusableCell(withIdentifier: PopularsTableViewCell.identifier, for: indexPath) as! PopularsTableViewCell
+//        cell.Setup(Populars: popularProduct[indexPath.row])
+//        return cell
+//    }
+//    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 100
+//    }
+}
+
+// MARK: - VIEW MODEL
+
+private extension HomeVC {
+    func bindViewModel() {
+        bindIsLoading()
+        bindErrorState()
+        bindSetupView()
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return lastNewArrivals.count
+    func bindIsLoading() {
+        viewModel.isLoading.sink { [weak self] isLoading in
+            guard let self else { return }
+            if isLoading {
+                self.showLoader()
+            } else {
+                self.hideLoader()
+            }
+        }.store(in: &cancellable)
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedPopularProduct = popularProduct[indexPath.row]
-        let productDetailsVC = ProductDetailsViewController(id: selectedPopularProduct.id)
-        self.navigationController?.pushViewController(productDetailsVC, animated: true)
+    func bindErrorState() {
+        viewModel.errorMessage.sink { [weak self] error in
+            guard let self else { return }
+            AlertViewController.showAlert(on: self, image:UIImage(systemName: "xmark.circle.fill")!, title: "Login Error", message: error, buttonTitle: "OK") {
+            }
+        }.store(in: &cancellable)
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = popularTableView.dequeueReusableCell(withIdentifier: PopularsTableViewCell.identifier, for: indexPath) as! PopularsTableViewCell
-        cell.Setup(Populars: popularProduct[indexPath.row])
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+     func bindSetupView() {
+        viewModel.homeData
+            .sink { [weak self] homeData in
+                self?.viewModel.bannersDataSource = homeData.banners
+                self?.viewModel.productsDataSource = homeData.products
+                self?.bannerCollectionView.reloadData()
+                self?.productsCollectionView.reloadData()
+            }
+            .store(in: &cancellable)
     }
 }
 

@@ -8,6 +8,8 @@
 import UIKit
 
 @MainActor
+
+
 protocol TabBarCoordinatorProtocol: Coordinator {
     func goToHomeTab()
     func gotToOrdersTab()
@@ -36,15 +38,17 @@ final class TabBarCoordinator {
     }
     
     
+    
     func homeNC() -> UINavigationController {
-        let mainVC = HomeVC()
-        mainVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house.fill"), tag: 0)
-        
-        return UINavigationController(rootViewController: mainVC)
+        let navigationController = UINavigationController()
+        let router = AppRouter(navigationController: navigationController)
+        let coordinator = HomeCoordinator(router: router)
+        coordinator.start()
+        return navigationController
     }
     
     func ordersNC() -> UINavigationController {
-        let ordersVC        = MyOrdersViewController()
+        let ordersVC = MyOrdersViewController()
         ordersVC.tabBarItem = UITabBarItem(title: "Orders", image: UIImage(systemName: "cart.badge.clock"), tag: 1)
         return UINavigationController(rootViewController: ordersVC)
     }
@@ -55,7 +59,7 @@ final class TabBarCoordinator {
         
         return UINavigationController(rootViewController: notificationsVC)
     }
-        
+    
     func profileNC() -> UINavigationController {
         let profileVC        = ProfileViewController()
         profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.crop.circle"), tag: 3)
@@ -71,15 +75,15 @@ extension TabBarCoordinator: TabBarCoordinatorProtocol {
     }
     
     func goToHomeTab() {
-//        tabBar?.selectedIndex = 0
+        //        tabBar?.selectedIndex = 0
     }
     
     
     func goToNotificationsTab() {
-//        tabBar?.selectedIndex = 2
+        //        tabBar?.selectedIndex = 2
     }
     
     func goToProfileTab() {
-//        tabBar?.selectedIndex = 3 b
+        //        tabBar?.selectedIndex = 3 b
     }
 }

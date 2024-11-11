@@ -30,6 +30,7 @@ class ProductDetailsViewController: BaseViewController {
     
     
     //MARK: VARIABLES
+    var coordinator :HomeCoordinatorProtocol?
     var Product: [PopularModel] = []
     var product: ProductDetailsModel!
 

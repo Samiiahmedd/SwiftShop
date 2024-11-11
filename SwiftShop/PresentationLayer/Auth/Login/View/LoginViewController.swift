@@ -25,7 +25,7 @@ class LoginViewController: UIViewController {
     
     //MARK: - VARIABLES
     
-    private var viewModel: LoginViewModelProtocol
+    private var viewModel: LoginViewModel
     private var cancellable = Set<AnyCancellable>()
     var coordinator: AuthCoordinatorProtocol?
     

@@ -7,18 +7,30 @@
 
 import Foundation
 
-struct ProductModel: Codable {
-    let id: Int
-    let title: String
-    let price: Double
-    let description: String
-    let category: String
-    let image: String
-    let rating: Rating
-    
-    // MARK: - Rating
-    struct Rating: Codable {
-        let rate: Double
-        let count: Int
-    }
+struct HomeData: Codable {
+    let banners: [Banner]
+    let products: [Product]
+    let ad: String?
 }
+
+struct Banner: Codable {
+    let id: Int
+    let image: String
+    let category: String?
+    let product: String?
+}
+
+struct Product: Codable {
+    let id: Int
+    let price: Double
+    let old_price: Double
+    let discount: Double
+    let image: String
+    let name: String
+    let description: String
+    let images: [String]
+    let in_favorites: Bool
+    let in_cart: Bool
+}
+ 
+

@@ -11,112 +11,94 @@ import Combine
 
 @MainActor
 protocol HomeViewModelProtocol {
+    
     /// output
     var isLoading: PassthroughSubject<Bool, Never> { get }
     var errorMessage: PassthroughSubject<String, Never> { get }
     var showBanners : PassthroughSubject<String,Never> { get }
-    var showNewArrivals : PassthroughSubject<String,Never> { get }
-    var showPopulars : PassthroughSubject<String,Never> { get }
-
+    var showProducts : PassthroughSubject<String,Never> { get }
+    
     /// input
-    var newArrivalCellTriggered: PassthroughSubject<Void, Never> { get }
-    var popularsCellTriggered: PassthroughSubject<Void, Never> { get }
     var viewAllButtonActionTriggered: PassthroughSubject<Void, Never> { get }
+    var productCellTriggered: PassthroughSubject<Void, Never> { get }
     var searchButtonActionTriggered: PassthroughSubject<Void, Never> { get }
     var categoriesButtonActionTriggered: PassthroughSubject<Void, Never> { get }
     var backActionTriggerd: PassthroughSubject<Void, Never> { get }
-
-
+    
 }
 
+@MainActor
 class HomeViewModel {
+    var productsDataSource: [Product] = []
+    var productsDataaSource: [HomeData] = []
+    var bannersDataSource: [Banner] = []
+    var homeData = PassthroughSubject<HomeData, Never>()
+    private let services: ProductServicesProtocol
+    private var cancellable = Set<AnyCancellable>()
+    var coordinator:HomeCoordinatorProtocol
     
-//        var coordinator: HomeCoordinatorProtocol
-        private var cancellable = Set<AnyCancellable>()
     
+    var isLoading: PassthroughSubject<Bool, Never> = .init()
+    var errorMessage: PassthroughSubject<String, Never> = .init()
+    var showBanners : PassthroughSubject<String,Never> = .init()
+    var showProducts : PassthroughSubject<String,Never> = .init()
     
-//    let productServices = ProductServices()
+    var productCellTriggered: PassthroughSubject<Void, Never> = .init()
+    var viewAllButtonActionTriggered: PassthroughSubject<Void, Never> = .init()
+    var searchButtonActionTriggered: PassthroughSubject<Void, Never> = .init()
+    var categoriesButtonActionTriggered: PassthroughSubject<Void, Never> = .init()
+    var backActionTriggerd: PassthroughSubject<Void, Never> = .init()
     
-    
-    
-        var isLoading: PassthroughSubject<Bool, Never> = .init()
-        var errorMessage: PassthroughSubject<String, Never> = .init()
-        var showBanners : PassthroughSubject<String,Never> = .init()
-        var showNewArrivals : PassthroughSubject<String,Never> = .init()
-        var showPopulars : PassthroughSubject<String,Never> = .init()
-    
-        var newArrivalCellTriggered: PassthroughSubject<Void, Never> = .init()
-        var popularsCellTriggered: PassthroughSubject<Void, Never> = .init()
-        var viewAllButtonActionTriggered: PassthroughSubject<Void, Never> = .init()
-        var searchButtonActionTriggered: PassthroughSubject<Void, Never> = .init()
-        var categoriesButtonActionTriggered: PassthroughSubject<Void, Never> = .init()
-        var backActionTriggerd: PassthroughSubject<Void, Never> = .init()
-//    
-//
-//
-//        init(coordinator: HomeCoordinatorProtocol) {
-//            self.coordinator = coordinator
-//    //        bindIsHome()
-//        }
-    var banners : [BannerModel] = [
-        .init(image: UIImage(named: "Banner")!),
-        .init(image: UIImage(named: "Banner")!),
-        .init(image: UIImage(named: "Banner")!),
-        .init(image: UIImage(named: "Banner")!),
-    ]
-    
-    //NewArrival
-    @MainActor
-    func getNewArrivals(completion:@escaping (Result <[NewArrival], Error>) -> Void) {
-        guard let url = URL(string: "https://fakestoreapi.com/products?limit=5") else {return}
-        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
-            guard let data = data, error == nil else{
-                return
-            }
-            do {
-                let newArrivals = try JSONDecoder().decode([NewArrival].self, from: data)
-                
-                completion(.success(newArrivals))
-            }catch{
-                print("Error")
-                completion(.failure(APIError.failedTogetData))
-            }
-        }
-        task.resume()
+    init(services: ProductServicesProtocol = ProductServices(),
+         coordinator: HomeCoordinatorProtocol) {
+        self.services = services
+        self.coordinator = coordinator
     }
-    
-    //Populars
-    @MainActor
-    func getPopulars(completion:@escaping (Result <[PopularModel], Error>) -> Void) {
-        guard let url = URL(string: "https://fakestoreapi.com/products?sort=desc&limit=7") else {return}
-        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
-            guard let data = data, error == nil else{
-                return
-            }
-            do {
-                let populars = try JSONDecoder().decode([PopularModel].self, from: data)
-                
-                completion(.success(populars))
-            }catch{
-                print("Error")
-                completion(.failure(APIError.failedTogetData))
-            }
-        }
-        task.resume()
-    }
-    
-//    func getProducts() {
-//        let params: [URLQueryItem] = [
-//            .init(name: "sort", value: "desc"),
-//            .init(name: "limit", value: "7")
-//        ]
-//        productServices.getProducts(with: params)
-//            .sink(receiveCompletion: <#T##((Subscribers.Completion<NetworkError>) -> Void)##((Subscribers.Completion<NetworkError>) -> Void)##(Subscribers.Completion<NetworkError>) -> Void#>, receiveValue: <#T##(([ProductModel]) -> Void)##(([ProductModel]) -> Void)##([ProductModel]) -> Void#>)
-//    }
-    
-    
-    
-    
 }
 
+extension HomeViewModel: HomeViewModelProtocol {
+    func bindIsHome() {
+        
+        productCellTriggered
+            .sink { [weak self] _ in self?.coordinator.displayProductDetailsScreen() }
+            .store(in: &cancellable)
+        
+        backActionTriggerd
+            .sink { [weak self] _ in self?.coordinator.pop() }
+            .store(in: &cancellable)
+        
+        viewAllButtonActionTriggered
+            .sink { [weak self] _ in self?.coordinator.displayAllProducts() }
+            .store(in: &cancellable)
+        
+        searchButtonActionTriggered
+            .sink { [weak self] _ in self?.coordinator.displaySearchScreen() }
+            .store(in: &cancellable)
+        
+        categoriesButtonActionTriggered
+            .sink { [weak self] _ in self?.coordinator.displayCategoriesScreen() }
+            .store(in: &cancellable)
+    }
+}
 
+extension HomeViewModel {
+    
+    func getHomeProducts() {
+        isLoading.send(true)
+        services.getHomeProducts()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                guard let self else { return }
+                isLoading.send(false)
+                switch completion {
+                case .finished:
+                    print("done")
+                case .failure(let error):
+                    errorMessage.send(error.localizedDescription)
+                }
+            } receiveValue: { [weak self] homeData in
+                self?.homeData.send(homeData)
+            }
+            .store(in: &cancellable)
+    }
+}

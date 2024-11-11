@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let netowrkManager = NetworkConfigurationManager.shared
         let baseURL = "student.valuxapps.com"
         netowrkManager.setBaseURL(baseURL)
-        netowrkManager.setEnvironment(.production)
+//        netowrkManager.setEnvironment(.production)
         #if DEBUG
         netowrkManager.setLoggerEnabled(true)
         #endif

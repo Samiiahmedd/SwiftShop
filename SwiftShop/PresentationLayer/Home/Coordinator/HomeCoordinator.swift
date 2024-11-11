@@ -9,17 +9,12 @@
 
     protocol HomeCoordinatorProtocol: Coordinator {
         func displayHome()
-        func displayNewArrivals()
-        func displayAllNewArrivals()
-        func displayPopulars()
-        func displayAllPopulars()
-        func displayProductDetailsByProductId()
+        func displayProductDetailsScreen()
         func displaySearchScreen()
         func displayCategoriesScreen()
-        func displayCategoryScreenByCategortId()
-        func displayAddToCartAlert()
         func displayAddToWishlistAlert()
         func backToHome()
+        func displayAllProducts()
     }
 
     final class HomeCoordinator {
@@ -31,8 +26,57 @@
         }
         
         func start() {
-        
+            displayHome()
         }
     }
 
+extension HomeCoordinator: HomeCoordinatorProtocol {
+    func displayHome() {
+        DispatchQueue.main.async {
+            let viewModel = HomeViewModel(coordinator: self)
+            let vc = HomeVC(viewModel: viewModel)
+            vc.coordinator = self
+            vc.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house.fill"), tag: 0)
+            self.router.push(vc)
+        }
+    }
+    
+    
+    func displayProductDetailsScreen() {
+        DispatchQueue.main.async {
+            let vc = ProductDetailsViewController(id: 0)
+            vc.coordinator = self
+            self.router.push(vc)
+        }
+        
+    }
+    
+    func displaySearchScreen() {
+        DispatchQueue.main.async {
+            let vc = FilterViewController()
+            self.router.push(vc)
+        }
+        
+    }
+    
+    func displayCategoriesScreen() {
+        DispatchQueue.main.async {
+            let vc = SearchCategoriesViewController()
+            self.router.push(vc)
+        }
+    }
+    
+    func displayAddToWishlistAlert() {
+        
+    }
+    
+    func backToHome() {
+        
+    }
+    
+    func displayAllProducts() {
+        
+    }
+}
+    
 

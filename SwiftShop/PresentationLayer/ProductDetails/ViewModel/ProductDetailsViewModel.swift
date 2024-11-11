@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 class ProductDetailsViewModel {
     
+    var coordinator:HomeCoordinatorProtocol?
+
     var product: ProductDetailsModel?
 
     // NewArrival Product Details

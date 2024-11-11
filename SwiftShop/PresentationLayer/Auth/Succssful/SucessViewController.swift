@@ -16,10 +16,10 @@ class SucessViewController: UIViewController {
     
     //MARK: -IBActions
     @IBAction func startShoppingBtn(_ sender: Any) {
-        let Home = HomeVC()
-        Home.modalPresentationStyle = .overFullScreen
-        Home.modalTransitionStyle = .crossDissolve
-        self.present(Home, animated: true)
+//        let Home = HomeVC()
+//        Home.modalPresentationStyle = .overFullScreen
+//        Home.modalTransitionStyle = .crossDissolve
+//        self.present(Home, animated: true)
     }
     
     

@@ -9,12 +9,16 @@ import Foundation
 import NetworkLayer
 
 enum AuthEndPoint: EndPoint {
+    
+    // MARK: - CASES
+    
     case login
     case signup
     case verfiyEmail
     case verifyCode
     case resetPassword
     
+    // MARK: - PROPRITIES
     
     var path: String {
         switch self {

@@ -12,9 +12,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeVC" customModule="SwiftShop" customModuleProvider="target">
             <connections>
                 <outlet property="bannerCollectionView" destination="yGK-Ny-d34" id="3Wi-ch-hiX"/>
+                <outlet property="homeAdsImageView" destination="gZn-WE-JiP" id="ARR-Uc-nLd"/>
                 <outlet property="navBar" destination="ArT-kB-fTQ" id="4dg-ld-Yh7"/>
-                <outlet property="newArriivalCollectionView" destination="tt8-Sg-vgr" id="LCO-wN-xrp"/>
                 <outlet property="popularTableView" destination="pQc-Qn-40y" id="u7M-bt-jcH"/>
+                <outlet property="productsCollectionView" destination="tt8-Sg-vgr" id="TRY-7l-aod"/>
                 <outlet property="scrollView" destination="Sgx-Jg-aMv" id="WZJ-Ob-RBF"/>
                 <outlet property="stackView" destination="hiW-j3-sPa" id="TqI-nq-2bH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
