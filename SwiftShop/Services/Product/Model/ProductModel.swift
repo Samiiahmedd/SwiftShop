@@ -32,5 +32,5 @@ struct Product: Codable {
     let in_favorites: Bool
     let in_cart: Bool
 }
- 
+
 

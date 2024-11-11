@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import Kingfisher
 
 class HomeVC: BaseViewController{
     
@@ -21,7 +22,7 @@ class HomeVC: BaseViewController{
     @IBOutlet weak var homeAdsImageView: UIImageView!
     
     // MARK: - VARIABLES
-
+    
     private var viewModel: HomeViewModel
     private var cancellable = Set<AnyCancellable>()
     var coordinator: HomeCoordinatorProtocol?
@@ -43,7 +44,7 @@ class HomeVC: BaseViewController{
         super.viewDidLoad()
         setupView()
         bindViewModel()
-        fetchAllProducts()
+        fetchAllProducts()        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,12 +53,13 @@ class HomeVC: BaseViewController{
         self.navigationItem.hidesBackButton = true
     }
     
+    
     //MARK: - @IBACTIONS
     
     @IBAction func viewAllNewArrivalsButtonAvtion(_ sender: Any) {
-        let allNewArrivalsVC = ProductCollectionViewController(nibName: "ProductCollectionViewController", bundle: nil)
-        allNewArrivalsVC.labelTitle = "New Arrivals"
-        self.navigationController?.pushViewController(allNewArrivalsVC, animated: true)
+        let viewAllProducts = ProductCollectionViewController(nibName: "ProductCollectionViewController", bundle: nil)
+        viewAllProducts.labelTitle = "All Products"
+        self.navigationController?.pushViewController(viewAllProducts, animated: true)
         self.navigationItem.hidesBackButton = true
     }
     
@@ -71,8 +73,36 @@ class HomeVC: BaseViewController{
     //MARK: - FUNCTIONS
     private func fetchAllProducts() {
         viewModel.getHomeProducts()
+        func fetchAndDisplayProducts() {
+            let services = ProductServices()
+            services.getHomeProducts()
+                .receive(on: DispatchQueue.main)
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        print("Data fetch completed") // Debug
+                    case .failure(let error):
+                        print("Error fetching data: \(error.localizedDescription)")
+                    }
+                } receiveValue: { [weak self] homeData in
+                    print("Fetched data with \(homeData.banners.count) banners and \(homeData.products.count) products")
+                    self?.viewModel.bannersDataSource = homeData.banners
+                    self?.viewModel.productsDataSource = homeData.products
+                    self?.bannerCollectionView.reloadData()
+                    self?.productsCollectionView.reloadData()
+                    
+                    if let adImageURLString = self?.viewModel.adImageURL?.asUrl {
+                        self?.homeAdsImageView.kf.setImage(with: adImageURLString)
+                    } else {
+                        print("Invalid ad image URL")
+                    }
+                }
+                .store(in: &cancellable)
+        }
     }
 }
+
+
 
 // MARK: - SETUP VIEW
 
@@ -80,7 +110,7 @@ private extension HomeVC {
     
     func setupView() {
         configerCollectionViews()
-//        configureTableViews()
+        //        configureTableViews()
         registerCells()
         configureNavBar()
     }
@@ -111,10 +141,10 @@ private extension HomeVC {
         
     }
     
-//    func configureTableViews() {
-//        popularTableView.delegate = self
-//        popularTableView.dataSource = self
-//    }
+    //        func configureTableViews() {
+    //            popularTableView.delegate = self
+    //            popularTableView.dataSource = self
+    //        }
     
     func configerCollectionViews() {
         bannerCollectionView.delegate = self
@@ -137,8 +167,10 @@ extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UIColle
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case bannerCollectionView:
+            print("Number of banners: \(viewModel.bannersDataSource.count)") // Debug
             return viewModel.bannersDataSource.count
-        case productsCollectionView :
+        case productsCollectionView:
+            print("Number of products: \(viewModel.productsDataSource.count)") // Debug
             return viewModel.productsDataSource.count
         default:
             return 0
@@ -177,31 +209,31 @@ extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UIColle
     }
     
     
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let selectedProduct = lastNewArrivals[indexPath.item]
-//        let productDetailsVC = ProductDetailsViewController(id: selectedProduct.id)
-//        self.navigationController?.pushViewController(productDetailsVC, animated: true)
-//    }
-//    
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return lastNewArrivals.count
-//    }
-//    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let selectedPopularProduct = popularProduct[indexPath.row]
-//        let productDetailsVC = ProductDetailsViewController(id: selectedPopularProduct.id)
-//        self.navigationController?.pushViewController(productDetailsVC, animated: true)
-//    }
-//    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = popularTableView.dequeueReusableCell(withIdentifier: PopularsTableViewCell.identifier, for: indexPath) as! PopularsTableViewCell
-//        cell.Setup(Populars: popularProduct[indexPath.row])
-//        return cell
-//    }
-//    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 100
-//    }
+    //        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    //            let selectedProduct = lastNewArrivals[indexPath.item]
+    //            let productDetailsVC = ProductDetailsViewController(id: selectedProduct.id)
+    //            self.navigationController?.pushViewController(productDetailsVC, animated: true)
+    //        }
+    //
+    //        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    //            return lastNewArrivals.count
+    //        }
+    //
+    //        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //            let selectedPopularProduct = popularProduct[indexPath.row]
+    //            let productDetailsVC = ProductDetailsViewController(id: selectedPopularProduct.id)
+    //            self.navigationController?.pushViewController(productDetailsVC, animated: true)
+    //        }
+    //
+    //        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    //            let cell = popularTableView.dequeueReusableCell(withIdentifier: PopularsTableViewCell.identifier, for: indexPath) as! PopularsTableViewCell
+    //            cell.Setup(Populars: popularProduct[indexPath.row])
+    //            return cell
+    //        }
+    //
+    //        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    //            return 100
+    //        }
 }
 
 // MARK: - VIEW MODEL
@@ -232,9 +264,11 @@ private extension HomeVC {
         }.store(in: &cancellable)
     }
     
-     func bindSetupView() {
+    func bindSetupView() {
         viewModel.homeData
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] homeData in
+                print("Updating data sources in HomeVC with \(homeData.banners.count) banners and \(homeData.products.count) products") // Debug
                 self?.viewModel.bannersDataSource = homeData.banners
                 self?.viewModel.productsDataSource = homeData.products
                 self?.bannerCollectionView.reloadData()

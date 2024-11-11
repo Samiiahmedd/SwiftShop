@@ -32,6 +32,8 @@ class HomeViewModel {
     var productsDataSource: [Product] = []
     var productsDataaSource: [HomeData] = []
     var bannersDataSource: [Banner] = []
+    var adImageURL: String?
+    
     var homeData = PassthroughSubject<HomeData, Never>()
     private let services: ProductServicesProtocol
     private var cancellable = Set<AnyCancellable>()
@@ -89,14 +91,18 @@ extension HomeViewModel {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 guard let self else { return }
-                isLoading.send(false)
+                self.isLoading.send(false)
                 switch completion {
                 case .finished:
-                    print("done")
+                    print("Finished fetching products")
                 case .failure(let error):
-                    errorMessage.send(error.localizedDescription)
+                    self.errorMessage.send(error.localizedDescription)
                 }
             } receiveValue: { [weak self] homeData in
+                print("ViewModel received data with \(homeData.banners.count) banners and \(homeData.products.count) products")
+                self?.bannersDataSource = homeData.banners
+                self?.productsDataSource = homeData.products
+                self?.adImageURL = homeData.ad
                 self?.homeData.send(homeData)
             }
             .store(in: &cancellable)
