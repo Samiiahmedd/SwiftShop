@@ -13,7 +13,7 @@ enum ProductEndPoint: EndPoint {
     // MARK: - CASES
     
     case homeProducts
-    case productDetails
+    case productDetails(id: Int)
     
     // MARK: - PROPRITIES
     
@@ -21,8 +21,9 @@ enum ProductEndPoint: EndPoint {
         switch self {
         case .homeProducts:
             "/api/home"
-        case .productDetails:
-            ""
+            
+        case .productDetails(let id):
+            "/api/products/\(id)"
         }
     }
     

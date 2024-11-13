@@ -44,7 +44,7 @@ class HomeVC: BaseViewController{
         super.viewDidLoad()
         setupView()
         bindViewModel()
-        fetchAllProducts()        
+        fetchAllProducts()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,38 +71,11 @@ class HomeVC: BaseViewController{
     }
     
     //MARK: - FUNCTIONS
+    
     private func fetchAllProducts() {
         viewModel.getHomeProducts()
-        func fetchAndDisplayProducts() {
-            let services = ProductServices()
-            services.getHomeProducts()
-                .receive(on: DispatchQueue.main)
-                .sink { completion in
-                    switch completion {
-                    case .finished:
-                        print("Data fetch completed") // Debug
-                    case .failure(let error):
-                        print("Error fetching data: \(error.localizedDescription)")
-                    }
-                } receiveValue: { [weak self] homeData in
-                    print("Fetched data with \(homeData.banners.count) banners and \(homeData.products.count) products")
-                    self?.viewModel.bannersDataSource = homeData.banners
-                    self?.viewModel.productsDataSource = homeData.products
-                    self?.bannerCollectionView.reloadData()
-                    self?.productsCollectionView.reloadData()
-                    
-                    if let adImageURLString = self?.viewModel.adImageURL?.asUrl {
-                        self?.homeAdsImageView.kf.setImage(with: adImageURLString)
-                    } else {
-                        print("Invalid ad image URL")
-                    }
-                }
-                .store(in: &cancellable)
-        }
     }
 }
-
-
 
 // MARK: - SETUP VIEW
 
@@ -155,7 +128,7 @@ private extension HomeVC {
     
     func registerCells() {
         bannerCollectionView.register(UINib(nibName: BannerCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: BannerCollectionViewCell.identifier)
-        productsCollectionView.register(UINib(nibName: NewArriivalCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: NewArriivalCollectionViewCell.identifier)
+        productsCollectionView.register(UINib(nibName: HomeProductsCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: HomeProductsCollectionViewCell.identifier)
         
         popularTableView.register(UINib(nibName: "PopularsTableViewCell", bundle: nil), forCellReuseIdentifier: "PopularsTableViewCell")
     }
@@ -186,9 +159,9 @@ extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UIColle
             return cell
             
         case productsCollectionView:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewArriivalCollectionViewCell.identifier, for: indexPath) as! NewArriivalCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeProductsCollectionViewCell.identifier, for: indexPath) as! HomeProductsCollectionViewCell
             let product = viewModel.productsDataSource[indexPath.row]
-            cell.Setup(newArrival: product)
+            cell.Setup(product: product)
             return cell
         default:
             return UICollectionViewCell()
@@ -209,11 +182,19 @@ extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UIColle
     }
     
     
-    //        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    //            let selectedProduct = lastNewArrivals[indexPath.item]
-    //            let productDetailsVC = ProductDetailsViewController(id: selectedProduct.id)
-    //            self.navigationController?.pushViewController(productDetailsVC, animated: true)
-    //        }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedProduct = viewModel.productsDataSource[indexPath.item]
+        
+        // Initialize the viewModel with the selected product ID
+        let viewModel = ProductDetailsViewModel(id: selectedProduct.id, coordinator: self.coordinator!)
+        
+        // Initialize the ProductDetailsViewController with the viewModel
+        let productDetailsVC = ProductDetailsViewController(viewModel: viewModel, productId: selectedProduct.id)
+        
+        // Push the ProductDetailsViewController
+        self.navigationController?.pushViewController(productDetailsVC, animated: true)
+    }
+
     //
     //        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     //            return lastNewArrivals.count
@@ -268,11 +249,16 @@ private extension HomeVC {
         viewModel.homeData
             .receive(on: DispatchQueue.main)
             .sink { [weak self] homeData in
-                print("Updating data sources in HomeVC with \(homeData.banners.count) banners and \(homeData.products.count) products") // Debug
+                print("Updating data sources in HomeVC with \(homeData.banners.count) banners and \(homeData.products.count) \(String(describing: homeData.ad?.count)) products") // Debug
                 self?.viewModel.bannersDataSource = homeData.banners
                 self?.viewModel.productsDataSource = homeData.products
                 self?.bannerCollectionView.reloadData()
                 self?.productsCollectionView.reloadData()
+                if let adImageURLString = self?.viewModel.adImageURL?.asUrl {
+                    self?.homeAdsImageView.kf.setImage(with: adImageURLString)
+                } else {
+                    print("Invalid ad image URL")
+                }
             }
             .store(in: &cancellable)
     }
@@ -280,8 +266,8 @@ private extension HomeVC {
 
 // MARK: - NewArrivalCollectionViewCellDelegate
 
-extension HomeVC: NewArrivalCollectionViewCellDelegate {
-    func didTapFavoriteButton(on cell: NewArriivalCollectionViewCell) {
+extension HomeVC: HomeProductsCollectionViewCellDelegate {
+    func didTapFavoriteButton(on cell: HomeProductsCollectionViewCell) {
         AlertViewController.showAlert(on: self, image: UIImage(systemName: "heart.fill")!, title: "Added To Wishlist", message: "Product added to wishlist", buttonTitle: "OK") {
         }
     }

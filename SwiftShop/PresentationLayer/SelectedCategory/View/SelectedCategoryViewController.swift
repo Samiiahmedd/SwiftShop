@@ -17,7 +17,7 @@ class SelectedCategoryViewController: UIViewController {
     
     //MARK: - VARIABLES
     var labelTitle: String?
-    var product: [NewArrival] = []
+    var product: [PopularModel] = []
     var viewModel = SelectedCategoryViewModel()
     var category: String = ""
 
@@ -66,7 +66,7 @@ extension SelectedCategoryViewController {
     }
     
     func registerCells() {
-        selectedCategoryProductsCollectionView.register(UINib(nibName: NewArriivalCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: NewArriivalCollectionViewCell.identifier)    }
+        selectedCategoryProductsCollectionView.register(UINib(nibName: HomeProductsCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: HomeProductsCollectionViewCell.identifier)    }
 }
 
 extension SelectedCategoryViewController: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
@@ -75,7 +75,7 @@ extension SelectedCategoryViewController: UICollectionViewDelegate, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewArriivalCollectionViewCell.identifier, for: indexPath) as! NewArriivalCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeProductsCollectionViewCell.identifier, for: indexPath) as! HomeProductsCollectionViewCell
 //        cell.Setup(newArrival: product[indexPath.row])
         return cell
     }
@@ -93,8 +93,8 @@ extension SelectedCategoryViewController: UICollectionViewDelegate, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedProduct = product[indexPath.item]
-        let productDetailsVC = ProductDetailsViewController(id: selectedProduct.id)
-        self.navigationController?.pushViewController(productDetailsVC, animated: true)
+//        let selectedProduct = product[indexPath.item]
+//        let productDetailsVC = ProductDetailsViewController(id: selectedProduct.id)
+//        self.navigationController?.pushViewController(productDetailsVC, animated: true)
     }
 }

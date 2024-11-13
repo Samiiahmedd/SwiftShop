@@ -44,7 +44,8 @@ extension HomeCoordinator: HomeCoordinatorProtocol {
     
     func displayProductDetailsScreen() {
         DispatchQueue.main.async {
-            let vc = ProductDetailsViewController(id: 0)
+            let productDetailsViewModel = ProductDetailsViewModel(id: 12, coordinator: self) // Initialize your ViewModel
+            let vc = ProductDetailsViewController(viewModel: productDetailsViewModel, productId: 123)
             vc.coordinator = self
             self.router.push(vc)
         }

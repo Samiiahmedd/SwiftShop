@@ -29,7 +29,7 @@ struct AuthServices: AuthServicesProtocol {
         return network.request(requestModel)
             .flatMap { (baseModel: BaseModel<UserModel>) -> AnyPublisher<UserModel, NetworkError> in
                 guard baseModel.status == true else {
-                    return Fail(error: NetworkError.serverError(code: 199, error: baseModel.message))
+                    return Fail(error: NetworkError.serverError(code: 199, error: baseModel.message ?? ""))
                         .eraseToAnyPublisher()
                 }
                 
@@ -54,7 +54,7 @@ struct AuthServices: AuthServicesProtocol {
         return network.request(requestModel)
             .flatMap { (baseModel: BaseModel<UserModel>) -> AnyPublisher<UserModel, NetworkError> in
                 guard baseModel.status == true else {
-                    return Fail(error: NetworkError.serverError(code: 199, error: baseModel.message))
+                    return Fail(error: NetworkError.serverError(code: 199, error: baseModel.message ?? ""))
                         .eraseToAnyPublisher()
                 }
                 
@@ -77,7 +77,7 @@ struct AuthServices: AuthServicesProtocol {
         return network.request(requestModel)
             .flatMap { (baseModel: BaseModel<UserModel>) -> AnyPublisher<UserModel, NetworkError> in
                 guard baseModel.status == true else {
-                    return Fail(error: NetworkError.serverError(code: 199, error: baseModel.message))
+                    return Fail(error: NetworkError.serverError(code: 199, error: baseModel.message ?? ""))
                         .eraseToAnyPublisher()
                 }
                 
@@ -100,7 +100,7 @@ struct AuthServices: AuthServicesProtocol {
         return network.request(requestModel)
             .flatMap { (baseModel: BaseModel<UserModel>) -> AnyPublisher<UserModel, NetworkError> in
                 guard baseModel.status == true else {
-                    return Fail(error: NetworkError.serverError(code: 199, error: baseModel.message))
+                    return Fail(error: NetworkError.serverError(code: 199, error: baseModel.message ?? ""))
                         .eraseToAnyPublisher()
                 }
                 
@@ -123,7 +123,7 @@ struct AuthServices: AuthServicesProtocol {
         return network.request(requestModel)
             .flatMap { (baseModel: BaseModel<UserModel>) -> AnyPublisher<UserModel, NetworkError> in
                 guard baseModel.status == true else {
-                    return Fail(error: NetworkError.serverError(code: 199, error: baseModel.message))
+                    return Fail(error: NetworkError.serverError(code: 199, error: baseModel.message ?? ""))
                         .eraseToAnyPublisher()
                 }
                 

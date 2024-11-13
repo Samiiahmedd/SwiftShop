@@ -19,7 +19,7 @@ class ProductCollectionViewController: UIViewController {
     
     var labelTitle: String?
     var viewModel = ProductCollectionViewModel()
-    var product: [NewArrival] = []
+    var product: [PopularModel] = []
 
     
     //MARK: - VIEW LIFE CYCLE
@@ -74,7 +74,7 @@ private extension ProductCollectionViewController {
     }
     
     func registerCells() {
-        productsCollectionView.register(UINib(nibName: NewArriivalCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: NewArriivalCollectionViewCell.identifier)
+        productsCollectionView.register(UINib(nibName: HomeProductsCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: HomeProductsCollectionViewCell.identifier)
 
     }
 }
@@ -84,9 +84,9 @@ private extension ProductCollectionViewController {
 extension ProductCollectionViewController:UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedProduct = product[indexPath.item]
-        let productDetailsVC = ProductDetailsViewController(id: selectedProduct.id)
-        self.navigationController?.pushViewController(productDetailsVC, animated: true)
+//        let selectedProduct = product[indexPath.item]
+//        let productDetailsVC = ProductDetailsViewController(id: selectedProduct.id)
+//        self.navigationController?.pushViewController(productDetailsVC, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -94,7 +94,7 @@ extension ProductCollectionViewController:UICollectionViewDelegate, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewArriivalCollectionViewCell.identifier, for: indexPath) as! NewArriivalCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeProductsCollectionViewCell.identifier, for: indexPath) as! HomeProductsCollectionViewCell
 //        cell.Setup(newArrival: product[indexPath.row])
         return cell
     }

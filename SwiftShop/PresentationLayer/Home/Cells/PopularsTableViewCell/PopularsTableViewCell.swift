@@ -35,16 +35,16 @@ class PopularsTableViewCell: UITableViewCell {
 }
 
 // MARK: - SETUP CELL
-
-extension PopularsTableViewCell {
-    func Setup(Populars: PopularModel) {
-        
-        let imageUrl = Populars.image.asUrl
-        productImage.kf.setImage(with: imageUrl)
-        productTitle.text = Populars.title
-        productDescription.text = Populars.category
-        productRating.text = String(Populars.rating.rate)
-        productPrice.text = String(Populars.price)
-        
-    }
-}
+//
+//extension PopularsTableViewCell {
+//    func Setup(Populars: PopularModel) {
+//        
+//        let imageUrl = Populars.image.asUrl
+//        productImage.kf.setImage(with: imageUrl)
+//        productTitle.text = Populars.title
+//        productDescription.text = Populars.category
+//        productRating.text = String(Populars.rating.rate)
+//        productPrice.text = String(Populars.price)
+//        
+//    }
+//}

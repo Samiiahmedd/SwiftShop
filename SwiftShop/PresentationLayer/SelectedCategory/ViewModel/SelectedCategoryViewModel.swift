@@ -9,7 +9,7 @@ import Foundation
 
 
 class SelectedCategoryViewModel {
-    func getProductsByCategory(_ category: String) async throws -> [NewArrival] {
+    func getProductsByCategory(_ category: String) async throws -> [PopularModel] {
         let urlString = "https://fakestoreapi.com/products/category/\(category)"
         guard let url = URL(string: urlString) else {
             throw RequestError.invalidURL
@@ -18,7 +18,7 @@ class SelectedCategoryViewModel {
         guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
             throw RequestError.noData
         }
-        let products = try JSONDecoder().decode([NewArrival].self, from: data)
+        let products = try JSONDecoder().decode([PopularModel].self, from: data)
         return products
     }
 

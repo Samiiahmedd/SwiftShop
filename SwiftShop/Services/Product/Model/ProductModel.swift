@@ -7,6 +7,8 @@
 
 import Foundation
 
+//HOME
+
 struct HomeData: Codable {
     let banners: [Banner]
     let products: [Product]
@@ -33,4 +35,17 @@ struct Product: Codable {
     let in_cart: Bool
 }
 
+//PRODUCT DETAILS
 
+struct ProductDetails: Codable {
+    let id: Int
+    let price: Double
+    let old_price: Double
+    let discount: Double
+    let image: String
+    let name: String
+    let description: String
+    let images: [String]
+    let in_favorites: Bool
+    let in_cart: Bool
+}

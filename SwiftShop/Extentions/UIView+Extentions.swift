@@ -105,3 +105,31 @@ extension UIView {
     }
 }
 
+extension UIView {
+    func startShimmering() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [
+            UIColor(white: 0.85, alpha: 1.0).cgColor,
+            UIColor(white: 0.90, alpha: 1.0).cgColor,
+            UIColor(white: 0.85, alpha: 1.0).cgColor
+        ]
+        gradientLayer.frame = self.bounds
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
+        gradientLayer.locations = [0, 0.5, 1]
+        self.layer.addSublayer(gradientLayer)
+        
+        let animation = CABasicAnimation(keyPath: "locations")
+        animation.fromValue = [0, 0, 0.2]
+        animation.toValue = [0.8, 1, 1]
+        animation.duration = 0.8
+        animation.repeatCount = .infinity
+        gradientLayer.add(animation, forKey: "shimmer")
+    }
+    
+    func stopShimmering() {
+        self.layer.sublayers?.removeAll(where: { $0 is CAGradientLayer })
+    }
+}
+
+

@@ -32,6 +32,7 @@ class HomeViewModel {
     var productsDataSource: [Product] = []
     var productsDataaSource: [HomeData] = []
     var bannersDataSource: [Banner] = []
+    
     var adImageURL: String?
     
     var homeData = PassthroughSubject<HomeData, Never>()
