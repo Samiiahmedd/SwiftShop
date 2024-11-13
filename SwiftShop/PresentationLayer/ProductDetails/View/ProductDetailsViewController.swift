@@ -119,8 +119,8 @@ class ProductDetailsViewController: BaseViewController {
         productDescription.stopShimmering()
         priceLabel.stopShimmering()
         oldPriceLabel.stopShimmering()
-//        colorsCollectionView.stopShimmering()
-//        sizeCollectionView.stopShimmering()
+        colorsCollectionView.stopShimmering()
+        sizeCollectionView.stopShimmering()
     }
 }
 

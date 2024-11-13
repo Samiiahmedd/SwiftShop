@@ -57,18 +57,12 @@ class HomeVC: BaseViewController{
     //MARK: - @IBACTIONS
     
     @IBAction func viewAllNewArrivalsButtonAvtion(_ sender: Any) {
-        let viewAllProducts = ProductCollectionViewController(nibName: "ProductCollectionViewController", bundle: nil)
-        viewAllProducts.labelTitle = "All Products"
-        self.navigationController?.pushViewController(viewAllProducts, animated: true)
-        self.navigationItem.hidesBackButton = true
+        coordinator?.displayAllProducts()
     }
     
-    @IBAction func viewAllPopularsButtonAction(_ sender: Any) {
-        let allPopularsVC = ProductCollectionViewController(nibName: "ProductCollectionViewController", bundle: nil)
-        allPopularsVC.labelTitle = "Populars"
-        self.navigationController?.pushViewController(allPopularsVC, animated: true)
-        self.navigationItem.hidesBackButton = true
-    }
+//    @IBAction func viewAllPopularsButtonAction(_ sender: Any) {
+//        coordinator?.displayAllProducts()
+//    }
     
     //MARK: - FUNCTIONS
     
@@ -140,10 +134,8 @@ extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UIColle
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case bannerCollectionView:
-            print("Number of banners: \(viewModel.bannersDataSource.count)") // Debug
             return viewModel.bannersDataSource.count
         case productsCollectionView:
-            print("Number of products: \(viewModel.productsDataSource.count)") // Debug
             return viewModel.productsDataSource.count
         default:
             return 0
@@ -184,14 +176,8 @@ extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UIColle
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedProduct = viewModel.productsDataSource[indexPath.item]
-        
-        // Initialize the viewModel with the selected product ID
         let viewModel = ProductDetailsViewModel(id: selectedProduct.id, coordinator: self.coordinator!)
-        
-        // Initialize the ProductDetailsViewController with the viewModel
         let productDetailsVC = ProductDetailsViewController(viewModel: viewModel, productId: selectedProduct.id)
-        
-        // Push the ProductDetailsViewController
         self.navigationController?.pushViewController(productDetailsVC, animated: true)
     }
 
@@ -223,7 +209,7 @@ private extension HomeVC {
     func bindViewModel() {
         bindIsLoading()
         bindErrorState()
-        bindSetupView()
+        bindSetupViewModel()
     }
     
     func bindIsLoading() {
@@ -240,12 +226,12 @@ private extension HomeVC {
     func bindErrorState() {
         viewModel.errorMessage.sink { [weak self] error in
             guard let self else { return }
-            AlertViewController.showAlert(on: self, image:UIImage(systemName: "xmark.circle.fill")!, title: "Login Error", message: error, buttonTitle: "OK") {
+            AlertViewController.showAlert(on: self, image:UIImage(systemName: "xmark.circle.fill")!, title: "Error", message: error, buttonTitle: "OK") {
             }
         }.store(in: &cancellable)
     }
     
-    func bindSetupView() {
+    func bindSetupViewModel() {
         viewModel.homeData
             .receive(on: DispatchQueue.main)
             .sink { [weak self] homeData in

@@ -1,34 +1,34 @@
-    //
-    //  HomeCoordinator.swift
-    //  SwiftShop
-    //
-    //  Created by Abdalazem Saleh on 26/10/2024.
-    //
+//
+//  HomeCoordinator.swift
+//  SwiftShop
+//
+//  Created by Abdalazem Saleh on 26/10/2024.
+//
 
-    import UIKit
+import UIKit
 
-    protocol HomeCoordinatorProtocol: Coordinator {
-        func displayHome()
-        func displayProductDetailsScreen()
-        func displaySearchScreen()
-        func displayCategoriesScreen()
-        func displayAddToWishlistAlert()
-        func backToHome()
-        func displayAllProducts()
+protocol HomeCoordinatorProtocol: Coordinator {
+    func displayHome()
+    func displayProductDetailsScreen()
+    func displaySearchScreen()
+    func displayCategoriesScreen()
+    func displayAddToWishlistAlert()
+    func backToHome()
+    func displayAllProducts()
+}
+
+final class HomeCoordinator {
+    
+    var router: any Router
+    
+    init(router: Router) {
+        self.router = router
     }
-
-    final class HomeCoordinator {
-        
-        var router: any Router
-        
-        init(router: Router) {
-            self.router = router
-        }
-        
-        func start() {
-            displayHome()
-        }
+    
+    func start() {
+        displayHome()
     }
+}
 
 extension HomeCoordinator: HomeCoordinatorProtocol {
     func displayHome() {
@@ -49,7 +49,6 @@ extension HomeCoordinator: HomeCoordinatorProtocol {
             vc.coordinator = self
             self.router.push(vc)
         }
-        
     }
     
     func displaySearchScreen() {
@@ -76,8 +75,14 @@ extension HomeCoordinator: HomeCoordinatorProtocol {
     }
     
     func displayAllProducts() {
+        DispatchQueue.main.async {
+            let viewModel = ProductCollectionViewModel(coordinator: self)
+            let vc = ProductCollectionViewController(viewModel: viewModel)
+            vc.coordinator = self
+            self.router.push(vc)
+        }
         
     }
 }
-    
+
 
