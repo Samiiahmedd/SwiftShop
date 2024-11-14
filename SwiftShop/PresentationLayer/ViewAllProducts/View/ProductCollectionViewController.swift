@@ -22,6 +22,7 @@ class ProductCollectionViewController: UIViewController {
     private var viewModel: ProductCollectionViewModel
     private var cancellable = Set<AnyCancellable>()
     var coordinator: HomeCoordinatorProtocol?
+    private var isDataLoading = true
 
     //MARK: - INITIALIZER
     
@@ -75,7 +76,6 @@ private extension ProductCollectionViewController {
     func configerCollectionViews() {
         productsCollectionView.delegate = self
         productsCollectionView.dataSource = self
-        
     }
     
     func registerCells() {

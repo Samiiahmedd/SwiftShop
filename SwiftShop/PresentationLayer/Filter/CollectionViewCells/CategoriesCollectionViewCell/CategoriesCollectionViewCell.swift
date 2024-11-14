@@ -29,7 +29,7 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
 // MARK: - SETUP CELL
 
 extension CategoriesCollectionViewCell {
-    func Setup (category:CategoriesModel) {
+    func Setup (category:FilterCategoriesModel) {
         categoryName.text = category.categoryName
     }
 }

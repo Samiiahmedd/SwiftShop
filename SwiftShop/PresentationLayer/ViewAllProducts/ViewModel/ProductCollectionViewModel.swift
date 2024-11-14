@@ -32,7 +32,6 @@ class ProductCollectionViewModel{
     private var cancellable = Set<AnyCancellable>()
     var coordinator:HomeCoordinatorProtocol
     
-    
     var isLoading: PassthroughSubject<Bool, Never> = .init()
     var errorMessage: PassthroughSubject<String, Never> = .init()
     var showProducts : PassthroughSubject<String,Never> = .init()

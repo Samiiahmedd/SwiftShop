@@ -9,7 +9,7 @@ import UIKit
 
 protocol HomeCoordinatorProtocol: Coordinator {
     func displayHome()
-    func displayProductDetailsScreen()
+    func displayProductDetailsScreen(productId: Int)
     func displaySearchScreen()
     func displayCategoriesScreen()
     func displayAddToWishlistAlert()
@@ -34,22 +34,24 @@ extension HomeCoordinator: HomeCoordinatorProtocol {
     func displayHome() {
         DispatchQueue.main.async {
             let viewModel = HomeViewModel(coordinator: self)
-            let vc = HomeVC(viewModel: viewModel)
-            vc.coordinator = self
-            vc.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house.fill"), tag: 0)
-            self.router.push(vc)
+            let homeVC = HomeVC(viewModel: viewModel)
+            homeVC.coordinator = self
+            homeVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house.fill"), tag: 0)
+            self.router.push(homeVC)
         }
     }
     
     
-    func displayProductDetailsScreen() {
+    func displayProductDetailsScreen(productId: Int) {
         DispatchQueue.main.async {
-            let productDetailsViewModel = ProductDetailsViewModel(id: 12, coordinator: self) // Initialize your ViewModel
-            let vc = ProductDetailsViewController(viewModel: productDetailsViewModel, productId: 123)
-            vc.coordinator = self
-            self.router.push(vc)
+            let productDetailsViewModel = ProductDetailsViewModel(id: productId, coordinator: self)
+            let productDetailsVC = ProductDetailsViewController(viewModel: productDetailsViewModel, productId: productId)
+            productDetailsVC.coordinator = self
+            self.router.push(productDetailsVC)
         }
     }
+
+
     
     func displaySearchScreen() {
         DispatchQueue.main.async {
@@ -61,7 +63,9 @@ extension HomeCoordinator: HomeCoordinatorProtocol {
     
     func displayCategoriesScreen() {
         DispatchQueue.main.async {
-            let vc = SearchCategoriesViewController()
+            let categoriesViewModel = SearchCategoriesViewModel(coordinator: self)
+            let vc = SearchCategoriesViewController(viewModel: categoriesViewModel)
+            vc.coordinator = self
             self.router.push(vc)
         }
     }

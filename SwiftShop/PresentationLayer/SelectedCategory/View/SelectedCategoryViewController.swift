@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class SelectedCategoryViewController: UIViewController {
     
@@ -17,33 +18,36 @@ class SelectedCategoryViewController: UIViewController {
     
     //MARK: - VARIABLES
     var labelTitle: String?
-    var product: [PopularModel] = []
-    var viewModel = SelectedCategoryViewModel()
-    var category: String = ""
+    private let categoryId: Int
+    private var viewModel: SelectedCategoryViewModel
+    private var cancellable = Set<AnyCancellable>()
+    var coordinator :HomeCoordinatorProtocol?
 
+    //MARK: - INITIALIZER
+    
+    init(viewModel: SelectedCategoryViewModel, categoryId: Int) {
+        self.viewModel = viewModel
+        self.categoryId = categoryId
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     //MARK: - VIEW LIFE CYCLE
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.text = labelTitle
         setupView()
-        Task {
-            await fetchProductsForSelectedCategory()
-        }
-    }
-    
-    private func fetchProductsForSelectedCategory() async {
-        do {
-            let productsByCategory = try await viewModel.getProductsByCategory(category)
-            product = productsByCategory
-            DispatchQueue.main.async {
-                self.selectedCategoryProductsCollectionView.reloadData()
-            }
-        } catch {
-            print("Error fetching products: \(error.localizedDescription)")
-        }
+        bindViewModel()
+        viewModel.getCategory()
+
     }
 }
+
+//MARK: - SETUP VIEW
 
 extension SelectedCategoryViewController {
     func setupView() {
@@ -71,12 +75,13 @@ extension SelectedCategoryViewController {
 
 extension SelectedCategoryViewController: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return product.count
+        return viewModel.productDataSource.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeProductsCollectionViewCell.identifier, for: indexPath) as! HomeProductsCollectionViewCell
-//        cell.Setup(newArrival: product[indexPath.row])
+        let product = viewModel.productDataSource[indexPath.row]
+        cell.Setup(product: product)
         return cell
     }
     
@@ -91,10 +96,57 @@ extension SelectedCategoryViewController: UICollectionViewDelegate, UICollection
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 5
     }
-    
+
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let selectedProduct = product[indexPath.item]
-//        let productDetailsVC = ProductDetailsViewController(id: selectedProduct.id)
-//        self.navigationController?.pushViewController(productDetailsVC, animated: true)
+        let selectedProduct = viewModel.productDataSource[indexPath.item]
+        let viewModel = ProductDetailsViewModel(id: selectedProduct.id, coordinator: self.coordinator!)
+        let productDetailsVC = ProductDetailsViewController(viewModel: viewModel, productId: selectedProduct.id)
+        self.navigationController?.pushViewController(productDetailsVC, animated: true)
     }
 }
+
+//MARK: - BIND VIEW MODEL
+
+private extension SelectedCategoryViewController {
+    func bindViewModel() {
+        bindIsLoading()
+        bindErrorState()
+        bindSetupViewModel()
+    }
+    
+    func bindIsLoading() {
+        viewModel.isLoading.sink { [weak self] isLoading in
+            guard let self else { return }
+            if isLoading {
+                self.showLoader()
+            } else {
+                self.hideLoader()
+            }
+        }.store(in: &cancellable)
+    }
+    
+    func bindErrorState() {
+        viewModel.errorMessage.sink { [weak self] error in
+            guard let self else { return }
+            AlertViewController.showAlert(on: self, image:UIImage(systemName: "xmark.circle.fill")!, title: "Error", message: error, buttonTitle: "OK") {
+            }
+        }.store(in: &cancellable)
+    }
+    
+    func bindSetupViewModel() {
+        viewModel.category
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] category in
+
+                self?.viewModel.productDataSource = category.data
+                self?.selectedCategoryProductsCollectionView.reloadData()
+
+            }
+            .store(in: &cancellable)
+    }
+}
+
+
+
+

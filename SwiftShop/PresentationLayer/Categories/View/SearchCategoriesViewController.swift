@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class SearchCategoriesViewController: UIViewController {
     
@@ -17,19 +18,28 @@ class SearchCategoriesViewController: UIViewController {
     
     //MARK: - VARIABLES
     
-    let viewModel = SearchCategoriesViewModel()
-    var categoriesList: [String] = []
-    var products: [PopularModel] = []
-    var selectedCategory: String = ""
+    private var viewModel: SearchCategoriesViewModel
+    private var cancellable = Set<AnyCancellable>()
+    var coordinator: HomeCoordinatorProtocol?
+    
+    //MARK: - INITIALIZER
+    
+    init(viewModel: SearchCategoriesViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     //MARK: - VIEW LIFE CYCLE
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        Task {
-            await fetchCategories()
-        }
+        bindViewModel()
+        viewModel.getAllCategories()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,17 +76,45 @@ private extension SearchCategoriesViewController {
     func registerCells() {
         searchCategoriesCollectionView.register(UINib(nibName: SearchCategoriesCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: SearchCategoriesCollectionViewCell.identifier)
     }
+}
+
+
+// MARK: - VIEW MODEL
+
+private extension SearchCategoriesViewController {
+    func bindViewModel() {
+        bindIsLoading()
+        bindErrorState()
+        bindSetupViewModel()
+    }
     
-    private func fetchCategories() async {
-        do {
-            let categories = try await viewModel.getCategoriesList()
-            categoriesList = categories // Assign the fetched categories to the list
-            DispatchQueue.main.async {
-                self.searchCategoriesCollectionView.reloadData()
+    func bindIsLoading() {
+        viewModel.isLoading.sink { [weak self] isLoading in
+            guard let self else { return }
+            if isLoading {
+                self.showLoader()
+            } else {
+                self.hideLoader()
             }
-        } catch {
-            print("Error fetching categories: \(error.localizedDescription)")
-        }
+        }.store(in: &cancellable)
+    }
+    
+    func bindErrorState() {
+        viewModel.errorMessage.sink { [weak self] error in
+            guard let self else { return }
+            AlertViewController.showAlert(on: self, image:UIImage(systemName: "xmark.circle.fill")!, title: "Error", message: error, buttonTitle: "OK") {
+            }
+        }.store(in: &cancellable)
+    }
+    
+    func bindSetupViewModel() {
+        viewModel.categories
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] categories in
+                self?.viewModel.categoryDataSource = categories.data
+                self?.searchCategoriesCollectionView.reloadData()
+            }
+            .store(in: &cancellable)
     }
 }
 
@@ -84,26 +122,41 @@ private extension SearchCategoriesViewController {
 
 extension SearchCategoriesViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categoriesList.count
+        return viewModel.categoryDataSource.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = searchCategoriesCollectionView.dequeueReusableCell(withReuseIdentifier: SearchCategoriesCollectionViewCell.identifier, for: indexPath) as! SearchCategoriesCollectionViewCell
-        let category = categoriesList[indexPath.row]
+        let category = viewModel.categoryDataSource[indexPath.row]
         cell.setup(category: category)
         return cell
     }
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (collectionView.frame.width) - 40 , height: 130)
+        let padding: CGFloat = 16
+        let totalHorizontalPadding = padding * 3
+        let availableWidth = collectionView.frame.width - totalHorizontalPadding
+        let cellWidth = availableWidth / 2
+        return CGSize(width: cellWidth, height: cellWidth)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedCategory = categoriesList[indexPath.row]           
-        let categoryVC = SelectedCategoryViewController(nibName: "SelectedCategoryViewController", bundle: nil)
-        categoryVC.labelTitle = selectedCategory
-           categoryVC.category = selectedCategory
-           self.navigationController?.pushViewController(categoryVC, animated: true)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 16
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 16
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+    }
+    
+        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            let selectedCategorry = viewModel.categoryDataSource[indexPath.item]
+            let viewModel = SelectedCategoryViewModel(id: selectedCategorry.id, coordinator: self.coordinator!)
+            let selectedCategorryVC = SelectedCategoryViewController(viewModel: viewModel, categoryId: selectedCategorry.id)
+            self.navigationController?.pushViewController(selectedCategorryVC, animated: true)
+        }
 }

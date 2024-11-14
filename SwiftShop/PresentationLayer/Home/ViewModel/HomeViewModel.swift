@@ -29,6 +29,7 @@ protocol HomeViewModelProtocol {
 
 @MainActor
 class HomeViewModel {
+    
     var productsDataSource: [Product] = []
     var productsDataaSource: [HomeData] = []
     var bannersDataSource: [Banner] = []
@@ -63,7 +64,7 @@ extension HomeViewModel: HomeViewModelProtocol {
     func bindIsHome() {
         
         productCellTriggered
-            .sink { [weak self] _ in self?.coordinator.displayProductDetailsScreen() }
+            .sink { [weak self] _ in self?.coordinator.displayProductDetailsScreen(productId: 0) }
             .store(in: &cancellable)
         
         backActionTriggerd

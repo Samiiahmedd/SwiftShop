@@ -48,7 +48,7 @@ class HomeProductsCollectionViewCell: UICollectionViewCell {
 // MARK: - SETUP CELL
 
 extension HomeProductsCollectionViewCell {
-    func Setup(product: Product) {
+    func Setup(product: ProductDisplayable) {
         let imageUrl = product.image.asUrl
             imageView.kf.setImage(with: imageUrl)
         productTitleLabel.text = product.name

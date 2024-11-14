@@ -74,7 +74,7 @@ class HomeVC: BaseViewController{
 // MARK: - SETUP VIEW
 
 private extension HomeVC {
-    
+        
     func setupView() {
         configerCollectionViews()
         //        configureTableViews()
@@ -85,10 +85,8 @@ private extension HomeVC {
     func configureNavBar() {
         navBar.setupFirstTralingButton(
             with: "",
-            and: UIImage(systemName: "magnifyingglass")!) {
-                let filter = FilterViewController(nibName: "FilterViewController", bundle: nil)
-                self.navigationController?.pushViewController(filter, animated: true)
-                self.navigationItem.hidesBackButton = true
+            and: UIImage(systemName: "magnifyingglass")!) { [self] in
+                coordinator?.displaySearchScreen()
             }
         
         navBar.setupLastFirstTralingButton(with: "", and: UIImage(named: "cart")!) {
@@ -99,10 +97,8 @@ private extension HomeVC {
         
         navBar.setupFirstLeadingButton(
             with: "",
-            and: UIImage(named: "menu")!) {
-                let search = SearchCategoriesViewController(nibName: "SearchCategoriesViewController", bundle: nil)
-                self.navigationController?.pushViewController(search, animated: true)
-                self.navigationItem.hidesBackButton = true
+            and: UIImage(named: "menu")!) { [self] in
+                coordinator?.displayCategoriesScreen()
             }
         navBar.tintColor = .black
         
@@ -163,7 +159,7 @@ extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UIColle
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch collectionView {
         case bannerCollectionView:
-            return CGSize(width: fullScreenWidth-100, height: collectionView.collectionViewHeight)
+            return CGSize(width: UIScreen.main.bounds.width+30, height: collectionView.collectionViewHeight+20)
             
         case productsCollectionView:
             return CGSize(width: halfScreenWidth-30, height: collectionView.collectionViewHeight)

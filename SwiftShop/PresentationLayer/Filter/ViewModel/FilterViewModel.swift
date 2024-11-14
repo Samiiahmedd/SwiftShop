@@ -10,7 +10,7 @@ import Foundation
 class FilterViewModel {
     
     //MARK: - Variables
-    var categories : [CategoriesModel] = [.init(categoryName: "Dresses"),
+    var categories : [FilterCategoriesModel] = [.init(categoryName: "Dresses"),
                                           .init(categoryName: "Jackets"),
                                           .init(categoryName: "Jeans"),
                                           .init(categoryName: "Shoses"),

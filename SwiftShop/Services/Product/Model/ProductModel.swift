@@ -5,6 +5,19 @@
 //  Created by Sami Ahmed on 07/11/2024.
 //
 
+protocol ProductDisplayable {
+    var id: Int { get }
+    var price: Double { get }
+    var old_price: Double { get }
+    var discount: Double { get }
+    var image: String { get }
+    var name: String { get }
+    var description: String { get }
+    var images: [String] { get }
+    var in_favorites: Bool { get }
+    var in_cart: Bool { get }
+}
+
 import Foundation
 
 //HOME
@@ -22,7 +35,7 @@ struct Banner: Codable {
     let product: String?
 }
 
-struct Product: Codable {
+struct Product: Codable,ProductDisplayable {
     let id: Int
     let price: Double
     let old_price: Double
