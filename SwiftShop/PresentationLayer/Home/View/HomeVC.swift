@@ -172,9 +172,8 @@ extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UIColle
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedProduct = viewModel.productsDataSource[indexPath.item]
-        let viewModel = ProductDetailsViewModel(id: selectedProduct.id, coordinator: self.coordinator!)
-        let productDetailsVC = ProductDetailsViewController(viewModel: viewModel, productId: selectedProduct.id)
-        self.navigationController?.pushViewController(productDetailsVC, animated: true)
+        let productId = selectedProduct.id
+        coordinator?.displayProductDetailsScreen(productId: productId)
     }
 
     //

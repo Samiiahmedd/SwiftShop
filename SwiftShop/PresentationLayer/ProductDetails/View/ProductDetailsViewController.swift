@@ -82,8 +82,7 @@ class ProductDetailsViewController: BaseViewController {
     }
     
     @IBAction func addToCartButton(_ sender: Any) {
-        AlertViewController.showAlert(on: self, image:UIImage(systemName: "cart.fill")! , title: "Added To Cart", message: "product added to cart", buttonTitle: "OK") {
-        }
+        viewModel.addProductToCart()
     }
     
     @IBAction func favouriteButton(_ sender: Any) {

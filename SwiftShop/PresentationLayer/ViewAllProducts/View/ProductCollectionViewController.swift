@@ -9,13 +9,13 @@ import UIKit
 import Combine
 
 class ProductCollectionViewController: UIViewController {
-
+    
     //MARK: - IBOUTLETS
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var nanBar: CustomNavBar!
     @IBOutlet var productsCollectionView: UICollectionView!
-
+    
     //MARK: - VARIABLES
     
     var labelTitle: String?
@@ -23,7 +23,7 @@ class ProductCollectionViewController: UIViewController {
     private var cancellable = Set<AnyCancellable>()
     var coordinator: HomeCoordinatorProtocol?
     private var isDataLoading = true
-
+    
     //MARK: - INITIALIZER
     
     init(viewModel: ProductCollectionViewModel) {
@@ -80,7 +80,7 @@ private extension ProductCollectionViewController {
     
     func registerCells() {
         productsCollectionView.register(UINib(nibName: HomeProductsCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: HomeProductsCollectionViewCell.identifier)
-
+        
     }
 }
 
@@ -90,10 +90,8 @@ extension ProductCollectionViewController:UICollectionViewDelegate, UICollection
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedProduct = viewModel.productsDataSource[indexPath.item]
-        let viewModel = ProductDetailsViewModel(id: selectedProduct.id, coordinator: self.coordinator!)
-        let productDetailsVC = ProductDetailsViewController(viewModel: viewModel, productId: selectedProduct.id)
-        self.navigationController?.pushViewController(productDetailsVC, animated: true)
-    }
+        let productId = selectedProduct.id
+        coordinator?.displayProductDetailsScreen(productId: productId)    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.productsDataSource.count

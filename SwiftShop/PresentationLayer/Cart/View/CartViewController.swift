@@ -11,7 +11,7 @@ class CartViewController: UIViewController {
     
     //MARK: - VARIABLES
     
-    var viewModel = CartViewModel()
+    var viewModel = CartViewModel.self
     var carts: [CartItem] = []
     
     //MARK: - IBOUTLETS
@@ -30,22 +30,22 @@ class CartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        loadCartData()
+//        loadCartData()
     }
-    
-    func loadCartData() {
-        viewModel.fetchCartFromAPI { result in
-             switch result {
-             case .success(let cartResponses):
-                 self.carts = cartResponses
-                 DispatchQueue.main.async {
-                     self.cartProductsTableView.reloadData()
-                 }
-             case .failure(let error):
-                 print("Error fetching cart data: \(error.localizedDescription)")
-             }
-         }
-     }
+//    
+//    func loadCartData() {
+//        viewModel.fetchCartFromAPI { result in
+//             switch result {
+//             case .success(let cartResponses):
+//                 self.carts = cartResponses
+//                 DispatchQueue.main.async {
+//                     self.cartProductsTableView.reloadData()
+//                 }
+//             case .failure(let error):
+//                 print("Error fetching cart data: \(error.localizedDescription)")
+//             }
+//         }
+//     }
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -112,7 +112,7 @@ extension CartViewController :  UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = cartProductsTableView.dequeueReusableCell(withIdentifier: CartTableViewCell.identifier, for: indexPath) as! CartTableViewCell
         let cart = carts[indexPath.row]
-        cell.Setup(cartItem: cart)
+//        cell.Setup(cartItem: cart)
         return cell
     }
     

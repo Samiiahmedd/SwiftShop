@@ -22,7 +22,7 @@ class SelectedCategoryViewController: UIViewController {
     private var viewModel: SelectedCategoryViewModel
     private var cancellable = Set<AnyCancellable>()
     var coordinator :HomeCoordinatorProtocol?
-
+    
     //MARK: - INITIALIZER
     
     init(viewModel: SelectedCategoryViewModel, categoryId: Int) {
@@ -43,7 +43,7 @@ class SelectedCategoryViewController: UIViewController {
         setupView()
         bindViewModel()
         viewModel.getCategory()
-
+        
     }
 }
 
@@ -96,13 +96,12 @@ extension SelectedCategoryViewController: UICollectionViewDelegate, UICollection
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 5
     }
-
-
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedProduct = viewModel.productDataSource[indexPath.item]
-        let viewModel = ProductDetailsViewModel(id: selectedProduct.id, coordinator: self.coordinator!)
-        let productDetailsVC = ProductDetailsViewController(viewModel: viewModel, productId: selectedProduct.id)
-        self.navigationController?.pushViewController(productDetailsVC, animated: true)
+        let productId = selectedProduct.id
+        coordinator?.displayProductDetailsScreen(productId: productId)
     }
 }
 
@@ -138,10 +137,10 @@ private extension SelectedCategoryViewController {
         viewModel.category
             .receive(on: DispatchQueue.main)
             .sink { [weak self] category in
-
+                
                 self?.viewModel.productDataSource = category.data
                 self?.selectedCategoryProductsCollectionView.reloadData()
-
+                
             }
             .store(in: &cancellable)
     }
