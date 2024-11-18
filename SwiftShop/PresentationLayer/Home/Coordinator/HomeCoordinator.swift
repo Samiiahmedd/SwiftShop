@@ -15,6 +15,7 @@ protocol HomeCoordinatorProtocol: Coordinator {
     func displayAddToWishlistAlert()
     func backToHome()
     func displayAllProducts()
+    func displayCart()
 }
 
 final class HomeCoordinator {
@@ -58,12 +59,20 @@ extension HomeCoordinator: HomeCoordinatorProtocol {
         }
     }
     
+    func displayCart () {
+        DispatchQueue.main.async {
+            let viewModel = CartViewModel(id: 1, coordinator: self)
+            let vc = CartViewController(viewModel: viewModel)
+            vc.coordinator = self
+            self.router.push(vc)
+        }
+    }
+    
     func displaySearchScreen() {
         DispatchQueue.main.async {
             let vc = FilterViewController()
             self.router.push(vc)
         }
-        
     }
     
     func displayCategoriesScreen() {

@@ -89,10 +89,8 @@ private extension HomeVC {
                 coordinator?.displaySearchScreen()
             }
         
-        navBar.setupLastFirstTralingButton(with: "", and: UIImage(named: "cart")!) {
-            let cartVC = CartViewController(nibName: "CartViewController", bundle: nil)
-            self.navigationController?.pushViewController(cartVC, animated: true)
-            self.navigationItem.hidesBackButton = true
+        navBar.setupLastFirstTralingButton(with: "", and: UIImage(named: "cart")!) { [self] in
+            coordinator?.displayCart()
         }
         
         navBar.setupFirstLeadingButton(

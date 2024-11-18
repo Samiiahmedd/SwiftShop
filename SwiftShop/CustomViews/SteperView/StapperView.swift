@@ -22,7 +22,7 @@ open class StapperView: UIView {
     @IBOutlet weak private(set) var minusButton: UIButton!
     
     // MARK: - Properties
-    //
+    
     var value: Int = 0
     var maximumValue: Int = 100
     var minmumValue: Int = 0 {
@@ -52,6 +52,10 @@ open class StapperView: UIView {
         minusButton.setTitleColor(color, for: .normal)
         counterLabel.textColor = color
     }
+    func configure(with quantity: Int) {
+            // Set the initial value of the stepper (for example, update its label)
+        counterLabel.text = "\(quantity)"
+        }
 }
 
 // MARK: - Setup

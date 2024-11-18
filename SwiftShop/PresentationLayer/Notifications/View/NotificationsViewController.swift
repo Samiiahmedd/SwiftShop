@@ -17,6 +17,7 @@ class NotificationsViewController: UIViewController {
     //MARK: - VARIABLES
     
     var viewModel = NotificationsViewModel()
+    var coordinator: HomeCoordinatorProtocol?
 
     //MARK: - VIEWLIFE CYCLEA
     
@@ -46,10 +47,8 @@ private extension NotificationsViewController {
         navBar.setupFirstTralingButton(
             with: "",
             and:UIImage(named: "cart")!)
-        {
-            let cartVC = CartViewController(nibName: "CartViewController", bundle: nil)
-            self.navigationController?.pushViewController(cartVC, animated: true)
-            self.navigationItem.hidesBackButton = true
+        { [self] in
+            coordinator?.displayCart()
         }
         
         navBar.lastFirstTralingButton.isHidden = true

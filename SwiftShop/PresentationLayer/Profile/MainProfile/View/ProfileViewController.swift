@@ -19,7 +19,8 @@ class ProfileViewController: UIViewController {
     //MARK: - VARIABLES
     
     private let viewModel = ProfileViewModel()
-    
+    var coordinator: HomeCoordinatorProtocol?
+
     
     //MARK: - VIEW LIFE CYCLE
     
@@ -55,10 +56,8 @@ private extension ProfileViewController {
             self.navigationController?.popViewController(animated: true)
         }
         navBar.firstTralingButton.isHidden = true
-        navBar.setupLastFirstTralingButton(with: "", and: UIImage(named: "cart")!) {
-            let cartVC = CartViewController(nibName: "CartViewController", bundle: nil)
-            self.navigationController?.pushViewController(cartVC, animated: true)
-            self.navigationItem.hidesBackButton = true
+        navBar.setupLastFirstTralingButton(with: "", and: UIImage(named: "cart")!) { [self] in
+            coordinator?.displayCart()
         }
     }
     

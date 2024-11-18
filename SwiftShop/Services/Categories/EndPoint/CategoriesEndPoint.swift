@@ -23,9 +23,6 @@ enum CategoriesEndPoint: EndPoint {
         case .getCategoryDetails(let id):
             "/api/categories/\(id)"
         }
-        
-        
-        
     }
     
     var headers: Headers {

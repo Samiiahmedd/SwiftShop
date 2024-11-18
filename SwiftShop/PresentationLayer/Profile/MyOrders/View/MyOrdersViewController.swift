@@ -21,7 +21,8 @@ class MyOrdersViewController: UIViewController {
     
     let viewModel = MyOrdersViewModel()
     var is_Selected = true
-    
+    var coordinator: HomeCoordinatorProtocol?
+
     //MARK: - VIEW LIFE CYCLE
     
     override func viewDidLoad() {
@@ -67,10 +68,8 @@ extension MyOrdersViewController {
         
         navBar.lastFirstTralingButton.isHidden = true
         
-        navBar.setupFirstTralingButton(with: "", and: UIImage(named: "cart")!) {
-            let cartVC = CartViewController(nibName: "CartViewController", bundle: nil)
-            self.navigationController?.pushViewController(cartVC, animated: true)
-            self.navigationItem.hidesBackButton = true
+        navBar.setupFirstTralingButton(with: "", and: UIImage(named: "cart")!) { [self] in
+            coordinator?.displayCart()
         }    }
     
     func configureButtons() {

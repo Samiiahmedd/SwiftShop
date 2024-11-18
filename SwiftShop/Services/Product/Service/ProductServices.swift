@@ -14,7 +14,6 @@ import NetworkLayer
 protocol ProductServicesProtocol {
     func getHomeProducts() -> AnyPublisher<HomeData, NetworkError>
     func getProductDetails(id:Int) -> AnyPublisher<ProductDetails, NetworkError>
-    
 }
 
 struct ProductServices: ProductServicesProtocol {

@@ -141,9 +141,7 @@ private extension ProductDetailsViewController {
             with: "",
             and: UIImage(named: "cart")!) { [weak self] in
                 guard let self else { return }
-                let cartVC = CartViewController(nibName: "CartViewController", bundle: nil)
-                self.navigationController?.pushViewController(cartVC, animated: true)
-                self.navigationItem.hidesBackButton = true
+                coordinator?.displayCart()
             }
         
         navBar.setupFirstLeadingButton(
@@ -189,6 +187,7 @@ private extension ProductDetailsViewController {
         )
         oldPriceLabel.attributedText = attributedOldPrice
         priceLabel.text = "$\(productDetails.price)"
+
         
     }
 }

@@ -25,8 +25,9 @@ protocol ProductCollectionViewModelProtocol {
 @MainActor
 class ProductCollectionViewModel{
     
-    var productsDataSource: [Product] = []
+    // MARK: - Properties
     
+    var productsDataSource: [Product] = []
     var homeData = PassthroughSubject<HomeData, Never>()
     private let services: ProductServicesProtocol
     private var cancellable = Set<AnyCancellable>()

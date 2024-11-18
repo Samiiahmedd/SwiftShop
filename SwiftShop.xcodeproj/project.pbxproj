@@ -178,7 +178,6 @@
 		26E2A0CB2CBDD396003F6645 /* CardEnterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26E2A0C92CBDD396003F6645 /* CardEnterViewController.xib */; };
 		26EBD3912CC966AD00E7C45D /* AppCordinatoor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBD3902CC966AD00E7C45D /* AppCordinatoor.swift */; };
 		26EBD3952CC9726B00E7C45D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EBD3942CC9726B00E7C45D /* BaseViewController.swift */; };
-		26F28D7C2CB1741B00EACB92 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F28D7B2CB1741B00EACB92 /* HomeModel.swift */; };
 		26F4C3A92CAC56AB004BBEC0 /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F4C3A82CAC56AB004BBEC0 /* OTPViewModel.swift */; };
 		26F8A2692CACCF2F00699D1E /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8A2672CACCF2F00699D1E /* WishlistViewController.swift */; };
 		26F8A26A2CACCF2F00699D1E /* WishlistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26F8A2682CACCF2F00699D1E /* WishlistViewController.xib */; };
@@ -385,7 +384,6 @@
 		26E2A0C92CBDD396003F6645 /* CardEnterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardEnterViewController.xib; sourceTree = "<group>"; };
 		26EBD3902CC966AD00E7C45D /* AppCordinatoor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCordinatoor.swift; sourceTree = "<group>"; };
 		26EBD3942CC9726B00E7C45D /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		26F28D7B2CB1741B00EACB92 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		26F4C3A82CAC56AB004BBEC0 /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
 		26F8A2672CACCF2F00699D1E /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
 		26F8A2682CACCF2F00699D1E /* WishlistViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishlistViewController.xib; sourceTree = "<group>"; };
@@ -1453,17 +1451,8 @@
 				26C301032C89128C00CFE4AD /* Cells */,
 				269363BC2C821C4600662442 /* ViewModel */,
 				269363BB2C821C3D00662442 /* View */,
-				269363BA2C821C3700662442 /* Model */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		269363BA2C821C3700662442 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				26F28D7B2CB1741B00EACB92 /* HomeModel.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		269363BB2C821C3D00662442 /* View */ = {
@@ -2038,17 +2027,9 @@
 				26FCD84F2C8D267B00D7C3A8 /* Cell */,
 				26FCD8472C8D261D00D7C3A8 /* ViewModel */,
 				26FCD8462C8D261A00D7C3A8 /* View */,
-				26FCD8452C8D261600D7C3A8 /* Model */,
 				265AC8422CCC1E0E00658142 /* CartManager.swift */,
 			);
 			path = Cart;
-			sourceTree = "<group>";
-		};
-		26FCD8452C8D261600D7C3A8 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		26FCD8462C8D261A00D7C3A8 /* View */ = {
@@ -2471,7 +2452,6 @@
 				262A21A32CBD7618000D6171 /* PaymentMethodViewModel.swift in Sources */,
 				261018D22CB6214700724863 /* SettingViewModel.swift in Sources */,
 				266859662C4836C400EC2718 /* OnBoardingViewController.swift in Sources */,
-				26F28D7C2CB1741B00EACB92 /* HomeModel.swift in Sources */,
 				081196CD2CE5316100AEB296 /* CategoriesServices.swift in Sources */,
 				08FD1C4C2CDC39F400944D95 /* WishlistProduct+CoreDataClass.swift in Sources */,
 				08FD1C4D2CDC39F400944D95 /* WishlistProduct+CoreDataProperties.swift in Sources */,

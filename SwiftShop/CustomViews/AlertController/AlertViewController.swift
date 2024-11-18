@@ -68,9 +68,12 @@ extension AlertViewController {
         }
     
     static func showAlert(on viewController: UIViewController, image: UIImage, title: String, message: String, buttonTitle: String, action: @escaping () -> Void) {
-        // Ensure UI-related tasks are on the main thread
         DispatchQueue.main.async {
-            let alertVC = AlertViewController.instantiateFromXIB()!
+            print("Presenting alert now")
+            guard let alertVC = AlertViewController.instantiateFromXIB() else {
+                print("Failed to instantiate AlertViewController")
+                return
+            }
             alertVC.alertImage = image
             alertVC.alertTitle = title
             alertVC.alertMessage = message
@@ -78,9 +81,11 @@ extension AlertViewController {
             alertVC.buttonAction = action
             alertVC.modalPresentationStyle = .overFullScreen
             alertVC.modalTransitionStyle = .crossDissolve
+            print("About to present alert on view controller: \(viewController)")
             viewController.present(alertVC, animated: true, completion: nil)
         }
     }
+
 
     
     private func dismissAlertShape() {
