@@ -17,12 +17,11 @@ final class AppCoordinator {
     
     static let shared = AppCoordinator()
     
-    
     private init() {
         router = AppRouter(navigationController: .init())
         router.navigationController.navigationBar.isHidden = true
         let userData = UserDefaults.standard.data(forKey: "User")
-        isLogin = userData == nil ? false : true
+        isLogin = UserDefaults.standard.value(forKey: "userToken") == nil ? false : true
     }
 }
 
@@ -57,6 +56,4 @@ extension AppCoordinator: Coordinator {
         router.reset()
         coordinator.start()
     }
-    
-
 }

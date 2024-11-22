@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class CartViewController: UIViewController {
+class CartViewController: BaseViewController {
     
     //MARK: - VARIABLES
     
@@ -44,24 +44,20 @@ class CartViewController: UIViewController {
         setupView()
         getCartProducts()
         bindViewModel()
-        
-        viewModel.$totalPrice
-            .sink { [weak self] price in
-                let boldTitle = NSAttributedString(
-                    string: "Process to payment \(price)",
-                    attributes: [.font: UIFont.systemFont(ofSize: 17, weight: .bold)]
-                )
-                self?.checkoutButton.setAttributedTitle(boldTitle, for: .normal)
-            }
-            .store(in: &cancellable)
-              
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         self.navigationItem.hidesBackButton = true
+        tabBarController?.tabBar.isHidden = true
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     
     //MARK: - FUNCTIONS
     
@@ -155,15 +151,18 @@ private extension CartViewController {
         bindIsLoading()
         bindErrorState()
         bindSetupViewModel()
+        bindTotalPrice()
     }
     
     func bindIsLoading() {
         viewModel.isLoading.sink { [weak self] isLoading in
             guard let self else { return }
             if isLoading {
-                self.showLoader()
+                startLoading()
+//                self.showLoader()
             } else {
-                self.hideLoader()
+                stopLoading()
+//                self.hideLoader()
             }
         }.store(in: &cancellable)
     }
@@ -182,6 +181,18 @@ private extension CartViewController {
             .sink { [weak self] products in
                 self?.viewModel.cartItem = products.cart_items
                 self?.cartProductsTableView.reloadData()
+            }
+            .store(in: &cancellable)
+    }
+    
+    func bindTotalPrice() {
+        viewModel.$totalPrice
+            .sink { [weak self] price in
+                let boldTitle = NSAttributedString(
+                    string: "Process to payment \(price)",
+                    attributes: [.font: UIFont.systemFont(ofSize: 17, weight: .bold)]
+                )
+                self?.checkoutButton.setAttributedTitle(boldTitle, for: .normal)
             }
             .store(in: &cancellable)
     }

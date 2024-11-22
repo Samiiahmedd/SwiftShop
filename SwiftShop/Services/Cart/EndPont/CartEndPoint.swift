@@ -11,7 +11,7 @@ import NetworkLayer
 enum CartEndPoint: EndPoint {
     
     // MARK: - CASES
-
+    
     case addProduct
     case getCart
     case deleteCartItem
@@ -30,7 +30,11 @@ enum CartEndPoint: EndPoint {
     }
     
     var headers: Headers {
-        ["lang": "en", "Authorization": "2GRV0WuZ4OKGJN4bDaDSlHmnagjtAOSGa6K9Q7JcVi0QVApVNf9H5CJXOWUvwpQ90awHqm"]
+        let userToken: String = UserDefaults.standard.value(forKey: "userToken") as! String
+        return [
+            "lang": "en",
+            "Authorization": userToken
+        ]
     }
     
     var method: HTTPMethod {

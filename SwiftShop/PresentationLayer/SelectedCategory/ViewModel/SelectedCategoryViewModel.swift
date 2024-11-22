@@ -18,7 +18,7 @@ protocol SelectedCategoryViewModelProtocol {
     
     /// input
     var backActionTriggerd: PassthroughSubject<Void, Never> { get }
-    var productCellTriggerd: PassthroughSubject<Void, Never> { get }
+    var productCellTriggerd: PassthroughSubject<Int, Never> { get }
     
     
 }
@@ -39,12 +39,13 @@ class SelectedCategoryViewModel {
     var errorMessage: PassthroughSubject<String, Never> = .init()
     var showProducts : PassthroughSubject<String,Never> = .init()
     var backActionTriggerd: PassthroughSubject<Void, Never> = .init()
-    var productCellTriggerd: PassthroughSubject<Void, Never> = .init()
+    var productCellTriggerd: PassthroughSubject<Int, Never> = .init()
     
     init(id: Int, services: CategoriesServicesProtocol = CategoriesServices(), coordinator: HomeCoordinatorProtocol) {
         self.id = id
         self.services = services
         self.coordinator = coordinator
+        bindIsCategoryProducts()
     }
 }
 
@@ -55,7 +56,7 @@ extension SelectedCategoryViewModel: SelectedCategoryViewModelProtocol {
             .sink { [weak self] _ in self?.coordinator.pop() }
             .store(in: &cancellable)
         productCellTriggerd
-            .sink { [weak self] _ in self?.coordinator.displayProductDetailsScreen(productId: 0) }
+            .sink { [weak self] id in self?.coordinator.displayProductDetailsScreen(productId: id) }
             .store(in: &cancellable)
     }
 }

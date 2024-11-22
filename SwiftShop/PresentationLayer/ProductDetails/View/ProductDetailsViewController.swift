@@ -14,14 +14,14 @@ class ProductDetailsViewController: BaseViewController {
     //MARK: - IBOUTLETS
     
     @IBOutlet weak var navBar: CustomNavBar!
-    @IBOutlet var productImage: UIImageView!
-    @IBOutlet weak var pageControl: UIPageControl!
+//    @IBOutlet var productImage: UIImageView!
+//    @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productDescription: UILabel!
     @IBOutlet weak var productReviews: UILabel!
-    @IBOutlet var addToCartButton: UIButton!
-    @IBOutlet var favouriteButton: UIButton!
-    @IBOutlet weak var containerView: UIView!
+//    @IBOutlet var addToCartButton: UIButton!
+//    @IBOutlet var favouriteButton: UIButton!
+//    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var stepperView: StapperView!
     @IBOutlet var secondView: UIView!
     @IBOutlet weak var productFullDescription: UILabel!
@@ -38,11 +38,11 @@ class ProductDetailsViewController: BaseViewController {
     var selectedColorIndex: Int?
     var selectedSizeIndex: IndexPath?
     private let productId: Int
-    var currentPage = 0 {
-        didSet{
-            pageControl.currentPage = currentPage
-        }
-    }
+//    var currentPage = 0 {
+//        didSet{
+//            pageControl.currentPage = currentPage
+//        }
+//    }
     
     //MARK: - INITIALIZER
     
@@ -103,7 +103,7 @@ class ProductDetailsViewController: BaseViewController {
     //MARK: - FUNCTIONS
     
     private func startShimmerEffect() {
-        productImage.startShimmering()
+//        productImage.startShimmering()
         productName.startShimmering()
         productDescription.startShimmering()
         productFullDescription.startShimmering()
@@ -114,7 +114,7 @@ class ProductDetailsViewController: BaseViewController {
     }
     
     private func stopShimmerEffect() {
-        productImage.stopShimmering()
+//        productImage.stopShimmering()
         productName.stopShimmering()
         productDescription.stopShimmering()
         productFullDescription.stopShimmering()
@@ -171,7 +171,7 @@ private extension ProductDetailsViewController {
     }
     
     private func setup(_ productDetails: ProductDetails) {
-        productImage.kf.setImage(with: productDetails.image.asUrl)
+//        productImage.kf.setImage(with: productDetails.image.asUrl)
         productName.text = productDetails.name
         productDescription.text = productDetails.description
         priceLabel.text = "$\(productDetails.price)"

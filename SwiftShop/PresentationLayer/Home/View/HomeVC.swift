@@ -9,7 +9,7 @@ import UIKit
 import Combine
 import Kingfisher
 
-class HomeVC: BaseViewController{
+class HomeVC: BaseViewController {
     
     //MARK: - IBOUTLETS
     
@@ -20,6 +20,7 @@ class HomeVC: BaseViewController{
     @IBOutlet weak var productsCollectionView: UICollectionView!
     @IBOutlet weak var popularTableView: SelfSizedTableView!
     @IBOutlet weak var homeAdsImageView: UIImageView!
+    @IBOutlet weak var mainContent: UIScrollView!
     
     // MARK: - VARIABLES
     
@@ -60,9 +61,9 @@ class HomeVC: BaseViewController{
         coordinator?.displayAllProducts()
     }
     
-//    @IBAction func viewAllPopularsButtonAction(_ sender: Any) {
-//        coordinator?.displayAllProducts()
-//    }
+    //    @IBAction func viewAllPopularsButtonAction(_ sender: Any) {
+    //        coordinator?.displayAllProducts()
+    //    }
     
     //MARK: - FUNCTIONS
     
@@ -74,7 +75,7 @@ class HomeVC: BaseViewController{
 // MARK: - SETUP VIEW
 
 private extension HomeVC {
-        
+    
     func setupView() {
         configerCollectionViews()
         //        configureTableViews()
@@ -173,7 +174,7 @@ extension HomeVC :  UICollectionViewDelegate, UICollectionViewDataSource,UIColle
         let productId = selectedProduct.id
         coordinator?.displayProductDetailsScreen(productId: productId)
     }
-
+    
     //
     //        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     //            return lastNewArrivals.count
@@ -209,9 +210,11 @@ private extension HomeVC {
         viewModel.isLoading.sink { [weak self] isLoading in
             guard let self else { return }
             if isLoading {
-                self.showLoader()
+                mainContent.isHidden = true
+                startLoading()
             } else {
-                self.hideLoader()
+                mainContent.isHidden = false
+                stopLoading()
             }
         }.store(in: &cancellable)
     }
@@ -228,16 +231,13 @@ private extension HomeVC {
         viewModel.homeData
             .receive(on: DispatchQueue.main)
             .sink { [weak self] homeData in
-                print("Updating data sources in HomeVC with \(homeData.banners.count) banners and \(homeData.products.count) \(String(describing: homeData.ad?.count)) products") // Debug
-                self?.viewModel.bannersDataSource = homeData.banners
-                self?.viewModel.productsDataSource = homeData.products
-                self?.bannerCollectionView.reloadData()
-                self?.productsCollectionView.reloadData()
-                if let adImageURLString = self?.viewModel.adImageURL?.asUrl {
-                    self?.homeAdsImageView.kf.setImage(with: adImageURLString)
-                } else {
-                    print("Invalid ad image URL")
-                }
+                guard let self else { return }
+                viewModel.bannersDataSource = homeData.banners
+                viewModel.productsDataSource = homeData.products
+                bannerCollectionView.reloadData()
+                productsCollectionView.reloadData()
+                guard let adImageURLString = viewModel.adImageURL?.asUrl else { return }
+                homeAdsImageView.kf.setImage(with: adImageURLString)
             }
             .store(in: &cancellable)
     }

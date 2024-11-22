@@ -93,6 +93,7 @@ private extension LoginViewModel {
                     errorMessage.send(error.localizedDescription)
                 }
             } receiveValue: { user in
+                UserDefaults.standard.set(user.token, forKey: "userToken")
                 AppCoordinator.shared.showTabBar()
             }
             .store(in: &cancellable)

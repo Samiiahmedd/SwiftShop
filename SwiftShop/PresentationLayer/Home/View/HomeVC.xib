@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="bannerCollectionView" destination="yGK-Ny-d34" id="3Wi-ch-hiX"/>
                 <outlet property="homeAdsImageView" destination="gZn-WE-JiP" id="ARR-Uc-nLd"/>
+                <outlet property="mainContent" destination="Sgx-Jg-aMv" id="hwv-Nf-SJe"/>
                 <outlet property="navBar" destination="ArT-kB-fTQ" id="4dg-ld-Yh7"/>
                 <outlet property="popularTableView" destination="pQc-Qn-40y" id="u7M-bt-jcH"/>
                 <outlet property="productsCollectionView" destination="tt8-Sg-vgr" id="TRY-7l-aod"/>

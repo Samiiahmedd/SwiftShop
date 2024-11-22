@@ -21,7 +21,6 @@ class SelectedCategoryViewController: UIViewController {
     private let categoryId: Int
     private var viewModel: SelectedCategoryViewModel
     private var cancellable = Set<AnyCancellable>()
-    var coordinator :HomeCoordinatorProtocol?
     
     //MARK: - INITIALIZER
     
@@ -101,7 +100,7 @@ extension SelectedCategoryViewController: UICollectionViewDelegate, UICollection
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedProduct = viewModel.productDataSource[indexPath.item]
         let productId = selectedProduct.id
-        coordinator?.displayProductDetailsScreen(productId: productId)
+        viewModel.productCellTriggerd.send(productId)
     }
 }
 

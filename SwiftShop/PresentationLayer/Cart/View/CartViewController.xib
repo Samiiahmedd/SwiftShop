@@ -32,7 +32,7 @@
                     <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bfb-VK-O0S">
-                            <rect key="frame" x="0.0" y="0.0" width="385.33333333333331" height="724.33333333333337"/>
+                            <rect key="frame" x="0.0" y="0.0" width="385.33333333333331" height="414.33333333333331"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Cart" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGc-Ji-8AN">
                                     <rect key="frame" x="12" y="20" width="64.333333333333329" height="20.333333333333329"/>
@@ -44,40 +44,17 @@
                                     <rect key="frame" x="12" y="58.333333333333343" width="361.33333333333331" height="300"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="300" id="Rnc-cO-AGr"/>
+                                        <constraint firstAttribute="height" constant="300" placeholder="YES" id="Rnc-cO-AGr"/>
                                     </constraints>
                                 </tableView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mCg-H8-MAj">
-                                    <rect key="frame" x="12" y="438.33333333333337" width="361.33333333333331" height="50"/>
-                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="50" id="fVl-BT-TjS"/>
-                                    </constraints>
-                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="Procced To Checkout">
-                                        <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
-                                    </buttonConfiguration>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="12"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="chexkoutButtonAction:" destination="-1" eventType="touchUpInside" id="aSs-67-dx1"/>
-                                    </connections>
-                                </button>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstItem="mCg-H8-MAj" firstAttribute="top" secondItem="TKt-lg-Bir" secondAttribute="bottom" constant="80" id="0oT-Dw-pcm"/>
+                                <constraint firstAttribute="bottom" secondItem="TKt-lg-Bir" secondAttribute="bottom" constant="56" id="Avy-sT-PNw"/>
                                 <constraint firstItem="LGc-Ji-8AN" firstAttribute="leading" secondItem="bfb-VK-O0S" secondAttribute="leading" constant="12" id="L4h-2a-8Ya"/>
-                                <constraint firstItem="mCg-H8-MAj" firstAttribute="leading" secondItem="bfb-VK-O0S" secondAttribute="leading" constant="12" id="MKd-14-tgf"/>
                                 <constraint firstItem="TKt-lg-Bir" firstAttribute="leading" secondItem="bfb-VK-O0S" secondAttribute="leading" constant="12" id="aVm-uL-XLP"/>
                                 <constraint firstAttribute="trailing" secondItem="TKt-lg-Bir" secondAttribute="trailing" constant="12" id="i4s-gF-hab"/>
-                                <constraint firstAttribute="trailing" secondItem="mCg-H8-MAj" secondAttribute="trailing" constant="12" id="l8h-hv-RQ8"/>
                                 <constraint firstItem="TKt-lg-Bir" firstAttribute="top" secondItem="LGc-Ji-8AN" secondAttribute="bottom" constant="18" id="tu1-PZ-BO1"/>
-                                <constraint firstAttribute="bottom" secondItem="mCg-H8-MAj" secondAttribute="bottom" constant="236" id="uXv-uM-l7j"/>
                                 <constraint firstItem="LGc-Ji-8AN" firstAttribute="top" secondItem="bfb-VK-O0S" secondAttribute="top" constant="20" id="yoG-sO-PKM"/>
                             </constraints>
                         </view>
@@ -92,17 +69,40 @@
                     <viewLayoutGuide key="contentLayoutGuide" id="m0W-Kg-NlG"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="aFM-CS-ert"/>
                 </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mCg-H8-MAj">
+                    <rect key="frame" x="20" y="736" width="353" height="50"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="fVl-BT-TjS"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Procced To Checkout">
+                        <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
+                    </buttonConfiguration>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="12"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="chexkoutButtonAction:" destination="-1" eventType="touchUpInside" id="aSs-67-dx1"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="Umz-so-y9y" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="2rX-hW-cnm"/>
+                <constraint firstItem="mCg-H8-MAj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="4MK-MY-XS3"/>
                 <constraint firstItem="9ad-Pv-TDt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Aje-5K-yMb"/>
                 <constraint firstItem="Umz-so-y9y" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="CFE-CN-Y8L"/>
                 <constraint firstItem="9ad-Pv-TDt" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="IhQ-gm-h3q"/>
                 <constraint firstItem="Umz-so-y9y" firstAttribute="top" secondItem="9ad-Pv-TDt" secondAttribute="bottom" id="L7G-Ml-0DX"/>
                 <constraint firstItem="Umz-so-y9y" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="SmB-bc-5If"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="mCg-H8-MAj" secondAttribute="bottom" constant="32" id="iPh-AI-pJc"/>
                 <constraint firstItem="9ad-Pv-TDt" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="kC5-pO-bUT"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="mCg-H8-MAj" secondAttribute="trailing" constant="20" id="mnh-Yy-TNF"/>
             </constraints>
             <point key="canvasLocation" x="-43.511450381679388" y="-11.267605633802818"/>
         </view>
