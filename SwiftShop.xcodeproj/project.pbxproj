@@ -711,6 +711,7 @@
 			children = (
 				2610DD032C8CBD92005739A3 /* ProductDetailsViewController.swift */,
 				2610DD042C8CBD92005739A3 /* ProductDetailsViewController.xib */,
+				2610DD082C8CBDAE005739A3 /* ProductDetailsViewModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -718,7 +719,6 @@
 		2610DD022C8CBD7B005739A3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				2610DD082C8CBDAE005739A3 /* ProductDetailsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";

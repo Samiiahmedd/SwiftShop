@@ -18,7 +18,6 @@ protocol ProductDetailsViewModelProtocol {
     var showProducts : PassthroughSubject<String,Never> { get }
     
     /// input
-    
     var addToCartButtonActionTriggered: PassthroughSubject<Void, Never> { get }
     var backActionTriggerd: PassthroughSubject<Void, Never> { get }
     
@@ -38,8 +37,8 @@ class ProductDetailsViewModel {
         .init(size: "XXL")
     ]
     var colors: [UIColor] = [.red, .black, .lightGray, .green, .orange]
+    var images: [String] = []
     var id: Int
-    var productDetailsDataSource: [ProductDetails] = []
     var ProductDetails = PassthroughSubject<ProductDetails, Never>()
     private(set) var cartItems: [CartProduct] = []
     
@@ -84,7 +83,7 @@ extension ProductDetailsViewModel {
                     self.errorMessage.send(error.localizedDescription)
                 }
             } receiveValue: { [weak self] productDetails in
-                print("Received product details data")
+                self?.images = productDetails.images
                 self?.ProductDetails.send(productDetails)
             }
             .store(in: &cancellable)

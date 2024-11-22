@@ -38,12 +38,12 @@
                     <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                     <subviews>
                         <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="lvF-71-4S4" userLabel="Container">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="700"/>
+                            <rect key="frame" x="0.0" y="16" width="393" height="700"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="hiW-j3-sPa">
                                     <rect key="frame" x="10" y="0.0" width="373" height="700"/>
                                     <subviews>
-                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="yGK-Ny-d34">
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="yGK-Ny-d34">
                                             <rect key="frame" x="0.0" y="0.0" width="373" height="180"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
@@ -174,7 +174,7 @@
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="lvF-71-4S4" secondAttribute="bottom" id="DaM-tJ-ZgG"/>
                         <constraint firstItem="lvF-71-4S4" firstAttribute="leading" secondItem="Sgx-Jg-aMv" secondAttribute="leading" id="fzW-IG-gQd"/>
-                        <constraint firstItem="lvF-71-4S4" firstAttribute="top" secondItem="Sgx-Jg-aMv" secondAttribute="top" id="gcH-yw-gNB"/>
+                        <constraint firstItem="lvF-71-4S4" firstAttribute="top" secondItem="Sgx-Jg-aMv" secondAttribute="top" constant="16" id="gcH-yw-gNB"/>
                         <constraint firstItem="lvF-71-4S4" firstAttribute="width" secondItem="Sgx-Jg-aMv" secondAttribute="width" id="rx7-ra-cDw"/>
                         <constraint firstAttribute="trailing" secondItem="lvF-71-4S4" secondAttribute="trailing" id="vPU-te-MRM"/>
                     </constraints>

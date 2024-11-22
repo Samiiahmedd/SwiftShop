@@ -18,7 +18,6 @@ protocol ProductDisplayable {
     var in_cart: Bool { get }
 }
 
-import Foundation
 
 //HOME
 
@@ -35,7 +34,7 @@ struct Banner: Codable {
     let product: String?
 }
 
-struct Product: Codable,ProductDisplayable {
+struct Product: Codable, ProductDisplayable {
     let id: Int
     let price: Double
     let old_price: Double

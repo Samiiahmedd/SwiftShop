@@ -22,3 +22,8 @@ extension UICollectionView {
         return self.frame.size.height
     }
 }
+
+enum Screen {
+    static let width: CGFloat = UIScreen.main.bounds.width
+    static let height: CGFloat = UIScreen.main.bounds.height
+}

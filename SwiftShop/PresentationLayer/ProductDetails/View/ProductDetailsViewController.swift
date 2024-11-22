@@ -14,14 +14,9 @@ class ProductDetailsViewController: BaseViewController {
     //MARK: - IBOUTLETS
     
     @IBOutlet weak var navBar: CustomNavBar!
-//    @IBOutlet var productImage: UIImageView!
-//    @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productDescription: UILabel!
     @IBOutlet weak var productReviews: UILabel!
-//    @IBOutlet var addToCartButton: UIButton!
-//    @IBOutlet var favouriteButton: UIButton!
-//    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var stepperView: StapperView!
     @IBOutlet var secondView: UIView!
     @IBOutlet weak var productFullDescription: UILabel!
@@ -29,6 +24,7 @@ class ProductDetailsViewController: BaseViewController {
     @IBOutlet weak var oldPriceLabel: UILabel!
     @IBOutlet weak var sizeCollectionView: UICollectionView!
     @IBOutlet weak var colorsCollectionView: UICollectionView!
+    @IBOutlet weak var imagesCollectionView: UICollectionView!
     
     //MARK: VARIABLES
     
@@ -38,11 +34,6 @@ class ProductDetailsViewController: BaseViewController {
     var selectedColorIndex: Int?
     var selectedSizeIndex: IndexPath?
     private let productId: Int
-//    var currentPage = 0 {
-//        didSet{
-//            pageControl.currentPage = currentPage
-//        }
-//    }
     
     //MARK: - INITIALIZER
     
@@ -77,14 +68,6 @@ class ProductDetailsViewController: BaseViewController {
     
     //MARK: - IBACTIONS
     
-    @IBAction func pageControlChanged(_ sender: UIPageControl) {
-        
-    }
-    
-    @IBAction func addToCartButton(_ sender: Any) {
-        viewModel.addProductToCart()
-    }
-    
     @IBAction func favouriteButton(_ sender: Any) {
         AlertViewController.showAlert(on: self, image:UIImage(systemName: "heart.fill")! , title: "Added To Wishlist", message: "product added to wishlist", buttonTitle: "OK") {
         }
@@ -96,14 +79,14 @@ class ProductDetailsViewController: BaseViewController {
             image: UIImage(systemName: "cart.fill")!,
             title: "Added To Cart",
             message: "Product added to cart",
-            buttonTitle: "OK") {
+            buttonTitle: "OK") { 
             }
+        viewModel.addProductToCart()
     }
     
     //MARK: - FUNCTIONS
     
     private func startShimmerEffect() {
-//        productImage.startShimmering()
         productName.startShimmering()
         productDescription.startShimmering()
         productFullDescription.startShimmering()
@@ -114,7 +97,6 @@ class ProductDetailsViewController: BaseViewController {
     }
     
     private func stopShimmerEffect() {
-//        productImage.stopShimmering()
         productName.stopShimmering()
         productDescription.stopShimmering()
         productFullDescription.stopShimmering()
@@ -163,15 +145,18 @@ private extension ProductDetailsViewController {
         sizeCollectionView.dataSource = self
         colorsCollectionView.delegate = self
         colorsCollectionView.dataSource = self
+        imagesCollectionView.delegate = self
+        imagesCollectionView.dataSource = self
     }
     
     func registerCells() {
+        imagesCollectionView.register(UINib(nibName: ImageCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: "ImageCollectionViewCell")
         sizeCollectionView.register(UINib(nibName: SizeCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: "SizeCollectionViewCell")
         colorsCollectionView.register(UINib(nibName: ColorCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: "ColorCollectionViewCell")
     }
     
     private func setup(_ productDetails: ProductDetails) {
-//        productImage.kf.setImage(with: productDetails.image.asUrl)
+        imagesCollectionView.reloadData()
         productName.text = productDetails.name
         productDescription.text = productDetails.description
         priceLabel.text = "$\(productDetails.price)"
@@ -187,8 +172,6 @@ private extension ProductDetailsViewController {
         )
         oldPriceLabel.attributedText = attributedOldPrice
         priceLabel.text = "$\(productDetails.price)"
-
-        
     }
 }
 
@@ -227,6 +210,8 @@ private extension ProductDetailsViewController {
 extension ProductDetailsViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
+        case imagesCollectionView:
+            return viewModel.images.count
         case sizeCollectionView:
             return viewModel.sizes.count
         case colorsCollectionView:
@@ -238,6 +223,8 @@ extension ProductDetailsViewController: UICollectionViewDelegate,UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView {
+            case imagesCollectionView:
+            return configureImagesCell(for: collectionView, with: indexPath)
         case sizeCollectionView:
             return configureSizesCell(for: collectionView, with: indexPath)
         case colorsCollectionView:
@@ -261,6 +248,8 @@ extension ProductDetailsViewController: UICollectionViewDelegate,UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch collectionView {
+            case imagesCollectionView :
+            return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
         case sizeCollectionView :
             return CGSize(width: 40, height: 40)
         case colorsCollectionView :
@@ -285,6 +274,13 @@ extension ProductDetailsViewController: UICollectionViewDelegate,UICollectionVie
 }
 
 private extension ProductDetailsViewController {
+    func configureImagesCell(for collectionView: UICollectionView, with indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.identifier, for: indexPath) as! ImageCollectionViewCell
+        let image = viewModel.images[indexPath.row]
+        cell.setup(image: image)
+        return cell
+    }
+    
     func configureSizesCell(for collectionView: UICollectionView, with indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SizeCollectionViewCell.identifier, for: indexPath) as! SizeCollectionViewCell
         let sizeModel = viewModel.sizes[indexPath.row]
