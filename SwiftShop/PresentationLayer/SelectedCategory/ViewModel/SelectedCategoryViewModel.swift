@@ -20,17 +20,15 @@ protocol SelectedCategoryViewModelProtocol {
     var backActionTriggerd: PassthroughSubject<Void, Never> { get }
     var productCellTriggerd: PassthroughSubject<Int, Never> { get }
     
-    
 }
 
 @MainActor
 class SelectedCategoryViewModel {
     var productDataSource: [CategoryProduct] = []
     var mainCategoryProductDataSource: [CategoryProductData] = []
-
     var  id: Int
-
     var category = PassthroughSubject<CategoryProductData, Never>()
+    
     private let services: CategoriesServicesProtocol
     private var cancellable = Set<AnyCancellable>()
     var coordinator:HomeCoordinatorProtocol

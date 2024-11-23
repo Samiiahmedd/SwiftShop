@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class SearchCategoriesViewController: UIViewController {
+class SearchCategoriesViewController: BaseViewController {
     
     //MARK: - IBOUTLETS
     
@@ -92,9 +92,9 @@ private extension SearchCategoriesViewController {
         viewModel.isLoading.sink { [weak self] isLoading in
             guard let self else { return }
             if isLoading {
-                self.showLoader()
+                startLoading()
             } else {
-                self.hideLoader()
+                stopLoading()
             }
         }.store(in: &cancellable)
     }

@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="cartProductsTableView" destination="TKt-lg-Bir" id="r5K-f2-WLA"/>
                 <outlet property="checkoutButton" destination="mCg-H8-MAj" id="sUi-wc-3TA"/>
+                <outlet property="mainContent" destination="bfb-VK-O0S" id="yG1-XA-R4P"/>
                 <outlet property="navBar" destination="9ad-Pv-TDt" id="fch-NK-66X"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

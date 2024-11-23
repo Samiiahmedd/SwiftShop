@@ -25,6 +25,7 @@ class CartViewController: BaseViewController {
     @IBOutlet weak var bagTotalPrice: UILabel!
     @IBOutlet weak var bagTotalItems: UILabel!
     @IBOutlet weak var checkoutButton: UIButton!
+    @IBOutlet weak var mainContent: UIView!
     
     //MARK: - INITIALIZER
     
@@ -68,9 +69,7 @@ class CartViewController: BaseViewController {
     //MARK: - IBACTIONS
     
     @IBAction func chexkoutButtonAction(_ sender: Any) {
-        let checkout = ShippingViewController(nibName: "ShippingViewController", bundle: nil)
-        checkout.mode = .checkout
-        self.navigationController?.pushViewController(checkout, animated: true)
+        coordinator?.displayAllAdrese()
     }
 }
 
@@ -158,11 +157,11 @@ private extension CartViewController {
         viewModel.isLoading.sink { [weak self] isLoading in
             guard let self else { return }
             if isLoading {
+                mainContent.isHidden = true
                 startLoading()
-//                self.showLoader()
             } else {
+                mainContent.isHidden = false
                 stopLoading()
-//                self.hideLoader()
             }
         }.store(in: &cancellable)
     }

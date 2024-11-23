@@ -16,6 +16,10 @@ protocol HomeCoordinatorProtocol: Coordinator {
     func backToHome()
     func displayAllProducts()
     func displayCart()
+    func displayAddAddressScreen()
+    func displayAllAdrese()
+    func displayPaymentMethods()
+    func displayCardEnter()
 }
 
 final class HomeCoordinator {
@@ -100,6 +104,42 @@ extension HomeCoordinator: HomeCoordinatorProtocol {
             self.router.push(vc)
         }
         
+    }
+    
+    func displayAllAdrese() {
+        DispatchQueue.main.async {
+            let viewModel = ShippingAddressViewModel(coordinator: self)
+            let vc = ShippingViewController(viewModel: viewModel)
+            vc.coordinator = self
+            self.router.push(vc)
+        }
+    }
+    
+    func displayAddAddressScreen() {
+        DispatchQueue.main.async {
+            let viewModel = AddShippingAddressViewModel(coordinator: self)
+            let vc = ShippingAddressViewController(viewModel: viewModel)
+            vc.coordinator = self
+            self.router.push(vc)
+        }
+    }
+    
+    func displayPaymentMethods() {
+        DispatchQueue.main.async {
+            let vm = PaymentMethodViewModel(coordinator: self)
+            let vc = PaymentMethodViewController(viewModel: vm)
+            vc.coordinator = self
+            self.router.push(vc)
+        }
+    }
+    
+    func displayCardEnter() {
+        DispatchQueue.main.async {
+            let vm = CardEnterViewModel(coordinator: self)
+            let vc = CardEnterViewController(viewModel: vm)
+            vc.coordinator = self
+            self.router.push(vc)
+        }
     }
 }
 

@@ -196,6 +196,17 @@ private extension ProductDetailsViewController {
             }
             .store(in: &cancellable)
         
+        func bindIsLoading() {
+            viewModel.isLoading.sink { [weak self] isLoading in
+                guard let self else { return }
+                if isLoading {
+                    startLoading()
+                } else {
+                    stopLoading()
+                }
+            }.store(in: &cancellable)
+        }
+        
         viewModel.errorMessage
             .sink { [weak self] errorMessage in
                 self?.stopShimmerEffect()

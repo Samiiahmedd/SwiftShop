@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class SelectedCategoryViewController: UIViewController {
+class SelectedCategoryViewController: BaseViewController {
     
     //MARK: - IBOUTLETS
     
@@ -117,9 +117,9 @@ private extension SelectedCategoryViewController {
         viewModel.isLoading.sink { [weak self] isLoading in
             guard let self else { return }
             if isLoading {
-                self.showLoader()
+                startLoading()
             } else {
-                self.hideLoader()
+                stopLoading()
             }
         }.store(in: &cancellable)
     }

@@ -33,7 +33,6 @@ class CartTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         
     }
-    
 }
 
 // MARK: - SETUP CELL

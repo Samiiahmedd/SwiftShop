@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class ProductCollectionViewController: UIViewController {
+class ProductCollectionViewController: BaseViewController {
     
     //MARK: - IBOUTLETS
     
@@ -137,9 +137,9 @@ private extension ProductCollectionViewController {
         viewModel.isLoading.sink { [weak self] isLoading in
             guard let self else { return }
             if isLoading {
-                self.showLoader()
+                startLoading()
             } else {
-                self.hideLoader()
+                stopLoading()
             }
         }.store(in: &cancellable)
     }

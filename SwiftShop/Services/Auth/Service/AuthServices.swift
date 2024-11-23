@@ -43,8 +43,6 @@ struct AuthServices: AuthServicesProtocol {
                 }
             }
             .eraseToAnyPublisher()
-        
-        
     }
     
     func signup(with credentials: SignupBody) ->AnyPublisher<UserModel, NetworkError> {

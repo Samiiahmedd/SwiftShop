@@ -92,7 +92,8 @@ extension CartViewModel {
                     self.errorMessage.send(error.localizedDescription)
                 }
             } receiveValue: { cartData in
-                print("ProductDeleted")            }
+                print("ProductDeleted")
+            }
             .store(in: &self.cancellable)
     }
 }
