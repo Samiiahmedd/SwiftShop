@@ -66,11 +66,12 @@ private extension ProductCollectionViewController {
         
         nanBar.setupFirstLeadingButton(
             with: "",
-            and: UIImage(named: "back")!) {
-                self.navigationController?.popViewController(animated: true)
+            and: UIImage(named: "back")!) { [self] in
+                viewModel.backActionTriggerd.send()
             }
         nanBar.firstTralingButton.isHidden = true
         nanBar.lastFirstTralingButton.isHidden = true
+        nanBar.containerView.backgroundColor = . systemGray6
     }
     
     func configerCollectionViews() {

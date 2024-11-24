@@ -61,6 +61,8 @@ extension SelectedCategoryViewController {
         }
         navBar.firstTralingButton.isHidden = true
         navBar.lastFirstTralingButton.isHidden = true
+        navBar.containerView.backgroundColor = . systemGray6
+
     }
     
     func configureCollectionView() {

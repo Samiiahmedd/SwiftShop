@@ -33,11 +33,14 @@ class HomeViewModel {
     var productsDataSource: [Product] = []
     var productsDataaSource: [HomeData] = []
     var bannersDataSource: [Banner] = []
-    
+    var categoryDataSource: [Category] = []
+    var mainCategoryDataSource: [CategoryData] = []
+    var categories = PassthroughSubject<CategoryData, Never>()
     var adImageURL: String?
     
     var homeData = PassthroughSubject<HomeData, Never>()
     private let services: ProductServicesProtocol
+    private let categoriesServices: CategoriesServicesProtocol
     private var cancellable = Set<AnyCancellable>()
     var coordinator:HomeCoordinatorProtocol
     
@@ -53,10 +56,12 @@ class HomeViewModel {
     var categoriesButtonActionTriggered: PassthroughSubject<Void, Never> = .init()
     var backActionTriggerd: PassthroughSubject<Void, Never> = .init()
     
-    init(services: ProductServicesProtocol = ProductServices(),
+    init(services: ProductServicesProtocol = ProductServices(),categoriesService : CategoriesServicesProtocol = CategoriesServices(),
          coordinator: HomeCoordinatorProtocol) {
         self.services = services
+        self.categoriesServices = categoriesService
         self.coordinator = coordinator
+        bindIsHome()
     }
 }
 
@@ -85,7 +90,11 @@ extension HomeViewModel: HomeViewModelProtocol {
     }
 }
 
+//MARK: - EXTENSIONS
+
 extension HomeViewModel {
+    
+    //GET HOME PRODUCTS
     
     func getHomeProducts() {
         isLoading.send(true)
@@ -106,6 +115,28 @@ extension HomeViewModel {
                 self?.productsDataSource = homeData.products
                 self?.adImageURL = homeData.ad
                 self?.homeData.send(homeData)
+            }
+            .store(in: &cancellable)
+    }
+    
+    //GET CATEGORIES
+    
+    func getAllCategories() {
+        isLoading.send(true)
+        categoriesServices.getAllCategories()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                guard let self else { return }
+                self.isLoading.send(false)
+                switch completion {
+                case .finished:
+                    print("Finished fetching products")
+                case .failure(let error):
+                    self.errorMessage.send(error.localizedDescription)
+                }
+            } receiveValue: { [weak self] categories in
+                self?.categoryDataSource = categories.data
+                self?.categories.send(categories)
             }
             .store(in: &cancellable)
     }

@@ -30,8 +30,14 @@ struct HomeData: Codable {
 struct Banner: Codable {
     let id: Int
     let image: String
-    let category: String?
+    let category: Categories?
     let product: String?
+}
+
+struct Categories: Codable {
+    let id: Int
+    let image: String
+    let name: String
 }
 
 struct Product: Codable, ProductDisplayable {

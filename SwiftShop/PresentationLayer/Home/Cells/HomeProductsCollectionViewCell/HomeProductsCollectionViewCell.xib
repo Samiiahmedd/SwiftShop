@@ -95,13 +95,14 @@
                                 <real key="value" value="0.0"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="0.0"/>
+                                <real key="value" value="18"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" systemColor="systemGray6Color"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="1Ct-Cd-s86" secondAttribute="bottom" constant="8" id="Aau-zb-vMU"/>
                 <constraint firstItem="1Ct-Cd-s86" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="EV7-Uk-jAm"/>
@@ -139,6 +140,9 @@
         <image name="heart.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
