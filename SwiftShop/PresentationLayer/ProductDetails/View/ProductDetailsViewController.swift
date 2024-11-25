@@ -133,11 +133,18 @@ private extension ProductDetailsViewController {
                 self.navigationController?.popViewController(animated: true)
                 self.navigationItem.hidesBackButton = true
             }
-        navBar.lastFirstTralingButton.isHidden = true
-        
+        navBar.setupLastFirstTralingButton(with: "", and: UIImage(systemName: "heart.circle.fill")!) { [self] in
+            AlertViewController.showAlert(
+                on: self,
+                image: UIImage(systemName: "heart.circle.fill")!,
+                title: "Added To Cart",
+                message: "Product added to Favourites",
+                buttonTitle: "OK") {
+                }
+            viewModel.addProductToFavourites()
+
+        }
         navBar.tintColor = .black
-        navBar.backgroundColor = .blue
-        
     }
     
     func configerCollectionViews() {

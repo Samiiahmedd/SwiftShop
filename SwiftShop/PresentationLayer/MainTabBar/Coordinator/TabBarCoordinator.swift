@@ -60,7 +60,8 @@ final class TabBarCoordinator {
     }
     
     private func profileNC() -> UINavigationController {
-        let profileVC = ProfileViewController()
+        let vm = ProfileViewModel()
+        let profileVC = ProfileViewController(viewModel: vm)
         profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.crop.circle"), tag: 3)
         return UINavigationController(rootViewController: profileVC)
     }

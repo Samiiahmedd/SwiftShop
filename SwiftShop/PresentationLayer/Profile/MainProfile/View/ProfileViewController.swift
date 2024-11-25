@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class ProfileViewController: UIViewController {
     
@@ -18,9 +19,22 @@ class ProfileViewController: UIViewController {
     
     //MARK: - VARIABLES
     
-    private let viewModel = ProfileViewModel()
+    //MARK: - VARIABLES
+    
+    private var viewModel: ProfileViewModel
+    private var cancellable = Set<AnyCancellable>()
     var coordinator: HomeCoordinatorProtocol?
 
+    //MARK: - INITIALIZER
+    
+    init(viewModel: ProfileViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     //MARK: - VIEW LIFE CYCLE
     
@@ -112,17 +126,21 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
             switch indexPath.row {
             case 0:
                 let myOrdersVC = MyOrdersViewController(nibName: "MyOrdersViewController", bundle: nil)
-                navigationController?.pushViewController(myOrdersVC, animated: true)
-            case 1:
-                let wishlistVC = WishlistViewController(nibName: "WishlistViewController", bundle: nil)
-                navigationController?.pushViewController(wishlistVC, animated: true)
-//            case 2:
-////                let shippingVC = ShippingViewController(nibName: "ShippingViewController", bundle: nil)
-////                shippingVC.mode = .settings
-//                navigationController?.pushViewController(shippingVC, animated: true)
-//            case 3:
-//                let addCardVC = CardEnterViewController(nibName: "CardEnterViewController", bundle: nil)
-//                navigationController?.pushViewController(addCardVC, animated: true)
+//                navigationController?.pushViewController(myOrdersVC, animated: true)
+////            case 1:
+//
+//                
+////                let vm = WishlistViewModel(id: 0, coordinator: self)
+////                let wishlistVC = WishlistViewController(viewModel: vm)
+////
+////                navigationController?.pushViewController(wishlistVC, animated: true)
+////            case 2:
+//////                let shippingVC = ShippingViewController(nibName: "ShippingViewController", bundle: nil)
+//////                shippingVC.mode = .settings
+////                navigationController?.pushViewController(shippingVC, animated: true)
+////            case 3:
+////                let addCardVC = CardEnterViewController(nibName: "CardEnterViewController", bundle: nil)
+////                navigationController?.pushViewController(addCardVC, animated: true)
             case 4:
                 let settingVC = SettingViewController(nibName: "SettingViewController", bundle: nil)
                 navigationController?.pushViewController(settingVC, animated: true)

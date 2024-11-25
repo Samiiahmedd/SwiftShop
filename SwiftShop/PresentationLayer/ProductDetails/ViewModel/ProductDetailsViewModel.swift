@@ -25,8 +25,10 @@ protocol ProductDetailsViewModelProtocol {
 
 @MainActor
 class ProductDetailsViewModel {
-    private let cartServices: CartServicesProtocol
+    
     private let services: ProductServicesProtocol
+    private let cartServices: CartServicesProtocol
+    private let favouritesServices: FavouritesServicesProtocol
     private var cancellable = Set<AnyCancellable>()
     
     var sizes : [SizeModel] = [
@@ -51,10 +53,11 @@ class ProductDetailsViewModel {
     var addToCartButtonActionTriggered: PassthroughSubject<Void, Never> = .init()
     var backActionTriggerd: PassthroughSubject<Void, Never> = .init()
     
-    init(id: Int, services: ProductServicesProtocol, cartServices:CartServicesProtocol, coordinator: HomeCoordinatorProtocol) {
+    init(id: Int, services: ProductServicesProtocol, cartServices:CartServicesProtocol,favouritesServices:FavouritesServicesProtocol, coordinator: HomeCoordinatorProtocol) {
         self.id = id
         self.services = services
         self.cartServices = cartServices
+        self.favouritesServices = favouritesServices
         self.coordinator = coordinator
     }
 }
@@ -110,5 +113,28 @@ extension ProductDetailsViewModel {
             }
             .store(in: &self.cancellable)
     }
+    
+    func addProductToFavourites() {
+        
+        let body = FavouritesBody(product_id: id)
+        isLoading.send(true)
+        favouritesServices.addProductToFavourites(with: body)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                self.isLoading.send(false)
+                switch completion {
+                case .finished:
+                    print("Product successfully added to the cart.")
+                case .failure(let error):
+                    self.errorMessage.send(error.localizedDescription)
+                }
+            } receiveValue: { cartData in
+                AlertViewController.showAlert(on: UIViewController.init(), image:UIImage(systemName: "cart.fill")! , title: "Added To Cart", message: "product added to Favourites", buttonTitle: "OK") {
+                }
+            }
+            .store(in: &self.cancellable)
+    }
+
     
 }

@@ -59,7 +59,9 @@ extension CartViewModel: CartViewModelProtocol {
 }
 
 extension CartViewModel {
+    
     //Get Cart
+    
     func getCart() {
         isLoading.send(true)
         services.getCart()
@@ -76,7 +78,9 @@ extension CartViewModel {
             }
             .store(in: &cancellable)
     }
-    // Delete
+    
+    // DELETE
+    
     func deleteCartItem(productId: Int) {
         let body = CartBody(product_id: productId)
         isLoading.send(true)

@@ -20,6 +20,7 @@ protocol HomeCoordinatorProtocol: Coordinator {
     func displayAllAdrese()
     func displayPaymentMethods()
     func displayCardEnter()
+    func displayWishlist()
 }
 
 final class HomeCoordinator {
@@ -31,7 +32,8 @@ final class HomeCoordinator {
     }
     
     func start() {
-        displayHome()
+         displayWishlist()
+//        displayHome()
     }
 }
 
@@ -51,10 +53,11 @@ extension HomeCoordinator: HomeCoordinatorProtocol {
         DispatchQueue.main.async {
             let productServices = ProductServices()
             let cartServices = CartServices()
+            let favouritesServices = FavouritesServices()
             let productDetailsViewModel = ProductDetailsViewModel(
                 id: productId,
                 services: productServices,
-                cartServices: cartServices,
+                cartServices: cartServices, favouritesServices: favouritesServices,
                 coordinator: self
             )
             let productDetailsVC = ProductDetailsViewController(viewModel: productDetailsViewModel, productId: productId)
@@ -139,6 +142,16 @@ extension HomeCoordinator: HomeCoordinatorProtocol {
             let vc = CardEnterViewController(viewModel: vm)
             vc.coordinator = self
             self.router.push(vc)
+        }
+    }
+    
+    func  displayWishlist() {
+        DispatchQueue.main.async {
+            let vm = WishlistViewModel(id: 0, coordinator: self)
+            let vc = WishlistViewController(viewModel: vm)
+            vc.coordinator = self
+            self.router.push(vc)
+
         }
     }
 }

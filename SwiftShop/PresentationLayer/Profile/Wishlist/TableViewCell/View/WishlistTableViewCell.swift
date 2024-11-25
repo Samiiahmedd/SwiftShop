@@ -35,13 +35,13 @@ class WishlistTableViewCell: UITableViewCell {
 // MARK: - SETUP CELL
 
 extension WishlistTableViewCell {
-    func Setup(Wishlist: ProductDetailsModel) {
+    func Setup(Wishlist: inFavouritesItem) {
         
-        let imageUrl = Wishlist.image.asUrl
+        let imageUrl = Wishlist.product.image.asUrl
         productImage.kf.setImage(with: imageUrl, placeholder:UIImage(systemName: "photo.artframe"))
 
-        productTitle.text = Wishlist.title
-        productDescription.text = Wishlist.category
-        productPrice.text = String(Wishlist.price)
+        productTitle.text = Wishlist.product.name
+        productDescription.text = Wishlist.product.description
+        productPrice.text = "$\(Wishlist.product.price)"
     }
 }

@@ -26,6 +26,4 @@ struct OrderData: Codable {
     let points: Double?
     let total: Double?
     let id: Int
-    
-  
 }

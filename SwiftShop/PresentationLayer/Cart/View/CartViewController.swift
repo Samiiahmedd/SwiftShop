@@ -10,11 +10,6 @@ import Combine
 
 class CartViewController: BaseViewController {
     
-    //MARK: - VARIABLES
-    
-    private var viewModel: CartViewModel
-    private var cancellable = Set<AnyCancellable>()
-    var coordinator: HomeCoordinatorProtocol?
     //MARK: - IBOUTLETS
     
     @IBOutlet weak var navBar: CustomNavBar!
@@ -26,6 +21,12 @@ class CartViewController: BaseViewController {
     @IBOutlet weak var bagTotalItems: UILabel!
     @IBOutlet weak var checkoutButton: UIButton!
     @IBOutlet weak var mainContent: UIView!
+    
+    //MARK: - VARIABLES
+    
+    private var viewModel: CartViewModel
+    private var cancellable = Set<AnyCancellable>()
+    var coordinator: HomeCoordinatorProtocol?
     
     //MARK: - INITIALIZER
     
